@@ -676,7 +676,7 @@ Fallen är uppställda så att alla fyra dimensionerna varierar:
 
 **Dokument och fakta:**
 - **Bussbolagets körlogg:** Alla gäster kom samtidigt med en inhyrd buss **kl. 15.15**. Lenas syster och maten fanns med i bussen.
-- **Lena** åkte till Arlanda för att hämta sin mor. Parkeringskvittot visar 11.02–14.31, och i bild B kl. 15.20 syns Lenas bil först köra in på gården. På bild C sitter hon och mamman vid kaffebordet.
+- **Lena** åkte till Arlanda för att hämta sin mor. Parkeringskvittot visar 11.02–12.44 (Arlanda ligger två och en halv timme bort), och i bild B kl. 15.20 syns Lenas bil först köra in på gården. På bild C sitter hon och mamman vid kaffebordet.
 - **Försäkringsbrevet:** Gunnar höjde försäkringsvärdet på skålen från 180 000 till 650 000 kr **för tre månader sedan**.
 - **Gunnars utsaga:** Han var ensam på gården från morgonen tills bussen kom: ”Jag fixade inför festen.”
 

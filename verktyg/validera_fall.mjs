@@ -3,6 +3,7 @@
 import { readFileSync } from 'node:fs';
 import { verifiera } from '../js/motor/losare.js';
 import { materialMap } from '../js/motor/fall.js';
+import { bedom } from '../js/mekaniker/bildjamforelse.js';
 
 const rot = new URL('../fall/', import.meta.url);
 const index = JSON.parse(readFileSync(new URL('index.json', rot)));
@@ -103,6 +104,19 @@ for (const kap of index.kapitel) for (const post of kap.fall) {
   for (const m of f.moment) if (!alla(m.last_upp_av)) varna(f.id, `momentet ${m.id} låses aldrig upp`);
 
   for (const m of f.moment) {
+    if (m.mekanik === 'bildjamforelse') {
+      // Varje upptäckt måste gå att göra med två av bilderna, och oviktiga skillnader får inte råka ge fynd.
+      const B = m.payload.bilder;
+      const regioner = new Set(B.flatMap((b) => Object.keys(b.varden)));
+      for (const u of m.payload.upptackter) {
+        let ok = false;
+        for (const X of B) for (const Y of B) if (X !== Y) { const r = bedom(m.payload, X, Y, u.region); if (r.typ === 'upptackt' && r.u.ger_fynd === u.ger_fynd) ok = true; }
+        if (!ok) varna(f.id, `upptäckten ${u.id} går inte att göra med bilderna`);
+      }
+      let antal = 0;
+      for (const X of B) for (const Y of B) if (X !== Y) for (const r of regioner) if (bedom(m.payload, X, Y, r).typ === 'upptackt') antal++;
+      console.log(`  bildjämförelse: ${B.length} bilder, ${m.payload.upptackter.length} upptäckter, ${antal} träffande (bild, bild, region)-tryck`);
+    }
     if (m.mekanik === 'logikrutnat') {
       const r = verifiera(m.payload);
       console.log(`  logikrutnät: ${r.antal} lösning(ar); överflödiga ledtrådar: ${r.overflodiga.join(', ') || 'inga'}`);

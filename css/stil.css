@@ -391,3 +391,23 @@ legend small { font-weight: 400; color: var(--brun3); }
 .stil-logg .stycke, .stil-logg .dok-text { font-family: "Courier New", monospace; font-size: 15px; }
 .st-blyerts { color: #555; } .st-blacke { color: #1d2a5a; font-weight: 600; }
 .stil-maskin .stycke, .stil-maskin .dok-text { font-family: "Courier New", monospace; font-size: 14px; }
+
+/* Bildjämförelse */
+.bildjamf { padding-bottom: 6px; }
+.bj-remsa { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 8px; -webkit-overflow-scrolling: touch; }
+.bj-tumme { flex: none; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; min-width: 84px; min-height: 48px; padding: 6px 10px; border-radius: 8px; border: 1.5px solid #8a6a3a; background: #f6ecd4; font: 13px var(--serif); color: #3a2410; cursor: pointer; text-align: left; }
+.bj-tumme .bj-tid { font-weight: 700; font-size: 15px; }
+.bj-tumme.vald { background: linear-gradient(180deg, #fbe7ad, #e0b75e); border-color: #5a3c0e; box-shadow: 0 0 0 2px rgba(90,60,14,.25); }
+.bj-foto { margin: 0 0 10px; }
+.bj-ram { background: #fbf8f0; padding: 6px 6px 6px; border-radius: 3px; box-shadow: 0 2px 8px rgba(40,25,10,.35); transform: rotate(-.4deg); }
+.bj-foto[data-i="1"] .bj-ram { transform: rotate(.5deg); }
+.foto-svg { display: block; width: 100%; height: auto; cursor: crosshair; touch-action: manipulation; }
+.foto-svg [data-r] { cursor: pointer; }
+.foto-svg .ring { fill: none; stroke-width: 4; }
+.foto-svg .ring.viktig { stroke: #2f7a3a; stroke-dasharray: 2 0; }
+.foto-svg .ring.oviktig { stroke: #8a7a6a; stroke-dasharray: 6 5; stroke-width: 3; }
+.bj-foto figcaption { font-size: 14px; margin-top: 4px; color: #3a2410; }
+.jf-besked.neutral { color: #5a4a30; font-style: italic; }
+.bj-besked-ruta { margin: 4px 0 12px; padding: 8px 10px; border-radius: 8px; background: rgba(255,250,235,.7); border: 1px dashed rgba(90,59,34,.35); min-height: 44px; }
+.bj-besked-ruta.aktiv { border-style: solid; background: #fffaf0; }
+.bj-besked-ruta .jf-besked { margin: 0; }

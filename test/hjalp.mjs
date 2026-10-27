@@ -16,6 +16,7 @@ export async function nySida(browser, mobil, namn, { guideKlar = true } = {}) {
   const p = await ctx.newPage();
   p.setDefaultTimeout(15000);
   p.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') fel.push(`[${namn}] ${m.type()}: ${m.text()}`); });
+  p.on('response', (r) => { if (r.status() >= 400) fel.push(`[${namn}] HTTP ${r.status()}: ${r.url()}`); });
   p.on('pageerror', (e) => fel.push(`[${namn}] pageerror: ${e.message}`));
   p.mobil = mobil;
   return p;

@@ -1,11 +1,12 @@
 // Service worker: cachar spelets filer så att det fungerar offline och kan läggas på hemskärmen.
-const VERSION = 'detektiv-v3';
+const VERSION = 'detektiv-v4';
 const FILER = [
   './',
   './index.html',
   './manifest.webmanifest',
   './css/stil.css',
   './js/main.js',
+  './js/mekaniker/bildjamforelse.js',
   './js/mekaniker/index.js',
   './js/mekaniker/jamfor.js',
   './js/mekaniker/logikrutnat.js',
@@ -18,6 +19,7 @@ const FILER = [
   './js/tre/motor3d.js',
   './js/tre/prefabs.js',
   './js/tre/prefabs2.js',
+  './js/tre/prefabs3.js',
   './js/tre/texturer.js',
   './js/version.js',
   './js/vyer/anklagelse.js',
@@ -30,6 +32,7 @@ const FILER = [
   './js/vyer/upplosning.js',
   './js/vyer/utredning.js',
   './vendor/three/three.module.min.js',
+  './fall/brudskalen.json',
   './fall/halsbandet-pa-ekbacka.json',
   './fall/index.json',
   './fall/middagen-pa-solglantan.json',
@@ -39,6 +42,9 @@ const FILER = [
   './bilder/fall1/sovrummet.jpg',
   './bilder/fall2/sovvagnen.jpg',
   './bilder/fall3/verandan.jpg',
+  './bilder/fall4/garden.jpg',
+  './bilder/fall5/urmakeriet.jpg',
+  './bilder/fall6/fyren.jpg',
   './ikoner/favicon.png',
   './ikoner/ikon-180.png',
   './ikoner/ikon-192.png',

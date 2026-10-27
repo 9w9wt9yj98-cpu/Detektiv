@@ -301,3 +301,46 @@ export function himmel(topp = '#9fb6c8', botten = '#e8dcc0', { hav = null, berg 
     gravyr(g, w, h, 0.05, seed + 3);
   });
 }
+/** Dagsljus genom ett fönster: himmel, björkar och gräs. */
+export function dagsljus() {
+  return skapa('dagsljus', 128, 160, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#bcd2dc'); gr.addColorStop(0.6, '#eef0e0'); gr.addColorStop(0.62, '#8aa05a'); gr.addColorStop(1, '#6a8440');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    const r = rng(17);
+    for (let i = 0; i < 7; i++) { g.fillStyle = `rgba(${70 + r() * 40},${110 + r() * 40},50,0.8)`; g.beginPath(); g.arc(r() * w, h * 0.5 + r() * 12, 12 + r() * 14, 0, 7); g.fill(); }
+    gravyr(g, w, h, 0.05, 3);
+  });
+}
+/** Stående locklistpanel (faluröd fasad). */
+export function paneler(farg = '#8a2a1e') {
+  return skapa('paneler' + farg, 256, 256, (g, w, h) => {
+    g.fillStyle = farg; g.fillRect(0, 0, w, h);
+    const r = rng(41);
+    for (let x = 0; x < w; x += 32) { g.fillStyle = 'rgba(0,0,0,0.18)'; g.fillRect(x, 0, 3, h); g.fillStyle = 'rgba(255,220,200,0.08)'; g.fillRect(x + 3, 0, 4, h); }
+    for (let i = 0; i < 300; i++) { g.fillStyle = `rgba(40,10,5,${r() * 0.15})`; g.fillRect(r() * w, r() * h, 1, 4 + r() * 14); }
+    gravyr(g, w, h, 0.06, 9);
+  }, { upprepa: [3, 1] });
+}
+export function bjorkstam() {
+  return skapa('bjork', 64, 256, (g, w, h) => {
+    g.fillStyle = '#ece8dc'; g.fillRect(0, 0, w, h);
+    const r = rng(5);
+    for (let i = 0; i < 40; i++) { g.fillStyle = 'rgba(30,25,20,0.85)'; g.fillRect(r() * w, r() * h, 6 + r() * 20, 2 + r() * 3); }
+  });
+}
+/** Skärm: 'insta' = ett instagraminlägg, 'foto' = en mobilbild, annars text. */
+export function skarm(typ = 'insta') {
+  return skapa('skarm' + typ, 256, 192, (g, w, h) => {
+    g.fillStyle = '#fafafa'; g.fillRect(0, 0, w, h);
+    if (typ === 'insta' || typ === 'foto') {
+      g.fillStyle = '#d9d4c8'; g.fillRect(typ === 'insta' ? 60 : 0, typ === 'insta' ? 24 : 0, typ === 'insta' ? 136 : w, typ === 'insta' ? 120 : h);
+      const cx = w / 2, cy = typ === 'insta' ? 90 : h / 2;
+      g.fillStyle = '#bdbab0'; g.beginPath(); g.ellipse(cx, cy, 40, 22, 0, 0, Math.PI); g.fill();
+      g.fillStyle = '#e8e6de'; g.beginPath(); g.ellipse(cx, cy, 40, 8, 0, 0, 7); g.fill();
+      if (typ === 'insta') {
+        g.fillStyle = '#222'; g.font = '600 12px sans-serif'; g.fillText('gunnar_sahlin', 64, 16);
+        g.font = '11px sans-serif'; g.fillText('Putsat brudskålen inför festen! 🌸', 50, 164); g.fillStyle = '#888'; g.fillText('i dag 09.12', 50, 180);
+      }
+    } else { g.fillStyle = '#222'; g.font = '14px sans-serif'; String(typ).split('\n').forEach((t, i) => g.fillText(t, 12, 24 + i * 18)); }
+  });
+}

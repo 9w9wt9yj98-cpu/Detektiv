@@ -23,8 +23,7 @@
         {
           "nummer": 4,
           "id": "brudskalen",
-          "titel": "Brudskålen",
-          "kommer": true
+          "fil": "brudskalen.json"
         }
       ]
     },

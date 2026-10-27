@@ -2,6 +2,7 @@
 import * as THREE from 'three';
 import { prefabs, mat } from './prefabs.js';
 import './prefabs2.js';
+import './prefabs3.js';
 import * as T from './texturer.js';
 import { Kontroller } from './kontroller.js';
 
@@ -65,22 +66,25 @@ export class Rum3D {
     const scen = (this.scen = new THREE.Scene());
     const W = rum.bredd, D = rum.djup, H = rum.hojd || 3;
     const ljus = rum.ljus || {};
-    const veranda = rum.miljo === 'veranda';
-    scen.background = new THREE.Color(rum.bakgrund || (veranda ? '#e9cfa0' : '#1a120a'));
+    const veranda = rum.miljo === 'veranda', ute = rum.miljo === 'ute';
+    scen.background = new THREE.Color(rum.bakgrund || (veranda ? '#e9cfa0' : ute ? '#c8d6dc' : '#1a120a'));
     const dimma = rum.dimma || [];
     scen.fog = new THREE.Fog(dimma[2] || rum.bakgrund || (veranda ? '#e9cfa0' : '#24170c'), dimma[0] ?? (veranda ? 14 : 7), dimma[1] ?? (veranda ? 40 : 16));
     scen.add(new THREE.HemisphereLight(ljus.omgivning || '#ffe2b8', '#3a2414', ljus.omgivning_styrka ?? 0.6));
     scen.add(new THREE.AmbientLight('#ffdcae', ljus.bas ?? 0.25));
-    if (veranda) { const sol = new THREE.DirectionalLight('#ffd49a', ljus.sol ?? 1.4); sol.position.set(4, 5, -8); scen.add(sol); }
+    if (veranda || ute) { const sol = new THREE.DirectionalLight('#ffd49a', ljus.sol ?? 1.4); sol.position.set(4, 5, -8); scen.add(sol); }
 
     // Golv och tak
     const golvTyp = typeof rum.golv === 'object' ? rum.golv.typ : 'tra';
     const golvFarg = typeof rum.golv === 'object' ? rum.golv.farg : rum.golv;
     const gtex = golvTyp === 'sten' ? T.sten([W / 1.2, D / 1.2]) : T.traGolv(golvFarg || '#6b4a2c', [W / 2.2, D / 2.2]);
-    const golv = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: gtex }));
-    golv.rotation.x = -Math.PI / 2; scen.add(golv);
+    if (!ute) {
+      const golv = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: gtex }));
+      golv.rotation.x = -Math.PI / 2; scen.add(golv);
+    }
 
-    if (veranda) this.byggVeranda(rum, W, D, H);
+    if (ute) this.byggUte(rum, W, D);
+    else if (veranda) this.byggVeranda(rum, W, D, H);
     else {
       const tak = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: T.tak() }));
       tak.rotation.x = Math.PI / 2; tak.position.y = H; scen.add(tak);
@@ -159,6 +163,24 @@ export class Rum3D {
     for (let i = 0; i < 9; i++) {
       const b = new THREE.Mesh(new THREE.SphereGeometry(0.9 + (i % 3) * 0.3, 8, 6), mat('#4b5a30'));
       b.position.set(-8 + i * 2, 0.2, -D / 2 - 2.5 - (i % 2)); scen.add(b);
+    }
+  }
+
+  /** Utomhus: gräsmark, himmelspanorama med berg och en skogsrand. Gångbar yta = bredd × djup. */
+  byggUte(rum, W, D) {
+    const scen = this.scen;
+    const S = Math.max(W, D) + 50;
+    const gt = T.grasmark(rum.gras || '#6a8440'); 
+    const mark = new THREE.Mesh(new THREE.PlaneGeometry(S, S), mat('#ffffff', { map: gt }));
+    mark.rotation.x = -Math.PI / 2; scen.add(mark);
+    if (rum.grus) for (const [x, z, w, d] of rum.grus) { const p = new THREE.Mesh(new THREE.PlaneGeometry(w, d), mat('#b8a888')); p.rotation.x = -Math.PI / 2; p.position.set(x, 0.005, z); scen.add(p); }
+    const R = S / 2 - 2;
+    const pano = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 30, 32, 1, true), new THREE.MeshBasicMaterial({ map: T.himmel('#8fb0c8', '#e9e4cc', { berg: '#5a6a5a', seed: 8 }), side: THREE.BackSide, fog: false }));
+    pano.position.y = 10; scen.add(pano);
+    const skog = mat('#3a5030');
+    for (let i = 0; i < 40; i++) {
+      const a = (i / 40) * Math.PI * 2, r = R - 3 - (i % 3) * 1.5;
+      const c = new THREE.Mesh(new THREE.ConeGeometry(1.6, 6 + (i % 4), 6), skog); c.position.set(Math.cos(a) * r, 3, Math.sin(a) * r); scen.add(c);
     }
   }
 

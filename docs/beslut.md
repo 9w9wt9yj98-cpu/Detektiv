@@ -58,3 +58,18 @@ Tre gåbara rum (kupé 3, sovvagnskorridoren, restaurangvagnen) och den nya meka
 4. Villospår: Sundins skuldsedel och lögn (motiv men alibi), de våta fotspåren (Linds stövlar) och Sundins felminne om kortspelet (patiensen).
 
 `node verktyg/validera_fall.mjs` simulerar nu ett helt genomspel: alla fynd, utsagor, motsägelser och slutsatser måste gå att nå i någon ordning från start, och alla id:n måste finnas.
+
+## Fall 4 – Brudskålen
+
+Tre miljöer: **salen** (skänken där skålen stod), **gården** utomhus (midsommarstång, kaffebord, bussen, Lenas Volvo) och **Gunnars kontor** (datorn med Instagram, försäkringspärmen). Kontoret låses upp när Gunnar har berättat om stölden. Ny mekanik **Bildjämförelse** (`mekanik: "bildjamforelse"`, kod i `js/mekaniker/bildjamforelse.js`): bilderna ritas som SVG utifrån fallets data (`bilder[].varden`), så varje skillnad är exakt. Spelaren väljer två bilder och trycker på en detalj. Viktiga skillnader (`upptackter`) ger fynd och ringas in med grönt, oviktiga (vas, ljus, gardin) ringas in streckat och förklaras – fel tryck kostar inget. Bilderna samlas in genom att prata med gästerna och undersöka Gunnars dator. Två upptäckter som ger samma fynd (bucklan eller S:et) räknas som en.
+
+**Placering:** Fall 4, sist i kapitel I. Den ligger alltså inte direkt efter Fyren på Gråskär (fall 6, sist i kapitel II) – de två twistfallen har ett vanligt fall (Kvart i elva) emellan.
+
+**Varför lösningen är unik:**
+1. Bild A (09.12, dagens tidning) visar bucklan och S:et precis som försäkringsfotot från 2019: den äkta skålen fanns på gården i morse.
+2. Alla bilder från 15.16 visar släta handtag och ingen buckla: en kopia. Bytet skedde 09.12–15.16.
+3. Gästerna kom med bussen 15.14 (körloggen). Lena stod på Arlanda till 12.44, två och en halv timme bort, och hennes bil syns köra in 15.16. Gunnar säger själv att han var ensam på gården hela förmiddagen. Bara han kan ha gjort bytet.
+4. Gunnar påstår att han såg bucklan 16.30 – då stod kopian där. Han ljuger.
+5. Villospår: Olle vid skänken 17.05 (skålen står kvar efter honom), Mikaels väska (en tårtbricka) och själva ”stölden” 17.05–17.20, som bara gällde kopian.
+
+*Rättning:* Parkeringskvittot ändrades från 14.31 till 12.44 – med två och en halv timmes bilväg hade Lena annars inte hunnit hem till 15.16.

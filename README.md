@@ -4,7 +4,7 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 
 **Spela:** https://9w9wt9yj98-cpu.github.io/Detektiv/ (fungerar i mobilen och kan läggas på hemskärmen)
 
-**Status:** Första spelbara prototypen med fall 1 *Halsbandet på Ekbacka* (scenundersökning) och fall 3 *Middagen på Solgläntan* (logikrutnät).
+**Status:** Fyra spelbara fall: 1 *Halsbandet på Ekbacka* (scenundersökning), 2 *Nattåget mot Narvik* (förhör), 3 *Middagen på Solgläntan* (logikrutnät) och 4 *Brudskålen* (bildjämförelse).
 
 ## Så spelar du
 
@@ -29,7 +29,8 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 | `js/motor/` | Laddning av fall, sparning, poäng och en generisk lösare för logikrutnät. |
 | `js/tre/` | 3D-motorn: rum från JSON, föremålsbibliotek (`prefabs.js`), canvastexturer och kontroller. |
 | `js/vyer/` | Meny, presentation, utredning, anteckningsbok, anklagelse och upplösning. |
-| `js/mekaniker/logikrutnat.js` | Det interaktiva logikrutnätet med bordsvy. |
+| `js/mekaniker/` | Mekanikerna i anteckningsboken: logikrutnät (`logikrutnat.js`), förhör/dokument (`jamfor.js`) och bildjämförelse (`bildjamforelse.js`). |
+| `verktyg/fall/*.py` | Källor för fall 2 och senare – genererar `fall/*.json`. |
 | `verktyg/` | `validera_fall.mjs` (validerar alla fall, bevisar att rutnät har exakt en lösning och att varje ledtråd behövs) och `verifiera_fall3.py`. |
 | `test/spela.mjs` | Playwright-test som spelar båda fallen i iPhone-vy och på dator. |
 
