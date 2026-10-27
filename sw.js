@@ -1,5 +1,5 @@
 // Service worker: cachar spelets filer så att det fungerar offline och kan läggas på hemskärmen.
-const VERSION = 'detektiv-v2';
+const VERSION = 'detektiv-v3';
 const FILER = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const FILER = [
   './css/stil.css',
   './js/main.js',
   './js/mekaniker/index.js',
+  './js/mekaniker/jamfor.js',
   './js/mekaniker/logikrutnat.js',
   './js/motor/fall.js',
   './js/motor/lagring.js',
@@ -16,6 +17,7 @@ const FILER = [
   './js/tre/kontroller.js',
   './js/tre/motor3d.js',
   './js/tre/prefabs.js',
+  './js/tre/prefabs2.js',
   './js/tre/texturer.js',
   './js/version.js',
   './js/vyer/anklagelse.js',
@@ -31,9 +33,11 @@ const FILER = [
   './fall/halsbandet-pa-ekbacka.json',
   './fall/index.json',
   './fall/middagen-pa-solglantan.json',
+  './fall/nattaget-mot-narvik.json',
   './bilder/fall1/koksgangen.jpg',
   './bilder/fall1/matsalen.jpg',
   './bilder/fall1/sovrummet.jpg',
+  './bilder/fall2/sovvagnen.jpg',
   './bilder/fall3/verandan.jpg',
   './ikoner/favicon.png',
   './ikoner/ikon-180.png',

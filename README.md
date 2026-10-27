@@ -49,7 +49,8 @@ Utöver fälten i [designförslaget](docs/forslag-v1.md#13-dataformat-för-fall-
 node verktyg/validera_fall.mjs          # validerar fallen
 python3 -m http.server 18431 &
 node test/spela.mjs                     # alla fall; kräver playwright; skärmbilder hamnar i shots/
-node test/spela.mjs fall1               # bara ett fall
+node test/spela.mjs fall1               # bara ett fall (fall1, fall2, fall3 …)
+node test/rundtur.mjs <fall-id> <prefix> # skärmbilder från alla 3D-rum
 node verktyg/release.mjs                # före varje release: höjer service workerns cacheversion
 ```
 

@@ -33,3 +33,28 @@ Martin spelade fall 1 på iPhone och kom inte fram till något svar. Pusslen är
 | Ingen förklaring vid misslyckande | Efter två fel visas **hela lösningen direkt**: den skyldige, hur det gick till, alla steg, uteslutningar och villospår. Under ledtrådarna finns **”Jag ger upp – visa lösningen”** (fallet räknas då som olöst). |
 
 Service workerns cacheversion höjs vid varje release med `node verktyg/release.mjs`, som också listar alla filer och skriver versionsnumret som visas längst ned i menyn.
+
+## Fler fall: ordning och kapitel
+
+| Kapitel | Nr | Fall | Kärnmekanik | Twist |
+|---|---|---|---|---|
+| I – Aspirant | 1 | Halsbandet på Ekbacka | Scenundersökning | – |
+| | 2 | Nattåget mot Narvik | Förhör: hitta motsägelser | – |
+| | 3 | Middagen på Solgläntan | Logikrutnät | – |
+| | 4 | Brudskålen | Bildjämförelse | **ja** |
+| II – Konstapel | 5 | Kvart i elva | Tidslinje med gångtider | – |
+| | 6 | Fyren på Gråskär | Dokument: markera motsägelser | **ja** |
+
+De två fallen med twist (4 och 6) ligger sist i var sitt kapitel, med ett vanligt fall emellan, så att spelaren inte börjar vänta sig en vändning i varje fall. Varje fall introducerar en ny mekanik; scenundersökningen i 3D finns i alla.
+
+## Fall 2 – Nattåget mot Narvik
+
+Tre gåbara rum (kupé 3, sovvagnskorridoren, restaurangvagnen) och den nya mekaniken **Förhör** (`mekanik: "forhor"`, kod i `js/mekaniker/jamfor.js`). Personerna står i 3D-rummen; att prata med dem ger *utsagor* (`interaktiv.ger_material`) som hamnar i förhörsprotokollet i boken. Spelaren väljer två utsagor, eller en utsaga och ett fynd, och trycker **Invänd!**. Rätt par ger ett fynd (`motsagelser[].ger_fynd`); fel par kostar inget. Vissa utsagor dyker upp först när spelaren vet mer (`utsagor[].kraver`), t.ex. fru Ahls minne av lyktan när tidtabellen är läst.
+
+**Varför lösningen är unik** (allt finns i materialet):
+1. Kupé 3 har fyra möjliga vägar ut: korridordörren (kedjan hakad inifrån), fönstret (fastfruset, obruten is), väggen mot kupé 4 (hel panel) och mellandörren till kupé 2 (regeln på Bergs sida öppen). Bara mellandörren återstår.
+2. Kupé 2:s egen dörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15 (Lind såg det). Den som gick via mellandörren kom alltså inte vidare ut; hen stannade i kupé 2, där bara fru Ahl fanns.
+3. Det utesluter alla andra oavsett alibi. Alibina (Olsson om Sundin, Lind på perrongen) och fru Ahls lögn om sömnen, avslöjad av lyktan i Boden, bekräftar bilden och pekar ut dunsen kl. 01.25.
+4. Villospår: Sundins skuldsedel och lögn (motiv men alibi), de våta fotspåren (Linds stövlar) och Sundins felminne om kortspelet (patiensen).
+
+`node verktyg/validera_fall.mjs` simulerar nu ett helt genomspel: alla fynd, utsagor, motsägelser och slutsatser måste gå att nå i någon ordning från start, och alla id:n måste finnas.

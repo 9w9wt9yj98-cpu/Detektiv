@@ -162,7 +162,11 @@ export async function visaUtredning(app, id) {
       banner: !installningar().settBokBanner && (installningar().settBokBanner = true),
       onStang: () => { uppdateraHarlett(f, st); nyaUpplasningar(fore); fortsatt(); },
       onAnklaga: () => { fortsatt(); anklaga(); },
-      onNyttFynd: () => { uppdateraHarlett(f, st); uppdateraHud(); },
+      onNyttFynd: () => {
+        const nya = uppdateraHarlett(f, st);
+        if (nya.length) setTimeout(() => toast(`Nytt i anteckningsboken: ${nya.map((x) => material[x]?.titel || 'en utsaga').join(', ')}`), 2700);
+        uppdateraHud();
+      },
       onVisaLosning: visaLosning,
       onGuide: () => { fortsatt(); startaGuide(); },
     });

@@ -221,3 +221,83 @@ export function glod() {
 export function tak() {
   return skapa('tak', 128, 128, (g, w, h) => { g.fillStyle = '#d8c7a3'; g.fillRect(0, 0, w, h); gravyr(g, w, h, 0.06, 99); }, { upprepa: [2, 2] });
 }
+
+/** Skylt eller lapp med text (handskrift eller tryck). */
+export function skylt(text, { bredd = 256, hojd = 96, grund = '#e9dcbc', farg = '#2b1a0a', typsnitt = 'Georgia, serif', storlek = 40, kant = true, rader = null } = {}) {
+  return skapa('skylt' + text + bredd + hojd + grund + farg + storlek + kant, bredd, hojd, (g, w, h) => {
+    g.fillStyle = grund; g.fillRect(0, 0, w, h);
+    if (kant) { g.strokeStyle = farg; g.globalAlpha = 0.7; g.lineWidth = 4; g.strokeRect(6, 6, w - 12, h - 12); g.globalAlpha = 1; }
+    g.fillStyle = farg; g.textAlign = 'center'; g.textBaseline = 'middle';
+    const r = rader || String(text).split('\n');
+    const lh = storlek * 1.15;
+    g.font = `bold ${storlek}px ${typsnitt}`;
+    r.forEach((t, i) => g.fillText(t, w / 2, h / 2 + (i - (r.length - 1) / 2) * lh));
+    gravyr(g, w, h, 0.06, 7);
+  });
+}
+
+/** Natt med snöstorm (tågfönster). */
+export function snostorm() {
+  return skapa('snostorm', 128, 128, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#141b28'); gr.addColorStop(1, '#2a3344');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    const r = rng(77);
+    g.fillStyle = 'rgba(230,236,245,0.85)';
+    for (let i = 0; i < 160; i++) { const s = 0.6 + r() * 1.8; g.fillRect(r() * w, r() * h, s, s); }
+    g.strokeStyle = 'rgba(220,230,240,0.35)';
+    for (let i = 0; i < 40; i++) { const x = r() * w, y = r() * h; g.beginPath(); g.moveTo(x, y); g.lineTo(x - 10, y + 4); g.stroke(); }
+  });
+}
+/** Frost i fönsterkanten. */
+export function frost() {
+  return skapa('frost', 128, 128, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    const r = rng(79);
+    for (let i = 0; i < 220; i++) {
+      const kant = r() < 0.5 ? (r() < 0.5 ? r() * 18 : w - r() * 18) : r() * w;
+      const y = kant < 20 || kant > w - 20 ? r() * h : (r() < 0.5 ? r() * 18 : h - r() * 18);
+      g.strokeStyle = `rgba(235,242,250,${0.3 + r() * 0.5})`; g.lineWidth = 1;
+      g.beginPath(); g.moveTo(kant, y); g.lineTo(kant + (r() - 0.5) * 14, y + (r() - 0.5) * 14); g.stroke();
+    }
+  });
+}
+/** Urtavla med valfri tid (timme, minut). */
+export function urtavlaTid(tim, min, { sprucken = false } = {}) {
+  return skapa(`urtid${tim}:${min}:${sprucken}`, 128, 128, (g) => {
+    g.fillStyle = '#efe2c4'; g.beginPath(); g.arc(64, 64, 60, 0, 7); g.fill();
+    g.strokeStyle = '#3a2a18'; g.lineWidth = 3;
+    for (let i = 0; i < 12; i++) { const a = (i / 12) * Math.PI * 2; g.beginPath(); g.moveTo(64 + Math.sin(a) * 48, 64 - Math.cos(a) * 48); g.lineTo(64 + Math.sin(a) * 56, 64 - Math.cos(a) * 56); g.stroke(); }
+    g.fillStyle = '#3a2a18'; g.font = 'bold 13px Georgia, serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    for (const [n, a] of [[12, 0], [3, 90], [6, 180], [9, 270]]) g.fillText(String(n), 64 + Math.sin(a * Math.PI / 180) * 40, 64 - Math.cos(a * Math.PI / 180) * 40);
+    const ta = ((tim % 12) + min / 60) / 12 * Math.PI * 2, ma = min / 60 * Math.PI * 2;
+    g.lineWidth = 5; g.beginPath(); g.moveTo(64, 64); g.lineTo(64 + 28 * Math.sin(ta), 64 - 28 * Math.cos(ta)); g.stroke();
+    g.lineWidth = 3; g.beginPath(); g.moveTo(64, 64); g.lineTo(64 + 46 * Math.sin(ma), 64 - 46 * Math.cos(ma)); g.stroke();
+    if (sprucken) { g.strokeStyle = 'rgba(30,20,10,.8)'; g.lineWidth = 1.5; g.beginPath(); g.moveTo(20, 30); g.lineTo(60, 70); g.lineTo(52, 110); g.moveTo(60, 70); g.lineTo(108, 84); g.stroke(); }
+  });
+}
+/** Ränder (tyg, tapet i modern miljö). */
+export function rander(a = '#e8e4da', b = '#d7d0c0', n = 8) {
+  return skapa('rander' + a + b + n, 64, 64, (g, w, h) => { for (let i = 0; i < n; i++) { g.fillStyle = i % 2 ? b : a; g.fillRect((i * w) / n, 0, w / n, h); } });
+}
+/** Gräs och mark. */
+export function grasmark(farg = '#5f7a3a') {
+  return skapa('gras' + farg, 256, 256, (g, w, h) => {
+    g.fillStyle = farg; g.fillRect(0, 0, w, h);
+    const r = rng(101);
+    for (let i = 0; i < 1600; i++) { g.strokeStyle = `rgba(${30 + r() * 60},${70 + r() * 70},${20 + r() * 30},0.7)`; const x = r() * w, y = r() * h; g.beginPath(); g.moveTo(x, y); g.lineTo(x + (r() - 0.5) * 3, y - 3 - r() * 5); g.stroke(); }
+    for (let i = 0; i < 40; i++) { g.fillStyle = ['#f5f0d8', '#e8d64a', '#c97fb5'][i % 3]; g.beginPath(); g.arc(r() * w, r() * h, 1.6, 0, 7); g.fill(); }
+  }, { upprepa: [8, 8] });
+}
+/** Himmel (rundpanorama) i valfria färger, med valfri horisont. */
+export function himmel(topp = '#9fb6c8', botten = '#e8dcc0', { hav = null, berg = null, seed = 5 } = {}) {
+  return skapa('himmel' + topp + botten + hav + berg + seed, 1024, 256, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, topp); gr.addColorStop(0.62, botten); gr.addColorStop(1, hav || botten);
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    const r = rng(seed);
+    if (berg) { g.fillStyle = berg; for (let i = 0; i < 9; i++) { const x = r() * w, bw = 120 + r() * 260, bh = 14 + r() * 30; g.beginPath(); g.moveTo(x - bw / 2, h * 0.64); g.quadraticCurveTo(x, h * 0.64 - bh * 2, x + bw / 2, h * 0.64); g.fill(); } }
+    if (hav) { g.fillStyle = hav; g.fillRect(0, h * 0.64, w, h * 0.36); g.strokeStyle = 'rgba(255,255,255,0.25)'; for (let i = 0; i < 80; i++) { const y = h * 0.66 + r() * h * 0.32, x = r() * w; g.beginPath(); g.moveTo(x, y); g.lineTo(x + 8 + r() * 26, y); g.stroke(); } }
+    gravyr(g, w, h, 0.05, seed + 3);
+  });
+}

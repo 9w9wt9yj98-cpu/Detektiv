@@ -1,6 +1,7 @@
 // Datadriven förstapersonsscen. Ett rum beskrivs helt i fallets JSON (moment.payload.rum).
 import * as THREE from 'three';
 import { prefabs, mat } from './prefabs.js';
+import './prefabs2.js';
 import * as T from './texturer.js';
 import { Kontroller } from './kontroller.js';
 
@@ -65,8 +66,9 @@ export class Rum3D {
     const W = rum.bredd, D = rum.djup, H = rum.hojd || 3;
     const ljus = rum.ljus || {};
     const veranda = rum.miljo === 'veranda';
-    scen.background = new THREE.Color(veranda ? '#e9cfa0' : '#1a120a');
-    scen.fog = new THREE.Fog(veranda ? '#e9cfa0' : '#24170c', veranda ? 14 : 7, veranda ? 40 : 16);
+    scen.background = new THREE.Color(rum.bakgrund || (veranda ? '#e9cfa0' : '#1a120a'));
+    const dimma = rum.dimma || [];
+    scen.fog = new THREE.Fog(dimma[2] || rum.bakgrund || (veranda ? '#e9cfa0' : '#24170c'), dimma[0] ?? (veranda ? 14 : 7), dimma[1] ?? (veranda ? 40 : 16));
     scen.add(new THREE.HemisphereLight(ljus.omgivning || '#ffe2b8', '#3a2414', ljus.omgivning_styrka ?? 0.6));
     scen.add(new THREE.AmbientLight('#ffdcae', ljus.bas ?? 0.25));
     if (veranda) { const sol = new THREE.DirectionalLight('#ffd49a', ljus.sol ?? 1.4); sol.position.set(4, 5, -8); scen.add(sol); }
@@ -123,7 +125,7 @@ export class Rum3D {
         const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: T.glod(), blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false, transparent: true }));
         let hp = res.haloPos;
         if (!hp) { const b = new THREE.Box3().setFromObject(g); hp = b.getCenter(new THREE.Vector3()); }
-        else hp = hp.clone();
+        else hp = g.localToWorld(hp.clone()); // haloPos anges i föremålets egna koordinater
         if (def.halo) hp.set(def.halo[0], def.halo[1], def.halo[2]);
         halo.position.copy(hp); halo.renderOrder = 10;
         halo.userData.interaktivId = def.id;
