@@ -17,7 +17,9 @@
     "twist": null,
     "kraver_rang": 0,
     "accentfarg": "#7a2e1f",
-    "omslag": "bilder/fall1/matsalen.jpg"
+    "omslag": "bilder/fall1/matsalen.jpg",
+    "mal": "Ta reda på vem som tog halsbandet",
+    "handledning_mal": "fonster"
   },
   "intro": {
     "rubrik": "Ekbacka herrgård, Sörmland. November 1926.",
@@ -1032,17 +1034,31 @@
     {
       "niva": 1,
       "kostnad": 10,
-      "text": "Hur kom tjuven in? Titta noga på fönstret."
+      "text": "Hur kom tjuven in? Titta noga på fönstret.",
+      "kraver": [
+        "f-fonster"
+      ]
     },
     {
       "niva": 2,
       "kostnad": 25,
-      "text": "Om fönstret inte användes måste tjuven ha haft nyckel. Vilka har nyckel, och var var de mellan 19.55 och 21.00?"
+      "text": "Om fönstret inte användes måste tjuven ha haft nyckel. Vilka har nyckel, och var var de mellan 19.55 och 21.00?",
+      "kraver": [
+        "f-dorr",
+        "f-nycklar",
+        "f-servering",
+        "f-holm-borta"
+      ]
     },
     {
       "niva": 3,
       "kostnad": 50,
-      "text": "Två av nyckelinnehavarna satt eller serverade vid bordet hela tiden. Den tredje lämnade salen. Stämmer hans förklaring med vinflaskan?"
+      "text": "Två av nyckelinnehavarna satt eller serverade vid bordet hela tiden. Den tredje lämnade salen. Stämmer hans förklaring med vinflaskan?",
+      "kraver": [
+        "f-holm-borta",
+        "f-vinflaskan",
+        "f-kallarboken"
+      ]
     }
   ],
   "aterkoppling": {
@@ -1099,5 +1115,131 @@
         "text": "Holm är skyldig. Halsbandet hittas i fickan på hans livrérock, som hänger i skafferiet."
       }
     ]
-  }
+  },
+  "slutsatser": [
+    {
+      "id": "s-fonster",
+      "kraver": [
+        "f-fonster"
+      ],
+      "fraga": "Kom tjuven in genom fönstret?",
+      "alternativ": [
+        {
+          "text": "Ja – fönstret stod ju öppet.",
+          "svar": "Ett öppet fönster bevisar ingenting. Titta på vad som ligger på det yttre fönsterblecket."
+        },
+        {
+          "text": "Nej – lövskräpet och dammet på blecket är orörda, och rabatten saknar fotspår.",
+          "ratt": true
+        },
+        {
+          "text": "Det går inte att avgöra.",
+          "svar": "Jo. Den som klättrar in genom ett fönster rör lövskräpet på blecket. Vad säger blecket?"
+        }
+      ],
+      "slutsats": "Ingen kom in genom fönstret. Det öppnades inifrån för att lura."
+    },
+    {
+      "id": "s-nyckel",
+      "kraver": [
+        "f-dorr"
+      ],
+      "efter": [
+        "s-fonster"
+      ],
+      "fraga": "Dörren var låst och låset är oskadat. Hur kom tjuven in?",
+      "alternativ": [
+        {
+          "text": "Tjuven bröt upp låset.",
+          "svar": "Låset är helt oskadat – inga repor, inga bändmärken."
+        },
+        {
+          "text": "Tjuven gömde sig i rummet innan dörren låstes.",
+          "svar": "Då hade tjuven ändå behövt ta sig ut – genom en låst dörr eller ett fönster som ingen använde."
+        },
+        {
+          "text": "Tjuven låste upp med en nyckel.",
+          "ratt": true
+        }
+      ],
+      "slutsats": "Tjuven låste upp dörren med en nyckel."
+    },
+    {
+      "id": "s-vilka",
+      "kraver": [
+        "f-nycklar"
+      ],
+      "efter": [
+        "s-nyckel"
+      ],
+      "fraga": "Vilka kan ha låst upp dörren?",
+      "alternativ": [
+        {
+          "text": "Vem som helst – nycklar går att låna.",
+          "svar": "Nyckelskåpet visar att det finns exakt tre nycklar till sovrummet, och vem som har dem."
+        },
+        {
+          "text": "Friherrinnan, Elsa Lund och Holm.",
+          "ratt": true
+        },
+        {
+          "text": "Gustav Wrede.",
+          "svar": "Gustav har ingen nyckel till sovrummet."
+        }
+      ],
+      "slutsats": "Bara tre personer har nyckel: friherrinnan, Elsa och Holm. Gustav kan uteslutas."
+    },
+    {
+      "id": "s-borta",
+      "kraver": [
+        "f-servering",
+        "f-holm-borta"
+      ],
+      "efter": [
+        "s-vilka"
+      ],
+      "fraga": "Vem av de tre nyckelinnehavarna lämnade salen mellan 19.55 och 21.00?",
+      "alternativ": [
+        {
+          "text": "Friherrinnan.",
+          "svar": "Gästerna är eniga: hon satt vid bordets ände hela middagen."
+        },
+        {
+          "text": "Elsa Lund.",
+          "svar": "Femton gäster såg henne servera i salen hela kvällen."
+        },
+        {
+          "text": "Holm.",
+          "ratt": true
+        }
+      ],
+      "slutsats": "Bara Holm lämnade salen – mellan 20.30 och 20.40, för att ”hämta vin i källaren”."
+    },
+    {
+      "id": "s-vinet",
+      "kraver": [
+        "f-kallarboken",
+        "f-vinflaskan"
+      ],
+      "efter": [
+        "s-borta"
+      ],
+      "fraga": "Håller förklaringen om vinet i källaren?",
+      "alternativ": [
+        {
+          "text": "Ja – han kom ju tillbaka med en flaska.",
+          "svar": "Titta på flaskan och läs källarboken. Var kom vinet egentligen ifrån?"
+        },
+        {
+          "text": "Nej – flaskan stod redan i skafferiet sedan kl. 15, och den är varken dammig eller kall.",
+          "ratt": true
+        },
+        {
+          "text": "Det går inte att veta.",
+          "svar": "Jämför källarboken med hur flaskan ser ut. En flaska direkt ur källaren är sval och dammig."
+        }
+      ],
+      "slutsats": "Ärendet till källaren var påhittat. Flaskan stod redan i skafferiet – tio minuter blev över till något annat."
+    }
+  ]
 }

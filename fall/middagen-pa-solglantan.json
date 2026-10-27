@@ -17,7 +17,9 @@
     "twist": null,
     "kraver_rang": 0,
     "accentfarg": "#4f5d2f",
-    "omslag": "bilder/fall3/verandan.jpg"
+    "omslag": "bilder/fall3/verandan.jpg",
+    "mal": "Rekonstruera bordsplaceringen – vem förgiftade översten?",
+    "handledning_mal": "glaset"
   },
   "intro": {
     "rubrik": "Villa Solgläntan, Saltsjöbaden. Augusti 1954.",
@@ -813,17 +815,27 @@
     {
       "niva": 1,
       "kostnad": 10,
-      "text": "Börja med advokaten. Hen sitter på plats 1 eller 4. Testa båda alternativen."
+      "text": "Börja med advokaten. Hen sitter på plats 1 eller 4. Testa båda alternativen.",
+      "kraver": [
+        "f-forhor"
+      ]
     },
     {
       "niva": 2,
       "kostnad": 25,
-      "text": "Om advokaten sitter på plats 4 måste whiskyn stå på plats 3 och konstnären sitta på plats 2. Följ det till slutet och se vad som händer med David."
+      "text": "Om advokaten sitter på plats 4 måste whiskyn stå på plats 3 och konstnären sitta på plats 2. Följ det till slutet och se vad som händer med David.",
+      "kraver": [
+        "f-forhor"
+      ]
     },
     {
       "niva": 3,
       "kostnad": 50,
-      "text": "Advokaten sitter på plats 1. Då sitter läkaren på plats 2, konstnären på plats 3 och pastorn på plats 4. Vem kan pastorn vara?"
+      "text": "Advokaten sitter på plats 1. Då sitter läkaren på plats 2, konstnären på plats 3 och pastorn på plats 4. Vem kan pastorn vara?",
+      "kraver": [
+        "f-forhor",
+        "f-spill"
+      ]
     }
   ],
   "aterkoppling": {
@@ -867,5 +879,77 @@
         ]
       }
     ]
-  }
+  },
+  "slutsatser": [
+    {
+      "id": "s-plats",
+      "kraver": [
+        "f-spill",
+        "f-ingen-reste"
+      ],
+      "fraga": "Vem kunde komma åt överstens glas?",
+      "alternativ": [
+        {
+          "text": "Vem som helst vid bordet.",
+          "svar": "Ingen reste sig under förrätten, och glaset stod på överstens vänstra sida."
+        },
+        {
+          "text": "Den som satt på plats 1, överstens högra sida.",
+          "svar": "Glaset och pulverspillet låg till vänster om översten – inte till höger."
+        },
+        {
+          "text": "Bara den som satt på plats 4, direkt till överstens vänster.",
+          "ratt": true
+        }
+      ],
+      "slutsats": "Bara den som satt på plats 4 kunde nå glaset. Frågan är vem som satt där."
+    },
+    {
+      "id": "s-advokat",
+      "kraver": [
+        "f-forhor"
+      ],
+      "efter": [
+        "s-plats"
+      ],
+      "fraga": "Var i bordsplaceringen är det klokt att börja? Enligt L3 satt advokaten bredvid översten. Vilka platser är möjliga för advokaten?",
+      "alternativ": [
+        {
+          "text": "Plats 2 eller 3.",
+          "svar": "Plats 2 och 3 ligger inte bredvid översten. Bredvid honom sitter plats 1 och plats 4."
+        },
+        {
+          "text": "Plats 1 eller 4.",
+          "ratt": true
+        },
+        {
+          "text": "Vilken plats som helst.",
+          "svar": "L3 säger att advokaten satt bredvid översten. Vilka platser är det?"
+        }
+      ],
+      "slutsats": "Advokaten satt på plats 1 eller 4. Pröva båda i tavlan och se vilket alternativ som leder till en motsägelse."
+    },
+    {
+      "id": "s-lakare",
+      "kraver": [
+        "f-digitalis",
+        "f-placering"
+      ],
+      "efter": [
+        "s-advokat"
+      ],
+      "fraga": "Läkaren hade digitalis i väskan. Gör det läkaren skyldig?",
+      "alternativ": [
+        {
+          "text": "Ja – läkaren hade både kunskapen och giftet.",
+          "svar": "Kunskap och medel räcker inte. Kunde läkaren nå glaset från sin plats?"
+        },
+        {
+          "text": "Nej – läkaren satt på plats 2 och kunde inte nå glaset utan att resa sig.",
+          "ratt": true
+        }
+      ],
+      "slutsats": "Läkaren är ett villospår: plats 2 är för långt från glaset."
+    }
+  ]
 }

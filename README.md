@@ -48,7 +48,9 @@ Utöver fälten i [designförslaget](docs/forslag-v1.md#13-dataformat-för-fall-
 ```sh
 node verktyg/validera_fall.mjs          # validerar fallen
 python3 -m http.server 18431 &
-node test/spela.mjs                     # kräver playwright; skärmbilder hamnar i shots/
+node test/spela.mjs                     # alla fall; kräver playwright; skärmbilder hamnar i shots/
+node test/spela.mjs fall1               # bara ett fall
+node verktyg/release.mjs                # före varje release: höjer service workerns cacheversion
 ```
 
 ## Dokument

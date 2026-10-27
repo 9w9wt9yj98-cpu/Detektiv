@@ -13,9 +13,10 @@ function uvSkala(geo, sx, sy) {
 }
 
 export class Rum3D {
-  constructor(behallare, { onInspektera, onMeddelande } = {}) {
+  constructor(behallare, { onInspektera, onMeddelande, onFokus } = {}) {
     this.behallare = behallare;
-    this.onInspektera = onInspektera; this.onMeddelande = onMeddelande;
+    this.onInspektera = onInspektera; this.onMeddelande = onMeddelande; this.onFokus = onFokus;
+    this.fokus = null; this.onRam = null; this._v = new THREE.Vector3();
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -126,7 +127,7 @@ export class Rum3D {
         if (def.halo) hp.set(def.halo[0], def.halo[1], def.halo[2]);
         halo.position.copy(hp); halo.renderOrder = 10;
         halo.userData.interaktivId = def.id;
-        halo.userData.bas = def.funktion === 'anteckningsbok' ? 0.34 : 0.26;
+        halo.userData.bas = def.halostorlek ?? (def.funktion === 'anteckningsbok' ? 0.42 : 0.32);
         scen.add(halo);
         this.interaktiva.set(def.id, { def, grupp: g, halo, inspekterad: inspekterade.has(def.id) });
       }
@@ -200,14 +201,45 @@ export class Rum3D {
       if (!t.object.userData.interaktivId) continue;
       if (t.object.isSprite || !forsta || t.distance <= forsta.distance + 0.35) { valt = t; break; }
     }
-    if (!valt) return;
-    const id = valt.object.userData.interaktivId;
+    let id = valt?.object.userData.interaktivId;
+    if (!id) {
+      // Generös träffyta: närmaste glimmande föremål inom ca 48 px från trycket
+      const w = this.behallare.clientWidth || 1, h = this.behallare.clientHeight || 1;
+      let bast = 48;
+      for (const [pid, p] of this.interaktiva) {
+        const v = this._v.copy(p.halo.position).project(this.kamera);
+        if (v.z > 1) continue;
+        const dx = ((v.x + 1) / 2 - nx) * w, dy = ((1 - v.y) / 2 - ny) * h;
+        const d = Math.hypot(dx, dy);
+        if (d < bast) { bast = d; id = pid; }
+      }
+    }
+    if (!id) return;
     const post = this.interaktiva.get(id);
     const centrum = new THREE.Box3().setFromObject(post.grupp).getCenter(new THREE.Vector3());
     const avst = Math.hypot(centrum.x - this.kamera.position.x, centrum.z - this.kamera.position.z);
-    const maxA = post.def.avstand ?? (post.def.typ === 'fotspar' ? 4 : MAX_AVSTAND);
-    if (avst > maxA && valt.distance > maxA) { this.onMeddelande?.('Gå närmare för att undersöka.'); return; }
+    const maxA = this.maxAvstand(post.def);
+    if (avst > maxA && (!valt || valt.distance > maxA)) { this.onMeddelande?.('Gå närmare för att undersöka.'); return; }
     this.onInspektera?.(post.def);
+  }
+
+  maxAvstand(def) { return def.avstand ?? (def.typ === 'fotspar' ? 4 : MAX_AVSTAND); }
+
+  /** Väljer det föremål spelaren tittar mot och står nära (för knappen Undersök och starkare glöd). */
+  raknaFokus() {
+    let bast = null, bastS = Infinity;
+    const k = this.kamera.position;
+    for (const p of this.interaktiva.values()) {
+      const c = p.halo.position;
+      const d = Math.hypot(c.x - k.x, c.z - k.z);
+      p.nara = d <= this.maxAvstand(p.def) + 0.2;
+      if (!p.nara) continue;
+      const v = this._v.copy(c).project(this.kamera);
+      if (v.z > 1 || Math.abs(v.x) > 0.72 || Math.abs(v.y) > 0.8) continue;
+      const s = Math.hypot(v.x, v.y * 0.8) + d * 0.12 + (p.inspekterad && !p.def.funktion && !p.def.gar_till ? 0.3 : 0);
+      if (s < bastS) { bastS = s; bast = p; }
+    }
+    if (bast !== this.fokus) { this.fokus = bast; this.onFokus?.(bast ? bast.def : null); }
   }
 
   markera(id) { const p = this.interaktiva.get(id); if (p) p.inspekterad = true; }
@@ -217,6 +249,16 @@ export class Rum3D {
     const p = this.interaktiva.get(id); if (!p) return null;
     const v = p.halo.position.clone().project(this.kamera);
     return { x: (v.x + 1) / 2, y: (1 - v.y) / 2, synlig: v.z < 1 && Math.abs(v.x) < 1 && Math.abs(v.y) < 1 };
+  }
+  /** Riktning till ett föremål: vinkel i radianer (positiv = till höger), skärmläge och om det syns. */
+  riktning(id) {
+    const p = this.interaktiva.get(id); if (!p) return null;
+    this.kamera.updateMatrixWorld();
+    const c = p.halo.position.clone().applyMatrix4(this.kamera.matrixWorldInverse);
+    const vinkel = Math.atan2(c.x, -c.z);
+    const v = p.halo.position.clone().project(this.kamera);
+    const k = this.kamera.position;
+    return { vinkel, x: (v.x + 1) / 2, y: (1 - v.y) / 2, synlig: v.z < 1 && Math.abs(v.x) < 0.95 && Math.abs(v.y) < 0.95, avstand: Math.hypot(p.halo.position.x - k.x, p.halo.position.z - k.z), nara: !!p.nara };
   }
   /** Vänd blicken mot ett föremål. */
   tittaPa(id) {
@@ -238,11 +280,18 @@ export class Rum3D {
     const t = this.tid;
     this.stega(dt);
     for (const f of this.flimmer) f.l.intensity = f.bas * (0.86 + 0.1 * Math.sin(t * 9 + f.fas) + 0.06 * Math.sin(t * 23 + f.fas * 2));
-    for (const { halo, inspekterad, def } of this.interaktiva.values()) {
+    this.raknaFokus();
+    for (const post of this.interaktiva.values()) {
+      const { halo, inspekterad, def, nara } = post;
       const bas = halo.userData.bas;
-      if (inspekterad && def.funktion !== 'anteckningsbok' && !def.gar_till) { halo.scale.setScalar(bas * 0.6); halo.material.opacity = 0.28; }
-      else { const p = 0.5 + 0.5 * Math.sin(t * 2.6 + bas * 40); halo.scale.setScalar(bas * (0.85 + 0.35 * p)); halo.material.opacity = 0.55 + 0.4 * p; }
+      const p = 0.5 + 0.5 * Math.sin(t * 2.6 + bas * 40);
+      const klar = inspekterad && def.funktion !== 'anteckningsbok' && !def.gar_till;
+      if (post === this.fokus) { halo.scale.setScalar(bas * (klar ? 1.2 : 1.75 + 0.3 * p)); halo.material.opacity = klar ? 0.7 : 1; }
+      else if (klar) { halo.scale.setScalar(bas * 0.6); halo.material.opacity = 0.3; }
+      else if (nara) { halo.scale.setScalar(bas * (1.15 + 0.4 * p)); halo.material.opacity = 0.7 + 0.3 * p; }
+      else { halo.scale.setScalar(bas * (0.85 + 0.35 * p)); halo.material.opacity = 0.55 + 0.4 * p; }
     }
+    this.onRam?.();
     this.renderer.render(this.scen, this.kamera);
     this._ramar++;
     if (t - this._fpsT >= 1) { this.fps = this._ramar / (t - this._fpsT); this._ramar = 0; this._fpsT = t; window.__fps = this.fps; }
@@ -250,6 +299,7 @@ export class Rum3D {
   }
 
   rensa() {
+    if (this.fokus) { this.fokus = null; this.onFokus?.(null); }
     this.interaktiva.clear(); this.flimmer = []; this.kollisioner = [];
     this.scen = null;
   }

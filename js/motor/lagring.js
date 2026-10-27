@@ -2,7 +2,7 @@
 const NYCKEL = 'detektiv:v1';
 let data = null;
 
-function tomt() { return { fall: {}, installningar: { autofyll: true, visatStyrhjalp: false } }; }
+function tomt() { return { fall: {}, installningar: { autofyll: true, visatStyrhjalp: false, handledningKlar: false } }; }
 
 export function las() {
   if (data) return data;
@@ -13,12 +13,14 @@ export function las() {
 export function spara() { try { localStorage.setItem(NYCKEL, JSON.stringify(las())); } catch (e) { console.warn('Kunde inte spara', e); } }
 
 export function nyUtredning() {
-  return { status: 'ny', fynd: [], inspekterade: [], ledtradar: 0, fel: [], rutnat: {}, anteckningar: '', tid: 0, rum: null, position: null, resultat: null };
+  return { status: 'ny', fynd: [], material: [], slutsatser: {}, mek: {}, inspekterade: [], ledtradar: 0, fel: [], rutnat: {}, anteckningar: '', tid: 0, rum: null, position: null, resultat: null };
 }
 export function fallData(id) {
   const d = las();
   d.fall[id] ||= { ...nyUtredning(), basta: null };
-  return d.fall[id];
+  const f = d.fall[id];
+  f.material ||= []; f.slutsatser ||= {}; f.mek ||= {}; f.fynd ||= []; f.inspekterade ||= []; f.fel ||= [];
+  return f;
 }
 export function borjaOm(id) {
   const gammal = fallData(id);

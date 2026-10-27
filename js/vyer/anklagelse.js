@@ -10,9 +10,11 @@ export function oppnaAnklagelse(f, st, { onAvslutat, onTillbaka } = {}) {
   const maxBevis = a.bevis_max || 3;
   const kvar = MAX_FEL - st.fel.length;
   const misstankta = f.personer.filter((p) => p.misstankt);
+  const klaraSlutsatser = (f.slutsatser || []).filter((s) => st.slutsatser?.[s.id]);
   const m = modal(`<div class="anklagelse">
     <h2>Anklagelse</h2>
-    <p class="bok-not">Du har <strong>${kvar}</strong> ${kvar === 1 ? 'försök' : 'försök'} kvar. En felaktig anklagelse kostar ${FEL_KOSTNAD} poäng.</p>
+    <p class="bok-not">Du har <strong>${kvar}</strong> försök kvar. En felaktig anklagelse kostar ${FEL_KOSTNAD} poäng${kvar === 1 ? ' – efter nästa fel visas lösningen' : ''}.</p>
+    ${klaraSlutsatser.length ? `<details class="pamin"><summary>Dina slutsatser (${klaraSlutsatser.length})</summary><ol>${klaraSlutsatser.map((s) => `<li>${esc(s.slutsats)}</li>`).join('')}</ol></details>` : ''}
     <fieldset><legend>1. Vem är skyldig?</legend>
       <div class="val-personer">${misstankta.map((p) => `<label class="valkort"><input type="radio" name="vem" value="${p.id}">${medaljong(p)}<span><strong>${esc(p.namn)}</strong><em>${esc(p.roll)}</em></span></label>`).join('')}</div>
     </fieldset>
@@ -46,19 +48,25 @@ export function oppnaAnklagelse(f, st, { onAvslutat, onTillbaka } = {}) {
       const reaktion = f.aterkoppling.fel?.[vem] || f.aterkoppling.fel_allman || 'Inspektören höjer ett ögonbryn …';
       const slut = st.fel.length >= MAX_FEL;
       const r = modal(`<div class="reaktion"><p class="citat">${esc(f.aterkoppling.fel_allman || 'Inspektören höjer ett ögonbryn …')}</p><p class="modal-text">${esc(reaktion)}</p>
-        <p class="bok-not">−${FEL_KOSTNAD} poäng. ${slut ? 'Det var ditt sista försök.' : 'Du har ett försök kvar.'}</p>
+        <p class="bok-not">−${FEL_KOSTNAD} poäng. ${slut ? 'Det var ditt sista försök. Nu får du se hela lösningen, steg för steg.' : 'Du har ett försök kvar. Tips: gå igenom <em>Slutsatser</em> i anteckningsboken eller ta en ledtråd innan du försöker igen.'}</p>
         <div class="knapprad"><button class="knapp massing" data-ok>${slut ? 'Visa upplösningen' : 'Tillbaka till utredningen'}</button></div></div>`,
         { onStang: () => { if (slut) avsluta(false, hur, bevis); else onTillbaka?.(); } });
       $('[data-ok]', r.el).onclick = () => r.stang();
     }
   };
-  function avsluta(losta, hur, bevis) {
+  function avsluta(losta, hur, bevis) { avslutaFall(f, st, { losta, hur, bevis }); onAvslutat?.(); }
+  return m;
+}
+
+/** Avslutar fallet och sparar resultatet. `visad` = spelaren valde att se lösningen. */
+export function avslutaFall(f, st, { losta, hur = null, bevis = [], visad = false }) {
+  {
     const res = resultat(f, st, { losta, hur, bevis });
+    res.visad = visad;
     st.resultat = res;
     st.status = losta ? 'lost' : 'misslyckad';
     if (losta && (!st.basta || res.glas > st.basta.glas || (res.glas === st.basta.glas && res.poang > st.basta.poang))) st.basta = { glas: res.glas, poang: res.poang };
     spara();
-    onAvslutat?.(res);
+    return res;
   }
-  return m;
 }

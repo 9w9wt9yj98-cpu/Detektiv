@@ -2,6 +2,7 @@ import { laddaIndex, laddaFall } from '../motor/fall.js';
 import { las, nollstallAllt } from '../motor/lagring.js';
 import { totalGlas, rang } from '../motor/poang.js';
 import { esc, glasRad, bekrafta, $ } from './gemensamt.js';
+import { VERSION } from '../version.js';
 
 const LANGD = { kort: 'Kort', medel: 'Medel', lang: 'Lång' };
 
@@ -46,6 +47,7 @@ export async function visaMeny(app) {
     <footer class="meny-fot">
       <p>Allt som behövs för att lösa ett fall finns i materialet. Du behöver aldrig gissa.</p>
       <button class="lank" id="nollstall">Nollställ all progression</button>
+      <p class="version">Version ${VERSION}</p>
     </footer>
   </div>`;
   $('#nollstall', app).onclick = async () => { if (await bekrafta('Radera alla sparade fall och poäng?', { ja: 'Radera' })) { nollstallAllt(); visaMeny(app); } };

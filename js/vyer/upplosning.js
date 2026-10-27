@@ -29,7 +29,13 @@ export async function visaUpplosning(app, id) {
       <h1>${res.losta ? 'Fallet är löst' : 'Fallet förblev olöst'}</h1>
       ${res.losta ? glasRad(res.glas, 3, 40) : ''}
     </header>
-    ${res.losta ? `<blockquote class="citat stor">${esc(f.aterkoppling.ratt)}</blockquote>` : `<p class="papperskort">Två felaktiga anklagelser. ${esc(person[f.losning.skyldig].namn)} var skyldig – så här hängde det ihop.</p>`}
+    ${res.losta ? `<blockquote class="citat stor">${esc(f.aterkoppling.ratt)}</blockquote>` : `<section class="papperskort facit">
+      <p class="rubrik-liten">${res.visad ? 'Du valde att se lösningen.' : 'Två felaktiga anklagelser – här är hela lösningen.'}</p>
+      <h2>Den skyldige: ${esc(person[f.losning.skyldig].namn)}</h2>
+      <p><strong>Så gick det till:</strong> ${esc(f.losning.hur_text || '')}</p>
+      <p class="hjalptext">Nedan går detektiven igenom kedjan steg för steg: vilka fynd som avgör, varför de andra kan uteslutas och vilka spår som var villospår. Fynd med streckad ram missade du.</p>
+    </section>`}
+    ${f.meta.twist && f.aterkoppling.efterord ? `<section class="papperskort twist"><h2><span aria-hidden="true">🜂</span> Vändningen</h2><p>${esc(f.aterkoppling.efterord)}</p></section>` : ''}
     <section class="papperskort">
       <h2>Detektivens förklaring</h2>
       <ol class="steglista">${steg.map((s, i) => `<li class="steg" data-i="${i}" ${i ? 'hidden' : ''}><p>${esc(s.text)}</p>${(s.fynd || []).length ? `<div class="chips">${s.fynd.map(chip).join('')}</div>` : ''}</li>`).join('')}</ol>
@@ -69,6 +75,6 @@ export async function visaUpplosning(app, id) {
   };
   $('#nasta', app).onclick = visaNasta;
   $('#allt', app).onclick = () => { $$('.steg', app).forEach((x) => (x.hidden = false)); i = steg.length; $('#nasta', app).hidden = true; $('#allt', app).hidden = true; $('#efter', app).hidden = false; };
-  if (steg.length <= 1) $('#allt', app).click();
+  if (steg.length <= 1 || !res.losta) $('#allt', app).click();
   return null;
 }
