@@ -1,6 +1,6 @@
 # Detektiv – Designförslag v1
 
-> **Status:** Förslag att godkänna. Inget är byggt än.
+> **Status:** Godkänt med ändringar – se [beslut.md](beslut.md). Fall 1 och 3 finns som spelbar prototyp i 3D.
 > **Projektledare:** Martin Morén
 > **Plattform:** Webb först (HTML/JS), anpassad för mobil i ett senare steg.
 > **Målgrupp:** Vuxna. **Ton:** Klassisk deckare i stil med Agatha Christie och Sherlock Holmes, med en oväntad vändning då och då.

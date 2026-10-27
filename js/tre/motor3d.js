@@ -161,7 +161,7 @@ export class Rum3D {
 
   flyttaTill(x, z, tittaGrader = null) {
     this.kamera.position.set(x, OGONHOJD, z);
-    if (tittaGrader !== null) { this.yaw = rad(tittaGrader); this.pitch = -0.08; }
+    if (tittaGrader !== null) { this.yaw = rad(tittaGrader); this.pitch = this.kamera.aspect < 0.8 ? -0.22 : -0.1; }
     this.uppdateraKamera();
   }
   uppdateraKamera() { this.kamera.rotation.y = this.yaw; this.kamera.rotation.x = this.pitch; }

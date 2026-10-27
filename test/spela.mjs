@@ -119,6 +119,7 @@ async function fall1(p, prefix, { felAnklagelse = true } = {}) {
   await bild(p, prefix + '-fall1-anklagelse');
   await p.locator('[data-anklaga]').last().click();
   await p.waitForFunction(() => location.hash.includes('upplosning')); await vanta(400);
+  await bild(p, prefix + '-fall1-upplosning-topp');
   for (let i = 0; i < 20 && await p.locator('#nasta').isVisible(); i++) { await p.locator('#nasta').click(); await vanta(120); }
   await bild(p, prefix + '-fall1-upplosning', true);
   const txt = await p.locator('.upplosning').innerText();

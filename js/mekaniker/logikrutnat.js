@@ -70,13 +70,13 @@ export function renderaRutnat(behallare, payload, st, { autofyll = true, onAndra
         <text x="${x + dx + (anchor === 'end' ? 22 : -22)}" y="${y + 12}" text-anchor="${anchor}" class="platsinfo" data-info></text>
       </g>`;
     }).join('');
-    return `<svg viewBox="0 0 300 168" role="img">
+    return `<svg viewBox="-34 0 368 168" role="img">
       <rect x="118" y="30" width="64" height="124" rx="26" class="bordsskiva"/>
       <circle cx="150" cy="14" r="11" class="stolsdyna overste"/>
       <text x="150" y="18" text-anchor="middle" class="platsnr">Ö</text>
       <text x="168" y="12" class="platsinfo">${esc(bord.huvud)}</text>
       <circle cx="166" cy="40" r="4" class="giftglas"/>
-      <text x="172" y="54" class="platsinfo liten">glaset</text>
+      <text x="150" y="62" text-anchor="middle" class="platsinfo liten">glaset</text>
       ${platser}
     </svg>`;
   }
