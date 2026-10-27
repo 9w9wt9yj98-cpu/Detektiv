@@ -1,0 +1,18 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const p = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, hasTouch: true, isMobile: true });
+const fel = [];
+p.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') fel.push(m.type() + ': ' + m.text()); });
+p.on('pageerror', (e) => fel.push('pageerror: ' + e.message));
+const url = process.argv[2] || 'http://localhost:18431/?nosw';
+await p.goto(url); await p.waitForTimeout(800);
+await p.screenshot({ path: 'shots/rok-meny.png' });
+await p.goto(url + '#/fall/halsbandet-pa-ekbacka'); await p.waitForTimeout(500);
+await p.screenshot({ path: 'shots/rok-intro.png', fullPage: true });
+await p.click('#start'); await p.waitForTimeout(2500);
+await p.screenshot({ path: 'shots/rok-3d-hjalp.png' });
+await p.click('[data-stang]'); await p.waitForTimeout(1000);
+await p.screenshot({ path: 'shots/rok-3d.png' });
+console.log('fps', await p.evaluate(() => window.__fps));
+console.log(fel.join('\n') || 'inga fel');
+await b.close();

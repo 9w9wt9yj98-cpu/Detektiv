@@ -1,0 +1,871 @@
+{
+  "id": "middagen-pa-solglantan",
+  "version": 1,
+  "meta": {
+    "titel": "Middagen på Solgläntan",
+    "miljo": "Villa i Saltsjöbaden",
+    "epok": "1950-tal",
+    "brottstyp": "forgiftning",
+    "langd": "kort",
+    "uppskattad_tid_min": [
+      4,
+      6
+    ],
+    "svarighet": 2,
+    "karnmekanik": "logikrutnat",
+    "bimekaniker": [],
+    "twist": null,
+    "kraver_rang": 0,
+    "accentfarg": "#4f5d2f",
+    "omslag": "bilder/fall3/verandan.jpg"
+  },
+  "intro": {
+    "rubrik": "Villa Solgläntan, Saltsjöbaden. Augusti 1954.",
+    "text": "Middag för fem på verandan. Solen sjunker över fjärden när överste Carl Rehnskiöld lyfter sitt vinglas till förrätten – och segnar ner över bordet.\n\nI glaset finns digitalis. Kriminalteknikern konstaterar att pulverspillet ligger på duken till vänster om överstens glas, och att glaset stod till vänster om tallriken. Alla vittnen är eniga: ingen reste sig under förrätten. Bara den som satt direkt till överstens vänster kunde nå glaset.\n\nMen placeringskorten har blåst bort i trädgården, och ingen minns säkert vem som satt var. Kommissarie Strand – numera grå vid tinningarna – lägger förhörsprotokollen framför dig. ”Som på Ekbacka”, säger han. ”Allt finns här. Det gäller bara att se det.”",
+    "uppdrag": "Rekonstruera bordsplaceringen. Vem förgiftade översten?",
+    "bild": "bilder/fall3/verandan.jpg",
+    "berattare": "Kommissarie Nils Strand"
+  },
+  "personer": [
+    {
+      "id": "overste",
+      "namn": "Carl Rehnskiöld",
+      "roll": "Överste, offret",
+      "misstankt": false,
+      "beskrivning": "Satt vid bordets kortände. Hans vänstra sida är plats 4."
+    },
+    {
+      "id": "astrid",
+      "namn": "Astrid",
+      "roll": "Gäst",
+      "misstankt": true,
+      "beskrivning": "Skarpsinnig och road. Det var hon som föreslog en skål."
+    },
+    {
+      "id": "bertil",
+      "namn": "Bertil",
+      "roll": "Gäst",
+      "misstankt": true,
+      "beskrivning": "Mild röst, mjuka händer. Talar gärna om förlåtelse."
+    },
+    {
+      "id": "cecilia",
+      "namn": "Cecilia",
+      "roll": "Gäst",
+      "misstankt": true,
+      "beskrivning": "Exakt i allt hon säger. Har känt översten i tjugo år."
+    },
+    {
+      "id": "david",
+      "namn": "David",
+      "roll": "Gäst",
+      "misstankt": true,
+      "beskrivning": "Rastlös, tittar ofta på klockan. Var den förste att rusa fram till översten."
+    }
+  ],
+  "moment": [
+    {
+      "id": "verandan",
+      "namn": "Verandan",
+      "mekanik": "scen",
+      "payload": {
+        "visning": "3d",
+        "rum": {
+          "bredd": 7.0,
+          "djup": 6.0,
+          "hojd": 3.0,
+          "miljo": "veranda",
+          "golv": "#9a8462",
+          "panel": "#d9ccb0",
+          "ljus": {
+            "omgivning": "#ffe6c0",
+            "omgivning_styrka": 0.75,
+            "sol": 1.3
+          },
+          "start": {
+            "pos": [
+              -1.6,
+              2.1
+            ],
+            "titta": -15
+          },
+          "objekt": [
+            {
+              "id": "bordet",
+              "typ": "bord",
+              "pos": [
+                0,
+                0,
+                -0.4
+              ],
+              "storlek": [
+                1.1,
+                0.75,
+                2.2
+              ],
+              "duk": true,
+              "farg": "#4a2e18"
+            },
+            {
+              "id": "stol-o",
+              "typ": "stol",
+              "pos": [
+                0,
+                0,
+                -1.85
+              ],
+              "rot": 0,
+              "interaktiv": {
+                "namn": "Överstens stol",
+                "text": "Överstens stol vid kortänden, utdragen och snett vänd. Härifrån har man plats 1 på sin högra sida och plats 4 på sin vänstra."
+              }
+            },
+            {
+              "id": "stol-1",
+              "typ": "stol",
+              "pos": [
+                -0.85,
+                0,
+                -0.85
+              ],
+              "rot": 90,
+              "nummer": 1
+            },
+            {
+              "id": "stol-2",
+              "typ": "stol",
+              "pos": [
+                -0.85,
+                0,
+                0.1
+              ],
+              "rot": 90,
+              "nummer": 2
+            },
+            {
+              "id": "stol-3",
+              "typ": "stol",
+              "pos": [
+                0.85,
+                0,
+                0.1
+              ],
+              "rot": -90,
+              "nummer": 3
+            },
+            {
+              "id": "stol-4",
+              "typ": "stol",
+              "pos": [
+                0.85,
+                0,
+                -0.85
+              ],
+              "rot": -90,
+              "nummer": 4,
+              "interaktiv": {
+                "namn": "Stol 4",
+                "text": "Stolen på överstens vänstra sida. Från den här platsen når man överstens glas utan att resa sig – från de andra gör man inte det."
+              }
+            },
+            {
+              "id": "t-o",
+              "typ": "tallrik",
+              "pos": [
+                0,
+                0.755,
+                -1.3
+              ]
+            },
+            {
+              "id": "t-1",
+              "typ": "tallrik",
+              "pos": [
+                -0.33,
+                0.755,
+                -0.85
+              ]
+            },
+            {
+              "id": "t-2",
+              "typ": "tallrik",
+              "pos": [
+                -0.33,
+                0.755,
+                0.1
+              ]
+            },
+            {
+              "id": "t-3",
+              "typ": "tallrik",
+              "pos": [
+                0.33,
+                0.755,
+                0.1
+              ]
+            },
+            {
+              "id": "t-4",
+              "typ": "tallrik",
+              "pos": [
+                0.33,
+                0.755,
+                -0.85
+              ]
+            },
+            {
+              "id": "glaset",
+              "typ": "vinglas",
+              "pos": [
+                0.22,
+                0.755,
+                -1.28
+              ],
+              "valt": true,
+              "pulver": [
+                0.1,
+                0.06
+              ],
+              "interaktiv": {
+                "namn": "Överstens glas",
+                "text": "Överstens vinglas ligger vält. Glaset stod till vänster om hans tallrik, och på duken till vänster om glaset syns ett fint vitt pulverspill – digitalis, enligt kriminalteknikern.",
+                "ger_fynd": "f-spill"
+              }
+            },
+            {
+              "id": "g-1",
+              "typ": "vinglas",
+              "pos": [
+                -0.48,
+                0.755,
+                -0.65
+              ]
+            },
+            {
+              "id": "g-2",
+              "typ": "vinglas",
+              "pos": [
+                -0.48,
+                0.755,
+                0.3
+              ]
+            },
+            {
+              "id": "g-3",
+              "typ": "vinglas",
+              "pos": [
+                0.48,
+                0.755,
+                -0.1
+              ]
+            },
+            {
+              "id": "g-4",
+              "typ": "vinglas",
+              "pos": [
+                0.48,
+                0.755,
+                -1.05
+              ]
+            },
+            {
+              "id": "ljusstake",
+              "typ": "ljusstake",
+              "pos": [
+                0,
+                0.755,
+                -0.4
+              ],
+              "ljus": true,
+              "styrka": 0.8
+            },
+            {
+              "id": "flaskan",
+              "typ": "flaska",
+              "pos": [
+                -0.12,
+                0.755,
+                -0.2
+              ],
+              "interaktiv": {
+                "namn": "Vinflaskan",
+                "text": "Vinet serverades ur samma flaska till alla fem vid bordet. Ingen annan blev sjuk."
+              }
+            },
+            {
+              "id": "protokollbord",
+              "typ": "bord",
+              "pos": [
+                2.4,
+                0,
+                2.3
+              ],
+              "storlek": [
+                0.8,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "id": "protokollen",
+              "typ": "papper",
+              "pos": [
+                2.3,
+                0.75,
+                2.3
+              ],
+              "antal": 4,
+              "interaktiv": {
+                "namn": "Förhörsprotokollen",
+                "text": "Kommissarie Strand har förhört alla fyra gästerna. Protokollen är eniga på en punkt: ingen reste sig under förrätten. I övrigt innehåller de nio uppgifter om vem som satt var, vad de arbetar med och vad de drack – men inte i ett sammanhang. Uppgifterna förs in i din anteckningsbok.",
+                "ger_fynd": [
+                  "f-forhor",
+                  "f-ingen-reste"
+                ]
+              }
+            },
+            {
+              "id": "bokbord",
+              "typ": "bord",
+              "pos": [
+                -2.6,
+                0,
+                2.3
+              ],
+              "storlek": [
+                0.55,
+                0.62,
+                0.55
+              ],
+              "rund": true
+            },
+            {
+              "id": "bok",
+              "typ": "anteckningsbok",
+              "pos": [
+                -2.6,
+                0.62,
+                2.3
+              ],
+              "funktion": "anteckningsbok",
+              "interaktiv": {
+                "namn": "Anteckningsboken"
+              }
+            },
+            {
+              "id": "vaskan",
+              "typ": "vaska",
+              "pos": [
+                2.9,
+                0,
+                -2.3
+              ],
+              "rot": -30,
+              "interaktiv": {
+                "namn": "Läkarväskan",
+                "text": "En svart läkarväska står lutad mot räcket. Den tillhör en av gästerna, läkaren. Överst ligger en burk digitalis – och läkaren medgav genast att hen ”visste precis vad det var” när översten föll ihop.",
+                "ger_fynd": "f-digitalis"
+              }
+            },
+            {
+              "id": "kort1",
+              "typ": "placeringskort",
+              "pos": [
+                -2.4,
+                0,
+                -2.5
+              ],
+              "liggande": true,
+              "interaktiv": {
+                "namn": "Ett placeringskort",
+                "text": "Ett placeringskort, blött av kvällsdaggen. Bläcket har runnit; namnet går inte att läsa."
+              }
+            },
+            {
+              "id": "kort2",
+              "typ": "placeringskort",
+              "pos": [
+                1.2,
+                0,
+                -2.6
+              ],
+              "liggande": true,
+              "rot": 40
+            },
+            {
+              "id": "husdorr",
+              "typ": "dorr",
+              "pos": [
+                0.3,
+                0,
+                3.0
+              ],
+              "rot": 180,
+              "farg": "#e2d6bc",
+              "interaktiv": {
+                "namn": "Verandadörren",
+                "text": "Dörren in till salongen. Kommissarie Strand har stängt den: ”Allt som behövs finns här ute.”"
+              }
+            },
+            {
+              "id": "vaxt1",
+              "typ": "krukvaxt",
+              "pos": [
+                -3.0,
+                0,
+                -2.5
+              ]
+            },
+            {
+              "id": "vaxt2",
+              "typ": "krukvaxt",
+              "pos": [
+                3.0,
+                0,
+                1.6
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bordet",
+      "namn": "Bordsplacering",
+      "mekanik": "logikrutnat",
+      "payload": {
+        "rubrik": "Vem satt var?",
+        "instruktion": "Tryck i en ruta för att växla mellan tom, ✗ och ✓. Översten satt vid kortänden; plats 1–4 räknas runt bordet från hans högra sida, så plats 1 och 4 sitter bredvid honom och plats 4 är hans vänstra sida.",
+        "kategorier": [
+          {
+            "id": "person",
+            "namn": "Gäst",
+            "varden": [
+              {
+                "id": "astrid",
+                "namn": "Astrid"
+              },
+              {
+                "id": "bertil",
+                "namn": "Bertil"
+              },
+              {
+                "id": "cecilia",
+                "namn": "Cecilia"
+              },
+              {
+                "id": "david",
+                "namn": "David"
+              }
+            ]
+          },
+          {
+            "id": "plats",
+            "namn": "Plats",
+            "varden": [
+              {
+                "id": "p1",
+                "namn": "Plats 1",
+                "kort": "1"
+              },
+              {
+                "id": "p2",
+                "namn": "Plats 2",
+                "kort": "2"
+              },
+              {
+                "id": "p3",
+                "namn": "Plats 3",
+                "kort": "3"
+              },
+              {
+                "id": "p4",
+                "namn": "Plats 4",
+                "kort": "4"
+              }
+            ]
+          },
+          {
+            "id": "yrke",
+            "namn": "Yrke",
+            "varden": [
+              {
+                "id": "lakare",
+                "namn": "Läkare",
+                "kort": "Läk"
+              },
+              {
+                "id": "advokat",
+                "namn": "Advokat",
+                "kort": "Adv"
+              },
+              {
+                "id": "konstnar",
+                "namn": "Konstnär",
+                "kort": "Kon"
+              },
+              {
+                "id": "pastor",
+                "namn": "Pastor",
+                "kort": "Pas"
+              }
+            ]
+          },
+          {
+            "id": "dryck",
+            "namn": "Dryck",
+            "varden": [
+              {
+                "id": "sherry",
+                "namn": "Sherry",
+                "kort": "She"
+              },
+              {
+                "id": "whisky",
+                "namn": "Whisky",
+                "kort": "Whi"
+              },
+              {
+                "id": "champagne",
+                "namn": "Champagne",
+                "kort": "Cha"
+              },
+              {
+                "id": "te",
+                "namn": "Te",
+                "kort": "Te"
+              }
+            ]
+          }
+        ],
+        "grannar": {
+          "kategori": "plats",
+          "par": [
+            [
+              "p1",
+              "p2"
+            ],
+            [
+              "p2",
+              "p3"
+            ],
+            [
+              "p3",
+              "p4"
+            ]
+          ]
+        },
+        "ledtradar": [
+          {
+            "id": "L1",
+            "text": "Astrid drack champagne.",
+            "regler": [
+              {
+                "typ": "samma",
+                "a": "astrid",
+                "b": "champagne"
+              }
+            ]
+          },
+          {
+            "id": "L2",
+            "text": "Läkaren satt inte bredvid översten.",
+            "regler": [
+              {
+                "typ": "en_av",
+                "a": "lakare",
+                "b": [
+                  "p2",
+                  "p3"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "L3",
+            "text": "Advokaten satt bredvid översten men drack inte te.",
+            "regler": [
+              {
+                "typ": "en_av",
+                "a": "advokat",
+                "b": [
+                  "p1",
+                  "p4"
+                ]
+              },
+              {
+                "typ": "inte_samma",
+                "a": "advokat",
+                "b": "te"
+              }
+            ]
+          },
+          {
+            "id": "L4",
+            "text": "Den som drack whisky satt direkt mellan advokaten och konstnären.",
+            "regler": [
+              {
+                "typ": "mellan",
+                "a": "whisky",
+                "b": "advokat",
+                "c": "konstnar"
+              }
+            ]
+          },
+          {
+            "id": "L5",
+            "text": "Bertil satt inte bredvid Cecilia.",
+            "regler": [
+              {
+                "typ": "inte_bredvid",
+                "a": "bertil",
+                "b": "cecilia"
+              }
+            ]
+          },
+          {
+            "id": "L6",
+            "text": "David drack inte te.",
+            "regler": [
+              {
+                "typ": "inte_samma",
+                "a": "david",
+                "b": "te"
+              }
+            ]
+          },
+          {
+            "id": "L7",
+            "text": "Den som drack sherry satt på plats 1.",
+            "regler": [
+              {
+                "typ": "samma",
+                "a": "sherry",
+                "b": "p1"
+              }
+            ]
+          },
+          {
+            "id": "L8",
+            "text": "Pastorn är en man.",
+            "regler": [
+              {
+                "typ": "en_av",
+                "a": "pastor",
+                "b": [
+                  "bertil",
+                  "david"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "L9",
+            "text": "David satt inte bredvid översten.",
+            "regler": [
+              {
+                "typ": "en_av",
+                "a": "david",
+                "b": [
+                  "p2",
+                  "p3"
+                ]
+              }
+            ]
+          }
+        ],
+        "losning": {
+          "astrid": {
+            "plats": "p3",
+            "yrke": "konstnar",
+            "dryck": "champagne"
+          },
+          "bertil": {
+            "plats": "p4",
+            "yrke": "pastor",
+            "dryck": "te"
+          },
+          "cecilia": {
+            "plats": "p1",
+            "yrke": "advokat",
+            "dryck": "sherry"
+          },
+          "david": {
+            "plats": "p2",
+            "yrke": "lakare",
+            "dryck": "whisky"
+          }
+        },
+        "bord": {
+          "huvud": "Översten",
+          "ordning": [
+            "p1",
+            "p2",
+            "p3",
+            "p4"
+          ],
+          "glaset_vid": "p4"
+        },
+        "ger_fynd_nar_lost": "f-placering"
+      },
+      "last_upp_av": [
+        "f-forhor"
+      ]
+    }
+  ],
+  "fynd": [
+    {
+      "id": "f-forhor",
+      "titel": "Förhörsprotokollen",
+      "ikon": "📜",
+      "text": "Kommissarie Strands förhörsprotokoll: nio uppgifter om vem som satt var, vad de arbetar med och vad de drack. Bordsplaceringen kan nu rekonstrueras i anteckningsboken.",
+      "typ": "bakgrund"
+    },
+    {
+      "id": "f-spill",
+      "titel": "Pulverspillet",
+      "ikon": "🥃",
+      "text": "Pulverspillet ligger på duken till vänster om överstens glas, och glaset stod till vänster om tallriken.",
+      "typ": "nyckel"
+    },
+    {
+      "id": "f-ingen-reste",
+      "titel": "Ingen reste sig",
+      "ikon": "🪑",
+      "text": "Alla vittnen är eniga: ingen reste sig under förrätten. Bara den som satt direkt till överstens vänster (plats 4) kunde nå glaset.",
+      "typ": "nyckel"
+    },
+    {
+      "id": "f-digitalis",
+      "titel": "Läkarens väska",
+      "ikon": "💊",
+      "text": "Läkaren har digitalis i sin väska och ”visste precis vad det var” när översten föll ihop.",
+      "typ": "avledande",
+      "forklaring": "Läkaren hade kunskapen och medlet – men satt på plats 2, två stolar från glaset, och reste sig aldrig."
+    },
+    {
+      "id": "f-placering",
+      "titel": "Bordsplaceringen",
+      "ikon": "🍽️",
+      "text": "Rekonstruerad placering: 1 Cecilia (advokat, sherry) · 2 David (läkare, whisky) · 3 Astrid (konstnär, champagne) · 4 Bertil (pastor, te).",
+      "typ": "nyckel",
+      "galler": [
+        "bertil"
+      ]
+    }
+  ],
+  "anklagelse": {
+    "hur_fraga": "Hur hamnade giftet i glaset?",
+    "hur_alternativ": [
+      {
+        "id": "plats4",
+        "text": "Från plats 4, överstens vänstra sida, under förrätten"
+      },
+      {
+        "id": "plats1",
+        "text": "Från plats 1, överstens högra sida, under förrätten"
+      },
+      {
+        "id": "reste",
+        "text": "Någon reste sig och gick fram till glaset"
+      },
+      {
+        "id": "flaskan",
+        "text": "Giftet fanns redan i vinflaskan"
+      }
+    ],
+    "hur_kravs": false,
+    "bevis_max": 3
+  },
+  "losning": {
+    "skyldig": "bertil",
+    "hur": "plats4",
+    "hur_text": "Från plats 4, direkt till överstens vänster, under förrätten.",
+    "bevisgrupper": [
+      [
+        "f-placering",
+        "f-spill"
+      ],
+      [
+        "f-placering",
+        "f-ingen-reste"
+      ]
+    ],
+    "uteslutningar": {
+      "astrid": [
+        "f-placering"
+      ],
+      "cecilia": [
+        "f-placering"
+      ],
+      "david": [
+        "f-placering",
+        "f-ingen-reste"
+      ]
+    },
+    "uteslutningar_text": {
+      "astrid": "Astrid satt på plats 3 – inte bredvid översten.",
+      "cecilia": "Cecilia satt på plats 1, på överstens högra sida. Glaset stod till vänster.",
+      "david": "David, läkaren, satt på plats 2, två stolar bort, och reste sig aldrig."
+    }
+  },
+  "ledtradar": [
+    {
+      "niva": 1,
+      "kostnad": 10,
+      "text": "Börja med advokaten. Hen sitter på plats 1 eller 4. Testa båda alternativen."
+    },
+    {
+      "niva": 2,
+      "kostnad": 25,
+      "text": "Om advokaten sitter på plats 4 måste whiskyn stå på plats 3 och konstnären sitta på plats 2. Följ det till slutet och se vad som händer med David."
+    },
+    {
+      "niva": 3,
+      "kostnad": 50,
+      "text": "Advokaten sitter på plats 1. Då sitter läkaren på plats 2, konstnären på plats 3 och pastorn på plats 4. Vem kan pastorn vara?"
+    }
+  ],
+  "aterkoppling": {
+    "ratt": "Giftet sitter inte i flaskan, det sitter i placeringen. Läkaren hade kunskapen, men det var pastorn som hade armbågen närmast glaset. Översten tänkte avslöja att Bertil förskingrat församlingens fond.",
+    "fel": {
+      "david": "Doktorn hade digitalis i väskan, men han satt två stolar bort och reste sig aldrig.",
+      "astrid": "Astrid höjer sitt champagneglas mot dig. ”Jag satt inte ens bredvid honom, kommissarien.”",
+      "cecilia": "Cecilia rättar dig kyligt: ”Jag satt på hans högra sida. Glaset stod till vänster.”"
+    },
+    "fel_allman": "Kommissarie Strand höjer ett ögonbryn …",
+    "forklaring_steg": [
+      {
+        "text": "Enligt L3 sitter advokaten på plats 1 eller 4, och enligt L2 sitter läkaren på plats 2 eller 3."
+      },
+      {
+        "text": "Antag att advokaten sitter på plats 4. Då står whiskyn på plats 3 (L4), konstnären sitter på 2, läkaren på 3 och pastorn på 1. Sherryn står på 1 (L7), champagnen på 4 och teet på 2. Astrid sitter på 4 (L1), Bertil på 1 (L8, L9), Cecilia på 3 (L5) – och David på 2, där teet står. Det strider mot L6. ✗"
+      },
+      {
+        "text": "Advokaten sitter alltså på plats 1 och dricker sherry (L7). Whiskyn står på plats 2 (L4), konstnären sitter på 3, läkaren på 2 och pastorn på 4."
+      },
+      {
+        "text": "Pastorn är en man (L8) men inte David (L9) – alltså Bertil på plats 4."
+      },
+      {
+        "text": "Astrid (champagne) kan inte sitta på 1 eller 2 och sitter därför på 3. Cecilia får inte sitta bredvid Bertil (L5) och sitter på 1. David sitter på 2.",
+        "fynd": [
+          "f-placering"
+        ]
+      },
+      {
+        "text": "Pulvret låg till vänster om glaset, och ingen reste sig. Bara plats 4 kunde nå det.",
+        "fynd": [
+          "f-spill",
+          "f-ingen-reste"
+        ]
+      },
+      {
+        "text": "Pastor Bertil är skyldig. Läkarens digitalis var ett villospår – platsen avgör.",
+        "fynd": [
+          "f-digitalis"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+// Service worker: cachar spelets filer så att det fungerar offline och kan läggas på hemskärmen.
+const VERSION = 'detektiv-v1';
+const FILER = [
+  './', './index.html', './manifest.webmanifest', './css/stil.css',
+  './js/main.js', './js/motor/lagring.js', './js/motor/fall.js', './js/motor/poang.js', './js/motor/losare.js',
+  './js/vyer/gemensamt.js', './js/vyer/meny.js', './js/vyer/presentation.js', './js/vyer/utredning.js',
+  './js/vyer/anteckningsbok.js', './js/vyer/anklagelse.js', './js/vyer/upplosning.js',
+  './js/mekaniker/logikrutnat.js',
+  './js/tre/motor3d.js', './js/tre/prefabs.js', './js/tre/texturer.js', './js/tre/kontroller.js',
+  './vendor/three/three.module.min.js',
+  './fall/index.json', './fall/halsbandet-pa-ekbacka.json', './fall/middagen-pa-solglantan.json',
+  './bilder/fall1/matsalen.jpg', './bilder/fall1/sovrummet.jpg', './bilder/fall1/koksgangen.jpg', './bilder/fall3/verandan.jpg',
+  './ikoner/ikon-192.png', './ikoner/ikon-180.png', './ikoner/favicon.png',
+];
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(FILER)).then(() => self.skipWaiting()));
+});
+self.addEventListener('activate', (e) => {
+  e.waitUntil(caches.keys().then((k) => Promise.all(k.filter((n) => n !== VERSION).map((n) => caches.delete(n)))).then(() => self.clients.claim()));
+});
+// Nätet först (så att nya versioner syns direkt), cache som reserv offline.
+self.addEventListener('fetch', (e) => {
+  if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
+  e.respondWith(
+    fetch(e.request).then((svar) => {
+      if (svar.ok) { const kopia = svar.clone(); caches.open(VERSION).then((c) => c.put(e.request, kopia)); }
+      return svar;
+    }).catch(() => caches.match(e.request, { ignoreSearch: true }))
+  );
+});

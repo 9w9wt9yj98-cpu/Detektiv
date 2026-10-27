@@ -1,0 +1,1103 @@
+{
+  "id": "halsbandet-pa-ekbacka",
+  "version": 1,
+  "meta": {
+    "titel": "Halsbandet på Ekbacka",
+    "miljo": "Herrgård i Sörmland",
+    "epok": "1920-tal",
+    "brottstyp": "stold",
+    "langd": "kort",
+    "uppskattad_tid_min": [
+      2,
+      5
+    ],
+    "svarighet": 1,
+    "karnmekanik": "scen",
+    "bimekaniker": [],
+    "twist": null,
+    "kraver_rang": 0,
+    "accentfarg": "#7a2e1f",
+    "omslag": "bilder/fall1/matsalen.jpg"
+  },
+  "intro": {
+    "rubrik": "Ekbacka herrgård, Sörmland. November 1926.",
+    "text": "Regnet har just upphört över Ekbacka. I stora salen pågår middag för femton gäster när friherrinnan Ebba Wrede går upp till sitt sovrum strax efter klockan nio – och finner sitt pärlhalsband borta.\n\nKl. 19.55 lade hon halsbandet i smyckeskrinet och låste dörren efter sig. Kl. 21.00 var dörren fortfarande låst. Skrinet var tomt och fönstret stod öppet.\n\nDen unge konstapel Strand har ringt efter dig. ”Det ser ut som en inbrottstjuv via fönstret”, säger han. ”Men friherrinnan insisterar på att någon i huset ligger bakom.”",
+    "uppdrag": "Vem tog halsbandet?",
+    "bild": "bilder/fall1/matsalen.jpg",
+    "berattare": "Konstapel Nils Strand"
+  },
+  "personer": [
+    {
+      "id": "friherrinnan",
+      "namn": "Ebba Wrede",
+      "roll": "Friherrinna, halsbandets ägare",
+      "misstankt": true,
+      "beskrivning": "Rak i ryggen, kall i blicken. Har en egen nyckel till sovrummet."
+    },
+    {
+      "id": "holm",
+      "namn": "Holm",
+      "roll": "Butler",
+      "misstankt": true,
+      "beskrivning": "Trettio år i husets tjänst. Oklanderlig, vita handskar. Har huvudnyckeln."
+    },
+    {
+      "id": "elsa",
+      "namn": "Elsa Lund",
+      "roll": "Kammarjungfru",
+      "misstankt": true,
+      "beskrivning": "Ung, nervös och flitig. Har nyckel till friherrinnans sovrum."
+    },
+    {
+      "id": "gustav",
+      "namn": "Gustav Wrede",
+      "roll": "Brorson",
+      "misstankt": true,
+      "beskrivning": "Charmig, pipande, och enligt ryktet djupt skuldsatt efter kortspel. Har ingen nyckel."
+    }
+  ],
+  "moment": [
+    {
+      "id": "sovrummet",
+      "namn": "Sovrummet",
+      "mekanik": "scen",
+      "payload": {
+        "visning": "3d",
+        "rum": {
+          "bredd": 6.4,
+          "djup": 5.4,
+          "hojd": 3.2,
+          "start": {
+            "pos": [
+              -0.9,
+              1.0
+            ],
+            "titta": 0
+          },
+          "tapet": {
+            "grund": "#c9b48e",
+            "monster": "#9c7f58"
+          },
+          "golv": "#6b4a2c",
+          "ljus": {
+            "omgivning": "#ffe2b8",
+            "omgivning_styrka": 0.55
+          },
+          "objekt": [
+            {
+              "id": "matta",
+              "typ": "matta",
+              "pos": [
+                0.2,
+                0,
+                -0.3
+              ],
+              "storlek": [
+                3.6,
+                2.6
+              ],
+              "kollision": false
+            },
+            {
+              "id": "dorr",
+              "typ": "dorr",
+              "pos": [
+                -1.6,
+                0,
+                2.7
+              ],
+              "rot": 180,
+              "interaktiv": {
+                "namn": "Dörren",
+                "text": "Den tunga ekdörren har ett gediget mässingslås. Inga repor, inga bändmärken – låset är helt oskadat. Dörren var låst när friherrinnan kom upp kl. 21.00.",
+                "ger_fynd": "f-dorr"
+              },
+              "gar_till": "koksgangen"
+            },
+            {
+              "id": "fonster",
+              "typ": "fonster",
+              "pos": [
+                1.5,
+                0,
+                -2.7
+              ],
+              "oppet": true,
+              "interaktiv": {
+                "namn": "Fönstret",
+                "text": "Fönstret står på glänt mot den fuktiga novemberkvällen. På det yttre fönsterblecket ligger blött lövskräp och damm i en jämn, orörd hinna. Nedanför syns rabatten – nykrattad, utan ett enda fotspår.",
+                "ger_fynd": "f-fonster"
+              }
+            },
+            {
+              "id": "fonsterbord",
+              "typ": "bord",
+              "pos": [
+                2.55,
+                0,
+                -2.2
+              ],
+              "storlek": [
+                0.6,
+                0.72,
+                0.6
+              ]
+            },
+            {
+              "id": "vas",
+              "typ": "vas",
+              "pos": [
+                2.55,
+                0.72,
+                -2.2
+              ],
+              "valt": true,
+              "interaktiv": {
+                "namn": "Den vältade vasen",
+                "text": "En porslinsvas ligger omkullvält på fönsterbordet. Vattnet har runnit ut åt rummet till, och de avbrutna blommorna ligger innanför fönstret – vasen knuffades inifrån, inte av någon som klättrade in.",
+                "ger_fynd": "f-vas"
+              }
+            },
+            {
+              "id": "byra",
+              "typ": "byra",
+              "pos": [
+                -0.6,
+                0,
+                -2.4
+              ],
+              "storlek": [
+                1.3,
+                0.85,
+                0.5
+              ]
+            },
+            {
+              "id": "smyckeskrin",
+              "typ": "skrin",
+              "pos": [
+                -0.6,
+                0.85,
+                -2.35
+              ],
+              "oppet": true,
+              "interaktiv": {
+                "namn": "Smyckeskrinet",
+                "text": "Skrinet står öppet och tomt; sammetsbädden har kvar avtrycket av pärlorna. I det lilla låset har en vit bomullstråd fastnat.",
+                "ger_fynd": "f-handsktrad"
+              }
+            },
+            {
+              "id": "lampa",
+              "typ": "oljelampa",
+              "pos": [
+                -1.1,
+                0.85,
+                -2.4
+              ],
+              "ljus": true
+            },
+            {
+              "id": "fotspar",
+              "typ": "fotspar",
+              "kollision": false,
+              "punkter": [
+                [
+                  -1.6,
+                  2.2
+                ],
+                [
+                  -1.1,
+                  0.4
+                ],
+                [
+                  -0.7,
+                  -1.8
+                ],
+                [
+                  0.6,
+                  -1.5
+                ],
+                [
+                  1.4,
+                  -2.2
+                ]
+              ],
+              "interaktiv": {
+                "namn": "Avtryck på mattan",
+                "text": "Fuktiga avtryck av släta skosulor löper över mattan: från dörren till byrån, och vidare bort till fönstret. Inga avtryck kommer in från fönstret – de slutar där.",
+                "ger_fynd": "f-fotspar"
+              }
+            },
+            {
+              "id": "eldstad",
+              "typ": "eldstad",
+              "pos": [
+                -3.2,
+                0,
+                -0.4
+              ],
+              "rot": 90,
+              "interaktiv": {
+                "namn": "Eldstaden",
+                "text": "Brasan har brunnit ner till glöd. Askan är kall i kanterna – ingen har eldat papper här i kväll."
+              }
+            },
+            {
+              "id": "pendyl",
+              "typ": "pendyl",
+              "pos": [
+                -3.05,
+                1.22,
+                -0.4
+              ],
+              "rot": 90,
+              "interaktiv": {
+                "namn": "Pendylen",
+                "text": "Den förgyllda pendylen på spiselhyllan går rätt. Den visar 21.14."
+              }
+            },
+            {
+              "id": "tavla",
+              "typ": "tavla",
+              "pos": [
+                -3.17,
+                1.95,
+                -0.4
+              ],
+              "rot": 90,
+              "storlek": [
+                1.2,
+                0.8
+              ],
+              "interaktiv": {
+                "namn": "Tavlan",
+                "text": "Ett oljemåleri av Ekbacka i sommarskrud. Ramen sitter stadigt och bakom den finns bara tapet."
+              }
+            },
+            {
+              "id": "fatolj",
+              "typ": "fatolj",
+              "pos": [
+                -2.2,
+                0,
+                0.9
+              ],
+              "rot": 120,
+              "interaktiv": {
+                "namn": "Fåtöljen",
+                "text": "En nött fåtölj vid brasan, med friherrinnans sjal över armstödet. Dynan är kall – ingen har suttit här i kväll."
+              }
+            },
+            {
+              "id": "sidobord",
+              "typ": "bord",
+              "pos": [
+                -2.35,
+                0,
+                1.75
+              ],
+              "storlek": [
+                0.5,
+                0.6,
+                0.5
+              ],
+              "rund": true
+            },
+            {
+              "id": "askkopp",
+              "typ": "askkopp",
+              "pos": [
+                -2.35,
+                0.6,
+                1.75
+              ],
+              "interaktiv": {
+                "namn": "Askkoppen",
+                "text": "I kristallaskkoppen ligger grå, smulig pipaska. Gustav Wrede är husets ende piprökare.",
+                "ger_fynd": "f-pipaska"
+              }
+            },
+            {
+              "id": "sang",
+              "typ": "sang",
+              "pos": [
+                2.15,
+                0,
+                1.2
+              ],
+              "rot": -90,
+              "interaktiv": {
+                "namn": "Sängen",
+                "text": "Himmelssängen är bäddad med stärkta lakan. Ingen har rört den sedan Elsa vek ner överkastet vid sjutiden."
+              }
+            },
+            {
+              "id": "bokhylla",
+              "typ": "bokhylla",
+              "pos": [
+                3.05,
+                0,
+                -1.0
+              ],
+              "rot": -90,
+              "lucka": true,
+              "interaktiv": {
+                "namn": "Bokhyllan",
+                "text": "En lucka i raden av romaner. Friherrinnan förklarar: ”Gustav lånade en bok här i eftermiddags. Jag stod själv bredvid.”",
+                "ger_fynd": "f-bokhylla"
+              }
+            },
+            {
+              "id": "bokbord",
+              "typ": "bord",
+              "pos": [
+                0.4,
+                0,
+                2.15
+              ],
+              "storlek": [
+                0.55,
+                0.62,
+                0.55
+              ],
+              "rund": true
+            },
+            {
+              "id": "bok",
+              "typ": "anteckningsbok",
+              "pos": [
+                0.4,
+                0.62,
+                2.15
+              ],
+              "funktion": "anteckningsbok",
+              "interaktiv": {
+                "namn": "Anteckningsboken"
+              }
+            }
+          ],
+          "miljo": "inomhus",
+          "panel": "#5a3b22"
+        }
+      }
+    },
+    {
+      "id": "koksgangen",
+      "namn": "Köksgången",
+      "mekanik": "scen",
+      "last_upp_av": [
+        "f-dorr"
+      ],
+      "last_text": "Dörren till tjänstetrappan. Konstapel Strand: ”Undersök sovrummet först – hur kom tjuven in?”",
+      "payload": {
+        "visning": "3d",
+        "rum": {
+          "bredd": 2.6,
+          "djup": 6.0,
+          "hojd": 2.8,
+          "miljo": "inomhus",
+          "golv": {
+            "typ": "sten"
+          },
+          "tapet": {
+            "grund": "#b9a47e",
+            "monster": "#8a7350"
+          },
+          "panel": "#4a3420",
+          "ljus": {
+            "omgivning": "#ffe0b0",
+            "omgivning_styrka": 0.5
+          },
+          "start": {
+            "pos": [
+              0.2,
+              2.3
+            ],
+            "titta": 0
+          },
+          "objekt": [
+            {
+              "id": "trappdorr",
+              "typ": "dorr",
+              "pos": [
+                -0.3,
+                0,
+                3.0
+              ],
+              "rot": 180,
+              "gar_till": "sovrummet",
+              "interaktiv": {
+                "namn": "Tjänstetrappan",
+                "text": "Den smala tjänstetrappan leder upp till friherrinnans sovrum."
+              }
+            },
+            {
+              "id": "nyckelskap",
+              "typ": "nyckelskap",
+              "pos": [
+                -1.3,
+                1.5,
+                1.0
+              ],
+              "rot": 90,
+              "interaktiv": {
+                "namn": "Nyckelskåpet",
+                "text": "Husets nyckelskåp. Holm för ordning på varje krok. Till friherrinnans sovrum finns exakt tre nycklar: friherrinnans egen, kammarjungfru Elsa Lunds – och Holms huvudnyckel, som han bär på sig. Gästerna har inga nycklar.",
+                "ger_fynd": "f-nycklar"
+              }
+            },
+            {
+              "id": "pulpet",
+              "typ": "pulpet",
+              "pos": [
+                -0.8,
+                0,
+                -0.6
+              ],
+              "rot": 90,
+              "interaktiv": {
+                "namn": "Källarboken",
+                "text": "Källarboken ligger uppslagen på pulpeten. Dagens sista rad, i Holms prydliga handstil: ”1919 Bordeaux, 1 fl. – uppburen till skafferiet kl. 15.00. /H.”",
+                "ger_fynd": "f-kallarboken"
+              }
+            },
+            {
+              "id": "krokar",
+              "typ": "krokar",
+              "pos": [
+                1.3,
+                1.65,
+                0.4
+              ],
+              "rot": -90,
+              "handskar": true,
+              "interaktiv": {
+                "namn": "Handskarna",
+                "text": "Vita bomullshandskar hänger på krokarna. Både butlern och all serveringspersonal bär sådana under middagen.",
+                "ger_fynd": "f-handskar"
+              }
+            },
+            {
+              "id": "livre",
+              "typ": "livre",
+              "pos": [
+                1.28,
+                1.62,
+                -0.7
+              ],
+              "rot": -90,
+              "interaktiv": {
+                "namn": "Livrérocken",
+                "text": "En mörk livrérock – en reservrock, enligt lappen i kragen. Fickorna är tomma."
+              }
+            },
+            {
+              "id": "skafferi",
+              "typ": "hylla",
+              "pos": [
+                0,
+                0,
+                -2.75
+              ],
+              "storlek": [
+                2.2
+              ],
+              "interaktiv": {
+                "namn": "Skafferiet",
+                "text": "Skafferiets hyllor: syltburkar, saft och konserver. Det är svalt här, men inte kallt som i en källare."
+              }
+            },
+            {
+              "id": "saldorr",
+              "typ": "dorr",
+              "pos": [
+                -1.3,
+                0,
+                -1.9
+              ],
+              "rot": 90,
+              "gar_till": "matsalen",
+              "interaktiv": {
+                "namn": "Serveringsdörren",
+                "text": "Serveringsdörren leder in till stora salen."
+              }
+            },
+            {
+              "id": "lampbord",
+              "typ": "bord",
+              "pos": [
+                0.95,
+                0,
+                2.2
+              ],
+              "storlek": [
+                0.5,
+                0.8,
+                0.4
+              ]
+            },
+            {
+              "id": "lampa",
+              "typ": "oljelampa",
+              "pos": [
+                1.05,
+                0.8,
+                2.25
+              ],
+              "ljus": true,
+              "styrka": 2.0
+            },
+            {
+              "id": "bok",
+              "typ": "anteckningsbok",
+              "pos": [
+                0.85,
+                0.8,
+                2.15
+              ],
+              "funktion": "anteckningsbok",
+              "interaktiv": {
+                "namn": "Anteckningsboken"
+              }
+            },
+            {
+              "id": "krona",
+              "typ": "ljuskrona",
+              "pos": [
+                0,
+                2.8,
+                -1.4
+              ],
+              "styrka": 1.6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "matsalen",
+      "namn": "Stora salen",
+      "mekanik": "scen",
+      "last_upp_av": [
+        "f-nycklar"
+      ],
+      "last_text": "Konstapel Strand håller upp handen: ”Salen kan vänta. Ta reda på vem som har nyckel till sovrummet först.”",
+      "payload": {
+        "visning": "3d",
+        "rum": {
+          "bredd": 7.0,
+          "djup": 6.0,
+          "hojd": 3.4,
+          "miljo": "inomhus",
+          "golv": "#5e3f24",
+          "tapet": {
+            "grund": "#b8a07a",
+            "monster": "#7d6040"
+          },
+          "panel": "#4e321c",
+          "ljus": {
+            "omgivning": "#ffe0b0",
+            "omgivning_styrka": 0.5
+          },
+          "start": {
+            "pos": [
+              -2.0,
+              2.2
+            ],
+            "titta": -15
+          },
+          "objekt": [
+            {
+              "id": "matta",
+              "typ": "matta",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "storlek": [
+                5.2,
+                3.6
+              ],
+              "kollision": false
+            },
+            {
+              "id": "langbord",
+              "typ": "langbord",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rot": 90,
+              "storlek": [
+                1.2,
+                0.76,
+                4.2
+              ],
+              "kuvert": 14,
+              "stolar": true,
+              "ljusstakar": [
+                -1.0,
+                1.0
+              ],
+              "interaktiv": {
+                "namn": "Middagsbordet",
+                "text": "Långbordet med femton kuvert. Friherrinnans stol står vid kortänden, närmast brasan, med full uppsikt över salen."
+              }
+            },
+            {
+              "id": "skank",
+              "typ": "skank",
+              "pos": [
+                3.25,
+                0,
+                -1.2
+              ],
+              "rot": -90,
+              "storlek": [
+                1.6,
+                0.95,
+                0.5
+              ]
+            },
+            {
+              "id": "vinflaskan",
+              "typ": "flaska",
+              "pos": [
+                3.2,
+                0.95,
+                -0.9
+              ],
+              "interaktiv": {
+                "namn": "Vinflaskan",
+                "text": "Bordeauxflaskan på serveringsbordet. Glaset är blankt och helt fritt från damm, och flaskan har samma temperatur som rummet.",
+                "ger_fynd": "f-vinflaskan"
+              },
+              "avstand": 2.6
+            },
+            {
+              "id": "karaff",
+              "typ": "karaff",
+              "pos": [
+                3.2,
+                0.95,
+                -1.6
+              ]
+            },
+            {
+              "id": "listbord",
+              "typ": "bord",
+              "pos": [
+                -2.6,
+                0,
+                -2.3
+              ],
+              "storlek": [
+                0.8,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "id": "gastlistan",
+              "typ": "papper",
+              "pos": [
+                -2.8,
+                0.75,
+                -2.3
+              ],
+              "antal": 3,
+              "interaktiv": {
+                "namn": "Gästernas vittnesmål",
+                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen. Elsa Lund serverade soppan och sedan steken, och lämnade aldrig salen. Holm gick ut 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
+                "ger_fynd": [
+                  "f-servering",
+                  "f-holm-borta"
+                ]
+              }
+            },
+            {
+              "id": "bok",
+              "typ": "anteckningsbok",
+              "pos": [
+                -2.4,
+                0.75,
+                -2.25
+              ],
+              "funktion": "anteckningsbok",
+              "interaktiv": {
+                "namn": "Anteckningsboken"
+              }
+            },
+            {
+              "id": "kallardorr",
+              "typ": "kallardorr",
+              "pos": [
+                2.0,
+                0,
+                -3.0
+              ],
+              "interaktiv": {
+                "namn": "Källartrappan",
+                "text": "Dörren mot källartrappan står på glänt. En kall, fuktig luft stiger upp. Flaskor som hämtas härifrån brukar vara svala – och dammiga.",
+                "ger_fynd": "f-kallaren"
+              }
+            },
+            {
+              "id": "tillbaka",
+              "typ": "dorr",
+              "pos": [
+                -2.0,
+                0,
+                3.0
+              ],
+              "rot": 180,
+              "gar_till": "koksgangen",
+              "interaktiv": {
+                "namn": "Serveringsdörren",
+                "text": "Serveringsdörren tillbaka till köksgången."
+              }
+            },
+            {
+              "id": "eldstad",
+              "typ": "eldstad",
+              "pos": [
+                -3.5,
+                0,
+                1.0
+              ],
+              "rot": 90,
+              "styrka": 1.6
+            },
+            {
+              "id": "pendyl",
+              "typ": "pendyl",
+              "pos": [
+                -3.35,
+                1.16,
+                1.0
+              ],
+              "rot": 90,
+              "interaktiv": {
+                "namn": "Pendylen",
+                "text": "Pendylen på spiselhyllan. Den slog halv nio när soppan bars in."
+              }
+            },
+            {
+              "id": "tavla",
+              "typ": "tavla",
+              "pos": [
+                -0.6,
+                2.1,
+                -2.97
+              ],
+              "storlek": [
+                1.4,
+                0.9
+              ],
+              "seed": 73
+            },
+            {
+              "id": "krona",
+              "typ": "ljuskrona",
+              "pos": [
+                0,
+                3.4,
+                0
+              ],
+              "styrka": 2.4
+            },
+            {
+              "id": "vaxt",
+              "typ": "krukvaxt",
+              "pos": [
+                3.0,
+                0,
+                2.5
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "fynd": [
+    {
+      "id": "f-fonster",
+      "titel": "Orört fönsterbleck",
+      "ikon": "🪟",
+      "text": "Fönstret står öppet, men lövskräpet och dammet på yttre blecket är orörda. Rabatten nedanför saknar fotspår.",
+      "typ": "nyckel"
+    },
+    {
+      "id": "f-dorr",
+      "titel": "Oskadat lås",
+      "ikon": "🚪",
+      "text": "Dörrens lås är oskadat, och dörren var låst kl. 21.00.",
+      "typ": "nyckel"
+    },
+    {
+      "id": "f-fotspar",
+      "titel": "Avtryck på mattan",
+      "ikon": "👞",
+      "text": "Fuktiga avtryck av släta sulor går från dörren till byrån och vidare till fönstret – men inga kommer in från fönstret.",
+      "typ": "stod"
+    },
+    {
+      "id": "f-vas",
+      "titel": "Vältad vas",
+      "ikon": "🏺",
+      "text": "Vasen vid fönstret är vält inifrån; vattnet har runnit in mot rummet.",
+      "typ": "stod",
+      "forklaring": "Vasen och avtrycken var en del av kulissen: tjuven knuffade vasen och öppnade fönstret inifrån för att det skulle se ut som ett inbrott."
+    },
+    {
+      "id": "f-handsktrad",
+      "titel": "Vit tråd",
+      "ikon": "🧵",
+      "text": "En vit bomullstråd har fastnat i smyckeskrinets lås.",
+      "typ": "stod",
+      "galler": [
+        "holm"
+      ],
+      "forklaring": "Tråden stöder slutsatsen men bevisar inget ensam – all serveringspersonal bär vita bomullshandskar."
+    },
+    {
+      "id": "f-pipaska",
+      "titel": "Pipaska",
+      "ikon": "🚬",
+      "text": "Pipaska i askkoppen. Gustav Wrede är husets ende piprökare.",
+      "typ": "avledande",
+      "galler": [
+        "gustav"
+      ],
+      "forklaring": "Gustav var i rummet på eftermiddagen för att låna en bok – friherrinnan bekräftar det. Askan säger ingenting om kvällen."
+    },
+    {
+      "id": "f-bokhylla",
+      "titel": "Lånad bok",
+      "ikon": "📕",
+      "text": "Gustav lånade en bok ur sovrummets hylla på eftermiddagen, med friherrinnan närvarande.",
+      "typ": "bakgrund",
+      "galler": [
+        "gustav"
+      ]
+    },
+    {
+      "id": "f-nycklar",
+      "titel": "Tre nycklar",
+      "ikon": "🗝️",
+      "text": "Det finns tre nycklar till sovrummet: friherrinnans, Elsa Lunds och Holms huvudnyckel. Gustav har ingen.",
+      "typ": "nyckel",
+      "galler": [
+        "friherrinnan",
+        "elsa",
+        "holm"
+      ]
+    },
+    {
+      "id": "f-kallarboken",
+      "titel": "Källarboken",
+      "ikon": "📒",
+      "text": "Enligt källarboken bars 1919 års Bordeaux upp till skafferiet redan kl. 15.00 – signerat H.",
+      "typ": "nyckel",
+      "galler": [
+        "holm"
+      ]
+    },
+    {
+      "id": "f-handskar",
+      "titel": "Vita handskar",
+      "ikon": "🧤",
+      "text": "Både butlern och serveringspersonalen bär vita bomullshandskar.",
+      "typ": "bakgrund",
+      "galler": [
+        "holm",
+        "elsa"
+      ]
+    },
+    {
+      "id": "f-servering",
+      "titel": "Vid bordet hela tiden",
+      "ikon": "🍲",
+      "text": "Gästerna: friherrinnan satt vid bordet och Elsa serverade i salen hela middagen.",
+      "typ": "nyckel",
+      "galler": [
+        "friherrinnan",
+        "elsa"
+      ]
+    },
+    {
+      "id": "f-holm-borta",
+      "titel": "Holm gick ut",
+      "ikon": "🕣",
+      "text": "Holm lämnade salen 20.30–20.40 ”för att hämta 1919 års Bordeaux i källaren”.",
+      "typ": "nyckel",
+      "galler": [
+        "holm"
+      ]
+    },
+    {
+      "id": "f-vinflaskan",
+      "titel": "Dammfri flaska",
+      "ikon": "🍷",
+      "text": "Bordeauxflaskan är dammfri och rumstempererad.",
+      "typ": "nyckel",
+      "galler": [
+        "holm"
+      ]
+    },
+    {
+      "id": "f-kallaren",
+      "titel": "Kall källare",
+      "ikon": "🕯️",
+      "text": "Flaskor som hämtas ur källaren är svala och dammiga.",
+      "typ": "bakgrund"
+    }
+  ],
+  "anklagelse": {
+    "hur_fraga": "Hur och när kom tjuven åt halsbandet?",
+    "hur_alternativ": [
+      {
+        "id": "fonster",
+        "text": "Klättrade in genom fönstret under middagen"
+      },
+      {
+        "id": "nyckel-2030",
+        "text": "Låste upp dörren med nyckel, mellan 20.30 och 20.40"
+      },
+      {
+        "id": "fore",
+        "text": "Tog halsbandet före kl. 19.55, innan dörren låstes"
+      },
+      {
+        "id": "nyckel-efter",
+        "text": "Låste upp dörren med nyckel, efter kl. 21.00"
+      }
+    ],
+    "hur_kravs": false,
+    "bevis_max": 3
+  },
+  "losning": {
+    "skyldig": "holm",
+    "hur": "nyckel-2030",
+    "hur_text": "Med huvudnyckeln, under sitt påstådda källarbesök 20.30–20.40.",
+    "bevisgrupper": [
+      [
+        "f-nycklar",
+        "f-vinflaskan"
+      ],
+      [
+        "f-nycklar",
+        "f-kallarboken"
+      ],
+      [
+        "f-holm-borta",
+        "f-kallarboken"
+      ],
+      [
+        "f-holm-borta",
+        "f-vinflaskan"
+      ],
+      [
+        "f-dorr",
+        "f-kallarboken"
+      ],
+      [
+        "f-dorr",
+        "f-vinflaskan"
+      ]
+    ],
+    "uteslutningar": {
+      "friherrinnan": [
+        "f-servering"
+      ],
+      "elsa": [
+        "f-servering"
+      ],
+      "gustav": [
+        "f-fonster",
+        "f-nycklar"
+      ]
+    },
+    "uteslutningar_text": {
+      "friherrinnan": "Friherrinnan har nyckel, men satt vid bordets ände hela middagen inför femton gäster.",
+      "elsa": "Elsa har nyckel, men femton gäster såg henne servera i salen hela kvällen.",
+      "gustav": "Gustav har ingen nyckel, och fönstret – den enda andra vägen in – användes inte."
+    }
+  },
+  "ledtradar": [
+    {
+      "niva": 1,
+      "kostnad": 10,
+      "text": "Hur kom tjuven in? Titta noga på fönstret."
+    },
+    {
+      "niva": 2,
+      "kostnad": 25,
+      "text": "Om fönstret inte användes måste tjuven ha haft nyckel. Vilka har nyckel, och var var de mellan 19.55 och 21.00?"
+    },
+    {
+      "niva": 3,
+      "kostnad": 50,
+      "text": "Två av nyckelinnehavarna satt eller serverade vid bordet hela tiden. Den tredje lämnade salen. Stämmer hans förklaring med vinflaskan?"
+    }
+  ],
+  "aterkoppling": {
+    "ratt": "Elementärt! Fönstret var en kuliss. Ingen klättrar genom ett fönster utan att röra lövskräpet. Kvar fanns tre nycklar och bara en nyckelbärare som lämnade bordet. Och vem går till källaren efter en flaska som redan står i skafferiet?",
+    "fel": {
+      "gustav": "Gustav rodnar, men hur skulle han ha kommit in? Han har ingen nyckel och fönstret är orört.",
+      "elsa": "Elsa har nyckel, men femton gäster såg henne servera soppan.",
+      "friherrinnan": "Friherrinnan stirrar på dig. ”Jag satt vid mitt eget bord hela kvällen, inför femton vittnen.”"
+    },
+    "fel_allman": "Konstapel Strand höjer ett ögonbryn …",
+    "forklaring_steg": [
+      {
+        "text": "Fönsterblecket och rabatten är orörda. Tjuven kom inte in genom fönstret – det öppnades inifrån för att lura, och vasen välte inåt.",
+        "fynd": [
+          "f-fonster",
+          "f-vas",
+          "f-fotspar"
+        ]
+      },
+      {
+        "text": "Låset är oskadat. Tjuven använde alltså en av nycklarna.",
+        "fynd": [
+          "f-dorr"
+        ]
+      },
+      {
+        "text": "Det finns tre nycklar: friherrinnans, Elsas och Holms huvudnyckel.",
+        "fynd": [
+          "f-nycklar"
+        ]
+      },
+      {
+        "text": "Friherrinnan och Elsa var i salen hela tiden enligt flera oberoende vittnen och kan uteslutas.",
+        "fynd": [
+          "f-servering"
+        ]
+      },
+      {
+        "text": "Kvar finns Holm. Han var borta 20.30–20.40 – men flaskan han påstod sig hämta i källaren stod redan i skafferiet sedan kl. 15, dammfri och rumstempererad.",
+        "fynd": [
+          "f-holm-borta",
+          "f-kallarboken",
+          "f-vinflaskan"
+        ]
+      },
+      {
+        "text": "Gustav har ingen nyckel och kunde inte använda fönstret. Hans pipaska är från eftermiddagens boklån.",
+        "fynd": [
+          "f-pipaska",
+          "f-bokhylla"
+        ]
+      },
+      {
+        "text": "Holm är skyldig. Halsbandet hittas i fickan på hans livrérock, som hänger i skafferiet."
+      }
+    ]
+  }
+}

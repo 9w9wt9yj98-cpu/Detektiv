@@ -1,0 +1,17 @@
+{
+  "name": "Detektiv",
+  "short_name": "Detektiv",
+  "description": "Klassiska detektivfall att lösa med logik och observation.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#2b1a0a",
+  "theme_color": "#2b1a0a",
+  "icons": [
+    { "src": "ikoner/ikon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "ikoner/ikon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "ikoner/ikon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

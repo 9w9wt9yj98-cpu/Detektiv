@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "kapitel": [
+    {
+      "id": "kapitel-1",
+      "titel": "Kapitel I – Aspirant",
+      "fall": [
+        { "nummer": 1, "id": "halsbandet-pa-ekbacka", "fil": "halsbandet-pa-ekbacka.json" },
+        { "nummer": 2, "id": "nattaget-mot-narvik", "titel": "Nattåget mot Narvik", "kommer": true },
+        { "nummer": 3, "id": "middagen-pa-solglantan", "fil": "middagen-pa-solglantan.json" },
+        { "nummer": 4, "id": "kvart-i-elva", "titel": "Kvart i elva", "kommer": true },
+        { "nummer": 5, "id": "fyren-pa-graskar", "titel": "Fyren på Gråskär", "kommer": true }
+      ]
+    }
+  ]
+}
