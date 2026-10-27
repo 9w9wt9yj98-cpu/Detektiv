@@ -73,3 +73,23 @@ Tre miljöer: **salen** (skänken där skålen stod), **gården** utomhus (midso
 5. Villospår: Olle vid skänken 17.05 (skålen står kvar efter honom), Mikaels väska (en tårtbricka) och själva ”stölden” 17.05–17.20, som bara gällde kopian.
 
 *Rättning:* Parkeringskvittot ändrades från 14.31 till 12.44 – med två och en halv timmes bilväg hade Lena annars inte hunnit hem till 15.16.
+
+## Fall 5 – Kvart i elva
+
+Fyra miljöer: **urmakeriet** (glasmontern, den krossade väggklockan, den uppbrutna luckan, ekspån på golvet), **Österlånggatan** i snöfall med gaslyktor (nattväktaren, grannen, gesällen), **poliskammaren** (liggaren, krögarens intyg, gillets protokoll, spårvagnsbiljetten och kartan med gångtider) och **Rapps kök** på Kungsholmen. Poliskammaren och Rapps kök låses upp när Fältskog har berättat vilka som har nyckel.
+
+Ny mekanik **Tidslinje** (`mekanik: "tidslinje"`, kod i `js/mekaniker/tidslinje.js`), som låses upp av kartan med gångtider:
+- Uppgifterna i fallet blir **tidskort** (`kort`). Spelaren trycker på ett kort och lägger det på rätt persons tidslinje. Fel person kostar inget.
+- Motorn räknar gångtiden (`gangtider`) mellan varje par av uppgifter och visar rött när det är omöjligt och gult när minst 15 minuter är oförklarade (Rapps tjugo minuter).
+- Heldragna kort kommer från oberoende källor, streckade är personens eget påstående. Ett påstående som krockar med en uppgift ger en **⚡ motsägelse** som spelaren kan invända mot (`konflikter`).
+- När brottstiden är fastställd (slutsatsen ger fyndet `f-brottstid`) kan varje person **prövas**: motorn lägger in ”vid montern 22.45–22.47” och räknar om. Resultatet ger ett fynd (`prov`).
+
+**Varför lösningen är unik** – `validera_fall.mjs` räknar om alla tidslinjer och kräver att exakt den skyldige klarar prövningen:
+1. Väktaren (hel 22.30, bruten 23.00), grannen (skräll strax efter tre kvart) och klockan (22.47) ger brottstiden 22.45–22.47.
+2. Montern öppnades med nyckel. Bara Fältskog, Karl Ek och Rapp har nyckel; fru Lindh kan uteslutas redan här (och satt dessutom på spårvagnen 22.40–22.52).
+3. Fältskog satt på Grand Hôtel inför fyrtio gäster.
+4. Karl ljög om krogen, men stod på pantlånekontoret 22.40 – 20 minuter bort. Tidigast 23.00 i butiken.
+5. Rapp: gillet 22.30 → urmakeriet 6 min (22.36) → ut 22.47 → hem 18 min = 23.05, precis när hustrun säger att han kom. Raka vägen (15 min) hade gett 22.45, som han själv påstår.
+6. Stöd: färska ekspån i Rapps rock, fast han ”inte varit i butiken på sex år”; ritningen till Polaris ger motivet.
+
+*Rättning mot förslaget:* krögaren säger att Karl gick ”strax efter kvart över tio” (22.20) i stället för 22.25 – med 16 minuters gångväg hade han annars inte hunnit till pantlånekontoret 22.40, och tidslinjen hade visat hans sanna uppgifter som omöjliga. Polaris konstruerades enligt ritningen av Rapp och Fältskog tillsammans.

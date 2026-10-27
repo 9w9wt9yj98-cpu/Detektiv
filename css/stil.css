@@ -411,3 +411,39 @@ legend small { font-weight: 400; color: var(--brun3); }
 .bj-besked-ruta { margin: 4px 0 12px; padding: 8px 10px; border-radius: 8px; background: rgba(255,250,235,.7); border: 1px dashed rgba(90,59,34,.35); min-height: 44px; }
 .bj-besked-ruta.aktiv { border-style: solid; background: #fffaf0; }
 .bj-besked-ruta .jf-besked { margin: 0; }
+
+/* Tidslinje */
+.tidslinje { padding-bottom: 6px; }
+.tl-tabell { margin: 4px 0 8px; } .tl-tabell summary { cursor: pointer; font-weight: 600; color: var(--brun2); padding: 6px 0; }
+.tl-tabell table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.tl-tabell td { padding: 4px 6px; border-bottom: 1px dotted rgba(90,59,34,.35); } .tl-tabell td:last-child { text-align: right; font-weight: 700; white-space: nowrap; }
+.tl-brottrad { margin: 6px 0; padding: 6px 10px; border-radius: 6px; background: rgba(122,46,31,.08); border: 1px solid rgba(122,46,31,.3); font-size: 15px; }
+.tl-hog { display: grid; gap: 6px; margin: 8px 0; }
+.tl-hogrubrik { margin: 0; font-weight: 600; font-size: 15px; }
+.tl-kort { display: block; text-align: left; width: 100%; min-height: 48px; padding: 8px 10px; border-radius: 8px; border: 1.5px solid var(--brun3); background: #fbf4e2; font: 15px/1.35 var(--serif); color: var(--black); cursor: pointer; }
+.tl-kort small { display: block; color: var(--brun2); font-size: 13px; margin-top: 2px; }
+.tl-kort.pastaende { border-style: dashed; background: #f6ecd8; }
+.tl-kort.vald { background: linear-gradient(180deg, #fbe7ad, #e0b75e); border-color: #5a3c0e; box-shadow: 0 0 0 3px rgba(90,60,14,.25); }
+.tl-tid { font-weight: 700; font-variant-numeric: tabular-nums; margin-right: 4px; }
+.tl-skala { position: relative; height: 18px; margin: 10px 8px 0 8px; font-size: 11px; color: var(--brun3); }
+.tl-skala span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.tl-bana { margin: 6px 0 10px; padding: 8px; border-radius: 8px; background: rgba(255,250,235,.55); border: 1px solid rgba(90,59,34,.25); }
+.tl-bana.malbar { border: 2px dashed var(--massing-mork); }
+.tl-bana header { display: flex; align-items: center; gap: 8px; }
+.tl-bana header > div { flex: 1; min-width: 0; } .tl-bana header em { color: var(--brun3); font-size: 13px; }
+.tl-axel { position: relative; height: 22px; margin: 8px 0 4px; border-radius: 4px; background: repeating-linear-gradient(90deg, rgba(90,59,34,.12) 0 1px, transparent 1px 16.66%), rgba(227,208,166,.5); overflow: hidden; }
+.tl-block { position: absolute; top: 3px; height: 16px; border-radius: 3px; background: var(--brun2); }
+.tl-block.pastaende { top: 6px; height: 10px; background: transparent; border: 2px dashed var(--brun3); }
+.tl-block.hypotes { background: var(--rod); opacity: .85; }
+.tl-brottband { position: absolute; top: 0; bottom: 0; background: rgba(122,46,31,.25); border-left: 1px solid var(--rod); border-right: 1px solid var(--rod); }
+.tl-forklaring { font-size: 13px; color: var(--brun3); display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.tl-forklaring .tl-block, .tl-forklaring .tl-brottband { position: static; display: inline-block; width: 22px; height: 10px; vertical-align: middle; }
+.tl-rader { list-style: none; margin: 4px 0; padding: 0; font-size: 14px; }
+.tl-rad { display: flex; gap: 6px; padding: 3px 0; } .tl-rad .tl-tid { flex: none; min-width: 44px; }
+.tl-rad.pastaende { color: var(--brun2); font-style: italic; } .tl-rad.hypotes { color: var(--rod); }
+.tl-resa { padding: 2px 0 2px 14px; font-size: 13px; color: #3f5a1c; }
+.tl-resa.fel { color: var(--rod); font-weight: 700; } .tl-resa.lucka { color: #8a5a00; font-weight: 700; } .tl-resa.okand { color: var(--brun3); }
+.tl-konflikt { display: flex; align-items: center; gap: 8px; margin: 6px 0; padding: 6px 8px; border-radius: 6px; background: #f6dcc8; border: 1px solid var(--rod); font-size: 14px; }
+.tl-konflikt span { flex: 1; } .tl-konflikt.klar { background: rgba(160,190,110,.18); border-color: #8aa25a; }
+.tl-prov { margin: 6px 0 0; font-weight: 700; font-size: 15px; } .tl-prov.mojlig { color: var(--rod); } .tl-prov.omojlig { color: #3f5a1c; }
+.tl-provknapp { width: 100%; margin-top: 6px; }

@@ -11,7 +11,7 @@ import { esc, modal, toast, lampa, bokIkon, hemIkon, $ } from './gemensamt.js';
 function webglFinns() {
   try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; }
 }
-const MATERIAL_ETIKETT = { utsaga: 'Utsaga', dokument: 'Dokument', bild: 'Bild' };
+const MATERIAL_ETIKETT = { utsaga: 'Utsaga', dokument: 'Dokument', bild: 'Bild', kort: 'Tidskort' };
 
 export async function visaUtredning(app, id) {
   const f = await laddaFall(id);

@@ -34,8 +34,7 @@
         {
           "nummer": 5,
           "id": "kvart-i-elva",
-          "titel": "Kvart i elva",
-          "kommer": true
+          "fil": "kvart-i-elva.json"
         },
         {
           "nummer": 6,

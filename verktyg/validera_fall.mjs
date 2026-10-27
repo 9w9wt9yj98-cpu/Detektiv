@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { verifiera } from '../js/motor/losare.js';
 import { materialMap } from '../js/motor/fall.js';
 import { bedom } from '../js/mekaniker/bildjamforelse.js';
+import { analysera } from '../js/mekaniker/tidslinje.js';
 
 const rot = new URL('../fall/', import.meta.url);
 const index = JSON.parse(readFileSync(new URL('index.json', rot)));
@@ -16,7 +17,7 @@ function mekanikKallor(m) {
   const ut = [];
   const p = m.payload || {};
   for (const [nyckel, v] of Object.entries(p)) {
-    if (!Array.isArray(v) || ['utsagor', 'dokument', 'bilder'].includes(nyckel)) continue;
+    if (!Array.isArray(v) || ['utsagor', 'dokument', 'bilder', 'kort'].includes(nyckel)) continue;
     for (const x of v) if (x && typeof x === 'object' && x.ger_fynd) ut.push({ ...x, _var: `${m.id}.${nyckel}.${x.id || '?'}` });
   }
   return ut;
@@ -116,6 +117,31 @@ for (const kap of index.kapitel) for (const post of kap.fall) {
       let antal = 0;
       for (const X of B) for (const Y of B) if (X !== Y) for (const r of regioner) if (bedom(m.payload, X, Y, r).typ === 'upptackt') antal++;
       console.log(`  bildjämförelse: ${B.length} bilder, ${m.payload.upptackter.length} upptäckter, ${antal} träffande (bild, bild, region)-tryck`);
+    }
+    if (m.mekanik === 'tidslinje') {
+      // Med alla kort på plats: exakt de angivna motsägelserna uppstår, och prövningen mot brottstiden ger väntat utfall.
+      const p = m.payload, kort = p.kort || [];
+      const mojliga = [];
+      for (const pid of p.personer) {
+        const ids = kort.filter((k) => k.person === pid).map((k) => k.id);
+        const a = analysera(p, ids);
+        for (const c of a.konflikter) if (!(p.konflikter || []).some((d) => d.kraver.includes(c.pastaende) && d.kraver.includes(c.fakta))) varna(f.id, `oväntad motsägelse ${c.pastaende} ↔ ${c.fakta}`);
+        for (const d of (p.konflikter || []).filter((d) => d.kraver.some((id) => ids.includes(id)))) if (!a.konflikter.some((c) => d.kraver.includes(c.pastaende) && d.kraver.includes(c.fakta))) varna(f.id, `motsägelsen ${d.id} uppstår aldrig`);
+        for (const r of a.resor) if (r.ok === false) varna(f.id, `${pid}: omöjlig resa ${r.fran.id} → ${r.till.id} redan utan hypotes`);
+        for (const r of a.resor) if (r.behov === null && r.fran.plats !== r.till.plats) varna(f.id, `${pid}: gångtid saknas ${r.fran.plats} → ${r.till.plats}`);
+        const pr = (p.prov || []).find((x) => x.person === pid);
+        if (pr) {
+          const h = analysera(p, ids.filter((id) => kort.find((k) => k.id === id).typ !== 'pastaende'), { hypotes: p.brott });
+          if (h.resor.some((r) => r.behov === null && r.fran.plats !== r.till.plats)) varna(f.id, `${pid}: gångtid saknas i prövningen`);
+          const utfall = h.mojlig ? 'mojlig' : 'omojlig';
+          if (pr.vantat && pr.vantat !== utfall) varna(f.id, `prövningen av ${pid} gav ${utfall}, väntat ${pr.vantat}`);
+          if (h.mojlig) mojliga.push(pid);
+        }
+      }
+      const misst = f.personer.filter((x) => x.misstankt).map((x) => x.id);
+      for (const pid of misst) if (!(p.prov || []).some((x) => x.person === pid)) varna(f.id, `misstänkt ${pid} prövas inte mot brottstiden`);
+      console.log(`  tidslinje: ${kort.length} kort, ${(p.konflikter || []).length} motsägelser; kan ha varit på platsen: ${mojliga.join(', ') || 'ingen'}`);
+      if (mojliga.length !== 1 || mojliga[0] !== f.losning.skyldig) varna(f.id, `tidslinjen ska lämna exakt den skyldige (${f.losning.skyldig}) – lämnar ${mojliga.join(', ') || 'ingen'}`);
     }
     if (m.mekanik === 'logikrutnat') {
       const r = verifiera(m.payload);

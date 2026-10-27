@@ -39,6 +39,7 @@ export function materialMap(fall) {
     for (const u of p.utsagor || []) ut[u.id] = { ...u, typ: 'utsaga', moment: m.id };
     for (const d of p.dokument || []) ut[d.id] = { ...d, typ: 'dokument', moment: m.id };
     for (const b of p.bilder || []) ut[b.id] = { ...b, typ: 'bild', moment: m.id };
+    for (const k of p.kort || []) ut[k.id] = { ...k, typ: 'kort', moment: m.id };
   }
   Object.defineProperty(fall, '_material', { value: ut, enumerable: false });
   return ut;

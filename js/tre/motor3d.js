@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { prefabs, mat } from './prefabs.js';
 import './prefabs2.js';
 import './prefabs3.js';
+import './prefabs4.js';
 import * as T from './texturer.js';
 import { Kontroller } from './kontroller.js';
 
@@ -86,16 +87,22 @@ export class Rum3D {
     if (ute) this.byggUte(rum, W, D);
     else if (veranda) this.byggVeranda(rum, W, D, H);
     else {
-      const tak = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: T.tak() }));
-      tak.rotation.x = Math.PI / 2; tak.position.y = H; scen.add(tak);
-      const tapet = mat('#ffffff', { map: T.tapet(rum.tapet?.grund, rum.tapet?.monster) });
+      if (rum.tak !== false) {
+        const tak = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: rum.vagg === 'sten' ? T.stenvagg() : T.tak() }));
+        tak.rotation.x = Math.PI / 2; tak.position.y = H; scen.add(tak);
+      }
+      const vtyp = rum.vagg || 'tapet';
+      const vtex = vtyp === 'fasad' ? T.fasad(rum.fasadfarg) : vtyp === 'puts' ? T.puts(rum.putsfarg) : vtyp === 'sten' ? T.stenvagg() : vtyp === 'trapanel' ? T.trapanel(rum.panelfarg) : T.tapet(rum.tapet?.grund, rum.tapet?.monster);
+      const vskala = vtyp === 'fasad' ? [1 / 7, 1 / H] : vtyp === 'sten' ? [1 / 2.2, 1 / 2.2] : [1 / 1.1, 1 / 1.1];
+      const tapet = mat('#ffffff', { map: vtex });
       const pan = mat('#ffffff', { map: T.panel(rum.panel || '#5a3b22') });
       const sidor = [
         [W, [0, -D / 2], 0], [W, [0, D / 2], Math.PI], [D, [-W / 2, 0], Math.PI / 2], [D, [W / 2, 0], -Math.PI / 2],
       ];
       for (const [L, [x, z], ry] of sidor) {
-        const v = new THREE.Mesh(uvSkala(new THREE.PlaneGeometry(L, H), L / 1.1, H / 1.1), tapet);
+        const v = new THREE.Mesh(uvSkala(new THREE.PlaneGeometry(L, H), L * vskala[0], H * vskala[1]), tapet);
         v.position.set(x, H / 2, z); v.rotation.y = ry; scen.add(v);
+        if (rum.panel === false) continue;
         const p = new THREE.Mesh(uvSkala(new THREE.BoxGeometry(L, 0.9, 0.03), L / 1.6, 1), pan);
         p.position.set(x, 0.45, z); p.rotation.y = ry; p.translateZ(0.015); scen.add(p);
         const list = new THREE.Mesh(new THREE.BoxGeometry(L, 0.1, 0.06), mat('#3a2412'));
@@ -137,6 +144,15 @@ export class Rum3D {
         scen.add(halo);
         this.interaktiva.set(def.id, { def, grupp: g, halo, inspekterad: inspekterade.has(def.id) });
       }
+    }
+    // Snöfall: partiklar som faller och vrids lätt i vinden
+    this.sno = null;
+    if (rum.sno) {
+      const N = rum.sno === true ? 700 : rum.sno, pos = new Float32Array(N * 3);
+      for (let i = 0; i < N; i++) { pos[i * 3] = (Math.random() - 0.5) * W; pos[i * 3 + 1] = Math.random() * H; pos[i * 3 + 2] = (Math.random() - 0.5) * D; }
+      const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: '#eef2f8', map: T.glod(), size: 0.06, transparent: true, opacity: 0.9, depthWrite: false, blending: THREE.AdditiveBlending }));
+      scen.add(pts); this.sno = { pts, W, D, H };
     }
     const start = position || rum.start || { pos: [0, 0], titta: 0 };
     this.flyttaTill(start.pos[0], start.pos[1], start.titta || 0);
@@ -304,6 +320,14 @@ export class Rum3D {
     const t = this.tid;
     this.stega(dt);
     for (const f of this.flimmer) f.l.intensity = f.bas * (0.86 + 0.1 * Math.sin(t * 9 + f.fas) + 0.06 * Math.sin(t * 23 + f.fas * 2));
+    if (this.sno) {
+      const a = this.sno.pts.geometry.attributes.position, v = a.array, { W, D, H } = this.sno;
+      for (let i = 0; i < v.length; i += 3) {
+        v[i + 1] -= dt * (0.5 + (i % 7) * 0.06); v[i] += dt * 0.25 * Math.sin(t * 0.7 + i);
+        if (v[i + 1] < 0) { v[i + 1] = H; v[i] = (Math.random() - 0.5) * W; v[i + 2] = (Math.random() - 0.5) * D; }
+      }
+      a.needsUpdate = true;
+    }
     this.raknaFokus();
     for (const post of this.interaktiva.values()) {
       const { halo, inspekterad, def, nara } = post;
@@ -324,7 +348,7 @@ export class Rum3D {
 
   rensa() {
     if (this.fokus) { this.fokus = null; this.onFokus?.(null); }
-    this.interaktiva.clear(); this.flimmer = []; this.kollisioner = [];
+    this.interaktiva.clear(); this.flimmer = []; this.kollisioner = []; this.sno = null;
     this.scen = null;
   }
   forstor() {

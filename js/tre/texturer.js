@@ -344,3 +344,66 @@ export function skarm(typ = 'insta') {
     } else { g.fillStyle = '#222'; g.font = '14px sans-serif'; String(typ).split('\n').forEach((t, i) => g.fillText(t, 12, 24 + i * 18)); }
   });
 }
+/** Husfasad i Gamla stan: putsad vägg med fönster, några tända. Upprepas i sidled. */
+export function fasad(farg = '#c9a26a') {
+  return skapa('fasad' + farg, 512, 512, (g, w, h) => {
+    g.fillStyle = farg; g.fillRect(0, 0, w, h);
+    const r = rng(23);
+    for (let i = 0; i < 900; i++) { g.fillStyle = `rgba(${r() < 0.5 ? '40,25,10' : '255,240,210'},${r() * 0.12})`; g.fillRect(r() * w, r() * h, 2 + r() * 6, 2 + r() * 6); }
+    g.fillStyle = 'rgba(60,40,20,0.35)'; g.fillRect(0, h * 0.62, w, 8); g.fillRect(0, h * 0.3, w, 5);
+    for (const [y0, hh] of [[h * 0.08, h * 0.17], [h * 0.38, h * 0.18]]) for (let i = 0; i < 3; i++) {
+      const x = w * (0.1 + i * 0.32), fw = w * 0.16;
+      g.fillStyle = '#e8dcc0'; g.fillRect(x - 5, y0 - 5, fw + 10, hh + 10);
+      const tand = r() < 0.45;
+      g.fillStyle = tand ? '#f2c46a' : '#1c2230'; g.fillRect(x, y0, fw, hh);
+      if (tand) { g.fillStyle = 'rgba(255,220,140,0.5)'; g.fillRect(x - 8, y0 - 8, fw + 16, hh + 16); g.fillStyle = '#f6d080'; g.fillRect(x, y0, fw, hh); }
+      g.strokeStyle = '#e8dcc0'; g.lineWidth = 4; g.beginPath(); g.moveTo(x + fw / 2, y0); g.lineTo(x + fw / 2, y0 + hh); g.moveTo(x, y0 + hh * 0.4); g.lineTo(x + fw, y0 + hh * 0.4); g.stroke();
+    }
+    // Bottenvåning: valv och portar
+    for (let i = 0; i < 2; i++) { const x = w * (0.16 + i * 0.5), bw = w * 0.22; g.fillStyle = '#2a1c12'; g.beginPath(); g.moveTo(x, h); g.lineTo(x, h * 0.78); g.arc(x + bw / 2, h * 0.78, bw / 2, Math.PI, 0); g.lineTo(x + bw, h); g.fill(); }
+    g.fillStyle = 'rgba(240,240,250,0.85)'; g.fillRect(0, h * 0.62 - 4, w, 4);
+    gravyr(g, w, h, 0.07, 31);
+  });
+}
+/** Vitkalkad eller putsad vägg. */
+export function puts(farg = '#e8e0cc') {
+  return skapa('puts' + farg, 256, 256, (g, w, h) => {
+    g.fillStyle = farg; g.fillRect(0, 0, w, h);
+    const r = rng(61);
+    for (let i = 0; i < 700; i++) { g.fillStyle = `rgba(${r() < 0.5 ? '60,45,30' : '255,250,240'},${r() * 0.09})`; g.beginPath(); g.arc(r() * w, r() * h, 1 + r() * 7, 0, 7); g.fill(); }
+    gravyr(g, w, h, 0.05, 63);
+  });
+}
+/** Granitblock (fyrtornets insida). */
+export function stenvagg() {
+  return skapa('stenvagg', 256, 256, (g, w, h) => {
+    g.fillStyle = '#b8b0a0'; g.fillRect(0, 0, w, h);
+    const r = rng(83);
+    for (let y = 0, rad = 0; y < h; y += 42, rad++) for (let x = (rad % 2) * -40; x < w; x += 80) {
+      const t = 150 + r() * 40; g.fillStyle = `rgb(${t},${t - 6},${t - 18})`; g.fillRect(x + 2, y + 2, 76, 38);
+      for (let i = 0; i < 30; i++) { g.fillStyle = `rgba(40,35,30,${r() * 0.25})`; g.fillRect(x + r() * 76, y + r() * 38, 2, 2); }
+    }
+    gravyr(g, w, h, 0.06, 85);
+  });
+}
+/** Liggande panel (stuga). */
+export function trapanel(farg = '#8a6a48') {
+  return skapa('trapanel' + farg, 256, 256, (g, w, h) => {
+    g.fillStyle = farg; g.fillRect(0, 0, w, h);
+    const r = rng(91);
+    for (let y = 0; y < h; y += 26) { g.fillStyle = 'rgba(30,18,8,0.35)'; g.fillRect(0, y, w, 2); for (let i = 0; i < 12; i++) { g.strokeStyle = `rgba(40,25,10,${r() * 0.2})`; g.beginPath(); const yy = y + 4 + r() * 18; g.moveTo(0, yy); g.bezierCurveTo(w * 0.3, yy + (r() - 0.5) * 6, w * 0.7, yy + (r() - 0.5) * 6, w, yy); g.stroke(); } }
+    gravyr(g, w, h, 0.06, 93);
+  });
+}
+/** Storm över havet om natten (fönster i fyren). */
+export function stormnatt() {
+  return skapa('stormnatt', 128, 160, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#1a2028'); gr.addColorStop(0.55, '#38424a'); gr.addColorStop(0.56, '#1c2a30'); gr.addColorStop(1, '#0e171c');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    const r = rng(55);
+    g.strokeStyle = 'rgba(220,230,235,0.5)';
+    for (let i = 0; i < 26; i++) { const y = h * 0.58 + r() * h * 0.4, x = r() * w; g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + 6, y - 3, x + 14, y); g.stroke(); }
+    g.strokeStyle = 'rgba(200,210,220,0.35)';
+    for (let i = 0; i < 70; i++) { const x = r() * w, y = r() * h; g.beginPath(); g.moveTo(x, y); g.lineTo(x - 4, y + 12); g.stroke(); }
+  });
+}

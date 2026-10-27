@@ -5,12 +5,14 @@ import * as fall1 from './scenarier/fall1.mjs';
 import * as fall2 from './scenarier/fall2.mjs';
 import * as fall3 from './scenarier/fall3.mjs';
 import * as fall4 from './scenarier/fall4.mjs';
+import * as fall5 from './scenarier/fall5.mjs';
 
 const SCENARIER = {
   fall1: [fall1.handledning, fall1.fel, fall1.ratt],
   fall2: [fall2.ratt, fall2.fel],
   fall3: [fall3.ratt, fall3.visaLosning],
   fall4: [fall4.ratt, fall4.fel],
+  fall5: [fall5.ratt, fall5.fel],
 };
 const valda = process.argv.slice(2).filter((x) => SCENARIER[x]);
 const browser = await startaWebblasare();
