@@ -4,7 +4,7 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 
 **Spela:** https://9w9wt9yj98-cpu.github.io/Detektiv/ (fungerar i mobilen och kan läggas på hemskärmen)
 
-**Status:** Fem spelbara fall: 1 *Halsbandet på Ekbacka* (scenundersökning), 2 *Nattåget mot Narvik* (förhör), 3 *Middagen på Solgläntan* (logikrutnät) 4 *Brudskålen* (bildjämförelse) och 5 *Kvart i elva* (tidslinje med gångtider).
+**Status:** Sex spelbara fall: 1 *Halsbandet på Ekbacka* (scenundersökning), 2 *Nattåget mot Narvik* (förhör), 3 *Middagen på Solgläntan* (logikrutnät), 4 *Brudskålen* (bildjämförelse), 5 *Kvart i elva* (tidslinje med gångtider) och 6 *Fyren på Gråskär* (dokumentanalys, opålitlig berättare).
 
 ## Så spelar du
 
@@ -32,7 +32,7 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 | `js/mekaniker/` | Mekanikerna i anteckningsboken: logikrutnät (`logikrutnat.js`), förhör/dokument (`jamfor.js`), bildjämförelse (`bildjamforelse.js`) och tidslinje (`tidslinje.js`). |
 | `verktyg/fall/*.py` | Källor för fall 2 och senare – genererar `fall/*.json`. |
 | `verktyg/` | `validera_fall.mjs` (validerar alla fall, bevisar att rutnät har exakt en lösning och att varje ledtråd behövs) och `verifiera_fall3.py`. |
-| `test/spela.mjs` | Playwright-test som spelar båda fallen i iPhone-vy och på dator. |
+| `test/spela.mjs` | Playwright-test som spelar alla fall (rätt och fel väg) i iPhone-vy och på dator. |
 
 ## Fallformatet – tillägg till schemat
 

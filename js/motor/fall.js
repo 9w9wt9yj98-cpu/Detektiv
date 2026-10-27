@@ -49,13 +49,19 @@ export function objektGer(def) {
   const i = def.interaktiv || {};
   return { fynd: [].concat(i.ger_fynd || []), material: [].concat(i.ger_material || []) };
 }
+/** Börjar namnet med ett egennamn (en persons för- eller efternamn, ev. genitiv, eller en titel som ”Dr.”)? Då ska versalen stå kvar mitt i en mening. */
+export function arEgennamn(fall, namn) {
+  const ord = new Set((fall.personer || []).flatMap((p) => p.namn.split(/\s+/)).filter((w) => /^[A-ZÅÄÖ]/.test(w)));
+  const forsta = String(namn).split(/\s+/)[0];
+  return forsta.endsWith('.') || ord.has(forsta) || ord.has(forsta.replace(/s$/, ''));
+}
 /** Var varje fynd/material kan hittas i 3D-rummen: id -> [{ rum, rumNamn, objekt, objektNamn }]. */
 export function kallor(fall) {
   if (fall._kallor) return fall._kallor;
   const ut = {};
   for (const m of rumMoment(fall)) for (const o of m.payload.rum.objekt || []) {
     const g = objektGer(o);
-    for (const id of [...g.fynd, ...g.material]) (ut[id] ||= []).push({ rum: m.id, rumNamn: m.namn, objekt: o.id, objektNamn: o.interaktiv?.namn || o.id, person: o.typ === 'person' });
+    for (const id of [...g.fynd, ...g.material]) (ut[id] ||= []).push({ rum: m.id, rumNamn: m.namn, objekt: o.id, objektNamn: o.interaktiv?.namn || o.id, person: o.typ === 'person', egen: arEgennamn(fall, o.interaktiv?.namn || o.id) });
   }
   Object.defineProperty(fall, '_kallor', { value: ut, enumerable: false });
   return ut;

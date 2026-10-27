@@ -49,7 +49,7 @@ export function vagTill(fall, st, id, djup = 0) {
 export function pekarText(v) {
   if (!v) return '';
   if (v.flik) return `Öppna anteckningsboken och arbeta vidare under fliken ”${v.flik}”.`;
-  const namn = v.person ? v.objektNamn : v.objektNamn.charAt(0).toLowerCase() + v.objektNamn.slice(1);
+  const namn = v.person || v.egen ? v.objektNamn : v.objektNamn.charAt(0).toLowerCase() + v.objektNamn.slice(1);
   return `Gå till ${v.rumNamn} och ${v.person ? 'prata med' : 'undersök'} ${namn}.${v.for ? ` (Det behövs för att komma åt ${v.for}.)` : ''}`;
 }
 

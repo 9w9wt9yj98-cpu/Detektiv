@@ -259,4 +259,22 @@ function fotogen(d) {
   return { grupp: g };
 }
 
-Object.assign(prefabs, { vaggur, monter, arbetsbank, lucka, handske, span, gaslykta, urhylla, liggare, vedspis, rock, spiraltrappa, lins, urverk, barograf, stormfonster, skrivdon, fotogen });
+/** Lanternans glasvägg: järnbröstning med nitar, stora rutor mot stormnatten i järnspröjs. Väggföremål; langd längs väggen. */
+function lanternglas(d) {
+  const g = new THREE.Group();
+  const L = d.langd || 3, y0 = d.y0 ?? 0.95, H = d.hojd || 1.8, n = Math.max(1, Math.round(L / 0.9));
+  const j = mat('#1f2326'), rost = mat('#3a3430');
+  box(g, L, y0, 0.06, rost, 0, y0 / 2, 0.03);
+  for (let i = 0; i < n * 3; i++) sph(g, 0.012, mat('#5a5048'), -L / 2 + (i + 0.5) * L / (n * 3), y0 - 0.06, 0.065, 4);
+  box(g, L, 0.06, 0.18, j, 0, y0, 0.09);
+  const glasW = L / n;
+  for (let i = 0; i < n; i++) {
+    const x = -L / 2 + (i + 0.5) * glasW;
+    plan(g, glasW - 0.04, H, mat('#ffffff', { map: T.stormnatt(), emissive: '#0c1218' }), x, y0 + H / 2, 0.012);
+  }
+  for (let i = 0; i <= n; i++) box(g, 0.05, H, 0.07, j, -L / 2 + i * glasW, y0 + H / 2, 0.04);
+  for (const y of [y0 + H / 2, y0 + H]) box(g, L, 0.04, 0.06, j, 0, y, 0.04);
+  return { grupp: g, kollision: false };
+}
+
+Object.assign(prefabs, { vaggur, monter, arbetsbank, lucka, handske, span, gaslykta, urhylla, liggare, vedspis, rock, spiraltrappa, lins, urverk, barograf, stormfonster, skrivdon, fotogen, lanternglas });

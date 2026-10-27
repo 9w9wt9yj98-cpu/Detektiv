@@ -95,6 +95,20 @@ export function sten(upprepa = [2, 4]) {
   }, { upprepa });
 }
 
+/** Räfflad järnplåt (lanternans golv). */
+export function jarnplat(upprepa = [2, 2]) {
+  return skapa('jarnplat', 256, 256, (g, w, h) => {
+    g.fillStyle = '#3c3e40'; g.fillRect(0, 0, w, h);
+    const r = rng(71);
+    for (let y = 0; y < h; y += 32) for (let x = 0; x < w; x += 32) {
+      g.save(); g.translate(x + 16, y + 16); g.rotate(((x + y) / 32) % 2 ? 0.8 : -0.8);
+      g.fillStyle = 'rgba(120,122,124,0.55)'; g.fillRect(-9, -2.5, 18, 5); g.restore();
+    }
+    for (let i = 0; i < 300; i++) { g.fillStyle = `rgba(${r() < 0.6 ? '90,60,40' : '20,20,20'},${r() * 0.18})`; g.beginPath(); g.arc(r() * w, r() * h, 1 + r() * 6, 0, 7); g.fill(); }
+    g.strokeStyle = 'rgba(15,15,15,0.7)'; g.lineWidth = 2; g.strokeRect(1, 1, w - 2, h - 2);
+  }, { upprepa });
+}
+
 export function matta() {
   return skapa('matta', 512, 384, (g, w, h) => {
     g.fillStyle = '#5a1e14'; g.fillRect(0, 0, w, h);

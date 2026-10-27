@@ -350,6 +350,11 @@ legend small { font-weight: 400; color: var(--brun3); }
 .pamin { margin: 8px 0; font-size: 15px; } .pamin summary { cursor: pointer; font-weight: 600; color: var(--brun2); }
 .facit h2 { margin: 4px 0 8px; color: var(--rod); }
 .twist h2 { color: var(--rod); }
+.twist .vandning-rubrik { margin: 1rem 0 .4rem; font-size: 1.05rem; }
+.twist .vandning { list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; }
+.twist .vandning blockquote { margin: 0 0 .2rem; padding: .35rem .6rem; border-left: 3px solid var(--rod); font-style: italic; background: rgba(120, 30, 20, .06); }
+.twist .vandning p { margin: 0; }
+.twist .bekannelse { margin-top: 1rem; padding-top: .7rem; border-top: 1px dashed rgba(60, 40, 20, .35); font-style: italic; }
 .version { font-size: 12px; opacity: .6; margin: 4px 0 0; }
 
 /* Förhör och dokument */

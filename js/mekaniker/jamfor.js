@@ -8,7 +8,9 @@ const nyckel = (a, b) => [a, b].sort().join('|');
 export function status(m, st) {
   const s = st.mek?.[m.id] || {};
   const alla = (m.payload.motsagelser || []).filter((x) => x.kravs !== false);
-  return { hittade: (s.hittade || []).length, totalt: alla.length, klar: alla.every((x) => s.hittade?.includes(x.id)) };
+  const h = s.hittade || [];
+  const hittade = alla.filter((x) => h.includes(x.id)).length;
+  return { hittade, extra: h.length - hittade, totalt: alla.length, klar: alla.every((x) => s.hittade?.includes(x.id)) };
 }
 
 export function rendera(sida, m, ctx) {
@@ -72,7 +74,7 @@ export function rendera(sida, m, ctx) {
     const fyndChips = st.fynd.filter((id) => fynd[id] && (p.fynd_valbara ? p.fynd_valbara.includes(id) : true));
     sida.innerHTML = `<div class="jamfor ${dokument ? 'dok' : 'forhor'}">
       <p class="instruktion">${esc(p.instruktion || (dokument ? 'Läs dokumenten noga. Tryck på två stycken – eller ett stycke och ett fynd – som inte kan stämma samtidigt, och tryck på Invänd!' : 'Tryck på en utsaga och sedan på en annan utsaga eller ett fynd som den inte kan stämma med. Tryck sedan på Invänd!'))}</p>
-      <p class="jf-status">Motsägelser hittade: <strong>${st0.hittade} av ${st0.totalt}</strong>${st0.klar ? ' ✓' : ''}</p>
+      <p class="jf-status">Motsägelser hittade: <strong>${st0.hittade} av ${st0.totalt}</strong>${st0.klar ? ' ✓' : ''}${st0.extra ? ` <em>(+${st0.extra} extra)</em>` : ''}</p>
       ${hittade.length ? `<ul class="jf-hittade">${hittade.map((x) => `<li><strong>Motsägelse:</strong> ${esc(x.text)}${x.ger_fynd && fynd[x.ger_fynd] ? ` <span class="fyndchip">${esc(fynd[x.ger_fynd].ikon || '')} ${esc(fynd[x.ger_fynd].titel)}</span>` : ''}</li>`).join('')}</ul>` : ''}
       ${innehall}
       ${fyndChips.length ? `<details class="jf-fynd" ${valda.some((v) => fynd[v]) ? 'open' : ''}><summary>Invänd med ett fynd (${fyndChips.length})</summary><div class="chips">${fyndChips.map((id) => `<button class="jf-post chip ${valda.includes(id) ? 'vald' : ''}" data-id="${id}">${esc(fynd[id].ikon || '')} ${esc(fynd[id].titel)}</button>`).join('')}</div></details>` : ''}

@@ -1,10 +1,11 @@
 // Interaktiv handledning första gången: gå, titta, undersöka, öppna boken och anklaga.
 import { esc, html, $ } from './gemensamt.js';
+import { arEgennamn } from '../motor/fall.js';
 
 export function startaHandledning({ app, motor, f, mal, touch, onKlar }) {
   const malDef = (() => { for (const m of f.moment) for (const o of m.payload?.rum?.objekt || []) if (o.id === mal) return o; return null; })();
   const malNamn0 = malDef?.interaktiv?.namn || 'föremålet';
-  const malNamn = malDef?.typ === 'person' ? malNamn0 : malNamn0.charAt(0).toLowerCase() + malNamn0.slice(1);
+  const malNamn = malDef?.typ === 'person' || arEgennamn(f, malNamn0) ? malNamn0 : malNamn0.charAt(0).toLowerCase() + malNamn0.slice(1);
   const steg = [
     { id: 'ga', text: touch ? '<strong>Gå:</strong> sätt tummen på vänstra halvan av skärmen och dra uppåt.' : '<strong>Gå:</strong> håll ned W eller pil upp. A och D tar sidosteg.', ikon: touch ? 'tumme-v' : null },
     { id: 'titta', text: touch ? '<strong>Se dig omkring:</strong> dra med fingret på högra halvan av skärmen.' : '<strong>Se dig omkring:</strong> håll ned musknappen och dra.', ikon: touch ? 'tumme-h' : null },

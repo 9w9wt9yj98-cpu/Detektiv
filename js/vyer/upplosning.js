@@ -4,6 +4,12 @@ import { fallData } from '../motor/lagring.js';
 import { formatTid } from '../motor/poang.js';
 import { esc, glasRad, $, $$ } from './gemensamt.js';
 
+/** Valfri fördjupning av vändningen: citat ur inledningen med detektivens kommentar, och ett slutord. */
+function vandning(v) {
+  if (!v) return '';
+  return `${v.rubrik ? `<h3 class="vandning-rubrik">${esc(v.rubrik)}</h3>` : ''}<ol class="vandning">${(v.rader || []).map((r) => `<li><blockquote>${esc(r.citat)}</blockquote><p>${esc(r.kommentar)}</p></li>`).join('')}</ol>${v.bekannelse ? `<p class="bekannelse">${esc(v.bekannelse)}</p>` : ''}`;
+}
+
 export async function visaUpplosning(app, id) {
   const f = await laddaFall(id);
   const st = fallData(id);
@@ -35,7 +41,7 @@ export async function visaUpplosning(app, id) {
       <p><strong>Så gick det till:</strong> ${esc(f.losning.hur_text || '')}</p>
       <p class="hjalptext">Nedan går detektiven igenom kedjan steg för steg: vilka fynd som avgör, varför de andra kan uteslutas och vilka spår som var villospår. Fynd med streckad ram missade du.</p>
     </section>`}
-    ${f.meta.twist && f.aterkoppling.efterord ? `<section class="papperskort twist"><h2><span aria-hidden="true">🜂</span> Vändningen</h2><p>${esc(f.aterkoppling.efterord)}</p></section>` : ''}
+    ${f.meta.twist && f.aterkoppling.efterord ? `<section class="papperskort twist"><h2><span aria-hidden="true">🜂</span> Vändningen</h2><p>${esc(f.aterkoppling.efterord)}</p>${vandning(f.aterkoppling.vandning)}</section>` : ''}
     <section class="papperskort">
       <h2>Detektivens förklaring</h2>
       <ol class="steglista">${steg.map((s, i) => `<li class="steg" data-i="${i}" ${i ? 'hidden' : ''}><p>${esc(s.text)}</p>${(s.fynd || []).length ? `<div class="chips">${s.fynd.map(chip).join('')}</div>` : ''}</li>`).join('')}</ol>

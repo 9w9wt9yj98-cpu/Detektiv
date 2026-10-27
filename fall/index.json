@@ -39,8 +39,7 @@
         {
           "nummer": 6,
           "id": "fyren-pa-graskar",
-          "titel": "Fyren på Gråskär",
-          "kommer": true
+          "fil": "fyren-pa-graskar.json"
         }
       ]
     }

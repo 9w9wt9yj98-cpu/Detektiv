@@ -32,10 +32,14 @@ for (const kap of index.kapitel) for (const post of kap.fall) {
   if (f.id !== post.id) varna(f.id, `id skiljer sig från index (${post.id})`);
   const mat = materialMap(f);
   const fyndId = new Set(f.fynd.map((x) => x.id));
+  // Dokumentstycken med id räknas som tillgängliga när deras dokument är hittat.
+  const styckeDok = {};
+  for (const m of f.moment) for (const d of m.payload?.dokument || []) for (const s of d.stycken || []) if (s.id) styckeDok[s.id] = d.id;
   const allaId = new Set([...fyndId, ...Object.keys(mat)]);
+  const kanValjas = new Set([...allaId, ...Object.keys(styckeDok)]);
   const personId = new Set(f.personer.map((p) => p.id));
   const kollaFynd = (id, var_) => { if (!fyndId.has(id)) varna(f.id, `okänt fynd ${id} i ${var_}`); };
-  const kollaId = (id, var_) => { if (!allaId.has(id)) varna(f.id, `okänt fynd/material ${id} i ${var_}`); };
+  const kollaId = (id, var_) => { if (!kanValjas.has(id)) varna(f.id, `okänt fynd/material ${id} i ${var_}`); };
   const dubbletter = f.fynd.map((x) => x.id).filter((id, i, a) => a.indexOf(id) !== i);
   if (dubbletter.length) varna(f.id, `dubbla fynd-id: ${dubbletter}`);
   for (const id of Object.keys(mat)) if (fyndId.has(id)) varna(f.id, `${id} är både fynd och material`);
@@ -82,7 +86,7 @@ for (const kap of index.kapitel) for (const post of kap.fall) {
       if (o.gar_till && !f.moment.some((x) => x.id === o.gar_till)) varna(f.id, `${m.id}/${o.id} går till okänt rum ${o.gar_till}`);
     }
   }
-  const alla = (ids) => lista(ids).every((i) => har.has(i));
+  const alla = (ids) => lista(ids).every((i) => har.has(styckeDok[i] || i));
   for (let varv = 0, andrat = true; andrat && varv < 100; varv++) {
     andrat = false;
     const lagg = (id) => { if (id && !har.has(id)) { har.add(id); andrat = true; } };
@@ -94,7 +98,7 @@ for (const kap of index.kapitel) for (const post of kap.fall) {
     for (const [id, x] of Object.entries(mat)) if (x.kraver && alla(x.kraver)) lagg(id);
     for (const k of mek) {
       const ok = k.par ? k.par.some((p) => alla(p)) : alla(k.kraver);
-      if (ok && (!k.par || alla(k.kravs))) lista(k.ger_fynd).forEach(lagg);
+      if (ok) lista(k.ger_fynd).forEach(lagg);
     }
     for (const s of f.slutsatser || []) if (!besvarade.has(s.id) && alla(s.kraver) && lista(s.efter).every((e) => besvarade.has(e))) {
       besvarade.add(s.id); andrat = true; if (s.ger_fynd) lagg(s.ger_fynd);

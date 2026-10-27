@@ -1,5 +1,5 @@
 // Service worker: cachar spelets filer så att det fungerar offline och kan läggas på hemskärmen.
-const VERSION = 'detektiv-v5';
+const VERSION = 'detektiv-v6';
 const FILER = [
   './',
   './index.html',
@@ -35,6 +35,7 @@ const FILER = [
   './js/vyer/utredning.js',
   './vendor/three/three.module.min.js',
   './fall/brudskalen.json',
+  './fall/fyren-pa-graskar.json',
   './fall/halsbandet-pa-ekbacka.json',
   './fall/index.json',
   './fall/kvart-i-elva.json',

@@ -78,7 +78,7 @@ export class Rum3D {
     // Golv och tak
     const golvTyp = typeof rum.golv === 'object' ? rum.golv.typ : 'tra';
     const golvFarg = typeof rum.golv === 'object' ? rum.golv.farg : rum.golv;
-    const gtex = golvTyp === 'sten' ? T.sten([W / 1.2, D / 1.2]) : T.traGolv(golvFarg || '#6b4a2c', [W / 2.2, D / 2.2]);
+    const gtex = golvTyp === 'sten' ? T.sten([W / 1.2, D / 1.2]) : golvTyp === 'jarn' ? T.jarnplat([W / 1.2, D / 1.2]) : T.traGolv(golvFarg || '#6b4a2c', [W / 2.2, D / 2.2]);
     if (!ute) {
       const golv = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: gtex }));
       golv.rotation.x = -Math.PI / 2; scen.add(golv);
@@ -88,7 +88,7 @@ export class Rum3D {
     else if (veranda) this.byggVeranda(rum, W, D, H);
     else {
       if (rum.tak !== false) {
-        const tak = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: rum.vagg === 'sten' ? T.stenvagg() : T.tak() }));
+        const tak = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: rum.vagg === 'sten' ? T.stenvagg() : rum.takfarg ? T.puts(rum.takfarg) : T.tak() }));
         tak.rotation.x = Math.PI / 2; tak.position.y = H; scen.add(tak);
       }
       const vtyp = rum.vagg || 'tapet';

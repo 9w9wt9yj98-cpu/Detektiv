@@ -93,3 +93,25 @@ Ny mekanik **Tidslinje** (`mekanik: "tidslinje"`, kod i `js/mekaniker/tidslinje.
 6. Stöd: färska ekspån i Rapps rock, fast han ”inte varit i butiken på sex år”; ritningen till Polaris ger motivet.
 
 *Rättning mot förslaget:* krögaren säger att Karl gick ”strax efter kvart över tio” (22.20) i stället för 22.25 – med 16 minuters gångväg hade han annars inte hunnit till pantlånekontoret 22.40, och tidslinjen hade visat hans sanna uppgifter som omöjliga. Polaris konstruerades enligt ritningen av Rapp och Fältskog tillsammans.
+
+## Fall 6 – Fyren på Gråskär
+
+Fem miljöer: **tornets nedre avsats** (fyrmästaren under en filt tvärs över trappan, Elof), **lanternan** (linsen, urverket, fyrinstruktionen, loggboken, Holgers utkast till Lotsverket), **fyrmästarbostadens kök** (Signe, Johan med spjälat ben på köksbänken, Signes brev), **biträdesstugan** (Elofs dagbok, reservoarpennan, fotogenkannorna) och **väderstationen** (barografen, väderjournalen, doktor Lagerkvist). Lanternan är låst tills spelaren har undersökt kroppen – man måste kliva över honom.
+
+Mekanik **Dokument** (befintliga `jamfor.js` i `visning: "dokument"`): tolv dokument i olika stilar (tryck, loggbok, handskrift, barografens rulle). Spelaren kan **markera** stycken och invänder med två stycken eller ett stycke och ett fynd. 04-raden i loggboken är satt i blått bläck och lutande handstil (`stil: "blacke"`). Sex motsägelser krävs; en sjunde (”Holger lånade min penna”) dyker upp först när bläcket är upptäckt och är frivillig (`kravs: false`, visas som ”+1 extra”).
+
+**Twist – opålitlig berättare:** inledningen är Elofs vänliga brev till detektiven, och hans dagbok är ett av dokumenten. Ingenting markerar honom som särskilt misstänkt. Efterordet visas som ”🜂 Vändningen”.
+
+**Varför lösningen är unik** (bevisas i texten; validatorn kontrollerar att allt går att nå i rätt ordning):
+1. Blåmärken på överarmarna – han knuffades.
+2. Signe (bostaden) och doktorn (stationen) hör dunsen oberoende av varandra 03.20.
+3. Urverket går högst 2 t 15 min; uppdraget 02.00 hade det stannat 04.15, men journalen säger ”fyren lyser normalt” till 06. Alltså drog någon upp det vid fyra – och klev då över kroppen (doktorns anteckning: ingen kan passera utan att kliva över honom).
+4. Loggboken förs alltid med blyerts; 04-raden ”H.W.” är skriven med bläck. Holger var död – förfalskning. Den enda reservoarpennan på ön är Elofs (hans egen dagbok).
+5. Uteslutningar: Johan kan inte gå. Doktorn slog tidsmärken 03.15 och 03.30 (och 03.45–04.15) med tjugo minuters väg tur och retur. Signe kan bara gå ut genom köket där Johan låg vaken. Kvar blir Elof – som dessutom skriver att han hörde Holger vissla vid fyra.
+6. Motiv: Holgers utkast till Lotsverket om sextio liter försvunnen fotogen; kannorna står i Elofs stuga.
+
+**Ordning:** fallet ligger sist (6) i kapitel II. Brudskålen (twist) ligger sist i kapitel I, med Kvart i elva emellan.
+
+**Allmänna förbättringar i samma release:** ledtrådspekaren skriver nu egennamn med versal (”undersök Holger Wenngren”, inte ”holger”); dokument- och förhörsstatus räknar frivilliga motsägelser separat; validatorn förstår dokumentstycken i motsägelsepar.
+
+**Lanternan** byggs med nya prefaben `lanternglas` (järnbröstning med nitar, stora rutor i spröjs mot stormnatten) på alla fyra väggar, räfflad järnplåt som golv (`golv.typ: "jarn"`) och mörkt tak (`takfarg`). **Upplösningen** fick ett valfritt fält `aterkoppling.vandning` (rubrik, citat ur inledningen med kommentar, bekännelse) som visas under ”Vändningen” – i fall 6 läser detektiven Elofs brev en gång till och visar att varje vänlig mening var ett spår.
