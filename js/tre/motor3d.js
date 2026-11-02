@@ -151,7 +151,10 @@ export class Rum3D {
       scen.add(g);
       g.updateMatrixWorld(true);
       const kollidera = def.kollision ?? res.kollision ?? true;
-      if (kollidera) {
+      if (kollidera && res.fotavtryck) {
+        const h = res.fotavtryck / 2;
+        this.kollisioner.push({ minX: g.position.x - h, maxX: g.position.x + h, minZ: g.position.z - h, maxZ: g.position.z + h });
+      } else if (kollidera) {
         const b = new THREE.Box3().setFromObject(g);
         if (b.min.y < 1.5) this.kollisioner.push({ minX: b.min.x, maxX: b.max.x, minZ: b.min.z, maxZ: b.max.z });
       }

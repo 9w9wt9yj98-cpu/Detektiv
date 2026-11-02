@@ -54,7 +54,7 @@ lanternan = {"id": "lanternan", "namn": "Lanternan", "mekanik": "scen", "last_up
   "bredd": 3.6, "djup": 3.6, "hojd": 3.0, "miljo": "inomhus", "vagg": "puts", "putsfarg": "#2e3236", "panel": False, "takfarg": "#202428", "bakgrund": "#0a0e12", "dimma": [5, 12, "#0e1318"],
   "golv": {"typ": "jarn"},
   "ljus": {"omgivning": "#a8b8c8", "omgivning_styrka": 0.5, "bas": 0.24},
-  "start": {"pos": [-1.2, 1.5], "titta": -25},
+  "start": {"pos": [0.05, 1.3], "titta": 10},
   "objekt": [
     obj("lins", "lins", [0.3, 0, -0.6], skala=1.25, styrka=3.6),
     obj("urverk", "urverk", [1.25, 0, -0.4], rot=-90, interaktiv=ia("Urverket", "Urverket som vrider linsen tickar tungt. Det är fullt uppdraget nu – Elof har skött fyren sedan olyckan. En mässingsplåt på huset: ”Gångtid fullt uppdraget: 2 t. 15 m.”")),
@@ -81,7 +81,7 @@ koket = {"id": "koket", "namn": "Fyrmästarbostadens kök", "mekanik": "scen", "
   "objekt": [
     obj("spis", "vedspis", [-1.5, 0, -1.55], styrka=1.6),
     obj("bank", "koj", [1.65, 0, -0.5], bredd=0.8, langd=1.9, overkoj=False, tyg="#6a5a4a"),
-    obj("johan", "person", [1.65, 0, -1.25], pose="ligga", lagHojd=0.62, rock="#3a4a6a", byxor="#4a4a50", har="#4a3a2a", skagg=True, seed=1,
+    obj("johan", "person", [1.65, 0, -0.4], pose="ligga", lagHojd=0.62, rock="#3a4a6a", byxor="#4a4a50", har="#4a3a2a", skagg=True, seed=1,
         interaktiv=ia("Johan Sjöberg", "Fiskaren ligger på köksbänken med vänsterbenet spjälat mellan två brädor. Doktorn spjälade det kvällen före olyckan. Johan kan inte ens sätta ned foten.", ["f-johan-ben", "f-johan-koket"], ["dok-johan"])),
     obj("signe", "person", [-0.4, 0, -0.5], rot=25, kon="k", rock="#2a2a30", har="#8a6a4a", hatt="sjalett", hattfarg="#1a1a1e", seed=0,
         interaktiv=ia("Signe Wenngren", "Signe står vid spisen och vrider en handduk mellan händerna. Hon talar lågt och ser mot fönstret.", "f-duns-signe", ["dok-signe"])),

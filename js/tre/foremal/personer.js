@@ -115,7 +115,8 @@ function person(d) {
   }
   if (d.pose === 'ligga') { g.rotation.x = -Math.PI / 2; g.position.set(0, d.lagHojd ?? 0.5, 0.8); }
   const topp = d.pose === 'ligga' ? new THREE.Vector3(0, (d.lagHojd ?? 0.5) + 0.35, 0.8 - (hh + 0.17)) : new THREE.Vector3(0, hh + 0.55, 0);
-  return { grupp: ytter, haloPos: topp, kollision: d.pose !== 'ligga' && !sitter };
+  // Som hinder räknas bara ett smalt fotavtryck runt kroppen, inte de utsträckta armarna.
+  return { grupp: ytter, haloPos: topp, kollision: d.pose !== 'ligga' && !sitter, fotavtryck: 0.36 };
 }
 
 Object.assign(prefabs, { person });

@@ -86,8 +86,8 @@ korr = {"id": "korridoren", "namn": "Sovvagnskorridoren", "mekanik": "scen", "la
     obj("vagnsdorr", "kupedorr", [0.2, 0, 4.49], rot=180, interaktiv=ia("Vagnsdörren", "Dörren ut mot plattformen mellan vagnarna. Snö har yrt in över tröskeln.")),
     obj("restdorr", "kupedorr", [0, 0, -4.49], gar_till="restaurangvagnen", interaktiv=ia("Till restaurangvagnen", "Genom bälgen och vidare till restaurangvagnen.")),
     obj("restskylt", "skylt", [0, 2.28, -4.48], text="RESTAURANGVAGN", storlek=[0.7, 0.14], textstorlek=44),
-    obj("fallbord", "bord", [-0.55, 0, -0.75], storlek=[0.4, 0.72, 0.32]),
-    obj("bok", "anteckningsbok", [-0.55, 0.72, -0.75], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
+    obj("fallbord", "bord", [-0.55, 0, 1.0], storlek=[0.4, 0.72, 0.32]),
+    obj("bok", "anteckningsbok", [-0.55, 0.72, 1.0], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("l1", "vagglampa", [-0.78, 2.0, -2.6], rot=90, styrka=1.0, rackvidd=4),
     obj("l2", "vagglampa", [-0.78, 2.0, 0.9], rot=90, styrka=1.0, rackvidd=4),
     obj("l3", "vagglampa", [-0.78, 2.0, 3.6], rot=90, styrka=0.9, rackvidd=4)
