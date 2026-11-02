@@ -24,10 +24,12 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 
 | Sökväg | Innehåll |
 |---|---|
-| `fall/index.json` | Fallregistret (kapitel och ordning). Nya fall läggs till här – ingen kod behöver ändras. |
+| `fall/index.json` | Fallregistret (kapitel och ordning). Nya fall läggs till här – ingen kod behöver ändras. Ett kapitel kan ha `lases_upp_av_rang`; det öppnas när kapitlet före är avslutat eller när spelaren når rangen. |
 | `fall/*.json` | Ett fall per fil enligt schemat i designförslaget, med 3D-rummen i `moment[].payload.rum`. |
 | `js/motor/` | Laddning av fall, sparning, poäng och en generisk lösare för logikrutnät. |
-| `js/tre/` | 3D-motorn: rum från JSON, föremålsbibliotek (`prefabs.js` … `prefabs4.js`), canvastexturer och kontroller. |
+| `js/tre/` | 3D-motorn: rum från JSON (`motor3d.js`), canvastexturer och kontroller. |
+| `js/tre/foremal/` | Föremålsbiblioteket, en fil per sort: `byggdelar`, `mobler`, `belysning`, `smasaker`, `personer`, `ute`. `grund.js` har registret, delade geometrier/material och färger. |
+| `js/ljud.js` | Miljöljud och effekter, syntetiserade med Web Audio (inga ljudfiler). |
 | `js/vyer/` | Meny, presentation, utredning, anteckningsbok, anklagelse och upplösning. |
 | `js/mekaniker/` | Mekanikerna i anteckningsboken: logikrutnät (`logikrutnat.js`), förhör/dokument (`jamfor.js`), bildjämförelse (`bildjamforelse.js`) och tidslinje (`tidslinje.js`). |
 | `verktyg/fall/*.py` | Källor för fall 2 och senare – genererar `fall/*.json`. Ändra i `.py`-filen och kör den; ändras bara JSON-filen skrivs ändringen över nästa gång. Fall 1 och 3 saknar källa och redigeras direkt i JSON. |
@@ -39,8 +41,9 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 Utöver fälten i [designförslaget](docs/forslag-v1.md#13-dataformat-för-fall-json):
 
 - `moment[].payload.visning: "3d"` och `rum` med `bredd`, `djup`, `hojd`, `miljo` (`inomhus`/`veranda`), `golv`, `tapet`, `panel`, `ljus`, `start` (`pos: [x, z]`, `titta` i grader, 0 = norr) och `objekt`.
-- Varje objekt har `typ` (se `prefabs` i `js/tre/prefabs.js`: bl.a. `dorr`, `fonster`, `byra`, `skrin`, `eldstad`, `bokhylla`, `stol`, `langbord`, `vinglas`, `anteckningsbok`), `pos: [x, y, z]`, `rot`, samt valfritt `interaktiv: { namn, text, ger_fynd }`, `gar_till` (dörr till ett annat moment) och `funktion: "anteckningsbok"`.
+- Varje objekt har `typ` (se `js/tre/foremal/`: bl.a. `dorr`, `fonster`, `byra`, `skrin`, `eldstad`, `bokhylla`, `stol`, `langbord`, `vinglas`, `anteckningsbok`), `pos: [x, y, z]`, `rot`, samt valfritt `interaktiv: { namn, text, ger_fynd }`, `gar_till` (dörr till ett annat moment) och `funktion: "anteckningsbok"`.
 - Rummet kan också ha `miljo: "ute"` (gård med gräs och himmel), `vagg` (`tapet`, `puts`, `sten`, `trapanel`, `fasad`), `tak: false`, `panel: false` och `sno` (snöfall).
+- `rum.ljud`: miljöljud, t.ex. `["tag", {"typ": "vind", "styrka": 0.6}]`. Typer: `vind`, `storm`, `tag`, `tick`, `brasa`, `dropp`, `hav`, `faglar`, `syrsor` (se `js/ljud.js`; validatorn kontrollerar namnen).
 - `moment[].last_upp_av` (fynd som krävs) och `last_text` (vad spelaren får höra innan dess).
 - `logikrutnat`-payload: `kategorier`, `grannar`, `ledtradar` med maskinläsbara `regler` (`samma`, `inte_samma`, `en_av`, `bredvid`, `inte_bredvid`, `mellan`), `losning` och `ger_fynd_nar_lost`.
 - `anklagelse` (hur/när-alternativ, max antal bevis), `losning.hur`, `losning.uteslutningar_text`, `fynd[].titel/ikon/forklaring` och `aterkoppling.forklaring_steg` som objekt `{ text, fynd }`.

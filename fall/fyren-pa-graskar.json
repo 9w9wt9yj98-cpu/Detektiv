@@ -284,6 +284,9 @@
                 "text": "Väderstationen ligger på öns norra udde – tio minuters väg i storm, enligt doktorn."
               }
             }
+          ],
+          "ljud": [
+            "storm"
           ]
         }
       }
@@ -502,6 +505,13 @@
                 "namn": "Nedför trappan",
                 "text": "Ned till tornets nedre avsats."
               }
+            }
+          ],
+          "ljud": [
+            "storm",
+            {
+              "typ": "tick",
+              "styrka": 0.7
             }
           ]
         }
@@ -727,6 +737,13 @@
                 "text": "Den enda dörren ut ur bostaden – genom köket. Tillbaka till tornet."
               }
             }
+          ],
+          "ljud": [
+            {
+              "typ": "storm",
+              "styrka": 0.6
+            },
+            "brasa"
           ]
         }
       }
@@ -891,6 +908,12 @@
                 "namn": "Ut",
                 "text": "Tillbaka till tornet."
               }
+            }
+          ],
+          "ljud": [
+            {
+              "typ": "storm",
+              "styrka": 0.7
             }
           ]
         }
@@ -1079,6 +1102,16 @@
                 "namn": "Ut i stormen",
                 "text": "Tio minuter tillbaka till tornet."
               }
+            }
+          ],
+          "ljud": [
+            {
+              "typ": "storm",
+              "styrka": 0.7
+            },
+            {
+              "typ": "tick",
+              "styrka": 0.5
             }
           ]
         }

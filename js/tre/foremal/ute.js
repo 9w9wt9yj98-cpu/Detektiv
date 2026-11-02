@@ -1,27 +1,8 @@
-// Föremål för nutid och utomhus: gård i Dalarna, midsommar, modern sal och kontor. Samma konventioner som prefabs.js.
-import * as THREE from '../../vendor/three/three.module.min.js';
-import * as T from './texturer.js';
-import { prefabs, mat, box, cyl, sph, plan, massing, glas } from './prefabs.js';
-
-const FALU = '#8a2a1e', VIT = '#efe9dc';
-
-/** Dagsljusfönster med spröjs, valfritt med gardiner. */
-function dagfonster(d) {
-  const g = new THREE.Group();
-  const W = d.bredd || 1.0, H = d.hojd || 1.3, y0 = d.y0 ?? 0.9;
-  plan(g, W, H, mat('#ffffff', { map: T.dagsljus(), emissive: '#3a3a30' }), 0, y0 + H / 2, 0.01);
-  const ram = mat(d.ram || VIT);
-  box(g, W + 0.12, 0.08, 0.1, ram, 0, y0 + H + 0.04, 0.04); box(g, W + 0.16, 0.05, 0.22, ram, 0, y0 - 0.02, 0.08);
-  for (const sx of [-1, 1]) box(g, 0.06, H, 0.1, ram, sx * (W / 2 + 0.03), y0 + H / 2, 0.04);
-  box(g, 0.04, H, 0.04, ram, 0, y0 + H / 2, 0.04); box(g, W, 0.04, 0.04, ram, 0, y0 + H / 2, 0.04);
-  if (d.gardin) {
-    const tyg = mat(d.gardin === true ? '#e6dcc2' : d.gardin);
-    if (d.dragen) box(g, W + 0.2, H + 0.2, 0.03, tyg, 0, y0 + H / 2, 0.14);
-    else for (const sx of [-1, 1]) box(g, 0.26, H + 0.4, 0.04, tyg, sx * (W / 2 + 0.2), y0 + H / 2, 0.14);
-    box(g, W + 0.7, 0.03, 0.03, mat('#cfc4a8'), 0, y0 + H + 0.22, 0.16);
-  }
-  return { grupp: g, kollision: false };
-}
+// Utomhus: hus, fordon, träd och gärdesgårdar.
+// Konventioner: se foremal/grund.js.
+import * as THREE from '../../../vendor/three/three.module.min.js';
+import * as T from '../texturer.js';
+import { prefabs, mat, box, cyl, sph, plan, massing, FALU, VIT } from './grund.js';
 
 /** Faluröd husfasad med vita knutar, fönster och dörr. Fasaden ligger i z=0 och vänder framsidan mot +z. */
 function hus(d) {
@@ -124,73 +105,4 @@ function gardesgard(d) {
   return { grupp: g, kollision: true };
 }
 
-/** Silverskål med två handtag. buckla: bucklan på kanten; s: S i handtaget. tom: bara en ljus ring där skålen stått. */
-function skal(d) {
-  const g = new THREE.Group();
-  if (d.tom) { cyl(g, 0.13, 0.13, 0.004, mat('#c8b89a'), 0, 0.002, 0, 16); return { grupp: g, kollision: false }; }
-  const silver = mat('#d8d6cc', { emissive: '#3a3a36' });
-  cyl(g, 0.06, 0.07, 0.03, silver, 0, 0.015, 0, 14);
-  const k = new THREE.Mesh(new THREE.SphereGeometry(0.15, 16, 8, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2), silver);
-  k.scale.set(1, 0.7, 1); k.rotation.x = Math.PI; k.position.y = 0.135; g.add(k);
-  const kant = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.008, 4, 24), silver); kant.rotation.x = Math.PI / 2; kant.position.y = 0.135; g.add(kant);
-  if (d.buckla) box(g, 0.05, 0.02, 0.02, mat('#8a887e'), 0.13, 0.13, 0.06, 0, 0.4, 0.2);
-  for (const sx of [-1, 1]) { const h = new THREE.Mesh(new THREE.TorusGeometry(0.04, 0.008, 4, 10, Math.PI), silver); h.position.set(sx * 0.17, 0.11, 0); h.rotation.z = -sx * Math.PI / 2; g.add(h); }
-  return { grupp: g, kollision: false };
-}
-
-/** Bärbar dator, uppfälld, med en skärmbild (text) eller ett instagraminlägg. */
-function dator(d) {
-  const g = new THREE.Group();
-  const gra = mat('#9a9a9e');
-  box(g, 0.34, 0.015, 0.24, gra, 0, 0.008, 0);
-  const lock = new THREE.Group(); lock.position.set(0, 0.015, -0.12); lock.rotation.x = -0.25; g.add(lock);
-  box(lock, 0.34, 0.23, 0.01, gra, 0, 0.115, 0);
-  plan(lock, 0.31, 0.2, mat('#ffffff', { map: T.skarm(d.skarm || 'insta'), emissive: '#808080' }), 0, 0.115, 0.006);
-  return { grupp: g, kollision: false };
-}
-
-function mobil(d) {
-  const g = new THREE.Group();
-  box(g, 0.075, 0.008, 0.15, mat('#1a1a1c'), 0, 0.004, 0, 0, d.vrid || 0.3, 0);
-  plan(g, 0.066, 0.138, mat('#ffffff', { map: T.skarm('foto'), emissive: '#606060' }), 0, 0.0085, 0, -Math.PI / 2, 0);
-  g.children[1].rotation.z = d.vrid || 0.3;
-  return { grupp: g, kollision: false };
-}
-
-function tarta(d) {
-  const g = new THREE.Group();
-  cyl(g, 0.17, 0.17, 0.01, mat('#d8d6cc'), 0, 0.005, 0, 16);
-  cyl(g, 0.13, 0.13, 0.11, mat('#f6efe0'), 0, 0.065, 0, 16);
-  for (let i = 0; i < 8; i++) { const a = (i / 8) * Math.PI * 2; sph(g, 0.022, mat('#c22a2a'), Math.cos(a) * 0.09, 0.13, Math.sin(a) * 0.09, 5); }
-  return { grupp: g, kollision: false };
-}
-
-function dalahast(d) {
-  const g = new THREE.Group();
-  const m = mat(d.farg || '#b8281e');
-  box(g, 0.08, 0.06, 0.16, m, 0, 0.1, 0); box(g, 0.06, 0.1, 0.05, m, 0, 0.16, 0.08); box(g, 0.05, 0.05, 0.06, m, 0, 0.2, 0.11);
-  for (const sx of [-1, 1]) for (const sz of [-1, 1]) box(g, 0.025, 0.07, 0.025, m, sx * 0.025, 0.035, sz * 0.06);
-  box(g, 0.04, 0.005, 0.1, mat('#e8c23a'), 0, 0.131, 0);
-  return { grupp: g, kollision: false };
-}
-
-/** Pärm eller mapp, liggande. */
-function parm(d) {
-  const g = new THREE.Group();
-  box(g, 0.24, 0.04, 0.3, mat(d.farg || '#2a4a6a'), 0, 0.02, 0);
-  box(g, 0.22, 0.034, 0.28, mat('#f2ece0'), 0.008, 0.02, 0);
-  if (d.etikett) plan(g, 0.14, 0.05, mat('#ffffff', { map: T.skylt(d.etikett, { bredd: 256, hojd: 90, storlek: 30 }) }), 0, 0.041, 0, -Math.PI / 2, 0);
-  return { grupp: g, kollision: false };
-}
-
-function stolModern(d) {
-  const g = new THREE.Group();
-  const m = mat(d.farg || '#e8e2d2');
-  box(g, 0.44, 0.04, 0.42, m, 0, 0.45, 0);
-  for (const sx of [-1, 1]) for (const sz of [-1, 1]) box(g, 0.035, 0.45, 0.035, m, sx * 0.19, 0.225, sz * 0.18);
-  for (let i = 0; i < 4; i++) box(g, 0.025, 0.45, 0.025, m, -0.15 + i * 0.1, 0.7, -0.19);
-  box(g, 0.44, 0.04, 0.04, m, 0, 0.93, -0.19);
-  return { grupp: g };
-}
-
-Object.assign(prefabs, { dagfonster, hus, bil, buss, bjork, gran, midsommarstang, gardesgard, skal, dator, mobil, tarta, dalahast, parm, stolModern });
+Object.assign(prefabs, { hus, bil, buss, bjork, gran, midsommarstang, gardesgard });

@@ -1,9 +1,6 @@
 // Datadriven förstapersonsscen. Ett rum beskrivs helt i fallets JSON (moment.payload.rum).
 import * as THREE from '../../vendor/three/three.module.min.js';
-import { prefabs, mat, DELADE } from './prefabs.js';
-import './prefabs2.js';
-import './prefabs3.js';
-import './prefabs4.js';
+import { prefabs, mat, DELADE } from './foremal/index.js';
 import * as T from './texturer.js';
 import { Kontroller } from './kontroller.js';
 

@@ -5,6 +5,7 @@ import { verifiera } from '../js/motor/losare.js';
 import { materialMap } from '../js/motor/fall.js';
 import { bedom } from '../js/mekaniker/bildjamforelse.js';
 import { analysera } from '../js/mekaniker/tidslinje.js';
+import { LJUDTYPER } from '../js/ljud.js';
 
 const rot = new URL('../fall/', import.meta.url);
 const index = JSON.parse(readFileSync(new URL('index.json', rot)));
@@ -78,8 +79,17 @@ for (const kap of index.kapitel) for (const post of kap.fall) {
     lista(k.kraver).forEach((i) => kollaId(i, k._var));
     for (const par of k.par || []) par.forEach((i) => kollaId(i, `${k._var} par`));
   }
+  // Ledtrådarna får aldrig ge den skyldiges namn (CLAUDE.md)
+  const skyldigNamn = (f.personer.find((p) => p.id === f.losning.skyldig)?.namn || '').split(/\s+/).filter((w) => w.length > 2 && /^[A-ZÅÄÖ]/.test(w));
+  for (const l of f.ledtradar || []) for (const w of skyldigNamn) {
+    if (new RegExp(`(^|[^\\p{L}])${w}(?!\\p{L})|(^|[^\\p{L}])${w}s(?!\\p{L})`, 'u').test(l.text)) varna(f.id, `ledtråd nivå ${l.niva} nämner den skyldige (${w})`);
+  }
   for (const m of f.moment) {
     (m.last_upp_av || []).forEach((i) => kollaId(i, `last_upp_av ${m.id}`));
+    for (const l of m.payload?.rum?.ljud || []) {
+      const typ = typeof l === 'string' ? l : l?.typ;
+      if (!LJUDTYPER.includes(typ)) varna(f.id, `${m.id} har okänt ljud ${JSON.stringify(l)} (finns: ${LJUDTYPER.join(', ')})`);
+    }
     for (const o of m.payload?.rum?.objekt || []) {
       lista(o.interaktiv?.ger_fynd).forEach((i) => kollaFynd(i, `${m.id}/${o.id}`));
       lista(o.interaktiv?.ger_material).forEach((i) => { if (!mat[i]) varna(f.id, `${m.id}/${o.id} ger okänt material ${i}`); });

@@ -146,3 +146,13 @@ Efter en genomgång av hela spelet rättades fel i fallen och i tekniken. Pussle
 - **Verktyg:** `package.json` med `npm test` och `npm run validera`; `test/spela.mjs` startar en egen server; `node verktyg/release.mjs --kontrollera` misslyckas om fillistan i `sw.js` inte stämmer med repot eller versionerna skiljer sig åt.
 
 **Inte ändrat – kräver beslut:** rangerna Kommissarie (22) och Mästerdetektiv (35) går inte att nå med sex fall; `kraver_rang` och kapitellås används inte; Strands återkommande roll går inte ihop i tid (1926, 1934, 1954, nutid, 1897 som *August* Strand); krav på rätt ”hur” i svårare fall; ljud.
+
+## Rang, kapitel, Strand, ljud och föremålsbiblioteket (november 2026)
+
+Beslut av Martin: gör allt utom ändrad svårighet (krav på rätt ”hur”), som får vänta.
+
+- **Rangerna** går nu att nå med sex fall (högst 18 förstoringsglas): Aspirant 0, Konstapel 4, Kriminalassistent 8, Kommissarie 12, Mästerdetektiv 16. Kraven höjs när fler fall kommer till (`RANGER` i `js/motor/poang.js`).
+- **Kapitellås:** kapitel II öppnas när alla fall i kapitel I är avslutade – lösta eller med lösningen visad – *eller* när spelaren når rangen Konstapel (`lases_upp_av_rang` i `fall/index.json`). Ingen kan fastna, eftersom ”Visa lösningen” alltid avslutar ett fall. Ett fall som redan är påbörjat stängs aldrig. Låset sitter i menyn; en direktlänk till ett fall fungerar fortfarande.
+- **Strand-släkten:** varje tid har sin egen Strand. Överkonstapel *August* Strand (1897) är far till *Nils* Strand – konstapel på Ekbacka 1926, kriminalkonstapel på nattåget 1934 och kommissarie på Solgläntan 1954. I nutid utreder kriminalinspektör *Maja* Strand, Nils barnbarns barn, med hans gamla anteckningsbok i fickan.
+- **Ljud:** miljöljud per rum och små effekter (fynd, dörr, bläddring i boken), syntetiserade med Web Audio i `js/ljud.js` – inga ljudfiler, inget extra att ladda ned. Ljudet startar vid första trycket (webbläsarnas krav), tystnar när fliken döljs och kan stängas av med 🔊-knappen i utredningen; valet sparas.
+- **Föremålsbiblioteket** är uppdelat efter sort i `js/tre/foremal/` i stället för efter fall (`prefabs.js` … `prefabs4.js`). Färgkonstanterna finns på ett ställe. `dagfonster` och `stormfonster` delar nu stommen `korsfonster`. Övriga fönster- och dörrtyper ser medvetet olika ut och är kvar som egna föremål. Alla 76 kontrollbilder av rummen (fyra riktningar per rum) är identiska före och efter, så när som på en enda bildpunkt.

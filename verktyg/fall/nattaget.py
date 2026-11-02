@@ -216,7 +216,7 @@ fall["anklagelse"] = {"hur_fraga": "Hur tog sig gärningspersonen in och ut?", "
 fall["ledtradar"] = [
   {"niva": 1, "kostnad": 10, "kraver": ["f-kedja", "f-fonster-is"], "text": "Hur kan någon lämna en kupé som är hakad inifrån och har ett fastfruset fönster?"},
   {"niva": 2, "kostnad": 25, "kraver": ["f-mellandorr", "f-ahl-kedja"], "text": "Det finns bara en väg kvar: mellandörren. Vart leder den – och kunde den som gick den vägen sedan ta sig vidare?"},
-  {"niva": 3, "kostnad": 50, "kraver": ["u-ahl-sov", "u-ahl-lykta"], "text": "Fru Ahl säger att hon sov hela natten, men hon minns ljuset under stoppet i Boden. Varför ljuger hon om att hon var vaken?"}]
+  {"niva": 3, "kostnad": 50, "kraver": ["u-ahl-sov", "u-ahl-lykta"], "text": "Den som reste i kupé 2 säger att hon sov hela natten. Läs vad hon själv minns från stoppet i Boden – kan båda sakerna vara sanna?"}]
 fall["aterkoppling"] = {
   "ratt": "Ett låst rum har alltid en dörr man glömmer. Kedjan och isen stängde två vägar, och mellandörren ledde till en kupé som också var hakad inifrån. Fru Ahl var vaken – det avslöjade hon själv med stinsens lykta. Berg hade drivit hennes make i konkurs; hon knackade på mellandörren, han drog undan regeln, och när tåget ryckte igång efter Boden slog hon till.",
   "fel": {
@@ -232,6 +232,11 @@ fall["aterkoppling"] = {
     {"text": "Fru Ahl påstår att hon sov oavbrutet, men hon minns stinsens lykta i Boden. Hon var vaken när fröken Nyqvist hörde dunsen kl. 01.25 – mitt i läkarens tidsfönster.", "fynd": ["f-ahl-vaken", "f-duns", "f-dodstid"]},
     {"text": "Sundin ljög om skulden och mindes fel om kortspelet, men Olsson såg honom i restaurangvagnen hela natten. Lind var på perrongen, och ingen huvudnyckel rår på en kedja.", "fynd": ["f-sundin-alibi", "f-sundin-patiens", "f-skuldsedel"]},
     {"text": "Fru Ahl är skyldig. Berg hade drivit hennes makes firma i konkurs. Hon knackade på mellandörren, Berg drog undan sin regel – och efter slaget reglade hon sin egen sida igen.", "fynd": ["f-konkurs"]}]}
+
+# Miljöljud per rum (se js/ljud.js)
+LJUD = {"kupe3": ["tag"], "korridoren": ["tag", {"typ": "vind", "styrka": 0.6}], "restaurangvagnen": ["tag"]}
+for m in fall["moment"]:
+  if m["id"] in LJUD: m["payload"]["rum"]["ljud"] = LJUD[m["id"]]
 
 ut = os.path.join(os.path.dirname(__file__), '..', '..', 'fall', 'nattaget-mot-narvik.json')
 json.dump(fall, open(ut, 'w'), ensure_ascii=False, indent=2)

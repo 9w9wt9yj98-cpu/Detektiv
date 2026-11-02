@@ -7,6 +7,7 @@ import { oppnaAnteckningsbok, oppnaLedtradar } from './anteckningsbok.js';
 import { oppnaAnklagelse, avslutaFall } from './anklagelse.js';
 import { startaHandledning } from './handledning.js';
 import { esc, modal, toast, lampa, bokIkon, hemIkon, $ } from './gemensamt.js';
+import * as ljud from '../ljud.js';
 
 function webglFinns() {
   try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; }
@@ -39,6 +40,7 @@ export async function visaUtredning(app, id) {
     <header class="hud-topp">
       <a class="ikonknapp" href="#/fall/${id}" aria-label="Till fallets presentation">${hemIkon()}</a>
       <div class="hud-titel"><h1>${esc(fallTitel(f))}</h1><span class="rumnamn"></span></div>
+      <button class="ikonknapp ljudknapp" data-ljud></button>
       <button class="ikonknapp" data-ledtrad aria-label="Ledtrådar">${lampa()}<span class="bricka"></span></button>
       <button class="ikonknapp liten-bok" data-bok aria-label="Öppna anteckningsboken">${bokIkon()}<span class="bricka fyndantal"></span></button>
       <div class="hud-mal"><span class="mal">${esc(f.meta.mal || f.intro.uppdrag)}</span><button class="raknare" data-platser aria-label="Visa platser och fynd kvar"></button></div>
@@ -52,6 +54,10 @@ export async function visaUtredning(app, id) {
     </div>
   </div>`;
   const behallare = $('.rum3d', app);
+  const ljudKnapp = $('[data-ljud]', app);
+  const visaLjud = () => { const pa = ljud.arPa(); ljudKnapp.textContent = pa ? '🔊' : '🔇'; ljudKnapp.setAttribute('aria-label', pa ? 'Stäng av ljudet' : 'Sätt på ljudet'); ljudKnapp.setAttribute('aria-pressed', String(pa)); };
+  ljudKnapp.onclick = () => { ljud.satt(!ljud.arPa()); visaLjud(); };
+  visaLjud();
   const uppdateraHud = () => {
     $('[data-ledtrad] .bricka', app).textContent = f.ledtradar.length - st.ledtradar;
     const r = rakning(f, st);
@@ -101,11 +107,15 @@ export async function visaUtredning(app, id) {
     st.rum = m.id;
     const inspekterade = new Set(st.inspekterade);
     motor.ladda(m.payload.rum, { inspekterade, position: anvandSparad && st.position ? st.position : null });
+    ljud.spelaRum(m.payload.rum.ljud);
     spara();
     uppdateraHud();
   }
   laddaRum(aktuelltRum, { anvandSparad: true });
   motor.starta();
+  // Webbläsare tillåter ljud först efter ett tryck eller en tangent.
+  const vakna = () => ljud.vakna();
+  window.addEventListener('pointerdown', vakna); window.addEventListener('keydown', vakna);
 
   function upplasta() { return new Set(f.moment.filter((m) => arUpplast(m, st)).map((m) => m.id)); }
   function nyaUpplasningar(fore) {
@@ -153,7 +163,8 @@ export async function visaUtredning(app, id) {
         <button class="knapp ${mal && malOppet ? 'sekundar' : 'massing'}" data-stang>Fortsätt undersöka</button>
       </div></div>`, { klass: 'inspektionskort', onStang: fortsatt });
     const ga = $('[data-ga]', m.el);
-    if (ga) ga.onclick = () => { m.el.remove(); laddaRum(mal); fortsatt(); toast(mal.namn); };
+    if (nya.length || nyaM.length || harlett.length) ljud.effekt('fynd');
+    if (ga) ga.onclick = () => { m.el.remove(); ljud.effekt('dorr'); laddaRum(mal); fortsatt(); toast(mal.namn); };
     if (nya.length || nyaM.length) { app.querySelector('.liten-bok').classList.add('puls'); setTimeout(() => app.querySelector('.liten-bok')?.classList.remove('puls'), 1600); }
     nyaUpplasningar(fore);
     uppdateraHud();
@@ -167,6 +178,7 @@ export async function visaUtredning(app, id) {
   }
   function oppnaBok(flik) {
     pausa();
+    ljud.effekt('sida');
     const fore = upplasta();
     guide?.hande('bok');
     const valdFlik = flik || forvaldFlik();
@@ -237,6 +249,8 @@ export async function visaUtredning(app, id) {
 
   return () => {
     clearInterval(timer);
+    window.removeEventListener('pointerdown', vakna); window.removeEventListener('keydown', vakna);
+    ljud.lamna();
     try { st.position = motor.position(); } catch { /* ignore */ }
     spara();
     guide?.avbryt?.();

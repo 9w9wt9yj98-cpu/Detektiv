@@ -1,9 +1,11 @@
 import { laddaIndex, laddaFall } from '../motor/fall.js';
 import { las, nollstallAllt } from '../motor/lagring.js';
-import { totalGlas, rang } from '../motor/poang.js';
+import { totalGlas, rang, kapitelStatus } from '../motor/poang.js';
 import { esc, glasRad, bekrafta, $ } from './gemensamt.js';
 import { VERSION } from '../version.js';
 
+/** ”Kapitel I – Aspirant” → ”kapitel I” */
+const kortTitel = (t) => (t.split(' – ')[0] || t).replace(/^Kapitel/, 'kapitel');
 const LANGD = { kort: 'Kort', medel: 'Medel', lang: 'Lång' };
 
 export async function visaMeny(app) {
@@ -15,8 +17,14 @@ export async function visaMeny(app) {
   const poster = idx.kapitel.flatMap((k) => k.fall).filter((p) => !p.kommer);
   const laddade = new Map(await Promise.all(poster.map((p) => laddaFall(p.id).then((f) => [p.id, f], (e) => { console.warn('Fallet kunde inte läsas', p.id, e); return [p.id, null]; }))));
   const kort = [];
-  for (const kap of idx.kapitel) {
+  const kapStatus = kapitelStatus(idx, data);
+  // Ett fall som spelaren redan har påbörjat stängs aldrig, även om kapitlet annars är låst.
+  const paborjat = (id) => !!data.fall[id] && data.fall[id].status !== 'ny';
+  for (const [ki, kap] of idx.kapitel.entries()) {
+    const { oppet, krav, foregaende } = kapStatus[ki];
     kort.push(`<h2 class="kapitel">${esc(kap.titel)}</h2>`);
+    const lasText = oppet ? '' : `Öppnas när ${esc(kortTitel(foregaende.titel))} är avslutat${krav ? ` – eller när du når rangen ${esc(krav.namn)} (${krav.krav - glas} förstoringsglas kvar)` : ''}.`;
+    if (!oppet) kort.push(`<p class="kapitel-las">🔒 ${lasText} Ett fall räknas som avslutat när du har löst det eller valt att se lösningen.</p>`);
     for (const post of kap.fall) {
       if (post.kommer) {
         kort.push(`<div class="fallkort kommer"><div class="fallkort-nr">${post.nummer}</div><div class="fallkort-text"><h3>${esc(post.titel)}</h3><p class="meta">Akten är ännu förseglad</p></div><div class="sigill" aria-hidden="true">✶</div></div>`);
@@ -28,6 +36,14 @@ export async function visaMeny(app) {
         continue;
       }
       const st = data.fall[f.id];
+      if (!oppet && !paborjat(f.id)) {
+        kort.push(`<div class="fallkort last" style="--accent:${f.meta.accentfarg || '#7a2e1f'}" aria-disabled="true">
+          <div class="fallkort-bild" style="background-image:url('${esc(f.meta.omslag)}')"></div>
+          <div class="fallkort-nr">${f.nummer}</div>
+          <div class="fallkort-text"><h3>${esc(f.meta.titel)}</h3><p class="meta">${esc(f.meta.miljo)} · ${esc(f.meta.epok)}</p>
+          <div class="fallkort-status"><span class="status">🔒 Låst</span></div></div></div>`);
+        continue;
+      }
       let status = '<span class="status ny">Ny akt</span>';
       if (st?.basta) status = glasRad(st.basta.glas, 3, 20);
       else if (st?.status === 'misslyckad') status = '<span class="status">Olöst</span>';
