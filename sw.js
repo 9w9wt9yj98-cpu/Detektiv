@@ -1,10 +1,11 @@
 // Service worker: cachar spelets filer så att det fungerar offline och kan läggas på hemskärmen.
-const VERSION = 'detektiv-v7';
+const VERSION = 'detektiv-v8';
 const FILER = [
   './',
   './index.html',
   './manifest.webmanifest',
   './css/stil.css',
+  './js/ljud.js',
   './js/main.js',
   './js/mekaniker/bildjamforelse.js',
   './js/mekaniker/index.js',
@@ -16,12 +17,16 @@ const FILER = [
   './js/motor/losare.js',
   './js/motor/poang.js',
   './js/motor/vagledning.js',
+  './js/tre/foremal/belysning.js',
+  './js/tre/foremal/byggdelar.js',
+  './js/tre/foremal/grund.js',
+  './js/tre/foremal/index.js',
+  './js/tre/foremal/mobler.js',
+  './js/tre/foremal/personer.js',
+  './js/tre/foremal/smasaker.js',
+  './js/tre/foremal/ute.js',
   './js/tre/kontroller.js',
   './js/tre/motor3d.js',
-  './js/tre/prefabs.js',
-  './js/tre/prefabs2.js',
-  './js/tre/prefabs3.js',
-  './js/tre/prefabs4.js',
   './js/tre/texturer.js',
   './js/version.js',
   './js/vyer/anklagelse.js',

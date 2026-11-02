@@ -87,6 +87,8 @@ button { font-family: inherit; }
 .status { font-size: 13px; padding: 2px 8px; border-radius: 10px; border: 1px solid var(--brun3); }
 .status.ny { background: var(--accent); color: var(--papper); border-color: transparent; }
 .status.pagar { background: var(--massing-ljus); }
+.kapitel-las { color: var(--papper2); font-size: 15px; margin: -4px 0 12px; opacity: .9; }
+.fallkort.last { opacity: .6; filter: grayscale(.5); cursor: default; }
 .fallkort.kommer { opacity: .55; filter: grayscale(.4); border-left-color: #6a5a48; min-height: 70px; }
 .fallkort.kommer .fallkort-text { padding-left: 54px; }
 .sigill { margin-left: auto; align-self: center; margin-right: 14px; width: 34px; height: 34px; border-radius: 50%; background: var(--rod); color: #e9c9a0; display: grid; place-items: center; }

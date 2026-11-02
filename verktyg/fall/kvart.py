@@ -14,7 +14,7 @@ fall = {"id": "kvart-i-elva", "version": 1,
    "uppskattad_tid_min": [15, 20], "svarighet": 3, "karnmekanik": "tidslinje", "bimekaniker": ["scen", "dokument"], "twist": None, "kraver_rang": 0,
    "accentfarg": "#2a3a5a", "omslag": "bilder/fall5/urmakeriet.jpg", "mal": "Ta reda på vem som stal kronometern Polaris", "handledning_mal": "monter"},
  "intro": {"rubrik": "Österlånggatan, Stockholm. En snönatt i december 1897.",
-   "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
+   "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. Hemma på Söder har han en pojke, Nils, som en dag ska bli konstapel på Ekbacka. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
    "uppdrag": "Vem stal kronometern – och hur hann hen?", "bild": "bilder/fall5/urmakeriet.jpg", "berattare": "Överkonstapel August Strand"},
  "personer": [
    {"id": "faltskog", "namn": "Johan Fältskog", "roll": "Urmakare, ägare av butiken", "misstankt": T, "beskrivning": "Kom direkt från sin dotters bröllopsmiddag, fortfarande i frack."},
@@ -271,6 +271,11 @@ fall["aterkoppling"] = {
     {"text": "Rapp lämnade gillet 22.30. Raka vägen hem tar 15 minuter, men hustrun säger 23.05. Omvägen via urmakeriet – 6 + 18 minuter och en stund vid montern – går ihop på minuten.", "fynd": ["f-rapp-lucka", "f-rapp-hinner", "f-kokur"]},
     {"text": "Rapp säger att han inte varit i butiken på sex år, men färska ekspån från verkstadsgolvet sitter i hans snövåta rock. Motivet: Polaris var till hälften hans konstruktion.", "fynd": ["f-ekspan-rapp", "f-ekspan-golv", "f-motiv"]},
     {"text": "Fru Lindhs handske är ett villospår: hon tappade den kl. 17 och satt på spårvagnen när klockan föll.", "fynd": ["f-handske", "f-lindh-omojlig"]}]}
+
+# Miljöljud per rum (se js/ljud.js)
+LJUD = {"urmakeriet": ["tick"], "gatan": [{"typ": "vind", "styrka": 0.8}], "poliskammaren": [{"typ": "tick", "styrka": 0.6}], "rapps-hem": ["brasa", {"typ": "tick", "styrka": 0.5}]}
+for m in fall["moment"]:
+  if m["id"] in LJUD: m["payload"]["rum"]["ljud"] = LJUD[m["id"]]
 
 ut = os.path.join(os.path.dirname(__file__), '..', '..', 'fall', 'kvart-i-elva.json')
 json.dump(fall, open(ut, 'w'), ensure_ascii=False, indent=2)

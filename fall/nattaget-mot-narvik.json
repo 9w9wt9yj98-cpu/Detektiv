@@ -310,6 +310,9 @@
               ],
               "textstorlek": 60
             }
+          ],
+          "ljud": [
+            "tag"
           ]
         }
       }
@@ -692,6 +695,13 @@
               "styrka": 0.9,
               "rackvidd": 4
             }
+          ],
+          "ljud": [
+            "tag",
+            {
+              "typ": "vind",
+              "styrka": 0.6
+            }
           ]
         }
       }
@@ -1066,6 +1076,9 @@
               ],
               "styrka": 1.2
             }
+          ],
+          "ljud": [
+            "tag"
           ]
         }
       }

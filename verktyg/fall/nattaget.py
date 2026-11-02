@@ -233,6 +233,11 @@ fall["aterkoppling"] = {
     {"text": "Sundin ljög om skulden och mindes fel om kortspelet, men Olsson såg honom i restaurangvagnen hela natten. Lind var på perrongen, och ingen huvudnyckel rår på en kedja.", "fynd": ["f-sundin-alibi", "f-sundin-patiens", "f-skuldsedel"]},
     {"text": "Fru Ahl är skyldig. Berg hade drivit hennes makes firma i konkurs. Hon knackade på mellandörren, Berg drog undan sin regel – och efter slaget reglade hon sin egen sida igen.", "fynd": ["f-konkurs"]}]}
 
+# Miljöljud per rum (se js/ljud.js)
+LJUD = {"kupe3": ["tag"], "korridoren": ["tag", {"typ": "vind", "styrka": 0.6}], "restaurangvagnen": ["tag"]}
+for m in fall["moment"]:
+  if m["id"] in LJUD: m["payload"]["rum"]["ljud"] = LJUD[m["id"]]
+
 ut = os.path.join(os.path.dirname(__file__), '..', '..', 'fall', 'nattaget-mot-narvik.json')
 json.dump(fall, open(ut, 'w'), ensure_ascii=False, indent=2)
 print('skrev', os.path.normpath(ut))

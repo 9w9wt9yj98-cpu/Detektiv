@@ -299,6 +299,11 @@ fall["aterkoppling"] = {
     {"text": "Johan kan inte gå. Doktorn slog tidsmärken var femtonde minut. Signe gick aldrig förbi Johan i köket. Kvar blir Elof.", "fynd": ["f-johan-ben", "f-lagerkvist-alibi", "f-signe-alibi"]},
     {"text": "Motivet: Holger tänkte anmäla Elof för att han sålt fyrens fotogen. Kannorna står i hans stuga.", "fynd": ["f-anmalan", "f-fotogen-stuga"]}]}
 
+# Miljöljud per rum (se js/ljud.js)
+LJUD = {"tornet": ["storm"], "lanternan": ["storm", {"typ": "tick", "styrka": 0.7}], "koket": [{"typ": "storm", "styrka": 0.6}, "brasa"], "stugan": [{"typ": "storm", "styrka": 0.7}], "stationen": [{"typ": "storm", "styrka": 0.7}, {"typ": "tick", "styrka": 0.5}]}
+for m in fall["moment"]:
+  if m["id"] in LJUD: m["payload"]["rum"]["ljud"] = LJUD[m["id"]]
+
 ut = os.path.join(os.path.dirname(__file__), '..', '..', 'fall', 'fyren-pa-graskar.json')
 json.dump(fall, open(ut, 'w'), ensure_ascii=False, indent=2)
 print('skrev', os.path.normpath(ut))

@@ -380,7 +380,15 @@
             }
           ],
           "miljo": "inomhus",
-          "panel": "#5a3b22"
+          "panel": "#5a3b22",
+          "ljud": [
+            "brasa",
+            "dropp",
+            {
+              "typ": "tick",
+              "styrka": 0.5
+            }
+          ]
         }
       }
     },
@@ -573,6 +581,9 @@
               ],
               "styrka": 1.6
             }
+          ],
+          "ljud": [
+            "dropp"
           ]
         }
       }
@@ -819,6 +830,13 @@
                 0,
                 2.5
               ]
+            }
+          ],
+          "ljud": [
+            "brasa",
+            {
+              "typ": "tick",
+              "styrka": 0.5
             }
           ]
         }

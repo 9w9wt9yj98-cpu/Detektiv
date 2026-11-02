@@ -1,9 +1,11 @@
 // Poäng och förstoringsglas enligt designförslaget (avsnitt 1.2 och 5.4).
 export const FEL_KOSTNAD = 30;
 export const MAX_FEL = 2;
+// Kraven är satta så att alla ranger går att nå med de sex första fallen (högst 18 förstoringsglas).
+// Höj dem när fler fall kommer till – Mästerdetektiv ska kräva nästan fullt på alla fall.
 export const RANGER = [
-  { namn: 'Aspirant', krav: 0 }, { namn: 'Konstapel', krav: 5 }, { namn: 'Kriminalassistent', krav: 12 },
-  { namn: 'Kommissarie', krav: 22 }, { namn: 'Mästerdetektiv', krav: 35 },
+  { namn: 'Aspirant', krav: 0 }, { namn: 'Konstapel', krav: 4 }, { namn: 'Kriminalassistent', krav: 8 },
+  { namn: 'Kommissarie', krav: 12 }, { namn: 'Mästerdetektiv', krav: 16 },
 ];
 
 export function ledtradKostnad(fall, antal) {
@@ -30,6 +32,26 @@ export function resultat(fall, st, { losta, hur, bevis }) {
     glas = Math.min(3, glas);
   }
   return { losta, poang: losta ? poang : 0, glas, bevisRatt: bRatt, hurRatt: hRatt, bevis: bevis || [], hur: hur || null, ledtradar: st.ledtradar, fel: st.fel.slice(), tid: st.tid };
+}
+/** Är fallet avslutat – löst, eller avslutat med upplösningen visad? */
+export function arAvslutat(data, id) {
+  const s = data.fall[id];
+  return !!(s?.basta || s?.status === 'lost' || s?.status === 'misslyckad');
+}
+/**
+ * Vilka kapitel är öppna? Kapitel 1 är alltid öppet. Ett senare kapitel öppnas när alla fall i kapitlet
+ * före är avslutade (lösta eller med visad lösning), eller när spelaren når rangen i `lases_upp_av_rang`.
+ * Returnerar per kapitel { oppet, krav } där krav är rangen som också låser upp det.
+ */
+export function kapitelStatus(idx, data) {
+  const glas = totalGlas(data);
+  let foregaendeKlart = true;
+  return idx.kapitel.map((kap, i) => {
+    const krav = kap.lases_upp_av_rang ? RANGER.find((x) => x.namn === kap.lases_upp_av_rang) : null;
+    const oppet = i === 0 || foregaendeKlart || (!!krav && glas >= krav.krav);
+    foregaendeKlart = kap.fall.filter((p) => !p.kommer).every((p) => arAvslutat(data, p.id));
+    return { oppet, krav, foregaende: i > 0 ? idx.kapitel[i - 1] : null };
+  });
 }
 export function totalGlas(data) {
   return Object.values(data.fall).reduce((s, f) => s + (f.basta?.glas || 0), 0);

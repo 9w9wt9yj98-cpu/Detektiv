@@ -30,6 +30,7 @@
     {
       "id": "kapitel-2",
       "titel": "Kapitel II – Konstapel",
+      "lases_upp_av_rang": "Konstapel",
       "fall": [
         {
           "nummer": 5,

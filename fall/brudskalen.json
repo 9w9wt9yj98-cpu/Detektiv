@@ -25,10 +25,10 @@
   },
   "intro": {
     "rubrik": "Midsommarafton på Sahlins gård, Leksand.",
-    "text": "Midsommarstången är rest, sillen är uppäten och dragspelet har tystnat. Gunnar Sahlin har ringt polisen: hans 1700-talsskål i silver, Brudskålen, är stulen från skänken i salen – mitt under festen.\n\n”Jag såg den halv fem, med sin gamla buckla på kanten”, säger han. ”Kvart i sex var den borta.”\n\nKriminalinspektör Nils Strand – samma Strand, men i ett annat sekel – är på semester i Leksand och har lovat att titta förbi. ”Tjugofem gäster med mobilkameror”, säger han och ler. ”Det har ingen tjuv haft förr. Be om deras bilder, och jämför dem noga.”",
+    "text": "Midsommarstången är rest, sillen är uppäten och dragspelet har tystnat. Gunnar Sahlin har ringt polisen: hans 1700-talsskål i silver, Brudskålen, är stulen från skänken i salen – mitt under festen.\n\n”Jag såg den halv fem, med sin gamla buckla på kanten”, säger han. ”Kvart i sex var den borta.”\n\nKriminalinspektör Maja Strand – barnbarns barn till Nils Strand, konstapeln från Ekbacka och sedermera kommissarien på Solgläntan – är på semester i Leksand och har lovat att titta förbi. Hon har farfars fars gamla anteckningsbok i fickan. ”Tjugofem gäster med mobilkameror”, säger hon och ler. ”Det har ingen tjuv haft förr. Be om deras bilder, och jämför dem noga.”",
     "uppdrag": "Vem tog brudskålen – och när försvann den egentligen?",
     "bild": "bilder/fall4/garden.jpg",
-    "berattare": "Kriminalinspektör Nils Strand"
+    "berattare": "Kriminalinspektör Maja Strand"
   },
   "personer": [
     {
@@ -376,6 +376,12 @@
                 "namn": "Gunnars kontor",
                 "text": "Dörren till Gunnars lilla kontor."
               }
+            }
+          ],
+          "ljud": [
+            {
+              "typ": "faglar",
+              "styrka": 0.4
             }
           ]
         }
@@ -755,6 +761,13 @@
               ],
               "langd": 16
             }
+          ],
+          "ljud": [
+            "faglar",
+            {
+              "typ": "vind",
+              "styrka": 0.4
+            }
           ]
         }
       }
@@ -917,6 +930,12 @@
                 "namn": "Till salen",
                 "text": "Tillbaka ut i salen."
               }
+            }
+          ],
+          "ljud": [
+            {
+              "typ": "faglar",
+              "styrka": 0.25
             }
           ]
         }

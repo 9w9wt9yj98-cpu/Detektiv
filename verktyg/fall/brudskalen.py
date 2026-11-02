@@ -14,8 +14,8 @@ fall = {"id": "brudskalen", "version": 1,
    "uppskattad_tid_min": [10, 15], "svarighet": 3, "karnmekanik": "bildjamforelse", "bimekaniker": ["scen"], "twist": "offret-ar-garningsman", "kraver_rang": 0,
    "accentfarg": "#3a5a3a", "omslag": "bilder/fall4/garden.jpg", "mal": "Ta reda på vem som tog brudskålen – och när", "handledning_mal": "skanken"},
  "intro": {"rubrik": "Midsommarafton på Sahlins gård, Leksand.",
-   "text": "Midsommarstången är rest, sillen är uppäten och dragspelet har tystnat. Gunnar Sahlin har ringt polisen: hans 1700-talsskål i silver, Brudskålen, är stulen från skänken i salen – mitt under festen.\n\n”Jag såg den halv fem, med sin gamla buckla på kanten”, säger han. ”Kvart i sex var den borta.”\n\nKriminalinspektör Nils Strand – samma Strand, men i ett annat sekel – är på semester i Leksand och har lovat att titta förbi. ”Tjugofem gäster med mobilkameror”, säger han och ler. ”Det har ingen tjuv haft förr. Be om deras bilder, och jämför dem noga.”",
-   "uppdrag": "Vem tog brudskålen – och när försvann den egentligen?", "bild": "bilder/fall4/garden.jpg", "berattare": "Kriminalinspektör Nils Strand"},
+   "text": "Midsommarstången är rest, sillen är uppäten och dragspelet har tystnat. Gunnar Sahlin har ringt polisen: hans 1700-talsskål i silver, Brudskålen, är stulen från skänken i salen – mitt under festen.\n\n”Jag såg den halv fem, med sin gamla buckla på kanten”, säger han. ”Kvart i sex var den borta.”\n\nKriminalinspektör Maja Strand – barnbarns barn till Nils Strand, konstapeln från Ekbacka och sedermera kommissarien på Solgläntan – är på semester i Leksand och har lovat att titta förbi. Hon har farfars fars gamla anteckningsbok i fickan. ”Tjugofem gäster med mobilkameror”, säger hon och ler. ”Det har ingen tjuv haft förr. Be om deras bilder, och jämför dem noga.”",
+   "uppdrag": "Vem tog brudskålen – och när försvann den egentligen?", "bild": "bilder/fall4/garden.jpg", "berattare": "Kriminalinspektör Maja Strand"},
  "personer": [
    {"id": "gunnar", "namn": "Gunnar Sahlin", "roll": "Gårdens ägare, anmälde stölden", "misstankt": T, "beskrivning": "Stolt över gården och över skålen, som gått i släkten sedan 1760-talet."},
    {"id": "lena", "namn": "Lena Sahlin", "roll": "Gunnars fru", "misstankt": T, "beskrivning": "Hämtade sin mor på Arlanda under dagen."},
@@ -225,6 +225,11 @@ fall["aterkoppling"] = {
     {"text": "Gunnar säger att han såg skålen ”med sin gamla buckla” kl. 16.30. Men då stod kopian där. Han beskriver skålen han vet att den borde vara.", "fynd": ["f-gunnar-anmalan"]},
     {"text": "Kopian försvann 17.05–17.20 – stölden var iscensatt. Olle och Mikael är villospår: skålen stod kvar efter dem, och det var ändå bara kopian.", "fynd": ["f-borta", "f-olle-skank", "f-mikael-vaska"]},
     {"text": "Motivet: i mars höjde Gunnar försäkringsvärdet från 180 000 till 650 000 kr. Gunnar Sahlin, som anmälde stölden, är skyldig till försäkringsbedrägeri.", "fynd": ["f-forsakring"]}]}
+# Miljöljud per rum (se js/ljud.js)
+LJUD = {"salen": [{"typ": "faglar", "styrka": 0.4}], "garden": ["faglar", {"typ": "vind", "styrka": 0.4}], "kontoret": [{"typ": "faglar", "styrka": 0.25}]}
+for m in fall["moment"]:
+  if m["id"] in LJUD: m["payload"]["rum"]["ljud"] = LJUD[m["id"]]
+
 ut = os.path.join(os.path.dirname(__file__), '..', '..', 'fall', 'brudskalen.json')
 json.dump(fall, open(ut, 'w'), ensure_ascii=False, indent=2)
 print('skrev', os.path.normpath(ut))
