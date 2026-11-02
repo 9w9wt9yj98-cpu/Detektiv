@@ -378,7 +378,9 @@ export class Rum3D {
   loop() {
     if (!this.kor || !this.scen) return;
     const nu = performance.now();
-    const dt = Math.min((nu - this.forraT) / 1000, 0.05);
+    // Högst 0,1 s per bildruta: gånghastigheten är densamma ned till 10 bilder/s, och ett steg (17 cm)
+    // är ändå kortare än kollisionsradien gånger två.
+    const dt = Math.min((nu - this.forraT) / 1000, 0.1);
     this.forraT = nu; this.tid += dt;
     const t = this.tid;
     this.stega(dt);
