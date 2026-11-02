@@ -9,7 +9,7 @@ export function startaHandledning({ app, motor, f, mal, touch, onKlar }) {
   const steg = [
     { id: 'ga', text: touch ? '<strong>Gå:</strong> sätt tummen på vänstra halvan av skärmen och dra uppåt.' : '<strong>Gå:</strong> håll ned W eller pil upp. A och D tar sidosteg.', ikon: touch ? 'tumme-v' : null },
     { id: 'titta', text: touch ? '<strong>Se dig omkring:</strong> dra med fingret på högra halvan av skärmen.' : '<strong>Se dig omkring:</strong> håll ned musknappen och dra.', ikon: touch ? 'tumme-h' : null },
-    { id: 'undersok', text: `<strong>Undersök:</strong> det som glimmar kan undersökas. Följ pilen till ${esc(malNamn)}, gå nära och tryck på det – eller på knappen <em>Undersök</em> som dyker upp.`, pil: true },
+    { id: 'undersok', text: `<strong>Undersök:</strong> när du kommer nära något som går att undersöka syns ett <strong>!</strong> ovanför det. Följ pilen till ${esc(malNamn)}, gå nära och tryck på det – eller på knappen <em>Undersök</em> som dyker upp.`, pil: true },
     { id: 'bok', text: '<strong>Bra!</strong> Fyndet skrevs in i din anteckningsbok. Öppna den med bokknappen uppe till höger.', bok: true },
     { id: 'anklaga', text: `<strong>Sista tipset:</strong> räknaren <em>Fynd</em> visar hur mycket som finns kvar att hitta. När du vet vem som är skyldig trycker du på <em>Anklaga</em>. Du har två försök, och fastnar du finns ledtrådar under glödlampan.`, knapp: 'Nu kör vi' },
   ];

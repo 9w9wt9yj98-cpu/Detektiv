@@ -232,6 +232,36 @@ export function glod() {
   });
 }
 
+/**
+ * Markör ovanför det som går att undersöka: en mässingsbricka med utropstecken ('ledtrad'),
+ * en uppslagen bok ('bok') eller en pil ('dorr'). Ritas med former, inte typsnitt, så att den ser
+ * likadan ut överallt.
+ */
+export function markor(typ = 'ledtrad') {
+  return skapa('markor-' + typ, 128, 128, (g) => {
+    g.clearRect(0, 0, 128, 128);
+    // Skugga och bricka
+    g.fillStyle = 'rgba(0,0,0,0.35)'; g.beginPath(); g.arc(64, 68, 50, 0, Math.PI * 2); g.fill();
+    const gr = g.createRadialGradient(50, 44, 6, 64, 64, 52);
+    gr.addColorStop(0, '#fff2c4'); gr.addColorStop(0.55, '#f0c860'); gr.addColorStop(1, '#a8741e');
+    g.fillStyle = gr; g.beginPath(); g.arc(64, 64, 48, 0, Math.PI * 2); g.fill();
+    g.lineWidth = 6; g.strokeStyle = '#4a2e08'; g.stroke();
+    g.fillStyle = '#3a2206'; g.strokeStyle = '#3a2206';
+    if (typ === 'ledtrad') {
+      // Utropstecken: avsmalnande streck och en prick
+      g.beginPath(); g.moveTo(55, 30); g.lineTo(73, 30); g.lineTo(68, 76); g.lineTo(60, 76); g.closePath(); g.fill();
+      g.beginPath(); g.arc(64, 92, 8, 0, Math.PI * 2); g.fill();
+    } else if (typ === 'bok') {
+      g.lineWidth = 5; g.lineJoin = 'round';
+      g.beginPath(); g.moveTo(64, 44); g.quadraticCurveTo(48, 36, 32, 42); g.lineTo(32, 86); g.quadraticCurveTo(48, 80, 64, 88); g.closePath(); g.stroke();
+      g.beginPath(); g.moveTo(64, 44); g.quadraticCurveTo(80, 36, 96, 42); g.lineTo(96, 86); g.quadraticCurveTo(80, 80, 64, 88); g.closePath(); g.stroke();
+      g.beginPath(); g.moveTo(64, 44); g.lineTo(64, 88); g.stroke();
+    } else {
+      g.beginPath(); g.moveTo(34, 56); g.lineTo(66, 56); g.lineTo(66, 40); g.lineTo(96, 64); g.lineTo(66, 88); g.lineTo(66, 72); g.lineTo(34, 72); g.closePath(); g.fill();
+    }
+  });
+}
+
 export function tak() {
   return skapa('tak', 128, 128, (g, w, h) => { g.fillStyle = '#d8c7a3'; g.fillRect(0, 0, w, h); gravyr(g, w, h, 0.06, 99); }, { upprepa: [2, 2] });
 }
