@@ -1,6 +1,7 @@
 // Spelar igenom alla fall i headless Chromium (iPhone 390×844 med touch, samt skrivbord) och sparar skärmbilder i shots/.
-// Kör: python3 -m http.server 18431 &  node test/spela.mjs [fall1 fall3 …]
+// Kör: node test/spela.mjs [fall1 fall3 …]  (startar en egen server på BAS om ingen svarar där)
 import { startaWebblasare, nySida, bild, vanta, BAS, rapporteraFel } from './hjalp.mjs';
+import { sakerstallServer } from './server.mjs';
 import * as fall1 from './scenarier/fall1.mjs';
 import * as fall2 from './scenarier/fall2.mjs';
 import * as fall3 from './scenarier/fall3.mjs';
@@ -17,6 +18,7 @@ const SCENARIER = {
   fall6: [fall6.ratt, fall6.fel],
 };
 const valda = process.argv.slice(2).filter((x) => SCENARIER[x]);
+const stoppaServer = await sakerstallServer(BAS);
 const browser = await startaWebblasare();
 let misslyckade = 0;
 try {
@@ -32,6 +34,6 @@ try {
     await d.goto(BAS + '?nosw#/fall/halsbandet-pa-ekbacka'); await d.locator('#start').click(); await vanta(1800); await bild(d, 'desktop-fall1');
     console.log('FPS (swiftshader, mjukvara):', await d.evaluate(() => window.__fps));
   }
-} finally { await browser.close(); }
+} finally { await browser.close(); await stoppaServer(); }
 const n = rapporteraFel();
 process.exit(n || misslyckade ? 1 : 0);

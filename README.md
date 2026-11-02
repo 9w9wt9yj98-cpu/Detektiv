@@ -30,8 +30,8 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 | `js/tre/` | 3D-motorn: rum från JSON, föremålsbibliotek (`prefabs.js` … `prefabs4.js`), canvastexturer och kontroller. |
 | `js/vyer/` | Meny, presentation, utredning, anteckningsbok, anklagelse och upplösning. |
 | `js/mekaniker/` | Mekanikerna i anteckningsboken: logikrutnät (`logikrutnat.js`), förhör/dokument (`jamfor.js`), bildjämförelse (`bildjamforelse.js`) och tidslinje (`tidslinje.js`). |
-| `verktyg/fall/*.py` | Källor för fall 2 och senare – genererar `fall/*.json`. |
-| `verktyg/` | `validera_fall.mjs` (validerar alla fall, bevisar att rutnät har exakt en lösning och att varje ledtråd behövs) och `verifiera_fall3.py`. |
+| `verktyg/fall/*.py` | Källor för fall 2 och senare – genererar `fall/*.json`. Ändra i `.py`-filen och kör den; ändras bara JSON-filen skrivs ändringen över nästa gång. Fall 1 och 3 saknar källa och redigeras direkt i JSON. |
+| `verktyg/` | `validera_fall.mjs` (validerar alla fall, bevisar att rutnät har exakt en lösning och att varje ledtråd behövs), `release.mjs` (service workerns cacheversion och fillista) och `verifiera_fall3.py`. |
 | `test/spela.mjs` | Playwright-test som spelar alla fall (rätt och fel väg) i iPhone-vy och på dator. |
 
 ## Fallformatet – tillägg till schemat
@@ -47,14 +47,17 @@ Utöver fälten i [designförslaget](docs/forslag-v1.md#13-dataformat-för-fall-
 
 ## Testa
 
+Första gången: `npm install` och `npx playwright install chromium`.
+
 ```sh
-node verktyg/validera_fall.mjs          # validerar fallen
-python3 -m http.server 18431 &
-node test/spela.mjs                     # alla fall; kräver playwright; skärmbilder hamnar i shots/
+npm run validera                        # validerar fallen och kontrollerar fillistan i sw.js
+npm test                                # samma sak + spelar alla fall (ca 9 min); skärmbilder hamnar i shots/
 node test/spela.mjs fall1               # bara ett fall (fall1, fall2, fall3 …)
-node test/rundtur.mjs <fall-id> <prefix> # skärmbilder från alla 3D-rum
-node verktyg/release.mjs                # före varje release: höjer service workerns cacheversion
+node test/rundtur.mjs <fall-id> <prefix> # skärmbilder från alla 3D-rum (kräver en server, t.ex. python3 -m http.server 18431)
+npm run release                         # före varje release: höjer service workerns cacheversion
 ```
+
+`test/spela.mjs` startar en egen server på port 18431 om ingen redan svarar där.
 
 ## Dokument
 

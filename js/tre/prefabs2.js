@@ -1,5 +1,5 @@
 // Fler föremål: personer, tåg, urmakeri, fyr och modern gård. Samma konventioner som prefabs.js.
-import * as THREE from 'three';
+import * as THREE from '../../vendor/three/three.module.min.js';
 import * as T from './texturer.js';
 import { prefabs, mat, box, cyl, sph, plan, massing, glas, flamma } from './prefabs.js';
 

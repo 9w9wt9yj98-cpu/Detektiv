@@ -27,7 +27,7 @@
   },
   "intro": {
     "rubrik": "Gråskärs fyrplats, Stockholms ytterskärgård. Oktober 1931.",
-    "text": "Bäste herr detektiv,\n\nförlåt min darriga hand – stormen har inte bedarrat förrän i dag, och det är första gången på två dygn som en båt kan lägga till. Fyrmästare Holger Wenngren är död. Fru Signe fann honom klockan sex i morse den fjortonde, nedanför den smala spiraltrappan i tornet. Vi har låtit honom ligga, så som doktorn sade, och klivit över honom sedan dess. Gud förlåte oss.\n\nJag är bara fyrbiträde, men jag har varit tidningsman och vet hur viktigt det är med papper. Därför har jag samlat allt åt er: fyrinstruktionen, loggboken, doktorns anteckningar – och min egen dagbok, om den kan vara till någon hjälp. Allt ligger där ni hittar det.\n\nDet var nog en olyckshändelse. Trappan är brant, och Holger var inte så ung längre. Men ni ska få bedöma själv.\n\nEr tillgivne\nElof Granath, fyrbiträde",
+    "text": "Bäste detektiv,\n\nförlåt min darriga hand – stormen har inte bedarrat förrän i dag, och det är första gången på två dygn som en båt kan lägga till. Fyrmästare Holger Wenngren är död. Fru Signe fann honom klockan sex på morgonen den fjortonde, nedanför den smala spiraltrappan i tornet. Vi har låtit honom ligga, så som doktorn sade, och klivit över honom sedan dess. Gud förlåte oss. Vi är bara fyra kvar på ön: Signe, doktorn vid väderstationen, en skeppsbruten fiskare som flöt i land kvällen före – och jag.\n\nJag är bara fyrbiträde, men jag har varit tidningsman och vet hur viktigt det är med papper. Därför har jag samlat allt åt er: fyrinstruktionen, loggboken, doktorns anteckningar – och min egen dagbok, om den kan vara till någon hjälp. Allt ligger där ni hittar det.\n\nDet var nog en olyckshändelse. Trappan är brant, och Holger var inte så ung längre. Men ni ska få bedöma själv.\n\nEr tillgivne\nElof Granath, fyrbiträde",
     "uppdrag": "Hur dog fyrmästaren – och vem ljuger?",
     "bild": "bilder/fall6/fyren.jpg",
     "berattare": "Elof Granath, fyrbiträde"
@@ -450,7 +450,7 @@
               "farg": "#2a3a4a",
               "interaktiv": {
                 "namn": "Loggboken",
-                "text": "Fyrens loggbok ligger uppslagen vid natten mellan den 13 och 14 oktober. Blyertspennan ligger i falsen.",
+                "text": "Fyrens loggbok ligger uppslagen vid natten mellan den 13 och 14 oktober. En ny blyertspenna från förrådet ligger i falsen.",
                 "ger_material": [
                   "dok-loggbok"
                 ]
@@ -1256,12 +1256,16 @@
             "stil": "hand",
             "stycken": [
               {
+                "id": "s-vakar",
+                "text": "Holger gick upp i tornet vid tio. När det stormar vakar han där uppe hela natten och kommer inte ned förrän det ljusnar."
+              },
+              {
                 "id": "s-duns",
-                "text": "Jag vaknade av en duns. Klockan på byrån visade tjugo över tre."
+                "text": "Jag vaknade av en duns och gick ut i köket. Klockan på byrån där visade tjugo över tre."
               },
               {
                 "id": "s-koket",
-                "text": "Jag gick ut i köket och tittade mot tornet men såg ingenting, så jag gick och lade mig igen. Holger brukade inte vilja bli störd i tornet."
+                "text": "Jag tittade ut mot tornet genom fönstret men såg ingenting, så jag gick och lade mig igen. Holger ville aldrig bli störd när han vakade."
               }
             ]
           },
@@ -1273,7 +1277,7 @@
             "stycken": [
               {
                 "id": "jo-vaken",
-                "text": "Jag låg vaken hela natten av smärta på köksbänken. Ingen gick genom köket mellan midnatt och sex."
+                "text": "Jag låg vaken hela natten av smärta på köksbänken. Fyrmästaren gick ut till tornet vid tio, och efter det gick ingen ut genom köket förrän frun hittade honom vid sex."
               },
               {
                 "id": "jo-frun",
@@ -1501,14 +1505,14 @@
       "galler": [
         "signe"
       ],
-      "text": "Johan låg vaken i köket, den enda vägen ut ur bostaden. Ingen gick ut mellan midnatt och sex – Signe kom bara ut och tittade efter dunsen."
+      "text": "Johan låg vaken i köket, den enda vägen ut ur bostaden. Efter att Holger gått upp i tornet vid tio gick ingen ut förrän vid sex – Signe kom bara ut och tittade efter dunsen."
     },
     {
       "id": "f-duns-signe",
       "titel": "Signe hörde dunsen 03.20",
       "ikon": "🔊",
       "typ": "nyckel",
-      "text": "Signe vaknade av en duns. Klockan på byrån visade 03.20."
+      "text": "Signe vaknade av en duns och gick ut i köket. Klockan på byrån visade 03.20."
     },
     {
       "id": "f-signe-brev",
@@ -1951,7 +1955,7 @@
           "kommentar": "Den enda meningen i brevet som var en ren lögn."
         }
       ],
-      "bekannelse": "När båten från Sandhamn lägger till sitter Elof redan på bryggan med mössan i händerna. ”Sextio liter fotogen, herr detektiv. Han skulle ha fått mig avskedad och utskämd för sextio liter. Jag ville bara att han skulle släppa mig – och sedan låg han där.” Han ser upp mot lanternan. ”Fyren slocknade i alla fall inte. Det såg jag till.”"
+      "bekannelse": "När båten från Sandhamn lägger till sitter Elof redan på bryggan med mössan i händerna. ”Sextio liter fotogen, detektiven. Han skulle ha fått mig avskedad och utskämd för sextio liter. Jag ville bara att han skulle släppa mig – och sedan låg han där.” Han ser upp mot lanternan. ”Fyren slocknade i alla fall inte. Det såg jag till.”"
     },
     "fel": {
       "signe": "Brevet ger ett motiv, men Johan låg vaken i köket hela natten. Signe gick aldrig ut.",
@@ -1959,7 +1963,7 @@
       "lagerkvist": "Ett gräl är inget mord. Barografen fick ett tidsmärke var femtonde minut, och tornet ligger tio minuter bort.",
       "elof": ""
     },
-    "fel_allman": "Elof ser bekymrat på dig. ”Är ni säker, herr detektiv?” …",
+    "fel_allman": "Elof ser bekymrat på dig. ”Är ni säker, detektiven?” …",
     "forklaring_steg": [
       {
         "text": "Blåmärkena på överarmarna visar ett hårt grepp. Holger föll inte – han knuffades.",

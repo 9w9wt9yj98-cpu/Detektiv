@@ -11,6 +11,9 @@ export async function visaMeny(app) {
   const data = las();
   const glas = totalGlas(data);
   const r = rang(glas);
+  // Hämta alla fall samtidigt. Ett fall som inte går att läsa ska inte stoppa resten av menyn.
+  const poster = idx.kapitel.flatMap((k) => k.fall).filter((p) => !p.kommer);
+  const laddade = new Map(await Promise.all(poster.map((p) => laddaFall(p.id).then((f) => [p.id, f], (e) => { console.warn('Fallet kunde inte läsas', p.id, e); return [p.id, null]; }))));
   const kort = [];
   for (const kap of idx.kapitel) {
     kort.push(`<h2 class="kapitel">${esc(kap.titel)}</h2>`);
@@ -19,7 +22,11 @@ export async function visaMeny(app) {
         kort.push(`<div class="fallkort kommer"><div class="fallkort-nr">${post.nummer}</div><div class="fallkort-text"><h3>${esc(post.titel)}</h3><p class="meta">Akten är ännu förseglad</p></div><div class="sigill" aria-hidden="true">✶</div></div>`);
         continue;
       }
-      const f = await laddaFall(post.id);
+      const f = laddade.get(post.id);
+      if (!f) {
+        kort.push(`<div class="fallkort kommer"><div class="fallkort-nr">${post.nummer}</div><div class="fallkort-text"><h3>Akten kunde inte läsas</h3><p class="meta">Kontrollera anslutningen och ladda om sidan.</p></div></div>`);
+        continue;
+      }
       const st = data.fall[f.id];
       let status = '<span class="status ny">Ny akt</span>';
       if (st?.basta) status = glasRad(st.basta.glas, 3, 20);

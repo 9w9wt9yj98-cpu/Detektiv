@@ -14,9 +14,6 @@
   <link rel="icon" type="image/png" href="ikoner/favicon.png">
   <link rel="apple-touch-icon" href="ikoner/ikon-180.png">
   <link rel="stylesheet" href="css/stil.css">
-  <script type="importmap">
-    { "imports": { "three": "./vendor/three/three.module.min.js" } }
-  </script>
 </head>
 <body>
   <main id="app" aria-live="polite">
@@ -24,6 +21,37 @@
   </main>
   <div id="lager"></div>
   <noscript>Spelet kräver JavaScript.</noscript>
+  <script>
+    // Reserv om spelet inte startar: avbruten nedladdning, gamla filer i cachen eller för gammal webbläsare.
+    // Skrivet utan moderna språkfinesser så att det fungerar även där modulerna inte gör det.
+    (function () {
+      function rensaOchLaddaOm() {
+        var p = [];
+        if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) p.push(navigator.serviceWorker.getRegistrations().then(function (rs) { return Promise.all(rs.map(function (r) { return r.unregister(); })); }));
+        if (window.caches) p.push(caches.keys().then(function (ks) { return Promise.all(ks.map(function (k) { return caches.delete(k); })); }));
+        Promise.all(p).then(function () { location.reload(); }, function () { location.reload(); });
+      }
+      function visa(orsak) {
+        if (window.__detektivStartad) return;
+        var app = document.getElementById('app');
+        if (!app || !app.querySelector('.laddar')) return;
+        window.__detektivStartad = true;
+        app.innerHTML = '<div class="sida"><div class="papperskort laddfel"><h2>Akterna gick inte att öppna</h2><p>' + orsak + '</p>' +
+          '<p><button class="knapp massing" id="ladda-om">Ladda om</button></p>' +
+          '<p><button class="lank" id="rensa-cache">Hämta spelet på nytt och ladda om</button></p>' +
+          '<p class="bok-not">Dina lösta fall och poäng ligger kvar.</p></div></div>';
+        document.getElementById('ladda-om').onclick = function () { location.reload(); };
+        document.getElementById('rensa-cache').onclick = rensaOchLaddaOm;
+      }
+      window.__laddfel = visa;
+      setTimeout(function () { visa('Det tar ovanligt lång tid. Kontrollera anslutningen och försök igen.'); }, 15000);
+      window.addEventListener('error', function (e) {
+        var t = e.target;
+        if (t === window || (t && t.tagName === 'SCRIPT')) visa('Spelets filer kunde inte läsas in. Ofta hjälper det att hämta spelet på nytt.');
+      }, true);
+    })();
+  </script>
+  <script nomodule>window.__laddfel && window.__laddfel('Webbläsaren är för gammal för spelet. Uppdatera den, eller prova en annan webbläsare.');</script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

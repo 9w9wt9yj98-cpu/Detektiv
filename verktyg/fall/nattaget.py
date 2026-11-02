@@ -15,7 +15,7 @@ fall = {
    "uppskattad_tid_min": [10, 15], "svarighet": 2, "karnmekanik": "forhor", "bimekaniker": ["scen"], "twist": None, "kraver_rang": 0,
    "accentfarg": "#2e3a5a", "omslag": "bilder/fall2/sovvagnen.jpg", "mal": "Ta reda på vem som dödade grosshandlare Berg", "handledning_mal": "kroppen"},
  "intro": {"rubrik": "Nattåget Stockholm–Narvik. Februari 1934.",
-   "text": "Snöstormen har vräkt över Norrbotten hela natten. Du reser norrut med nattåget, och strax efter sex på morgonen bultar konduktör Lind på din dörr.\n\nGrosshandlare Anton Berg ligger död i kupé 3, med ett slag mot tinningen. Dörren mot korridoren var hakad med säkerhetskedjan inifrån – Lind fick klippa av kedjan för att komma in. Läkaren ombord bedömer att döden inträffade mellan klockan ett och två i natt.\n\nKriminalkonstapel Nils Strand, på väg till ett uppdrag i Kiruna, står redan i kupédörren. ”Ett låst rum på ett tåg i full fart”, säger han. ”Någon här ombord vet mer än hen säger. Prata med dem – och lyssna efter det som inte går ihop.”",
+   "text": "Snöstormen har vräkt över Norrbotten hela natten. Du reser norrut med nattåget, och strax efter sex på morgonen bultar konduktör Lind på din dörr.\n\nGrosshandlare Anton Berg ligger död i kupé 3, med ett slag mot tinningen. Dörren mot korridoren var hakad med säkerhetskedjan inifrån – Lind fick klippa av kedjan för att komma in. Läkaren ombord bedömer att döden inträffade mellan klockan ett och två i natt.\n\nKriminalkonstapel Nils Strand, på väg till ett uppdrag i Kiruna, står redan i kupédörren. ”Ett låst rum på ett tåg i full fart”, säger han. ”Någon här ombord vet mer än den säger. Prata med dem – och lyssna efter det som inte går ihop.”",
    "uppdrag": "Vem dödade grosshandlare Berg – och hur kom gärningspersonen ut ur kupén?", "bild": "bilder/fall2/sovvagnen.jpg", "berattare": "Kriminalkonstapel Nils Strand"},
  "personer": [
    {"id": "berg", "namn": "Anton Berg", "roll": "Grosshandlare, offret", "misstankt": False, "beskrivning": "Hård i affärer. Reste ensam i kupé 3."},
@@ -142,8 +142,8 @@ forhor = {"id": "forhoret", "namn": "Förhör", "mekanik": "forhor", "payload": 
     {"id": "u-sun-erkann", "person": "sundin", "titel": "Sundin medger skulden", "kraver": ["f-sundin-motiv"], "text": "Nåja … jag förlorade trehundra kronor till honom på kortspel i Stockholm. Jag skäms. Men jag har inte rest mig från det här bordet i natt – fråga servitören!"},
     {"id": "u-sun-patiens", "person": "sundin", "titel": "Sundin om stoppet", "kraver": ["f-sundin-patiens"], "text": "Konduktören gick ut i Boden en kvart, ja, det hade jag glömt. Jag lade patiens så länge. Olsson stod där bakom disken hela tiden."},
     {"id": "u-ols", "person": "olsson", "titel": "Olsson om herr Sundin", "text": "Herr Sundin satt vid bord 4 hela natten. Han lämnade aldrig vagnen, inte ens när konduktören gick ut i Boden. Jag höll ögonen på honom – han hade tre obetalda notor."},
-    {"id": "u-lind-perrong", "person": "lind", "titel": "Lind om stoppet", "text": "Jag var ute på perrongen i Boden från 01.10 till 01.25. Jag hoppade på i bakersta vagnen när vi rullade och gick framåt genom tåget. Strax efter halv två var jag tillbaka hos herr Sundin."},
-    {"id": "u-lind-kedja", "person": "lind", "titel": "Lind om morgonen", "text": "Klockan 06.10 fick jag klippa kedjan till kupé 3. Fem minuter senare knackade jag på hos fru Ahl – och såg själv hur hon hakade av sin egen säkerhetskedja inifrån."}
+    {"id": "u-lind-perrong", "person": "lind", "titel": "Lind om stoppet", "text": "Jag var ute på perrongen i Boden från 01.10 till 01.25. Jag hoppade på i främsta vagnen när vi rullade och gick bakåt genom postvagnen. Strax efter halv två var jag tillbaka hos herr Sundin – genom sovvagnen gick jag inte."},
+    {"id": "u-lind-kedja", "person": "lind", "titel": "Lind om morgonen", "text": "Klockan 06.10 fick jag klippa kedjan till kupé 3. Fem minuter senare knackade jag på hos fru Ahl – och såg själv hur hon hakade av sin egen säkerhetskedja inifrån. Jag såg mig om där inne: fönstret var fastfruset som alla andra, och mot kupé 1 finns bara en hel vägg. Den kupén har stått tom och låst hela resan."}
   ],
   "motsagelser": [
     {"id": "m-ahl", "par": [["u-ahl-sov", "u-ahl-lykta"]], "ger_fynd": "f-ahl-vaken", "text": "Fru Ahl säger att hon sov oavbrutet – men hon minns stinsens lykta som lyste in ”ganska länge” under stoppet i Boden. Hon var vaken."},
@@ -164,11 +164,11 @@ fall["fynd"] = [
   {"id": "f-skuldsedel", "titel": "Skuldsedeln", "ikon": "💴", "typ": "avledande", "galler": ["sundin"], "text": "I Bergs plånbok: en skuldsedel på 300 kronor, undertecknad E. Sundin.", "forklaring": "Skulden ger Sundin ett motiv – men ett motiv är inget bevis. Olsson såg honom i restaurangvagnen hela natten."},
   {"id": "f-konkurs", "titel": "Konkursprotokollet", "ikon": "📜", "typ": "stod", "galler": ["ahl"], "text": "Berg drev 1932 trävaruhandeln Ahl & Söner i konkurs. Namnet Ahl är understruket.", "forklaring": "Motivet: Berg ruinerade fru Ahls make. Det bevisar inget ensamt, men förklarar varför."},
   {"id": "f-tidtabell", "titel": "Stoppet i Boden", "ikon": "🚉", "typ": "bakgrund", "text": "Tåget stod i Boden 01.10–01.25 och höll tiden."},
-  {"id": "f-fotspar", "titel": "Våta fotspår", "ikon": "👢", "typ": "avledande", "galler": ["lind"], "text": "Snöiga stövelspår går från vagnsdörren fram till kupé 3.", "forklaring": "Spåren är konduktör Linds egna: han gick in med snö på stövlarna när han ropade ut Boden och kontrollerade biljetter – och igen på morgonen."},
+  {"id": "f-fotspar", "titel": "Våta fotspår", "ikon": "👢", "typ": "avledande", "galler": ["lind"], "text": "Snöiga stövelspår går från vagnsdörren fram till kupé 3.", "forklaring": "Spåren är konduktör Linds egna: strax efter sex kom han in från plattformen, där han skottat snö, och gick raka vägen till kupé 3 för att väcka Berg."},
   {"id": "f-duns", "titel": "Dunsen kl. 01.25", "ikon": "🔊", "typ": "nyckel", "text": "Fröken Nyqvist hörde en tung duns inifrån kupé 3 precis när tåget lämnade Boden, kl. 01.25 – mitt i läkarens tidsfönster."},
   {"id": "f-sundin-alibi", "titel": "Sundin satt kvar", "ikon": "🍽️", "typ": "nyckel", "galler": ["sundin"], "text": "Servitör Olsson: Sundin satt vid bord 4 i restaurangvagnen hela natten och lämnade den aldrig."},
   {"id": "f-notan", "titel": "Notorna vid bord 4", "ikon": "🧾", "typ": "stod", "galler": ["sundin"], "text": "Olssons notor: kaffe 00.40, konjak 01.15, kaffe och smörgås 01.50 vid bord 4 – kvitterade vid bordet."},
-  {"id": "f-ahl-kedja", "titel": "Fru Ahls kedja", "ikon": "🔗", "typ": "nyckel", "galler": ["ahl"], "text": "Konduktör Lind såg kl. 06.15 hur fru Ahl själv hakade av säkerhetskedjan på kupé 2 – inifrån. Hennes dörr var hakad hela natten."},
+  {"id": "f-ahl-kedja", "titel": "Fru Ahls kedja", "ikon": "🔗", "typ": "nyckel", "galler": ["ahl"], "text": "Konduktör Lind såg kl. 06.15 hur fru Ahl själv hakade av säkerhetskedjan på kupé 2 – inifrån. Hennes dörr var hakad hela natten, fönstret är fastfruset och väggen mot den tomma kupé 1 saknar dörr."},
   {"id": "f-ahl-vaken", "titel": "Fru Ahl var vaken", "ikon": "🏮", "typ": "nyckel", "galler": ["ahl"], "text": "Fru Ahl påstår att hon sov oavbrutet, men hon minns stinsens lykta under stoppet i Boden. Hon var vaken när dunsen hördes."},
   {"id": "f-sundin-motiv", "titel": "Sundin ljög om Berg", "ikon": "🃏", "typ": "avledande", "galler": ["sundin"], "text": "Sundin sa att han knappt kände Berg – men han var skyldig honom 300 kronor.", "forklaring": "Sundin ljög av skam, inte av skuld. Han lämnade aldrig restaurangvagnen."},
   {"id": "f-sundin-patiens", "titel": "Patiensen", "ikon": "🂡", "typ": "bakgrund", "galler": ["sundin"], "text": "Sundin spelade inte kort med konduktören hela natten – under stoppet i Boden lade han patiens, inför Olsson.", "forklaring": "En oskyldig felsägning: Sundin mindes fel, men Olsson såg honom hela tiden."}
@@ -181,7 +181,7 @@ fall["slutsatser"] = [
     {"text": "Genom mellandörren till kupé 2.", "ratt": True},
     {"text": "Genom väggen till kupé 4.", "svar": "Väggen mot kupé 4 är en hel panel utan dörr."}],
    "slutsats": "Den enda vägen ut ur kupé 3 var mellandörren – in i kupé 2."},
-  {"id": "s-kupe2", "kraver": ["f-ahl-kedja"], "efter": ["s-utvag"], "fraga": "Kupé 2:s egen korridordörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15. Vad betyder det för den som gick genom mellandörren?", "alternativ": [
+  {"id": "s-kupe2", "kraver": ["f-ahl-kedja"], "efter": ["s-utvag"], "fraga": "Kupé 2:s egen korridordörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15, fönstret är fastfruset och mot kupé 1 finns ingen dörr. Vad betyder det för den som gick genom mellandörren?", "alternativ": [
     {"text": "Hen kunde gå vidare ut i korridoren.", "svar": "Inte utan att haka av kedjan på kupé 2 – och den satt på inifrån ända till morgonen."},
     {"text": "Hen måste ha stannat i kupé 2 – och där fanns bara fru Ahl.", "ratt": True},
     {"text": "Det spelar ingen roll.", "svar": "Jo. Två kedjor inifrån stänger alla vägar utom en."}],
@@ -206,7 +206,7 @@ fall["losning"] = {"skyldig": "ahl", "hur": "mellandorr", "hur_text": "Genom mel
   "uteslutningar_text": {
     "sundin": "Olsson såg honom vid bord 4 hela natten. Och ingen kunde ta sig förbi två säkerhetskedjor.",
     "nyqvist": "Hon stod i korridoren – men kupé 3:s dörr var hakad inifrån, och vägen via kupé 2 var också stängd av en kedja.",
-    "lind": "Huvudnyckeln öppnar lås, inte säkerhetskedjor. Under stoppet var han på perrongen och gick sedan framåt genom andra vagnar.",
+    "lind": "Huvudnyckeln öppnar lås, inte säkerhetskedjor. Under stoppet var han på perrongen, och sedan gick han bakåt från främsta vagnen till restaurangvagnen – aldrig genom sovvagnen.",
     "olsson": "Han stod bakom disken i restaurangvagnen hela natten – och utan att passera två kedjor finns ingen väg in."}}
 fall["anklagelse"] = {"hur_fraga": "Hur tog sig gärningspersonen in och ut?", "hur_alternativ": [
     {"id": "korridor", "text": "Genom korridordörren, med huvudnyckeln"},

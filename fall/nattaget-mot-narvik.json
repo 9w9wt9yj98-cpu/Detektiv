@@ -25,7 +25,7 @@
   },
   "intro": {
     "rubrik": "Nattåget Stockholm–Narvik. Februari 1934.",
-    "text": "Snöstormen har vräkt över Norrbotten hela natten. Du reser norrut med nattåget, och strax efter sex på morgonen bultar konduktör Lind på din dörr.\n\nGrosshandlare Anton Berg ligger död i kupé 3, med ett slag mot tinningen. Dörren mot korridoren var hakad med säkerhetskedjan inifrån – Lind fick klippa av kedjan för att komma in. Läkaren ombord bedömer att döden inträffade mellan klockan ett och två i natt.\n\nKriminalkonstapel Nils Strand, på väg till ett uppdrag i Kiruna, står redan i kupédörren. ”Ett låst rum på ett tåg i full fart”, säger han. ”Någon här ombord vet mer än hen säger. Prata med dem – och lyssna efter det som inte går ihop.”",
+    "text": "Snöstormen har vräkt över Norrbotten hela natten. Du reser norrut med nattåget, och strax efter sex på morgonen bultar konduktör Lind på din dörr.\n\nGrosshandlare Anton Berg ligger död i kupé 3, med ett slag mot tinningen. Dörren mot korridoren var hakad med säkerhetskedjan inifrån – Lind fick klippa av kedjan för att komma in. Läkaren ombord bedömer att döden inträffade mellan klockan ett och två i natt.\n\nKriminalkonstapel Nils Strand, på väg till ett uppdrag i Kiruna, står redan i kupédörren. ”Ett låst rum på ett tåg i full fart”, säger han. ”Någon här ombord vet mer än den säger. Prata med dem – och lyssna efter det som inte går ihop.”",
     "uppdrag": "Vem dödade grosshandlare Berg – och hur kom gärningspersonen ut ur kupén?",
     "bild": "bilder/fall2/sovvagnen.jpg",
     "berattare": "Kriminalkonstapel Nils Strand"
@@ -1153,13 +1153,13 @@
             "id": "u-lind-perrong",
             "person": "lind",
             "titel": "Lind om stoppet",
-            "text": "Jag var ute på perrongen i Boden från 01.10 till 01.25. Jag hoppade på i bakersta vagnen när vi rullade och gick framåt genom tåget. Strax efter halv två var jag tillbaka hos herr Sundin."
+            "text": "Jag var ute på perrongen i Boden från 01.10 till 01.25. Jag hoppade på i främsta vagnen när vi rullade och gick bakåt genom postvagnen. Strax efter halv två var jag tillbaka hos herr Sundin – genom sovvagnen gick jag inte."
           },
           {
             "id": "u-lind-kedja",
             "person": "lind",
             "titel": "Lind om morgonen",
-            "text": "Klockan 06.10 fick jag klippa kedjan till kupé 3. Fem minuter senare knackade jag på hos fru Ahl – och såg själv hur hon hakade av sin egen säkerhetskedja inifrån."
+            "text": "Klockan 06.10 fick jag klippa kedjan till kupé 3. Fem minuter senare knackade jag på hos fru Ahl – och såg själv hur hon hakade av sin egen säkerhetskedja inifrån. Jag såg mig om där inne: fönstret var fastfruset som alla andra, och mot kupé 1 finns bara en hel vägg. Den kupén har stått tom och låst hela resan."
           }
         ],
         "motsagelser": [
@@ -1275,7 +1275,7 @@
         "lind"
       ],
       "text": "Snöiga stövelspår går från vagnsdörren fram till kupé 3.",
-      "forklaring": "Spåren är konduktör Linds egna: han gick in med snö på stövlarna när han ropade ut Boden och kontrollerade biljetter – och igen på morgonen."
+      "forklaring": "Spåren är konduktör Linds egna: strax efter sex kom han in från plattformen, där han skottat snö, och gick raka vägen till kupé 3 för att väcka Berg."
     },
     {
       "id": "f-duns",
@@ -1312,7 +1312,7 @@
       "galler": [
         "ahl"
       ],
-      "text": "Konduktör Lind såg kl. 06.15 hur fru Ahl själv hakade av säkerhetskedjan på kupé 2 – inifrån. Hennes dörr var hakad hela natten."
+      "text": "Konduktör Lind såg kl. 06.15 hur fru Ahl själv hakade av säkerhetskedjan på kupé 2 – inifrån. Hennes dörr var hakad hela natten, fönstret är fastfruset och väggen mot den tomma kupé 1 saknar dörr."
     },
     {
       "id": "f-ahl-vaken",
@@ -1385,7 +1385,7 @@
       "efter": [
         "s-utvag"
       ],
-      "fraga": "Kupé 2:s egen korridordörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15. Vad betyder det för den som gick genom mellandörren?",
+      "fraga": "Kupé 2:s egen korridordörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15, fönstret är fastfruset och mot kupé 1 finns ingen dörr. Vad betyder det för den som gick genom mellandörren?",
       "alternativ": [
         {
           "text": "Hen kunde gå vidare ut i korridoren.",
@@ -1513,7 +1513,7 @@
     "uteslutningar_text": {
       "sundin": "Olsson såg honom vid bord 4 hela natten. Och ingen kunde ta sig förbi två säkerhetskedjor.",
       "nyqvist": "Hon stod i korridoren – men kupé 3:s dörr var hakad inifrån, och vägen via kupé 2 var också stängd av en kedja.",
-      "lind": "Huvudnyckeln öppnar lås, inte säkerhetskedjor. Under stoppet var han på perrongen och gick sedan framåt genom andra vagnar.",
+      "lind": "Huvudnyckeln öppnar lås, inte säkerhetskedjor. Under stoppet var han på perrongen, och sedan gick han bakåt från främsta vagnen till restaurangvagnen – aldrig genom sovvagnen.",
       "olsson": "Han stod bakom disken i restaurangvagnen hela natten – och utan att passera två kedjor finns ingen väg in."
     }
   },

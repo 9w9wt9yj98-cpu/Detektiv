@@ -24,6 +24,8 @@ async function route() {
   } catch (e) {
     console.error(e);
     app.innerHTML = `<div class="sida"><div class="papperskort"><h2>Akten kunde inte öppnas</h2><p>${esc(e.message)}</p><a class="knapp massing" href="#/">Till fallmenyn</a></div></div>`;
+  } finally {
+    window.__detektivStartad = true; // stänger av reserven i index.html
   }
 }
 window.addEventListener('hashchange', route);

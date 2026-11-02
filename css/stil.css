@@ -193,7 +193,7 @@ button { font-family: inherit; }
 .stolsdyna.overste + .platsnr { fill: var(--papper); }
 .platsnamn { font: 700 14px var(--serif); fill: var(--black); }
 .platsinfo { font: italic 11px var(--serif); fill: var(--brun2); }
-.platsinfo.liten { font-size: 9px; }
+.platsinfo.liten { font-size: 11px; }
 .giftglas { fill: var(--rod); }
 .instruktion { font-size: 14px; color: var(--brun2); margin: 4px 0 8px; }
 .rutnat-skal { overflow-x: auto; }
@@ -203,7 +203,7 @@ button { font-family: inherit; }
 .rutnat th.kolnamn { height: 44px; vertical-align: bottom; padding: 0 0 4px; font-weight: 600; }
 .rutnat th.kolnamn span { display: inline-block; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; font-size: 12px; }
 .rutnat th.radnamn { text-align: right; padding: 0 6px 0 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13px; }
-.rutnat th.radnamn small { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--brun3); font-weight: 400; }
+.rutnat th.radnamn small { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--brun3); font-weight: 400; }
 .rutnat td.cell { height: 30px; border: 1px solid #a88a5c; background: rgba(255,250,235,.55); text-align: center; cursor: pointer; font-size: 17px; font-weight: 700; padding: 0; }
 .rutnat td.cell.blockstart, .rutnat th.blockstart { border-left: 2.5px solid var(--brun); }
 .rutnat tr.katstart td.cell { border-top: 2.5px solid var(--brun); }
@@ -452,3 +452,26 @@ legend small { font-weight: 400; color: var(--brun3); }
 .tl-konflikt span { flex: 1; } .tl-konflikt.klar { background: rgba(160,190,110,.18); border-color: #8aa25a; }
 .tl-prov { margin: 6px 0 0; font-weight: 700; font-size: 15px; } .tl-prov.mojlig { color: var(--rod); } .tl-prov.omojlig { color: #3f5a1c; }
 .tl-provknapp { width: 100%; margin-top: 6px; }
+
+/* Besked när 3D-vyn inte kan startas – centrerat, ovanför HUD:en så att det går att läsa */
+.utan3d { position: absolute; z-index: 6; left: 16px; right: 16px; top: 50%; transform: translateY(-50%); max-height: calc(100% - 220px); overflow-y: auto; margin: 0; user-select: text; -webkit-user-select: text; }
+.utan3d h2 { margin: 0 0 8px; font-size: 21px; }
+.utan3d p { font-size: 16px; margin: 0; }
+.utan3d .knapprad { flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+.utan3d .knapp { min-height: 44px; padding: 8px 18px; font-size: 16px; }
+/* Reserven i index.html när spelet inte startar */
+.laddfel { max-width: 520px; margin: 18vh auto 0; text-align: center; }
+
+/* Synlig fokusmarkering för tangentbord */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--massing-ljus); outline-offset: 2px;
+}
+/* Smala telefoner (t.ex. iPhone SE 1:a generationen): knapparna i bokens fot får plats */
+@media (max-width: 360px) {
+  .bok-fot { gap: 6px; padding: 8px; }
+  .bok-fot .knapp { padding-left: 8px; padding-right: 8px; font-size: 16px; min-width: 0; }
+}
+/* Mindre rörelse för den som har bett om det i systemet */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

@@ -1,5 +1,5 @@
 // Canvas-genererade texturer i sepia/akvarellstil. Inga bildfiler behövs.
-import * as THREE from 'three';
+import * as THREE from '../../vendor/three/three.module.min.js';
 
 const cache = new Map();
 function rng(seed) { let s = seed >>> 0 || 1; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
