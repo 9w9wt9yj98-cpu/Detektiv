@@ -167,3 +167,9 @@ Martin vill ha mer detaljerad grafik om det inte blir för mycket arbete. Först
 - **Svagare telefoner:** när bildfrekvensen ligger under 24 bilder/s sänks först pixeltätheten och därefter stängs skuggorna av.
 
 Möjliga nästa steg, var för sig: rikare texturer och detaljer rum för rum (ungefär en halv dag per rum), eller riktiga 3D-modeller (flera veckor, kräver noggrann kontroll av filstorlek och mobilprestanda).
+
+## Utropstecken och kompaktare menyrad (november 2026)
+
+Efter Martins speltest i mobilen, liggande:
+- **Utropstecken i stället för glöd.** Det som går att undersöka får en liten mässingsbricka med **!** ovanför sig. Den tonas in när man kommer närmare än cirka fyra meter och försvinner när föremålet är undersökt. Det man tittar på får ett lite större märke som guppar. Anteckningsboken har en bok och dörrar en pil; en undersökt dörr behåller pilen. Brickorna har samma storlek på skärmen oavsett avstånd och syns genom möbler. Guiden och boken säger ”utropstecken” i stället för ”det som glimmar”.
+- **Menyraden** ryms på en enda rad när telefonen ligger ned (ca 56 px i stället för ca 110 px), med mindre knappar. Meddelanden, guide och Undersök-knappen flyttas efter.

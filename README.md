@@ -8,7 +8,7 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 
 ## Så spelar du
 
-- **Mobil:** dra med vänster tumme för att gå, dra på höger sida för att se dig omkring, tryck på föremål som glimmar.
+- **Mobil:** dra med vänster tumme för att gå, dra på höger sida för att se dig omkring, tryck på föremål med utropstecken (de syns när du kommer nära).
 - **Dator:** W A S D eller piltangenterna för att gå, dra med musen för att titta, klicka för att undersöka.
 - **Anteckningsboken** ligger i rummet. Gå fram och tryck på den för att läsa fynd, koppla fynd till personer, lösa deduktionstavlan, ta ledtrådar och anklaga.
 - Tre ledtrådar per fall (−10/−25/−50 poäng), två felaktiga anklagelser (−30 poäng vardera) innan upplösningen visas. Betyg 1–3 förstoringsglas. Allt sparas i webbläsaren.

@@ -5,7 +5,10 @@ import * as T from './texturer.js';
 import { Kontroller } from './kontroller.js';
 
 const OGONHOJD = 1.6, RADIE = 0.28, FART = 1.7, MAX_AVSTAND = 3.4;
+// Markörerna (utropstecken m.m.) syns när man är närmare än SYNS_AVSTAND och tonas in över TONING meter.
+const SYNS_AVSTAND = 4.2, TONING = 0.8, MARKOR = 0.055;
 const rad = (g) => (g * Math.PI) / 180;
+const objektGerNagot = (def) => !!(def.interaktiv?.ger_fynd || def.interaktiv?.ger_material);
 function uvSkala(geo, sx, sy) {
   const uv = geo.attributes.uv;
   for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * sx, uv.getY(i) * sy);
@@ -154,14 +157,20 @@ export class Rum3D {
       }
       if (def.interaktiv || def.funktion || def.gar_till) {
         g.traverse((o) => { o.userData.interaktivId = def.id; });
-        const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: T.glod(), blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false, transparent: true }));
+        // Markören: en liten bricka med konstant storlek på skärmen, strax ovanför föremålet.
+        // (Heter halo av historiska skäl; positionen används också som träffyta och av testerna.)
+        const typ = def.funktion === 'anteckningsbok' ? 'bok' : def.gar_till && !objektGerNagot(def) ? 'dorr' : 'ledtrad';
+        const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: T.markor(typ), depthWrite: false, depthTest: false, transparent: true, sizeAttenuation: false, opacity: 0 }));
         let hp = res.haloPos;
-        if (!hp) { const b = new THREE.Box3().setFromObject(g); hp = b.getCenter(new THREE.Vector3()); }
+        const box = new THREE.Box3().setFromObject(g);
+        if (!hp) { hp = box.getCenter(new THREE.Vector3()); hp.y = Math.min(box.max.y + 0.14, 1.95); } // ovanpå, men inte över huvudhöjd
         else hp = g.localToWorld(hp.clone()); // haloPos anges i föremålets egna koordinater
         if (def.halo) hp.set(def.halo[0], def.halo[1], def.halo[2]);
         halo.position.copy(hp); halo.renderOrder = 10;
         halo.userData.interaktivId = def.id;
-        halo.userData.bas = def.halostorlek ?? (def.funktion === 'anteckningsbok' ? 0.42 : 0.32);
+        halo.userData.bas = MARKOR * (def.halostorlek ? def.halostorlek / 0.32 : 1);
+        halo.userData.y0 = hp.y; halo.userData.typ = typ;
+        halo.visible = false;
         scen.add(halo);
         this.interaktiva.set(def.id, { def, grupp: g, halo, inspekterad: inspekterade.has(def.id) });
       }
@@ -306,7 +315,7 @@ export class Rum3D {
     }
     let id = valt?.object.userData.interaktivId;
     if (!id) {
-      // Generös träffyta: närmaste glimmande föremål inom ca 48 px från trycket
+      // Generös träffyta: närmaste markör inom ca 48 px från trycket
       const w = this.behallare.clientWidth || 1, h = this.behallare.clientHeight || 1;
       let bast = 48;
       for (const [pid, p] of this.interaktiva) {
@@ -328,7 +337,7 @@ export class Rum3D {
 
   maxAvstand(def) { return def.avstand ?? (def.typ === 'fotspar' ? 4 : MAX_AVSTAND); }
 
-  /** Väljer det föremål spelaren tittar mot och står nära (för knappen Undersök och starkare glöd). */
+  /** Väljer det föremål spelaren tittar mot och står nära (för knappen Undersök och den större markören). */
   raknaFokus() {
     let bast = null, bastS = Infinity;
     const k = this.kamera.position;
@@ -394,15 +403,22 @@ export class Rum3D {
       a.needsUpdate = true;
     }
     this.raknaFokus();
+    const k = this.kamera.position;
     for (const post of this.interaktiva.values()) {
-      const { halo, inspekterad, def, nara } = post;
+      const { halo, inspekterad, def } = post;
       const bas = halo.userData.bas;
-      const p = 0.5 + 0.5 * Math.sin(t * 2.6 + bas * 40);
+      // Undersökta ledtrådar får ingen markör. Övriga tonas in när man närmar sig, och den man tittar på
+      // blir lite större och guppar.
       const klar = inspekterad && def.funktion !== 'anteckningsbok' && !def.gar_till;
-      if (post === this.fokus) { halo.scale.setScalar(bas * (klar ? 1.2 : 1.75 + 0.3 * p)); halo.material.opacity = klar ? 0.7 : 1; }
-      else if (klar) { halo.scale.setScalar(bas * 0.6); halo.material.opacity = 0.3; }
-      else if (nara) { halo.scale.setScalar(bas * (1.15 + 0.4 * p)); halo.material.opacity = 0.7 + 0.3 * p; }
-      else { halo.scale.setScalar(bas * (0.85 + 0.35 * p)); halo.material.opacity = 0.55 + 0.4 * p; }
+      if (inspekterad && def.gar_till && halo.userData.typ === 'ledtrad') { halo.material.map = T.markor('dorr'); halo.userData.typ = 'dorr'; } // undersökt dörr: bara en pil kvar
+      const d = Math.hypot(halo.position.x - k.x, halo.position.z - k.z);
+      const syns = klar ? 0 : Math.max(0, Math.min(1, (SYNS_AVSTAND - d) / TONING));
+      halo.visible = syns > 0.01;
+      if (!halo.visible) continue;
+      const iFokus = post === this.fokus;
+      halo.material.opacity = syns;
+      halo.scale.setScalar(bas * (iFokus ? 1.3 : 1));
+      halo.position.y = halo.userData.y0 + (iFokus ? 0.035 : 0.015) * Math.sin(t * (iFokus ? 4 : 2) + halo.id);
     }
     this.onRam?.();
     this.renderer.render(this.scen, this.kamera);

@@ -70,7 +70,7 @@ export function oppnaAnteckningsbok(f, st, { flik = 'fynd', onAnklaga, onStang, 
       const k = kallor(f);
       const lista = st.fynd.filter((fid) => fynd[fid]);
       const topp = `<p class="bok-not"><strong>Fynd ${r.hittat} av ${r.total}</strong> i rummen${r.hittat >= r.total ? ' – allt är hittat ✓' : ''}. Tryck på ett fynd för att koppla det till en person.</p>`;
-      if (!lista.length) { sida.innerHTML = topp + '<p class="tomt">Inga fynd än. Gå runt i rummet och tryck på det som glimmar.</p>'; return; }
+      if (!lista.length) { sida.innerHTML = topp + '<p class="tomt">Inga fynd än. Gå runt i rummet. När du kommer nära något som går att undersöka syns ett utropstecken – tryck på det.</p>'; return; }
       sida.innerHTML = `${topp}<div class="fyndkort-lista">${lista.map((fid) => {
         const x = fynd[fid];
         const kopp = (st.kopplingar[fid] || []).map((pid) => f.personer.find((p) => p.id === pid)?.namn).filter(Boolean);
