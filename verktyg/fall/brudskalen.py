@@ -206,7 +206,7 @@ fall["anklagelse"] = {"hur_fraga": "Hur försvann den äkta skålen?", "hur_alte
     {"id": "byte", "text": "Den byttes ut mot en kopia på förmiddagen, innan gästerna kom"},
     {"id": "fonster", "text": "Någon lyfte ut den genom fönstret under kaffet"}], "hur_kravs": False, "bevis_max": 3}
 fall["ledtradar"] = [
-  {"niva": 1, "kostnad": 10, "kraver": ["bild-a", "bild-f", "bild-b"], "text": "Jämför Gunnars morgonbild med försäkringsfotot. Jämför sedan med eftermiddagens bilder. Titta på kanten."},
+  {"niva": 1, "kostnad": 10, "kraver": ["bild-a", "bild-f", "bild-b"], "text": "Jämför Instagrambilden från morgonen med försäkringsfotot. Jämför sedan med eftermiddagens bilder. Titta på kanten."},
   {"niva": 2, "kostnad": 25, "kraver": ["f-kopia", "f-buss"], "text": "Skålen på festen är inte samma skål. När byttes den ut – och vilka fanns på gården då?"},
   {"niva": 3, "kostnad": 50, "kraver": ["f-gunnar-ensam", "f-gunnar-anmalan"], "text": "Mellan 09.12 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"}]
 fall["aterkoppling"] = {

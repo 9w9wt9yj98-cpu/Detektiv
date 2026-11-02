@@ -216,7 +216,7 @@ fall["anklagelse"] = {"hur_fraga": "Hur tog sig gärningspersonen in och ut?", "
 fall["ledtradar"] = [
   {"niva": 1, "kostnad": 10, "kraver": ["f-kedja", "f-fonster-is"], "text": "Hur kan någon lämna en kupé som är hakad inifrån och har ett fastfruset fönster?"},
   {"niva": 2, "kostnad": 25, "kraver": ["f-mellandorr", "f-ahl-kedja"], "text": "Det finns bara en väg kvar: mellandörren. Vart leder den – och kunde den som gick den vägen sedan ta sig vidare?"},
-  {"niva": 3, "kostnad": 50, "kraver": ["u-ahl-sov", "u-ahl-lykta"], "text": "Fru Ahl säger att hon sov hela natten, men hon minns ljuset under stoppet i Boden. Varför ljuger hon om att hon var vaken?"}]
+  {"niva": 3, "kostnad": 50, "kraver": ["u-ahl-sov", "u-ahl-lykta"], "text": "Den som reste i kupé 2 säger att hon sov hela natten. Läs vad hon själv minns från stoppet i Boden – kan båda sakerna vara sanna?"}]
 fall["aterkoppling"] = {
   "ratt": "Ett låst rum har alltid en dörr man glömmer. Kedjan och isen stängde två vägar, och mellandörren ledde till en kupé som också var hakad inifrån. Fru Ahl var vaken – det avslöjade hon själv med stinsens lykta. Berg hade drivit hennes make i konkurs; hon knackade på mellandörren, han drog undan regeln, och när tåget ryckte igång efter Boden slog hon till.",
   "fel": {

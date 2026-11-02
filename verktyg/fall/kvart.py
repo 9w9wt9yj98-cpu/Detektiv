@@ -253,7 +253,7 @@ fall["anklagelse"] = {"hur_fraga": "Hur gick det till?", "hur_alternativ": [
 fall["ledtradar"] = [
   {"niva": 1, "kostnad": 10, "kraver": ["f-vaktaren", "f-grannen", "f-klockan"], "text": "Fastställ först när inbrottet skedde. Tre oberoende källor pekar på samma tidpunkt."},
   {"niva": 2, "kostnad": 25, "kraver": ["f-nyckelinnehavare", "f-monter", "f-gangtider"], "text": "Montern öppnades med nyckel. Lägg nyckelinnehavarnas tidskort på tidslinjen och pröva var och en mot brottstiden."},
-  {"niva": 3, "kostnad": 50, "kraver": ["k-karl-pant", "k-rapp-gillet", "k-rapp-hem"], "text": "Karl ljuger – men var var han kl. 22.40? Jämför sedan Rapps raka hemväg med när hans hustru säger att han kom hem."}]
+  {"niva": 3, "kostnad": 50, "kraver": ["k-karl-pant", "k-rapp-gillet", "k-rapp-hem"], "text": "Karl ljuger – men var var han kl. 22.40? Räkna sedan på varje nyckelinnehavares raka väg hem och jämför med när de faktiskt kom hem. Var blir det minuter över?"}]
 fall["aterkoppling"] = {
   "ratt": "Rapp gav sig själv alibit ”kvart i elva”. Men den som går raka vägen kommer inte hem tjugo minuter för sent. De tjugo minuterna räckte precis till en omväg via Österlånggatan – och ekspånen följde med hem i rocken.",
   "efterord": "Polaris hittades i Rapps verkstadsskåp, inlindad i ett sämskskinn. ”Den var min”, sa han till Strand. ”Hälften av den, i alla fall.” Karl Ek fick tillbaka sin fars fickur – Fältskog löste ut det åt honom dagen efter.",
