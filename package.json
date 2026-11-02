@@ -4,7 +4,7 @@
   "description": "Pusselspel med klassiska deckarfall i 3D. Inget byggsteg – filen finns bara för verktyg och tester.",
   "scripts": {
     "validera": "node verktyg/validera_fall.mjs && node verktyg/release.mjs --kontrollera",
-    "test": "node verktyg/validera_fall.mjs && node verktyg/release.mjs --kontrollera && node test/spela.mjs",
+    "test": "node verktyg/validera_fall.mjs && node verktyg/release.mjs --kontrollera && node test/framkomlighet.mjs && node test/spela.mjs",
     "release": "node verktyg/release.mjs"
   },
   "devDependencies": {

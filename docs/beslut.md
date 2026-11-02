@@ -188,3 +188,9 @@ Sex agenter fick var sitt fall som *spelarvy* – bara det spelaren ser, utan l�
 | 6 | Holgers penna sitter i bröstfickan även i personbeskrivningen; barografens märken går till 06.00 som journalen. |
 
 Kvar till senare (svårighet): fall 6:s hakparentes om bläcket i loggboken avslöjar mycket, och i fall 3 och 5 antyder personbeskrivningar och spår den skyldige tidigt.
+
+## Framkomlighet (november 2026)
+
+Martin kom inte förbi fru Ahl i sovvagnskorridoren. Orsak: de nya, mer detaljerade personerna räknades som hinder över hela armbredden, och tillsammans med det lilla bordet stängde hon korridoren. Personer räknas nu bara som ett smalt fotavtryck (36 cm), och bordet med anteckningsboken står längre bak i korridoren.
+
+Ett nytt test, `test/framkomlighet.mjs` (ingår i `npm test`), fyller i alla platser man kan gå till från rummets start och kräver att varje dörr kan nås inom 1,5 m och varje föremål inom 2,2 m. Det hittade två fel till i fall 6, som också är rättade: startpunkten i lanternan låg inne i bordets hinder, och Johan låg så långt upp på köksbänken att huvudet stack in i väggen.

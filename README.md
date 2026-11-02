@@ -56,6 +56,7 @@ Första gången: `npm install` och `npx playwright install chromium`.
 npm run validera                        # validerar fallen och kontrollerar fillistan i sw.js
 npm test                                # samma sak + spelar alla fall (ca 9 min); skärmbilder hamnar i shots/
 node test/spela.mjs fall1               # bara ett fall (fall1, fall2, fall3 …)
+node test/framkomlighet.mjs             # går det att gå fram till varje dörr och föremål i alla rum?
 node test/rundtur.mjs <fall-id> <prefix> # skärmbilder från alla 3D-rum (kräver en server, t.ex. python3 -m http.server 18431)
 npm run release                         # före varje release: höjer service workerns cacheversion
 ```

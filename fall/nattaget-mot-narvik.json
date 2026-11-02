@@ -638,7 +638,7 @@
               "pos": [
                 -0.55,
                 0,
-                -0.75
+                1.0
               ],
               "storlek": [
                 0.4,
@@ -652,7 +652,7 @@
               "pos": [
                 -0.55,
                 0.72,
-                -0.75
+                1.0
               ],
               "funktion": "anteckningsbok",
               "interaktiv": {
