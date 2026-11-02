@@ -1,6 +1,6 @@
 // Datadriven förstapersonsscen. Ett rum beskrivs helt i fallets JSON (moment.payload.rum).
 import * as THREE from '../../vendor/three/three.module.min.js';
-import { prefabs, mat, DELADE } from './foremal/index.js';
+import { prefabs, mat, DELADE, slaIhop } from './foremal/index.js';
 import * as T from './texturer.js';
 import { Kontroller } from './kontroller.js';
 
@@ -26,6 +26,11 @@ export class Rum3D {
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.05;
+    // Skuggor: rummen står still, så skuggkartan räknas bara om när ett rum laddas (se skuggor()).
+    this.mobil = mobil;
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = mobil ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
+    this.renderer.shadowMap.autoUpdate = false;
     this.renderer.domElement.className = 'rum3d-canvas';
     behallare.appendChild(this.renderer.domElement);
     // Telefonen kan ta tillbaka grafikminnet (t.ex. när appen legat i bakgrunden). three.js bygger upp
@@ -38,6 +43,7 @@ export class Rum3D {
     });
     this.renderer.domElement.addEventListener('webglcontextrestored', () => {
       this.tappad = false;
+      this.renderer.shadowMap.needsUpdate = true;
       if (this._startaIgen) { this._startaIgen = false; this.starta(); }
     });
     this.kamera = new THREE.PerspectiveCamera(68, 1, 0.05, 60);
@@ -86,7 +92,8 @@ export class Rum3D {
     scen.fog = new THREE.Fog(dimma[2] || rum.bakgrund || (veranda ? '#e9cfa0' : '#24170c'), dimma[0] ?? (veranda ? 14 : 7), dimma[1] ?? (veranda ? 40 : 16));
     scen.add(new THREE.HemisphereLight(ljus.omgivning || '#ffe2b8', '#3a2414', ljus.omgivning_styrka ?? 0.6));
     scen.add(new THREE.AmbientLight('#ffdcae', ljus.bas ?? 0.25));
-    if (veranda || ute) { const sol = new THREE.DirectionalLight('#ffd49a', ljus.sol ?? 1.4); sol.position.set(4, 5, -8); scen.add(sol); }
+    this.sol = null; this.lampor = [];
+    if (veranda || ute) { const sol = new THREE.DirectionalLight('#ffd49a', ljus.sol ?? 1.4); sol.position.set(4, 5, -8); scen.add(sol); this.sol = sol; }
 
     // Golv och tak
     const golvTyp = typeof rum.golv === 'object' ? rum.golv.typ : 'tra';
@@ -126,13 +133,14 @@ export class Rum3D {
     // Föremål
     const ctx = { ljus: (grupp, pos, farg, styrka, avst, flimrar) => {
       const l = new THREE.PointLight(farg, styrka, avst, 1.6); l.position.copy(pos); grupp.add(l);
+      this.lampor.push({ l, grupp });
       if (flimrar) this.flimmer.push({ l, bas: styrka, fas: Math.random() * 10 });
     } };
     for (const def of rum.objekt || []) {
       const fab = prefabs[def.typ];
       if (!fab) { console.warn('Okänd föremålstyp', def.typ); continue; }
       const res = fab(def, ctx);
-      const g = res.grupp;
+      const g = slaIhop(res.grupp); // färre ritanrop: en mesh per material och föremål
       const [x, y, z] = def.pos || [0, 0, 0];
       g.position.set(x, y || 0, z);
       g.rotation.y = rad(def.rot || 0);
@@ -169,6 +177,7 @@ export class Rum3D {
     }
     const start = position || rum.start || { pos: [0, 0], titta: 0 };
     this.flyttaTill(start.pos[0], start.pos[1], start.titta || 0);
+    this.skuggor(rum, W, D, H, ute || veranda);
     this.anpassa();
   }
 
@@ -196,6 +205,47 @@ export class Rum3D {
   }
 
   /** Utomhus: gräsmark, himmelspanorama med berg och en skogsrand. Gångbar yta = bredd × djup. */
+  /**
+   * Skuggor från rummets viktigaste ljuskälla: solen utomhus, annars den starkaste lampan.
+   * Rum utan lampor får ett svagt takljus som kastar mjuka skuggor. Lampans egna delar
+   * (skärm, glas, kupa) kastar ingen skugga, och inte heller genomskinliga eller självlysande ytor.
+   */
+  skuggor(rum, W, D, H, utomhus) {
+    const scen = this.scen;
+    const karta = this.mobil ? 512 : 1024;
+    let kalla = null;
+    if (this.sol) {
+      kalla = this.sol;
+      const r = Math.max(W, D) / 2 + 2;
+      kalla.position.multiplyScalar(2.5);
+      Object.assign(kalla.shadow.camera, { left: -r, right: r, top: r, bottom: -r, near: 0.5, far: 60 });
+      kalla.shadow.mapSize.set(karta * 2, karta * 2);
+      kalla.shadow.bias = -0.0008; kalla.shadow.normalBias = 0.03;
+    } else if (!utomhus) {
+      const starkast = this.lampor.reduce((a, b) => (!a || b.l.intensity > a.l.intensity ? b : a), null);
+      if (starkast) kalla = starkast.l;
+      else {
+        kalla = new THREE.PointLight('#ffe2b8', 0.9, Math.max(W, D) * 1.6, 1.6);
+        kalla.position.set(0, H - 0.25, 0.2); scen.add(kalla);
+      }
+      kalla.shadow.mapSize.set(karta, karta);
+      kalla.shadow.camera.near = 0.05; kalla.shadow.camera.far = Math.max(W, D, H) * 1.5;
+      kalla.shadow.bias = -0.003; kalla.shadow.normalBias = 0.02; kalla.shadow.radius = 3;
+    }
+    if (!kalla || this.utanSkuggor) return;
+    kalla.castShadow = true;
+    const lampdelar = new Set();
+    for (const { grupp } of this.lampor) grupp.traverse((o) => lampdelar.add(o));
+    scen.traverse((o) => {
+      if (!o.isMesh) return;
+      o.receiveShadow = true;
+      const m = Array.isArray(o.material) ? o.material[0] : o.material;
+      const lyser = m?.emissive && (m.emissive.r + m.emissive.g + m.emissive.b) > 0.3;
+      o.castShadow = !lampdelar.has(o) && !m?.transparent && !lyser;
+    });
+    this.renderer.shadowMap.needsUpdate = true;
+  }
+
   byggUte(rum, W, D) {
     const scen = this.scen;
     const S = Math.max(W, D) + 50;
@@ -357,11 +407,16 @@ export class Rum3D {
     this._ramar++;
     if (t - this._fpsT >= 1) {
       this.fps = this._ramar / (t - this._fpsT); this._ramar = 0; this._fpsT = t; window.__fps = this.fps;
-      // Tre sekunder i rad under 24 bilder/s: sänk pixeltätheten ett steg (äldre telefoner).
+      // Tre sekunder i rad under 24 bilder/s (äldre telefoner): sänk först pixeltätheten ett steg i taget,
+      // och stäng till sist av skuggorna.
       this._langsam = this.fps < 24 ? this._langsam + 1 : 0;
-      if (this._langsam >= 3 && this.pixelkvot > 1) {
-        this.pixelkvot = Math.max(1, this.pixelkvot - 0.5); this._langsam = 0;
-        this.renderer.setPixelRatio(this.pixelkvot); this.anpassa();
+      if (this._langsam >= 3) {
+        this._langsam = 0;
+        if (this.pixelkvot > 1) { this.pixelkvot = Math.max(1, this.pixelkvot - 0.5); this.renderer.setPixelRatio(this.pixelkvot); this.anpassa(); }
+        else if (this.renderer.shadowMap.enabled) {
+          this.renderer.shadowMap.enabled = false; this.utanSkuggor = true;
+          this.scen.traverse((o) => { for (const m of [].concat(o.material || [])) m.needsUpdate = true; });
+        }
       }
     }
     requestAnimationFrame(this._loop);

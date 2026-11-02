@@ -25,6 +25,7 @@ const delad = (k, skapa) => { if (!geoCache.has(k)) { const g = skapa(); geoCach
 const BOXG = (w, h, d) => delad(`b${w},${h},${d}`, () => new THREE.BoxGeometry(w, h, d));
 const CYLG = (rt, rb, h, s) => delad(`c${rt},${rb},${h},${s}`, () => new THREE.CylinderGeometry(rt, rb, h, s));
 const SPHG = (r, s = 10) => delad(`s${r},${s}`, () => new THREE.SphereGeometry(r, s, Math.max(6, s * 0.7 | 0)));
+const KAPG = (r, l, s = 8) => delad(`k${r},${l},${s}`, () => new THREE.CapsuleGeometry(r, l, 3, s));
 
 export function box(g, w, h, d, m, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0) {
   const me = new THREE.Mesh(BOXG(w, h, d), m); me.position.set(x, y, z); me.rotation.set(rx, ry, rz); g.add(me); return me;
@@ -33,6 +34,10 @@ export function cyl(g, rt, rb, h, m, x = 0, y = 0, z = 0, s = 12) {
   const me = new THREE.Mesh(CYLG(rt, rb, h, s), m); me.position.set(x, y, z); g.add(me); return me;
 }
 export function sph(g, r, m, x, y, z, s) { const me = new THREE.Mesh(SPHG(r, s), m); me.position.set(x, y, z); g.add(me); return me; }
+/** Kapsel (cylinder med rundade ändar) längs y-axeln: radie r, raka delens längd l. */
+export function kapsel(g, r, l, m, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, s = 8) {
+  const me = new THREE.Mesh(KAPG(r, l, s), m); me.position.set(x, y, z); me.rotation.set(rx, ry, rz); g.add(me); return me;
+}
 export function plan(g, w, h, m, x, y, z, rx = 0, ry = 0) {
   const me = new THREE.Mesh(new THREE.PlaneGeometry(w, h), m); me.position.set(x, y, z); me.rotation.set(rx, ry, 0); g.add(me); return me;
 }
@@ -47,3 +52,54 @@ export const flamma = () => mat('#ffd27a', { emissive: '#ffb030' });
 
 /** Registret: typnamn -> funktion(def, ctx) som returnerar { grupp, kollision?, haloPos? }. Fylls av kategorifilerna. */
 export const prefabs = {};
+
+/**
+ * Slår ihop ett föremåls ogenomskinliga delar till en mesh per material, så att föremålet ritas med
+ * några få anrop i stället för ett per del. Genomskinliga, osynliga och särskilt sorterade delar
+ * (renderOrder) lämnas orörda, liksom ljus och allt som inte är en mesh. Utseendet blir detsamma.
+ */
+export function slaIhop(rot) {
+  rot.updateMatrixWorld(true);
+  const inv = new THREE.Matrix4().copy(rot.matrixWorld).invert();
+  const perMaterial = new Map();
+  rot.traverse((o) => {
+    if (!o.isMesh || o.isInstancedMesh || Array.isArray(o.material)) return;
+    const g = o.geometry, a = g.attributes;
+    if (o.material.transparent || !o.visible || o.renderOrder !== 0 || !g.index || !a.position || !a.normal || !a.uv) return;
+    if (!perMaterial.has(o.material)) perMaterial.set(o.material, []);
+    perMaterial.get(o.material).push(o);
+  });
+  const m4 = new THREE.Matrix4(), n3 = new THREE.Matrix3(), v = new THREE.Vector3();
+  for (const [material, delar] of perMaterial) {
+    if (delar.length < 2) continue;
+    let nv = 0, ni = 0;
+    for (const o of delar) { nv += o.geometry.attributes.position.count; ni += o.geometry.index.count; }
+    const pos = new Float32Array(nv * 3), nor = new Float32Array(nv * 3), uv = new Float32Array(nv * 2);
+    const idx = nv > 65535 ? new Uint32Array(ni) : new Uint16Array(ni);
+    let ov = 0, oi = 0;
+    for (const o of delar) {
+      const g = o.geometry, p = g.attributes.position, n = g.attributes.normal, t = g.attributes.uv, ix = g.index;
+      m4.multiplyMatrices(inv, o.matrixWorld); n3.getNormalMatrix(m4);
+      const vand = m4.determinant() < 0; // spegling vänder trianglarnas ordning
+      for (let i = 0; i < p.count; i++) {
+        v.fromBufferAttribute(p, i).applyMatrix4(m4); pos.set([v.x, v.y, v.z], (ov + i) * 3);
+        v.fromBufferAttribute(n, i).applyMatrix3(n3).normalize(); nor.set([v.x, v.y, v.z], (ov + i) * 3);
+        uv[(ov + i) * 2] = t.getX(i); uv[(ov + i) * 2 + 1] = t.getY(i);
+      }
+      for (let i = 0; i < ix.count; i += 3) {
+        const a = ix.getX(i) + ov, b = ix.getX(i + 1) + ov, c = ix.getX(i + 2) + ov;
+        idx[oi + i] = a; idx[oi + i + 1] = vand ? c : b; idx[oi + i + 2] = vand ? b : c;
+      }
+      ov += p.count; oi += ix.count;
+      o.parent.remove(o);
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    geo.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
+    geo.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+    geo.setIndex(new THREE.BufferAttribute(idx, 1));
+    geo.computeBoundingSphere(); geo.computeBoundingBox();
+    rot.add(new THREE.Mesh(geo, material));
+  }
+  return rot;
+}

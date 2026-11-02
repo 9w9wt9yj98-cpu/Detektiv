@@ -156,3 +156,14 @@ Beslut av Martin: gör allt utom ändrad svårighet (krav på rätt ”hur”), 
 - **Strand-släkten:** varje tid har sin egen Strand. Överkonstapel *August* Strand (1897) är far till *Nils* Strand – konstapel på Ekbacka 1926, kriminalkonstapel på nattåget 1934 och kommissarie på Solgläntan 1954. I nutid utreder kriminalinspektör *Maja* Strand, Nils barnbarns barn, med hans gamla anteckningsbok i fickan.
 - **Ljud:** miljöljud per rum och små effekter (fynd, dörr, bläddring i boken), syntetiserade med Web Audio i `js/ljud.js` – inga ljudfiler, inget extra att ladda ned. Ljudet startar vid första trycket (webbläsarnas krav), tystnar när fliken döljs och kan stängas av med 🔊-knappen i utredningen; valet sparas.
 - **Föremålsbiblioteket** är uppdelat efter sort i `js/tre/foremal/` i stället för efter fall (`prefabs.js` … `prefabs4.js`). Färgkonstanterna finns på ett ställe. `dagfonster` och `stormfonster` delar nu stommen `korsfonster`. Övriga fönster- och dörrtyper ser medvetet olika ut och är kvar som egna föremål. Alla 76 kontrollbilder av rummen (fyra riktningar per rum) är identiska före och efter, så när som på en enda bildpunkt.
+
+## Mer detaljerad grafik, steg 1 (november 2026)
+
+Martin vill ha mer detaljerad grafik om det inte blir för mycket arbete. Första steget ger mest effekt för insatsen och behåller stilen, med enkla former och canvastexturer:
+
+- **Skuggor:** rummets starkaste lampa – eller solen utomhus – kastar mjuka skuggor. Rum utan lampa får ett svagt takljus. Lampornas egna delar, glas och självlysande ytor kastar ingen skugga. Eftersom rummen står still räknas skuggkartan bara om när ett rum laddas, inte varje bildruta.
+- **Personerna** har fått ansikte (ögon, ögonbryn, näsa, mun, öron), formad överkropp med axlar, armar med armbåge och händer, ben med lår och underben, formade skor, kavajslag och knappar, krage, kjol med fåll, hår vid tinningarna och en mustasch till skägget. Byggstenen `kapsel` finns i `foremal/grund.js`.
+- **Färre ritanrop:** varje föremåls ogenomskinliga delar slås ihop till en mesh per material när rummet byggs (`slaIhop`). Trädgården i Brudskålen ritas med 80 anrop i stället för 215.
+- **Svagare telefoner:** när bildfrekvensen ligger under 24 bilder/s sänks först pixeltätheten och därefter stängs skuggorna av.
+
+Möjliga nästa steg, var för sig: rikare texturer och detaljer rum för rum (ungefär en halv dag per rum), eller riktiga 3D-modeller (flera veckor, kräver noggrann kontroll av filstorlek och mobilprestanda).
