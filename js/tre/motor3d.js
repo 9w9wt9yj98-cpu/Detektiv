@@ -429,6 +429,7 @@ export class Rum3D {
     // Frigör grafikminnet för rummet som lämnas. Delade geometrier/material och de cachade texturerna
     // ligger kvar; Sprite-geometrin delas internt av three.js och rörs inte.
     this.scen?.traverse((o) => {
+      if (o.isLight && o.shadow?.map) o.shadow.dispose(); // skuggkartan
       if (o.geometry && !o.isSprite && !DELADE.has(o.geometry)) o.geometry.dispose();
       for (const m of [].concat(o.material || [])) if (!DELADE.has(m)) m.dispose();
     });
