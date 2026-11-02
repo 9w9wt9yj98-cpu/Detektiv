@@ -48,7 +48,7 @@
       "namn": "Elsa Lund",
       "roll": "Kammarjungfru",
       "misstankt": true,
-      "beskrivning": "Ung, nervös och flitig. Har nyckel till friherrinnans sovrum."
+      "beskrivning": "Ung, nervös och flitig. Bär sin nyckel till friherrinnans sovrum i ett band runt halsen."
     },
     {
       "id": "gustav",
@@ -439,7 +439,7 @@
               "gar_till": "sovrummet",
               "interaktiv": {
                 "namn": "Tjänstetrappan",
-                "text": "Den smala tjänstetrappan leder upp till friherrinnans sovrum."
+                "text": "Den smala tjänstetrappan leder upp till friherrinnans sovrum. Stengolvet framför den är nyss skurat och fortfarande blött."
               }
             },
             {
@@ -453,7 +453,7 @@
               "rot": 90,
               "interaktiv": {
                 "namn": "Nyckelskåpet",
-                "text": "Husets nyckelskåp. Holm för ordning på varje krok. Till friherrinnans sovrum finns exakt tre nycklar: friherrinnans egen, kammarjungfru Elsa Lunds – och Holms huvudnyckel, som han bär på sig. Gästerna har inga nycklar.",
+                "text": "Husets nyckelskåp. Holm för ordning på varje krok. Till friherrinnans sovrum finns exakt tre nycklar: friherrinnans egen, kammarjungfru Elsa Lunds, som hon bär i ett band runt halsen – och Holms huvudnyckel, som han bär på sig. Gästerna har inga nycklar.",
                 "ger_fynd": "f-nycklar"
               }
             },
@@ -724,7 +724,7 @@
               "antal": 3,
               "interaktiv": {
                 "namn": "Gästernas vittnesmål",
-                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen. Elsa Lund serverade soppan och sedan steken – kokerskan räckte in faten genom serveringsluckan – och lämnade inte salen förrän hon följde friherrinnan upp strax efter nio. Holm gick ut 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
+                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen. Elsa Lund serverade soppan och sedan steken – kokerskan räckte in faten genom serveringsluckan – och lämnade inte salen förrän hon följde friherrinnan upp strax efter nio. Gustav Wrede satt mitt emot friherrinnan och lämnade aldrig bordet. Holm gick ut 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
                 "ger_fynd": [
                   "f-servering",
                   "f-holm-borta"
@@ -942,7 +942,7 @@
       "id": "f-servering",
       "titel": "Vid bordet hela tiden",
       "ikon": "🍲",
-      "text": "Gästerna: friherrinnan satt vid bordet och Elsa serverade i salen hela middagen. Strax efter nio gick de upp tillsammans.",
+      "text": "Gästerna: friherrinnan satt vid bordet och Elsa serverade i salen hela middagen. Strax efter nio gick de upp tillsammans. Gustav lämnade aldrig bordet.",
       "typ": "nyckel",
       "galler": [
         "friherrinnan",

@@ -26,7 +26,7 @@
   },
   "intro": {
     "rubrik": "Österlånggatan, Stockholm. En snönatt i december 1897.",
-    "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. Hemma på Söder har han en pojke, Nils, som en dag ska bli konstapel på Ekbacka. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
+    "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
     "uppdrag": "Vem stal kronometern – och hur hann hen?",
     "bild": "bilder/fall5/urmakeriet.jpg",
     "berattare": "Överkonstapel August Strand"
@@ -715,7 +715,7 @@
               "farg": "#2a3a2a",
               "interaktiv": {
                 "namn": "Pantlåneliggaren",
-                "text": "Liggaren från Pantlånekontoret på Hornsgatan, som har kvällsöppet till midnatt. Kassören skriver klockslaget vid varje post. Näst sista raden: ”22.40 – Karl Ek, gesäll. Ett fickur i silver, graverat E.E. Utlånat 8 kr.” Kassören minns honom: ”Han såg ut som han skämdes.”",
+                "text": "Liggaren från Pantlånekontoret på Hornsgatan, som har kvällsöppet till midnatt. Kassören skriver klockslaget vid varje post. Näst sista raden: ”22.40 – Karl Ek, gesäll. Ett fickur i silver, graverat E.E. Utlånat 8 kr.” Kassören minns honom: ”Han såg ut som han skämdes. Uret var hans fars, sa han – Erik Eks.”",
                 "ger_material": [
                   "k-karl-pant"
                 ]
@@ -767,7 +767,7 @@
               "antal": 1,
               "interaktiv": {
                 "namn": "Spårvagnsbiljett och rapport",
-                "text": "En spårvagnsbiljett, stämplad vid Slussen kl. 22.40, som fru Lindh lämnat fram. Fastnålad: spårvagnskonduktörens rapport. ”Damen med grå kappa, utan handskar, åkte med från Slussen 22.40 till ändhållplatsen Skanstull, där vi var 22.52. Hon frös om händerna.”",
+                "text": "En spårvagnsbiljett, stämplad vid Slussen kl. 22.40, som fru Lindh lämnat fram. Fastnålad: spårvagnskonduktörens rapport. ”Damen med grå kappa åkte med från Slussen 22.40 till ändhållplatsen Skanstull, där vi var 22.52. Hon hade bara en handske och frös om andra handen.”",
                 "ger_material": [
                   "k-lindh-sparvagn"
                 ]
@@ -1072,7 +1072,7 @@
               "seed": 3,
               "interaktiv": {
                 "namn": "Hilma Rapp",
-                "text": "Hilma ser på sin man och sedan på dig. ”Han kom hem fem över elva. Jag vet det, för köksuret slog elva medan jag lade in ved, och kaffet hade knappt hunnit koka när han stod i dörren. Varför skulle jag säga något annat?”",
+                "text": "Hilma ser på sin man och sedan på dig. ”Han kom hem fem över elva. Köksuret hade just slagit elva när jag lade in ved, och när han stod i dörren tittade jag på det: fem över. Varför skulle jag säga något annat?”",
                 "ger_material": [
                   "k-rapp-hem"
                 ]
@@ -1175,7 +1175,7 @@
           "pant": "pantlånekontoret",
           "gillet": "gillets hus",
           "rapp_hem": "Rapps hem",
-          "sparvagn": "spårvagnen"
+          "sparvagn": "Slussen (spårvagnen)"
         },
         "gangtider": [
           [
@@ -1873,7 +1873,7 @@
   ],
   "aterkoppling": {
     "ratt": "Rapp gav sig själv alibit ”kvart i elva”. Men den som går raka vägen kommer inte hem tjugo minuter för sent. De tjugo minuterna räckte precis till en omväg via Österlånggatan – och ekspånen följde med hem i rocken.",
-    "efterord": "Polaris hittades i Rapps verkstadsskåp, inlindad i ett sämskskinn. ”Den var min”, sa han till Strand. ”Hälften av den, i alla fall.” Karl Ek fick tillbaka sin fars fickur – Fältskog löste ut det åt honom dagen efter.",
+    "efterord": "Polaris hittades i Rapps verkstadsskåp, inlindad i ett sämskskinn. ”Den var min”, sa han till Strand. ”Hälften av den, i alla fall.” Karl Ek fick tillbaka sin fars fickur – Fältskog löste ut det åt honom dagen efter. Och August Strand gick hem genom snön till sin hustru, som väntade deras första barn – en pojke som skulle döpas till Nils och en dag bli konstapel på Ekbacka.",
     "fel": {
       "karl": "Karl ljög, men om något annat. Pantlånekontoret ligger tjugo minuter bort, och klockan 22.40 stod han vid disken.",
       "faltskog": "Fältskog höll tal på sin dotters bröllop inför fyrtio gäster. Ingen promenad i världen gör honom till tjuven.",

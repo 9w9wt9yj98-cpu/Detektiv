@@ -21,7 +21,7 @@ fall = {"id": "fyren-pa-graskar", "version": 1,
    {"id": "signe", "namn": "Signe Wenngren", "roll": "Fyrmästarens hustru", "misstankt": T, "beskrivning": "Blek och tystlåten. Bor i fyrmästarbostaden."},
    {"id": "lagerkvist", "namn": "Dr. Arvid Lagerkvist", "roll": "Meteorolog vid väderstationen", "misstankt": T, "beskrivning": "Har grälat med fyrmästaren om stationens placering."},
    {"id": "johan", "namn": "Johan Sjöberg", "roll": "Skeppsbruten fiskare", "misstankt": T, "beskrivning": "Flöt i land kvällen innan med ett brutet ben. Ligger på köksbänken."},
-   {"id": "holger", "namn": "Holger Wenngren", "roll": "Fyrmästare, död", "misstankt": False, "beskrivning": "Sträng, noggrann, alltid med blyertspennan bakom örat."},
+   {"id": "holger", "namn": "Holger Wenngren", "roll": "Fyrmästare, död", "misstankt": False, "beskrivning": "Sträng, noggrann, alltid med blyertspennan i bröstfickan."},
  ]}
 
 # ---------- Tornet ----------
@@ -165,7 +165,7 @@ dokument = {"id": "dokumenten", "namn": "Dokumenten", "mekanik": "dokument", "pa
       S("02.00–06.00: vid varje observation antecknat ”Fyren lyser normalt”.", "j-fyr"),
       S("Gångväg stationen–fyrtornet i storm: 10 minuter (uppmätt i september).", "j-vag")]},
     {"id": "dok-barograf", "titel": "Barografens pappersrulle", "underrubrik": "Tidsmärken, natten mot den 14 oktober", "ikon": "📈", "stil": "maskin", "stycken": [
-      S("Obrutna tidsmärken: 02.00 · 02.15 · 02.30 · 02.45 · 03.00 · 03.15 · 03.30 · 03.45 · 04.00 · 04.15 · 04.30 · 04.45 · 05.00", "b-marken"),
+      S("Obrutna tidsmärken: 02.00 · 02.15 · 02.30 · 02.45 · 03.00 · 03.15 · 03.30 · 03.45 · 04.00 · 04.15 · 04.30 · 04.45 · 05.00 · 05.15 · 05.30 · 05.45 · 06.00", "b-marken"),
       S("Märkena slås för hand av observatören vid instrumentet.")]},
     {"id": "dok-signe", "titel": "Signe Wenngrens berättelse", "ikon": "🗣️", "stil": "hand", "stycken": [
       S("Holger gick upp i tornet vid tio. När det stormar vakar han där uppe hela natten och kommer inte ned förrän det ljusnar.", "s-vakar"),
@@ -207,7 +207,7 @@ fall["fynd"] = [
   {"id": "f-signe-brev", "titel": "”Snart är jag fri”", "ikon": "✉️", "typ": "avledande", "galler": ["signe"], "text": "Ett oavsänt brev från Signe till en man i Norrtälje.", "forklaring": "Signe tänkte lämna Holger – ett motiv, men hon gick aldrig ut genom köket den natten."},
   {"id": "f-pennan", "titel": "Elofs reservoarpenna", "ikon": "🖋️", "typ": "stod", "galler": ["elof"], "text": "En reservoarpenna och ett bläckhorn med blåsvart bläck på Elofs bord."},
   {"id": "f-fotogen-stuga", "titel": "Fotogen i stugan", "ikon": "🛢️", "typ": "stod", "galler": ["elof"], "text": "Två tomma fotogenkannor med Lotsverkets stämpel står i Elofs stuga."},
-  {"id": "f-barograf", "titel": "Barografens märken", "ikon": "📈", "typ": "nyckel", "galler": ["lagerkvist"], "text": "Doktorn slog tidsmärken för hand var femtonde minut 02.00–05.00, bland annat 03.15 och 03.30."},
+  {"id": "f-barograf", "titel": "Barografens märken", "ikon": "📈", "typ": "nyckel", "galler": ["lagerkvist"], "text": "Doktorn slog tidsmärken för hand var femtonde minut 02.00–06.00, bland annat 03.15 och 03.30."},
   {"id": "f-gangvag", "titel": "Tio minuter i storm", "ikon": "🌬️", "typ": "bakgrund", "galler": ["lagerkvist"], "text": "Gångvägen mellan väderstationen och tornet tar tio minuter i storm."},
   {"id": "f-duns-lagerkvist", "titel": "Doktorn hörde dunsen 03.20", "ikon": "🔊", "typ": "nyckel", "text": "Lagerkvist hörde en duns från tornet vid 03.20, från en annan byggnad än Signe."},
   {"id": "f-grall", "titel": "Grälet om stationen", "ikon": "💢", "typ": "avledande", "galler": ["lagerkvist"], "text": "Lagerkvist och Holger grälade om väderstationens placering.", "forklaring": "Ett gräl om en mätplats – och doktorn slog tidsmärken på barografen var femtonde minut hela natten."},

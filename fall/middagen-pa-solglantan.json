@@ -48,7 +48,7 @@
       "namn": "Bertil",
       "roll": "Gäst",
       "misstankt": true,
-      "beskrivning": "Mild röst, mjuka händer. Talar gärna om förlåtelse."
+      "beskrivning": "Mild röst, mjuka händer. Han talar gärna om förlåtelse."
     },
     {
       "id": "cecilia",
@@ -62,7 +62,7 @@
       "namn": "David",
       "roll": "Gäst",
       "misstankt": true,
-      "beskrivning": "Rastlös, tittar ofta på klockan. Var den förste att rusa fram till översten."
+      "beskrivning": "Rastlös, tittar ofta på klockan. Han var den förste att rusa fram till översten."
     }
   ],
   "moment": [
@@ -365,7 +365,7 @@
               "rot": -30,
               "interaktiv": {
                 "namn": "Läkarväskan",
-                "text": "En svart läkarväska står lutad mot räcket. Den tillhör en av gästerna, läkaren. Överst ligger en burk digitalis – och läkaren medgav genast: ”Jag visste precis vad det var när översten föll ihop.”",
+                "text": "En svart läkarväska står öppen, lutad mot räcket vid trappan upp till verandan – alla gick förbi den på väg till bordet. Den tillhör en av gästerna, läkaren. Överst ligger en burk digitalis – och läkaren medgav genast: ”Jag visste precis vad det var när översten föll ihop.”",
                 "ger_fynd": "f-digitalis"
               }
             },
@@ -444,7 +444,7 @@
       "mekanik": "logikrutnat",
       "payload": {
         "rubrik": "Vem satt var?",
-        "instruktion": "Tryck i en ruta för att växla mellan tom, ✗ och ✓. Översten satt vid kortänden; plats 1–4 räknas runt bordet från hans högra sida, så plats 1 och 4 sitter bredvid honom och plats 4 är hans vänstra sida.",
+        "instruktion": "Tryck i en ruta för att växla mellan tom, ✗ och ✓. Översten satt vid kortänden; plats 1–4 räknas runt bordet från hans högra sida, så plats 1 och 4 sitter bredvid honom och plats 4 är hans vänstra sida. Plats 1 och 4 räknas inte som grannar till varandra – översten sitter emellan.",
         "kategorier": [
           {
             "id": "person",

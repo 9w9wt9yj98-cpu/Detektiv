@@ -173,3 +173,18 @@ Möjliga nästa steg, var för sig: rikare texturer och detaljer rum för rum (u
 Efter Martins speltest i mobilen, liggande:
 - **Utropstecken i stället för glöd.** Det som går att undersöka får en liten mässingsbricka med **!** ovanför sig. Den tonas in när man kommer närmare än cirka fyra meter och försvinner när föremålet är undersökt. Det man tittar på får ett lite större märke som guppar. Anteckningsboken har en bok och dörrar en pil; en undersökt dörr behåller pilen. Brickorna har samma storlek på skärmen oavsett avstånd och syns genom möbler. Guiden och boken säger ”utropstecken” i stället för ”det som glimmar”.
 - **Menyraden** ryms på en enda rad när telefonen ligger ned (ca 56 px i stället för ca 110 px), med mindre knappar. Meddelanden, guide och Undersök-knappen flyttas efter.
+
+## Blindtest av alla fall (november 2026)
+
+Sex agenter fick var sitt fall som *spelarvy* – bara det spelaren ser, utan lösning, facit, villospårsmärkning, ledtrådar eller slutsatsfrågor – och skulle lösa fallet och rapportera luckor. Alla sex löste sitt fall rätt och kunde utesluta övriga misstänkta (säkerhet 4–5 av 5). Martins beslut: rätta luckorna, men låt svårighetsgraden vara.
+
+| Fall | Rättning |
+|---|---|
+| 1 | Elsa bär sin nyckel i ett band runt halsen; gästerna såg Gustav vid bordet hela middagen; golvet vid tjänstetrappan är nyskurat (förklarar de fuktiga avtrycken). |
+| 2 | Lind berättar själv att han skottade snö på plattformen strax efter sex och gick in genom bakdörren till kupé 3 (förklarar fotspåren). |
+| 3 | Personbeskrivningarna säger ”han”/”hon” (L8 kräver inte längre att man gissar kön av förnamn); tavlan säger att plats 1 och 4 inte är grannar; läkarväskan stod öppen där alla gick förbi. |
+| 4 | Bildinformationen visar att Instagrambilden togs 09.10 (Lena hade redan åkt); ”förmiddagen” borttaget där bytet bara kan sägas ha skett ”under dagen”. |
+| 5 | Hilma tittade på köksuret när Rapp kom; kassören berättar att fickuret var Karls fars (E.E.); fru Lindh hade bara en handske; gångtiden heter ”Slussen (spårvagnen)”; raden om Strands son flyttad från inledningen till efterordet och rättad i tid (Nils är ännu inte född 1897). |
+| 6 | Holgers penna sitter i bröstfickan även i personbeskrivningen; barografens märken går till 06.00 som journalen. |
+
+Kvar till senare (svårighet): fall 6:s hakparentes om bläcket i loggboken avslöjar mycket, och i fall 3 och 5 antyder personbeskrivningar och spår den skyldige tidigt.

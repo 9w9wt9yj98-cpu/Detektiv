@@ -14,7 +14,7 @@ fall = {"id": "kvart-i-elva", "version": 1,
    "uppskattad_tid_min": [15, 20], "svarighet": 3, "karnmekanik": "tidslinje", "bimekaniker": ["scen", "dokument"], "twist": None, "kraver_rang": 0,
    "accentfarg": "#2a3a5a", "omslag": "bilder/fall5/urmakeriet.jpg", "mal": "Ta reda på vem som stal kronometern Polaris", "handledning_mal": "monter"},
  "intro": {"rubrik": "Österlånggatan, Stockholm. En snönatt i december 1897.",
-   "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. Hemma på Söder har han en pojke, Nils, som en dag ska bli konstapel på Ekbacka. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
+   "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
    "uppdrag": "Vem stal kronometern – och hur hann hen?", "bild": "bilder/fall5/urmakeriet.jpg", "berattare": "Överkonstapel August Strand"},
  "personer": [
    {"id": "faltskog", "namn": "Johan Fältskog", "roll": "Urmakare, ägare av butiken", "misstankt": T, "beskrivning": "Kom direkt från sin dotters bröllopsmiddag, fortfarande i frack."},
@@ -95,13 +95,13 @@ polis = {"id": "poliskammaren", "namn": "Poliskammaren", "mekanik": "scen", "las
   "objekt": [
     obj("bord", "bord", [0.2, 0, -0.6], storlek=[1.6, 0.76, 0.8], farg="#5a3a20"),
     obj("liggaren", "liggare", [-0.35, 0.76, -0.6], storlek=[0.46, 0.32], farg="#2a3a2a", interaktiv=ia("Pantlåneliggaren",
-        "Liggaren från Pantlånekontoret på Hornsgatan, som har kvällsöppet till midnatt. Kassören skriver klockslaget vid varje post. Näst sista raden: ”22.40 – Karl Ek, gesäll. Ett fickur i silver, graverat E.E. Utlånat 8 kr.” Kassören minns honom: ”Han såg ut som han skämdes.”", material=["k-karl-pant"])),
+        "Liggaren från Pantlånekontoret på Hornsgatan, som har kvällsöppet till midnatt. Kassören skriver klockslaget vid varje post. Näst sista raden: ”22.40 – Karl Ek, gesäll. Ett fickur i silver, graverat E.E. Utlånat 8 kr.” Kassören minns honom: ”Han såg ut som han skämdes. Uret var hans fars, sa han – Erik Eks.”", material=["k-karl-pant"])),
     obj("intyget", "papper", [0.3, 0.76, -0.75], antal=1, interaktiv=ia("Krögarens intyg",
         "Krögaren på Den Gyldene Freden har skrivit under: ”Karl Ek satt vid fönsterbordet från kl. 10 till strax efter kvart över tio, då han gick. Han kom tillbaka kl. 11.05 och satt kvar till halv tolv. Jag minns det, för han betalade med blanka sedlar.”", material=["k-karl-freden1", "k-karl-freden2"])),
     obj("protokollet", "papper", [0.75, 0.76, -0.55], antal=2, interaktiv=ia("Urmakargillets protokoll",
         "Protokoll fört vid Urmakargillets decembersammanträde: ”… Ordföranden förklarade mötet avslutat kl. 10.30 e.m.” Under står de närvarandes namn. Ett av dem: Anders Rapp.", material=["k-rapp-gillet"])),
     obj("biljetten", "papper", [-0.7, 0.76, -0.45], antal=1, interaktiv=ia("Spårvagnsbiljett och rapport",
-        "En spårvagnsbiljett, stämplad vid Slussen kl. 22.40, som fru Lindh lämnat fram. Fastnålad: spårvagnskonduktörens rapport. ”Damen med grå kappa, utan handskar, åkte med från Slussen 22.40 till ändhållplatsen Skanstull, där vi var 22.52. Hon frös om händerna.”", material=["k-lindh-sparvagn"])),
+        "En spårvagnsbiljett, stämplad vid Slussen kl. 22.40, som fru Lindh lämnat fram. Fastnålad: spårvagnskonduktörens rapport. ”Damen med grå kappa åkte med från Slussen 22.40 till ändhållplatsen Skanstull, där vi var 22.52. Hon hade bara en handske och frös om andra handen.”", material=["k-lindh-sparvagn"])),
     obj("karta", "tavelkarta", [0.2, 1.55, -1.89], storlek=[1.2, 0.8], textstorlek=19,
         text="GÅNGTIDER (minuter)  –  uppmätta av polisen\n\nGillets hus – urmakeriet ........ 6\nGillets hus – Rapps hem ......... 15\nUrmakeriet – Rapps hem .......... 18\nFreden – urmakeriet .............. 4\nFreden – pantlånekontoret ........ 16\nPantlånekontoret – urmakeriet ... 20\nGrand Hôtel – urmakeriet ......... 12\nSlussen – urmakeriet .............. 5",
         interaktiv=ia("Kartan med gångtider", "Strand har nålat upp en karta över Stadsholmen, Södermalm och Kungsholmen. ”Jag har låtit en konstapel gå sträckorna i kväll, i snön, i rask takt”, säger han. ”Tiderna stämmer – snabbare än så går ingen.” Nu kan du lägga upp tidslinjen i anteckningsboken.", "f-gangtider")),
@@ -137,7 +137,7 @@ rapp = {"id": "rapps-hem", "namn": "Rapps kök på Kungsholmen", "mekanik": "sce
     obj("rapp", "person", [0.9, 0, 0.6], rot=-140, rock="#3a3028", byxor="#2a2a24", har="#9a9086", skagg=True, seed=1,
         interaktiv=ia("Anders Rapp", "Rapp sitter kvar vid bordet med kaffekoppen. ”Gillesmötet slutade halv elva och jag gick raka vägen hem, som alltid. Jag var hemma kvart i elva. Fältskogs butik? Där har jag inte satt min fot på sex år. Han stal Polaris från mig en gång – nu har någon stulit den från honom. Det kallar jag rättvisa.”", "f-rapp-ej-butik", ["k-rapp-pastar"])),
     obj("hilma", "person", [-0.6, 0, -0.9], rot=30, kon="k", rock="#5a3a3a", har="#7a6a5a", forklade=True, seed=3,
-        interaktiv=ia("Hilma Rapp", "Hilma ser på sin man och sedan på dig. ”Han kom hem fem över elva. Jag vet det, för köksuret slog elva medan jag lade in ved, och kaffet hade knappt hunnit koka när han stod i dörren. Varför skulle jag säga något annat?”", material=["k-rapp-hem"])),
+        interaktiv=ia("Hilma Rapp", "Hilma ser på sin man och sedan på dig. ”Han kom hem fem över elva. Köksuret hade just slagit elva när jag lade in ved, och när han stod i dörren tittade jag på det: fem över. Varför skulle jag säga något annat?”", material=["k-rapp-hem"])),
     obj("hylla", "hylla", [1.99, 1.5, 0.9], rot=-90),
     obj("lampa", "oljelampa", [0.4, 0.76, -0.75], ljus=True, styrka=2.0),
     obj("fonster", "fonster", [0.2, 0, -1.79]),
@@ -153,7 +153,7 @@ tidslinje = {"id": "tidslinjen", "namn": "Tidslinjen", "mekanik": "tidslinje", "
   "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från oberoende källor, streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
   "fran": "22.00", "till": "23.30", "lucka_min": 15,
   "personer": ["faltskog", "karl", "rapp", "lindh"],
-  "platser": {"urmakeriet": "urmakeriet", "grand": "Grand Hôtel", "freden": "Den Gyldene Freden", "pant": "pantlånekontoret", "gillet": "gillets hus", "rapp_hem": "Rapps hem", "sparvagn": "spårvagnen"},
+  "platser": {"urmakeriet": "urmakeriet", "grand": "Grand Hôtel", "freden": "Den Gyldene Freden", "pant": "pantlånekontoret", "gillet": "gillets hus", "rapp_hem": "Rapps hem", "sparvagn": "Slussen (spårvagnen)"},
   "gangtider": [["gillet", "urmakeriet", 6], ["gillet", "rapp_hem", 15], ["urmakeriet", "rapp_hem", 18], ["freden", "urmakeriet", 4], ["freden", "pant", 16], ["pant", "urmakeriet", 20], ["grand", "urmakeriet", 12], ["sparvagn", "urmakeriet", 5]],
   "kort": [
     K("k-faltskog-grand", "faltskog", "grand", "19.00", "Bröllopsmiddagen på Grand", till="23.30", ikon="🥂", kalla="40 gäster och hovmästaren", text="Fältskog satt till bords hela kvällen."),
@@ -256,7 +256,7 @@ fall["ledtradar"] = [
   {"niva": 3, "kostnad": 50, "kraver": ["k-karl-pant", "k-rapp-gillet", "k-rapp-hem"], "text": "Karl ljuger – men var var han kl. 22.40? Räkna sedan på varje nyckelinnehavares raka väg hem och jämför med när de faktiskt kom hem. Var blir det minuter över?"}]
 fall["aterkoppling"] = {
   "ratt": "Rapp gav sig själv alibit ”kvart i elva”. Men den som går raka vägen kommer inte hem tjugo minuter för sent. De tjugo minuterna räckte precis till en omväg via Österlånggatan – och ekspånen följde med hem i rocken.",
-  "efterord": "Polaris hittades i Rapps verkstadsskåp, inlindad i ett sämskskinn. ”Den var min”, sa han till Strand. ”Hälften av den, i alla fall.” Karl Ek fick tillbaka sin fars fickur – Fältskog löste ut det åt honom dagen efter.",
+  "efterord": "Polaris hittades i Rapps verkstadsskåp, inlindad i ett sämskskinn. ”Den var min”, sa han till Strand. ”Hälften av den, i alla fall.” Karl Ek fick tillbaka sin fars fickur – Fältskog löste ut det åt honom dagen efter. Och August Strand gick hem genom snön till sin hustru, som väntade deras första barn – en pojke som skulle döpas till Nils och en dag bli konstapel på Ekbacka.",
   "fel": {
     "karl": "Karl ljög, men om något annat. Pantlånekontoret ligger tjugo minuter bort, och klockan 22.40 stod han vid disken.",
     "faltskog": "Fältskog höll tal på sin dotters bröllop inför fyrtio gäster. Ingen promenad i världen gör honom till tjuven.",
