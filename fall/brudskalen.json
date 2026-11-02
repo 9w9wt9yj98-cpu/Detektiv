@@ -864,7 +864,7 @@
               ],
               "interaktiv": {
                 "namn": "Gunnars dator",
-                "text": "Datorn står på. Gunnars Instagram är öppet: ett inlägg från i morse kl. 09.12 – ”Putsat brudskålen inför festen! 🌸”. Du sparar bilden.",
+                "text": "Datorn står på. Gunnars Instagram är öppet: ett inlägg från i morse kl. 09.12 – ”Putsat brudskålen inför festen! 🌸”. Bildinformationen visar att fotot togs kl. 09.10 med Gunnars mobil. Du sparar bilden.",
                 "ger_material": [
                   "bild-a"
                 ]
@@ -1229,7 +1229,7 @@
       "galler": [
         "gunnar"
       ],
-      "text": "Gunnar var ensam på gården hela förmiddagen tills bussen kom – det säger han själv."
+      "text": "Gunnar var ensam på gården hela dagen tills bussen kom – det säger han själv."
     },
     {
       "id": "f-forsakring",
@@ -1456,7 +1456,7 @@
       "alternativ": [
         {
           "text": "Ja – den som tog skålen från skänken är skyldig.",
-          "svar": "Det som togs från skänken var bara kopian. Den äkta skålen var borta sedan förmiddagen."
+          "svar": "Det som togs från skänken var bara kopian. Den äkta skålen var borta långt innan festen började."
         },
         {
           "text": "Nej. Den ”stölden” var iscensatt – den äkta skålen var redan borta.",
@@ -1490,7 +1490,7 @@
   "losning": {
     "skyldig": "gunnar",
     "hur": "byte",
-    "hur_text": "Gunnar bytte ut den äkta skålen mot en kopia på förmiddagen, när han var ensam på gården. Under festen lät han kopian ”försvinna” och anmälde stölden för att få ut försäkringen.",
+    "hur_text": "Gunnar bytte ut den äkta skålen mot en kopia under dagen, när han var ensam på gården. Under festen lät han kopian ”försvinna” och anmälde stölden för att få ut försäkringen.",
     "bevisgrupper": [
       [
         "f-kopia",
@@ -1551,7 +1551,7 @@
       },
       {
         "id": "byte",
-        "text": "Den byttes ut mot en kopia på förmiddagen, innan gästerna kom"
+        "text": "Den byttes ut mot en kopia under dagen, innan gästerna kom"
       },
       {
         "id": "fonster",
@@ -1592,7 +1592,7 @@
     }
   ],
   "aterkoppling": {
-    "ratt": "Den bästa stölden är den som aldrig händer. Gunnar bytte skålen i lugn och ro på förmiddagen. Sedan lät han en kopia ”försvinna” inför tjugofem vittnen. Han glömde bara att han själv hade lagt ut beviset på Instagram.",
+    "ratt": "Den bästa stölden är den som aldrig händer. Gunnar bytte skålen i lugn och ro medan han var ensam på gården. Sedan lät han en kopia ”försvinna” inför tjugofem vittnen. Han glömde bara att han själv hade lagt ut beviset på Instagram.",
     "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian låg i Gunnars bil. Han hade beställt den av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
     "fel": {
       "mikael": "En antikhandlare med väska ser misstänkt ut. Men han kom med bussen efter bytet, och väskan innehöll en tårtbricka.",

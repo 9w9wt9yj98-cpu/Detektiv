@@ -66,7 +66,7 @@
       "namn": "Holger Wenngren",
       "roll": "Fyrmästare, död",
       "misstankt": false,
-      "beskrivning": "Sträng, noggrann, alltid med blyertspennan bakom örat."
+      "beskrivning": "Sträng, noggrann, alltid med blyertspennan i bröstfickan."
     }
   ],
   "moment": [
@@ -1275,7 +1275,7 @@
             "stycken": [
               {
                 "id": "b-marken",
-                "text": "Obrutna tidsmärken: 02.00 · 02.15 · 02.30 · 02.45 · 03.00 · 03.15 · 03.30 · 03.45 · 04.00 · 04.15 · 04.30 · 04.45 · 05.00"
+                "text": "Obrutna tidsmärken: 02.00 · 02.15 · 02.30 · 02.45 · 03.00 · 03.15 · 03.30 · 03.45 · 04.00 · 04.15 · 04.30 · 04.45 · 05.00 · 05.15 · 05.30 · 05.45 · 06.00"
               },
               {
                 "text": "Märkena slås för hand av observatören vid instrumentet."
@@ -1586,7 +1586,7 @@
       "galler": [
         "lagerkvist"
       ],
-      "text": "Doktorn slog tidsmärken för hand var femtonde minut 02.00–05.00, bland annat 03.15 och 03.30."
+      "text": "Doktorn slog tidsmärken för hand var femtonde minut 02.00–06.00, bland annat 03.15 och 03.30."
     },
     {
       "id": "f-gangvag",
