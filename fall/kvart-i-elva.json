@@ -26,7 +26,7 @@
   },
   "intro": {
     "rubrik": "Österlånggatan, Stockholm. En snönatt i december 1897.",
-    "text": "Snön har fallit hela kvällen över Gamla stan. Strax före midnatt bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
+    "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
     "uppdrag": "Vem stal kronometern – och hur hann hen?",
     "bild": "bilder/fall5/urmakeriet.jpg",
     "berattare": "Överkonstapel August Strand"
@@ -330,7 +330,7 @@
               "seed": 0,
               "interaktiv": {
                 "namn": "Urmakare Fältskog",
-                "text": "Fältskog står i frack och ser grå ut. ”Tre nycklar finns till montern: min egen, min gesäll Karl Eks – och Rapps. Rapp var min kompanjon till -91, och låset byttes aldrig. Jag har ångrat det i sex år.\n\nSjälv satt jag på Grand Hôtel på min dotters bröllopsmiddag från sju till ett. Fyrtio gäster och hovmästaren har redan intygat det för konstapeln.”",
+                "text": "Fältskog står i frack och ser grå ut. ”Tre nycklar finns till montern: min egen, min gesäll Karl Eks – och Rapps. Rapp var min kompanjon till -91, och låset byttes aldrig. Jag har ångrat det i sex år.\n\nSjälv satt jag på Grand Hôtel på min dotters bröllopsmiddag från sju tills konstapeln hämtade mig vid halv tolv. Fyrtio gäster och hovmästaren har redan intygat det för konstapeln.”",
                 "ger_fynd": "f-nyckelinnehavare",
                 "ger_material": [
                   "k-faltskog-grand"
@@ -997,7 +997,7 @@
               "farg": "#6a4a2a",
               "interaktiv": {
                 "namn": "Köksuret",
-                "text": "Ett enkelt köksur. Du jämför med ditt fickur: det går på minuten rätt. Hilma: ”August ställer det varje söndag efter Kungsholms kyrka.”",
+                "text": "Ett enkelt köksur. Du jämför med ditt fickur: det går på minuten rätt. Hilma: ”Anders ställer det varje söndag efter Kungsholms kyrka.”",
                 "ger_fynd": "f-kokur"
               }
             },
@@ -1205,7 +1205,7 @@
             "fran": "19.00",
             "titel": "Bröllopsmiddagen på Grand",
             "typ": "fakta",
-            "till": "01.00",
+            "till": "23.30",
             "ikon": "🥂",
             "kalla": "40 gäster och hovmästaren",
             "text": "Fältskog satt till bords hela kvällen."
@@ -1789,7 +1789,7 @@
       ]
     },
     "uteslutningar_text": {
-      "faltskog": "Satt på Grand Hôtel inför fyrtio gäster från sju till ett.",
+      "faltskog": "Satt på Grand Hôtel inför fyrtio gäster från sju till halv tolv, då konstapeln hämtade honom.",
       "karl": "Stod vid pantlånedisken på Hornsgatan 22.40 – tjugo minuter från urmakeriet. Han ljög om krogen av skam, inte för stölden.",
       "lindh": "Har ingen nyckel, och satt på spårvagnen till Skanstull 22.40–22.52. Handsken tappade hon kl. 17."
     }

@@ -1,5 +1,5 @@
 // Föremål för nutid och utomhus: gård i Dalarna, midsommar, modern sal och kontor. Samma konventioner som prefabs.js.
-import * as THREE from 'three';
+import * as THREE from '../../vendor/three/three.module.min.js';
 import * as T from './texturer.js';
 import { prefabs, mat, box, cyl, sph, plan, massing, glas } from './prefabs.js';
 

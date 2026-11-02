@@ -11,11 +11,21 @@ import { esc, modal, toast, lampa, bokIkon, hemIkon, $ } from './gemensamt.js';
 function webglFinns() {
   try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; }
 }
+/** Tar bort sparade id:n som inte längre finns i fallet (om fallets JSON har ändrats sedan utredningen sparades). */
+function rensaOkanda(f, st) {
+  const kanda = new Set([...f.fynd.map((x) => x.id), ...Object.keys(materialMap(f))]);
+  const objekt = new Set(rumMoment(f).flatMap((m) => (m.payload.rum.objekt || []).map((o) => o.id)));
+  st.fynd = st.fynd.filter((x) => kanda.has(x));
+  st.material = (st.material || []).filter((x) => kanda.has(x));
+  st.inspekterade = st.inspekterade.filter((x) => objekt.has(x));
+}
+const UTAN_3D = 'Spelet behöver WebGL för att visa rummen, men det gick inte att starta här. Prova att starta om webbläsaren, stänga andra appar eller slå på maskinvaruacceleration. Din utredning är sparad.';
 const MATERIAL_ETIKETT = { utsaga: 'Utsaga', dokument: 'Dokument', bild: 'Bild', kort: 'Tidskort' };
 
 export async function visaUtredning(app, id) {
   const f = await laddaFall(id);
   const st = fallData(id);
+  rensaOkanda(f, st);
   if (st.status === 'lost' || st.status === 'misslyckad') { location.hash = `#/fall/${id}/upplosning`; return null; }
   if (st.status !== 'pagaende') { st.status = 'pagaende'; spara(); }
   const fynd = fyndMap(f);
@@ -57,10 +67,13 @@ export async function visaUtredning(app, id) {
   let aktuelltRum = rum.find((m) => m.id === st.rum && arUpplast(m, st)) || rum[0];
   uppdateraHud();
 
-  if (!webglFinns()) {
-    behallare.innerHTML = '<div class="papperskort">Din webbläsare saknar stöd för 3D (WebGL). Utredningen kan inte visas.</div>';
+  const visaUtan3D = () => {
+    behallare.innerHTML = `<div class="papperskort utan3d" role="alert"><h2>3D-vyn kunde inte startas</h2><p>${esc(UTAN_3D)}</p>
+      <div class="knapprad"><button class="knapp massing" data-forsok>Försök igen</button><a class="knapp sekundar" href="#/fall/${id}">Till fallet</a></div></div>`;
+    $('[data-forsok]', behallare).onclick = () => location.reload();
     return null;
-  }
+  };
+  if (!webglFinns()) return visaUtan3D();
   const { Rum3D } = await import('../tre/motor3d.js');
   let modalOppen = 0;
   const pausa = () => { modalOppen++; motor.pausa(); fokusKnapp.hidden = true; };
@@ -79,7 +92,9 @@ export async function visaUtredning(app, id) {
   }
   fokusKnapp.onclick = () => { if (fokusDef) inspektera(fokusDef); };
 
-  const motor = new Rum3D(behallare, { onInspektera: inspektera, onMeddelande: toast, onFokus: visaFokus });
+  let motor;
+  try { motor = new Rum3D(behallare, { onInspektera: inspektera, onMeddelande: toast, onFokus: visaFokus }); }
+  catch (e) { console.error(e); behallare.innerHTML = ''; return visaUtan3D(); }
 
   function laddaRum(m, { anvandSparad = false } = {}) {
     aktuelltRum = m;

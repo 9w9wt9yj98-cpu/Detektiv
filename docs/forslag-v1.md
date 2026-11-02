@@ -1,6 +1,8 @@
 # Detektiv – Designförslag v1
 
-> **Status:** Godkänt med ändringar – se [beslut.md](beslut.md). Fall 1 och 3 finns som spelbar prototyp i 3D.
+> **Status:** Godkänt med ändringar – se [beslut.md](beslut.md). Alla sex fall finns nu som spelbara fall i 3D.
+>
+> **Obs – ny ordning:** Det här förslaget numrerar fallen 4 *Kvart i elva*, 5 *Fyren på Gråskär* och 6 *Brudskålen*. I spelet gäller ordningen i [beslut.md](beslut.md#fler-fall-ordning-och-kapitel) och `fall/index.json`: **4 Brudskålen, 5 Kvart i elva, 6 Fyren på Gråskär**. Fallbeskrivningarna nedan är det ursprungliga förslaget; det färdiga innehållet finns i `fall/*.json` (och källorna i `verktyg/fall/*.py`), och rättningar efter förslaget står i beslut.md.
 > **Projektledare:** Martin Morén
 > **Plattform:** Webb först (HTML/JS), anpassad för mobil i ett senare steg.
 > **Målgrupp:** Vuxna. **Ton:** Klassisk deckare i stil med Agatha Christie och Sherlock Holmes, med en oväntad vändning då och då.

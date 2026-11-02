@@ -25,7 +25,7 @@
   },
   "intro": {
     "rubrik": "Midsommarafton på Sahlins gård, Leksand.",
-    "text": "Midsommarstången är rest, sillen är uppäten och dragspelet har tystnat. Gunnar Sahlin har ringt polisen: hans 1700-talsskål i silver, Brudskålen, är stulen från skänken i salen – mitt under festen.\n\n”Jag såg den halv fem, med sin gamla buckla på kanten”, säger han. ”Kvart i sex var den borta.”\n\nKriminalinspektör Nils Strand – samma Strand, men i ett annat sekel – är på semester i Leksand och har lovat att titta förbi. ”Tjugofem gäster med mobilkameror”, säger hen och ler. ”Det har ingen tjuv haft förr. Be om deras bilder, och jämför dem noga.”",
+    "text": "Midsommarstången är rest, sillen är uppäten och dragspelet har tystnat. Gunnar Sahlin har ringt polisen: hans 1700-talsskål i silver, Brudskålen, är stulen från skänken i salen – mitt under festen.\n\n”Jag såg den halv fem, med sin gamla buckla på kanten”, säger han. ”Kvart i sex var den borta.”\n\nKriminalinspektör Nils Strand – samma Strand, men i ett annat sekel – är på semester i Leksand och har lovat att titta förbi. ”Tjugofem gäster med mobilkameror”, säger han och ler. ”Det har ingen tjuv haft förr. Be om deras bilder, och jämför dem noga.”",
     "uppdrag": "Vem tog brudskålen – och när försvann den egentligen?",
     "bild": "bilder/fall4/garden.jpg",
     "berattare": "Kriminalinspektör Nils Strand"
@@ -295,7 +295,7 @@
               "seed": 2,
               "interaktiv": {
                 "namn": "Gunnar Sahlin",
-                "text": "Gunnar är röd om kinderna. ”Jag såg den halv fem, med sin gamla buckla på kanten – den har haft den sedan farfars tid. Kvart i sex var den borta! Jag var ensam här på gården hela förmiddagen och fixade inför festen, ingen kunde ha kommit åt den då.”",
+                "text": "Gunnar är röd om kinderna. ”Jag såg den halv fem, med sin gamla buckla på kanten – den har haft den sedan farfars tid. Kvart i sex var den borta! Jag var ensam här på gården hela dagen och fixade inför festen, ända tills bussen kom – ingen kunde ha kommit åt den då.”",
                 "ger_fynd": [
                   "f-gunnar-anmalan",
                   "f-gunnar-ensam"

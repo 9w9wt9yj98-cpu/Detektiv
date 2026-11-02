@@ -115,3 +115,34 @@ Mekanik **Dokument** (befintliga `jamfor.js` i `visning: "dokument"`): tolv doku
 **Allmänna förbättringar i samma release:** ledtrådspekaren skriver nu egennamn med versal (”undersök Holger Wenngren”, inte ”holger”); dokument- och förhörsstatus räknar frivilliga motsägelser separat; validatorn förstår dokumentstycken i motsägelsepar.
 
 **Lanternan** byggs med nya prefaben `lanternglas` (järnbröstning med nitar, stora rutor i spröjs mot stormnatten) på alla fyra väggar, räfflad järnplåt som golv (`golv.typ: "jarn"`) och mörkt tak (`takfarg`). **Upplösningen** fick ett valfritt fält `aterkoppling.vandning` (rubrik, citat ur inledningen med kommentar, bekännelse) som visas under ”Vändningen” – i fall 6 läser detektiven Elofs brev en gång till och visar att varje vänlig mening var ett spår.
+
+## Granskning och rättningar (november 2026)
+
+Efter en genomgång av hela spelet rättades fel i fallen och i tekniken. Pusslen och lösningarna är oförändrade; texterna har rättats där tider, platser eller uteslutningar inte gick ihop. 3D-utredningen är kvar som enda sätt att spela.
+
+**Fallen**
+
+| Fall | Rättning |
+|---|---|
+| 1 Halsbandet | Friherrinnan kunde inte uteslutas efter kl. 21.00 eftersom hon gick upp ensam. Nu följer Elsa med henne upp och höll ljuset när halsbandet lades i skrinet kl. 19.55. Elsa ”lämnade aldrig salen” trots att hon serverade: kokerskan räcker nu in faten genom serveringsluckan. Upplösningen hittade halsbandet i ”hans livrérock” fast spelaren just sett en livrérock med tomma fickor – nu ligger det i rocken Holm bar under middagen. ”pipande” → ”piprökande”. |
+| 2 Nattåget | Det var inte visat att kupé 2 saknade andra utgångar. Lind säger nu att fönstret är fastfruset och att väggen mot den tomma kupé 1 saknar dörr (fyndet *Fru Ahls kedja*). Linds väg efter Boden gick genom sovvagnen; nu kliver han på längst fram och går bakåt till restaurangvagnen. Fotspåren förklaras med Linds väg till kupé 3 strax efter sex. ”hen” i Strands replik 1934 är borttaget. |
+| 3 Solgläntan | Förklaringen motiverade Cecilias plats med L5; det är L9 (David inte bredvid översten) som avgör. ”hen” 1954 borttaget. |
+| 4 Brudskålen | Gunnar säger nu att han var ensam ”hela dagen tills bussen kom” (bytet kan ha skett fram till 15.16). Strand omnämns som ”han”. |
+| 5 Kvart i elva | Hilma sa ”August ställer klockan” – Strands förnamn; nu ”Anders”. Fältskog sa att han satt på Grand ”från sju till ett” fast han står i butiken före midnatt; nu ”tills konstapeln hämtade mig vid halv tolv” (tidskortet slutar 23.30). Inledningen sa att väktaren larmade ”strax före midnatt”; nu ”strax efter elva”. |
+| 6 Fyren | Johans ”ingen gick genom köket mellan midnatt och sex” krockade med Holgers uppdragningar. Nu berättar Signe att Holger gick upp i tornet vid tio och vakar där hela natten vid storm, och Johan säger att ingen gick ut efter det. Signe ser klockan på byrån i köket (inte i sovrummet). Elofs brev säger att bara fyra är kvar på ön. ”i morse den fjortonde” stämde inte med att det var första båten på två dygn. Loggboken har nu en ny blyertspenna från förrådet – Holgers satt i hans bröstficka, så kl. 04 fanns ingen blyertspenna i lanternan. Spelaren tilltalas ”detektiv”, inte ”herr detektiv”. |
+
+**Tekniken**
+
+- **Laddningen kan inte längre fastna tyst.** `index.html` har en liten reserv som efter 15 sekunder, eller om en modul inte går att läsa, visar *Ladda om* och *Hämta spelet på nytt* (avregistrerar service workern och tömmer cachen; progressionen ligger kvar). Webbläsare utan modulstöd får ett tydligt besked.
+- **Service workern** hämtar fortfarande från nätet först, men utan webbläsarens HTTP-cache (så att gamla och nya moduler inte blandas efter en release) och faller tillbaka på cachen om nätet inte svarat inom 4 sekunder.
+- **Menyn** hämtar alla fall samtidigt, och ett fall som inte går att läsa visas som ett eget kort i stället för att hela menyn faller.
+- **three.js** importeras med relativ sökväg i stället för via en import map, så att 3D fungerar även i Safari före iOS 16.4.
+- **3D-minnet** frigörs vid rumsbyte (geometrier och material som inte delas). Tidigare växte minnet för varje rumsbyte.
+- **Tappad WebGL-kontext** (t.ex. när telefonen tar tillbaka grafikminne) pausar vyn och fortsätter när kontexten är tillbaka, i stället för att bli svart.
+- **Prestanda:** telefoner renderar med högst 1,5 i pixeltäthet, och sjunker bildfrekvensen under 24 bilder/s i tre sekunder sänks den automatiskt.
+- **Utan WebGL** visas nu ett läsbart besked mitt på skärmen med råd och *Försök igen* (det hamnade tidigare bakom menyraden).
+- **Sparningen** rensar bort fynd och material som inte längre finns i fallet om fallets JSON ändrats sedan utredningen sparades.
+- **Tillgänglighet:** synlig fokusmarkering för tangentbord, `prefers-reduced-motion`, inga texter under 11 px, och bokens knappar får plats på 320 px breda skärmar.
+- **Verktyg:** `package.json` med `npm test` och `npm run validera`; `test/spela.mjs` startar en egen server; `node verktyg/release.mjs --kontrollera` misslyckas om fillistan i `sw.js` inte stämmer med repot eller versionerna skiljer sig åt.
+
+**Inte ändrat – kräver beslut:** rangerna Kommissarie (22) och Mästerdetektiv (35) går inte att nå med sex fall; `kraver_rang` och kapitellås används inte; Strands återkommande roll går inte ihop i tid (1926, 1934, 1954, nutid, 1897 som *August* Strand); krav på rätt ”hur” i svårare fall; ljud.

@@ -23,7 +23,7 @@
   },
   "intro": {
     "rubrik": "Ekbacka herrgård, Sörmland. November 1926.",
-    "text": "Regnet har just upphört över Ekbacka. I stora salen pågår middag för femton gäster när friherrinnan Ebba Wrede går upp till sitt sovrum strax efter klockan nio – och finner sitt pärlhalsband borta.\n\nKl. 19.55 lade hon halsbandet i smyckeskrinet och låste dörren efter sig. Kl. 21.00 var dörren fortfarande låst. Skrinet var tomt och fönstret stod öppet.\n\nDen unge konstapel Strand har ringt efter dig. ”Det ser ut som en inbrottstjuv via fönstret”, säger han. ”Men friherrinnan insisterar på att någon i huset ligger bakom.”",
+    "text": "Regnet har just upphört över Ekbacka. I stora salen pågår middag för femton gäster när friherrinnan Ebba Wrede går upp till sitt sovrum strax efter klockan nio, med kammarjungfrun Elsa Lund tätt bakom sig – och finner sitt pärlhalsband borta.\n\nKl. 19.55 lade hon halsbandet i smyckeskrinet, medan Elsa höll ljuset, och låste dörren efter sig. Kl. 21.00 var dörren fortfarande låst. Skrinet var tomt och fönstret stod öppet.\n\nDen unge konstapel Strand har ringt efter dig. ”Det ser ut som en inbrottstjuv via fönstret”, säger han. ”Men friherrinnan insisterar på att någon i huset ligger bakom.”",
     "uppdrag": "Vem tog halsbandet?",
     "bild": "bilder/fall1/matsalen.jpg",
     "berattare": "Konstapel Nils Strand"
@@ -55,7 +55,7 @@
       "namn": "Gustav Wrede",
       "roll": "Brorson",
       "misstankt": true,
-      "beskrivning": "Charmig, pipande, och enligt ryktet djupt skuldsatt efter kortspel. Har ingen nyckel."
+      "beskrivning": "Charmig, piprökande, och enligt ryktet djupt skuldsatt efter kortspel. Har ingen nyckel."
     }
   ],
   "moment": [
@@ -713,7 +713,7 @@
               "antal": 3,
               "interaktiv": {
                 "namn": "Gästernas vittnesmål",
-                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen. Elsa Lund serverade soppan och sedan steken, och lämnade aldrig salen. Holm gick ut 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
+                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen. Elsa Lund serverade soppan och sedan steken – kokerskan räckte in faten genom serveringsluckan – och lämnade inte salen förrän hon följde friherrinnan upp strax efter nio. Holm gick ut 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
                 "ger_fynd": [
                   "f-servering",
                   "f-holm-borta"
@@ -924,7 +924,7 @@
       "id": "f-servering",
       "titel": "Vid bordet hela tiden",
       "ikon": "🍲",
-      "text": "Gästerna: friherrinnan satt vid bordet och Elsa serverade i salen hela middagen.",
+      "text": "Gästerna: friherrinnan satt vid bordet och Elsa serverade i salen hela middagen. Strax efter nio gick de upp tillsammans.",
       "typ": "nyckel",
       "galler": [
         "friherrinnan",
@@ -1025,8 +1025,8 @@
       ]
     },
     "uteslutningar_text": {
-      "friherrinnan": "Friherrinnan har nyckel, men satt vid bordets ände hela middagen inför femton gäster.",
-      "elsa": "Elsa har nyckel, men femton gäster såg henne servera i salen hela kvällen.",
+      "friherrinnan": "Friherrinnan har nyckel, men satt vid bordets ände hela middagen inför femton gäster – och när hon gick upp strax efter nio var Elsa med henne.",
+      "elsa": "Elsa har nyckel, men femton gäster såg henne servera i salen hela middagen, och sedan gick hon upp tillsammans med friherrinnan.",
       "gustav": "Gustav har ingen nyckel, och fönstret – den enda andra vägen in – användes inte."
     }
   },
@@ -1112,7 +1112,7 @@
         ]
       },
       {
-        "text": "Holm är skyldig. Halsbandet hittas i fickan på hans livrérock, som hänger i skafferiet."
+        "text": "Holm är skyldig. Halsbandet hittas i innerfickan på den livrérock han bar under middagen – inte i reservrocken i köksgången."
       }
     ]
   },

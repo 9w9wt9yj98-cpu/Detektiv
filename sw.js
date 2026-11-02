@@ -1,5 +1,5 @@
 // Service worker: cachar spelets filer så att det fungerar offline och kan läggas på hemskärmen.
-const VERSION = 'detektiv-v6';
+const VERSION = 'detektiv-v7';
 const FILER = [
   './',
   './index.html',
@@ -62,12 +62,23 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((k) => Promise.all(k.filter((n) => n !== VERSION).map((n) => caches.delete(n)))).then(() => self.clients.claim()));
 });
 // Nätet först (så att nya versioner syns direkt), cache som reserv offline.
+// cache: 'no-cache' gör att webbläsarens HTTP-cache inte kan blanda gamla och nya moduler efter en release.
+// Svarar nätet inte inom VANTA_MS används den sparade kopian, så att spelet inte hänger på ett dåligt mobilnät.
+const VANTA_MS = 4000;
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
-  e.respondWith(
-    fetch(e.request).then((svar) => {
-      if (svar.ok) { const kopia = svar.clone(); caches.open(VERSION).then((c) => c.put(e.request, kopia)); }
+  e.respondWith((async () => {
+    const natet = fetch(e.request, { cache: 'no-cache' }).then((svar) => {
+      if (svar.ok) { const kopia = svar.clone(); caches.open(VERSION).then((c) => c.put(e.request, kopia)).catch(() => {}); }
       return svar;
-    }).catch(() => caches.match(e.request, { ignoreSearch: true }))
-  );
+    });
+    natet.catch(() => {});
+    const tidsgrans = new Promise((r) => setTimeout(r, VANTA_MS, null));
+    try {
+      const svar = await Promise.race([natet, tidsgrans]);
+      if (svar) return svar;
+    } catch { /* nätet svarade inte – prova cachen */ }
+    const sparad = await caches.match(e.request, { ignoreSearch: true });
+    return sparad || natet;
+  })());
 });

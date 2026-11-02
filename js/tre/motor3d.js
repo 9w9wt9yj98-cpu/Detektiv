@@ -1,6 +1,6 @@
 // Datadriven förstapersonsscen. Ett rum beskrivs helt i fallets JSON (moment.payload.rum).
-import * as THREE from 'three';
-import { prefabs, mat } from './prefabs.js';
+import * as THREE from '../../vendor/three/three.module.min.js';
+import { prefabs, mat, DELADE } from './prefabs.js';
 import './prefabs2.js';
 import './prefabs3.js';
 import './prefabs4.js';
@@ -21,12 +21,28 @@ export class Rum3D {
     this.onInspektera = onInspektera; this.onMeddelande = onMeddelande; this.onFokus = onFokus;
     this.fokus = null; this.onRam = null; this._v = new THREE.Vector3();
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    // Telefoner får högst 1,5 i pixeltäthet; sjunker bildfrekvensen sänks den automatiskt (se loop()).
+    const mobil = matchMedia('(pointer: coarse)').matches;
+    this.pixelkvot = Math.min(window.devicePixelRatio || 1, mobil ? 1.5 : 2);
+    this._langsam = 0;
+    this.renderer.setPixelRatio(this.pixelkvot);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.05;
     this.renderer.domElement.className = 'rum3d-canvas';
     behallare.appendChild(this.renderer.domElement);
+    // Telefonen kan ta tillbaka grafikminnet (t.ex. när appen legat i bakgrunden). three.js bygger upp
+    // sitt tillstånd igen när kontexten återställs; vi pausar under tiden och fortsätter sedan.
+    this.tappad = false; this._startaIgen = false;
+    this.renderer.domElement.addEventListener('webglcontextlost', (e) => {
+      e.preventDefault();
+      this.tappad = true; this._startaIgen = this.kor; this.kor = false;
+      this.onMeddelande?.('3D-vyn laddas om …');
+    });
+    this.renderer.domElement.addEventListener('webglcontextrestored', () => {
+      this.tappad = false;
+      if (this._startaIgen) { this._startaIgen = false; this.starta(); }
+    });
     this.kamera = new THREE.PerspectiveCamera(68, 1, 0.05, 60);
     this.kamera.rotation.order = 'YXZ';
     this.yaw = 0; this.pitch = 0;
@@ -309,8 +325,8 @@ export class Rum3D {
     this.uppdateraKamera();
   }
 
-  starta() { if (this.kor) return; this.kor = true; this.kontroller.aktiv = true; this.forraT = performance.now(); requestAnimationFrame(this._loop); }
-  pausa() { this.kor = false; this.kontroller.aktiv = false; this.kontroller.nollstall(); }
+  starta() { if (this.kor) return; if (this.tappad) { this._startaIgen = true; return; } this.kor = true; this.kontroller.aktiv = true; this.forraT = performance.now(); requestAnimationFrame(this._loop); }
+  pausa() { this._startaIgen = false; this.kor = false; this.kontroller.aktiv = false; this.kontroller.nollstall(); }
 
   loop() {
     if (!this.kor || !this.scen) return;
@@ -342,12 +358,26 @@ export class Rum3D {
     this.onRam?.();
     this.renderer.render(this.scen, this.kamera);
     this._ramar++;
-    if (t - this._fpsT >= 1) { this.fps = this._ramar / (t - this._fpsT); this._ramar = 0; this._fpsT = t; window.__fps = this.fps; }
+    if (t - this._fpsT >= 1) {
+      this.fps = this._ramar / (t - this._fpsT); this._ramar = 0; this._fpsT = t; window.__fps = this.fps;
+      // Tre sekunder i rad under 24 bilder/s: sänk pixeltätheten ett steg (äldre telefoner).
+      this._langsam = this.fps < 24 ? this._langsam + 1 : 0;
+      if (this._langsam >= 3 && this.pixelkvot > 1) {
+        this.pixelkvot = Math.max(1, this.pixelkvot - 0.5); this._langsam = 0;
+        this.renderer.setPixelRatio(this.pixelkvot); this.anpassa();
+      }
+    }
     requestAnimationFrame(this._loop);
   }
 
   rensa() {
     if (this.fokus) { this.fokus = null; this.onFokus?.(null); }
+    // Frigör grafikminnet för rummet som lämnas. Delade geometrier/material och de cachade texturerna
+    // ligger kvar; Sprite-geometrin delas internt av three.js och rörs inte.
+    this.scen?.traverse((o) => {
+      if (o.geometry && !o.isSprite && !DELADE.has(o.geometry)) o.geometry.dispose();
+      for (const m of [].concat(o.material || [])) if (!DELADE.has(m)) m.dispose();
+    });
     this.interaktiva.clear(); this.flimmer = []; this.kollisioner = []; this.sno = null;
     this.scen = null;
   }

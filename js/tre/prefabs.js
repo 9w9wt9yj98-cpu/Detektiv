@@ -1,11 +1,13 @@
 // Bibliotek med enkla föremål byggda av primitiver. Fallens JSON refererar till dem via "typ".
 // Konvention: föremålets framsida pekar mot +z, origo i golvhöjd mitt under föremålet
 // (väggföremål: origo i väggplanet). "rot" i JSON vrider runt y-axeln i grader.
-import * as THREE from 'three';
+import * as THREE from '../../vendor/three/three.module.min.js';
 import * as T from './texturer.js';
 
 const geoCache = new Map();
 const matCache = new Map();
+/** Geometrier och material som delas mellan föremål och rum. De får inte frigöras när ett rum byts. */
+export const DELADE = new WeakSet();
 
 export function mat(farg, { map = null, emissive = null, transparent = false, opacity = 1, side = THREE.FrontSide } = {}) {
   const k = [farg, map?.uuid, emissive, transparent, opacity, side].join('|');
@@ -13,13 +15,14 @@ export function mat(farg, { map = null, emissive = null, transparent = false, op
     const m = new THREE.MeshLambertMaterial({ color: farg, map, transparent, opacity, side });
     if (emissive) { m.emissive = new THREE.Color(emissive); m.emissiveIntensity = 1; }
     if (transparent) m.depthWrite = false;
-    matCache.set(k, m);
+    matCache.set(k, m); DELADE.add(m);
   }
   return matCache.get(k);
 }
-const BOXG = (w, h, d) => { const k = `b${w},${h},${d}`; if (!geoCache.has(k)) geoCache.set(k, new THREE.BoxGeometry(w, h, d)); return geoCache.get(k); };
-const CYLG = (rt, rb, h, s) => { const k = `c${rt},${rb},${h},${s}`; if (!geoCache.has(k)) geoCache.set(k, new THREE.CylinderGeometry(rt, rb, h, s)); return geoCache.get(k); };
-const SPHG = (r, s = 10) => { const k = `s${r},${s}`; if (!geoCache.has(k)) geoCache.set(k, new THREE.SphereGeometry(r, s, Math.max(6, s * 0.7 | 0))); return geoCache.get(k); };
+const delad = (k, skapa) => { if (!geoCache.has(k)) { const g = skapa(); geoCache.set(k, g); DELADE.add(g); } return geoCache.get(k); };
+const BOXG = (w, h, d) => delad(`b${w},${h},${d}`, () => new THREE.BoxGeometry(w, h, d));
+const CYLG = (rt, rb, h, s) => delad(`c${rt},${rb},${h},${s}`, () => new THREE.CylinderGeometry(rt, rb, h, s));
+const SPHG = (r, s = 10) => delad(`s${r},${s}`, () => new THREE.SphereGeometry(r, s, Math.max(6, s * 0.7 | 0)));
 
 export function box(g, w, h, d, m, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0) {
   const me = new THREE.Mesh(BOXG(w, h, d), m); me.position.set(x, y, z); me.rotation.set(rx, ry, rz); g.add(me); return me;
