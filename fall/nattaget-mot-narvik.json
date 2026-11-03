@@ -93,6 +93,7 @@
             "#141820"
           ],
           "golv": "#3a2a22",
+          "verklig_vagg": "tra",
           "tapet": {
             "grund": "#6a3a24",
             "monster": "#53301c"
@@ -174,7 +175,11 @@
                 0.7,
                 0.7,
                 0.42
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/classic_nightstand_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "planboken",
@@ -342,6 +347,7 @@
             "typ": "tra",
             "farg": "#3a2418"
           },
+          "verklig_vagg": "tra",
           "tapet": {
             "grund": "#6a3a24",
             "monster": "#53301c"
@@ -644,7 +650,11 @@
                 0.4,
                 0.72,
                 0.32
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/side_table_tall_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bok",
@@ -728,6 +738,7 @@
             "#141820"
           ],
           "golv": "#4a2a1a",
+          "verklig_vagg": "tra",
           "tapet": {
             "grund": "#7a4a2c",
             "monster": "#6a3a20"
@@ -896,7 +907,11 @@
                 0.75,
                 0.75,
                 0.62
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bank1",
@@ -934,7 +949,11 @@
                 0.75,
                 0.75,
                 0.62
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bank2",
@@ -958,7 +977,11 @@
                 0.75,
                 0.75,
                 0.62
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bank4",
@@ -1074,7 +1097,13 @@
                 2.6,
                 -2.2
               ],
-              "styrka": 1.2
+              "styrka": 1.2,
+              "modell": {
+                "fil": "modeller/chandelier_01.glb",
+                "passa": "skala",
+                "skala": 0.6,
+                "hanger": true
+              }
             }
           ],
           "ljud": [

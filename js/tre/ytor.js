@@ -30,10 +30,17 @@ const GOLV = {
   sten: { namn: 'floor_tiles_06', meter: 2 }, // schackrutiga kalkstensplattor; behåller sin egen färg
 };
 const PUTS = { namn: 'plastered_wall_04', meter: 3.2 };
-const TRA = { namn: 'dark_wood', meter: 2 };
+const TRA = { namn: 'dark_wood', meter: 2, medel: [93, 43, 24] };
+
+/** Färgton som får en textur med medelfärgen `medel` (sRGB 0–255) att i genomsnitt få färgen `farg` (linjärt). */
+function ton(farg, medel) {
+  const o = new THREE.Color(farg), m = new THREE.Color().setRGB(...medel.map((x) => x / 255), THREE.SRGBColorSpace);
+  return new THREE.Color(Math.min(2.5, o.r / m.r), Math.min(2.5, o.g / m.g), Math.min(2.5, o.b / m.b));
+}
 
 /**
  * ytor: { golv (mesh), golvTyp ('tra' | 'sten'), vagg (material för tapet/puts), panel (material), tak (mesh) } – det som finns i rummet.
+ * rum.verklig_vagg "tra" ger fanérade träväggar i stället för tapet.
  * Trägolv: rum.verklig_golv väljer sort ("plankor" som standard eller "fiskben"). Stengolv får kalkstensplattor.
  */
 export async function forbattraYtor(ytor, rum, W, D, golvFarg) {
@@ -43,19 +50,26 @@ export async function forbattraYtor(ytor, rum, W, D, golvFarg) {
     jobb.push(Promise.all([tex(g.namn + '_diff', { farg: true }), tex(g.namn + '_nor'), tex(g.namn + '_rough')]).then(([d, n, r]) => {
       const rx = W / g.meter, ry = D / g.meter;
       // Färga mot rummets golvfärg: förhållandet mellan önskad färg och texturens medelfärg (linjärt).
-      let ton = new THREE.Color('#ffffff');
-      if (g.medel) {
-        const onskad = new THREE.Color(golvFarg || '#6b4a2c'), medel = new THREE.Color().setRGB(...g.medel.map((x) => x / 255), THREE.SRGBColorSpace);
-        ton = new THREE.Color(Math.min(2, onskad.r / medel.r), Math.min(2, onskad.g / medel.g), Math.min(2, onskad.b / medel.b));
-        ton.multiplyScalar(0.75); // matta PBR-plankor ser ljusare ut än canvasgolvet; håll rummets ton
-      }
-      const m = new THREE.MeshStandardMaterial({ color: ton, map: upprepad(d, rx, ry), normalMap: upprepad(n, rx, ry), roughnessMap: upprepad(r, rx, ry), roughness: 1, metalness: 0 });
+      // Matta PBR-plankor ser ljusare ut än canvasgolvet; 0,75 håller rummets ton.
+      const t = g.medel ? ton(golvFarg || '#6b4a2c', g.medel).multiplyScalar(0.75) : new THREE.Color('#ffffff');
+      const m = new THREE.MeshStandardMaterial({ color: t, map: upprepad(d, rx, ry), normalMap: upprepad(n, rx, ry), roughnessMap: upprepad(r, rx, ry), roughness: 1, metalness: 0 });
       m.normalScale.set(0.8, 0.8);
       ytor.golv.material = m; // det gamla golvmaterialet kommer ur den delade cachen och ligger kvar
     }));
   }
+  // rum.verklig_vagg "tra": fanérade träväggar (t.ex. sovvagnar) i stället för tapet, färgade mot tapetens grundfärg.
+  const travagg = rum.verklig_vagg === 'tra' && ytor.vaggar?.length;
+  if (travagg) {
+    jobb.push(Promise.all([tex(TRA.namn + '_diff', { farg: true }), tex(TRA.namn + '_nor'), tex(TRA.namn + '_rough')]).then(([d, n, r]) => {
+      // Väggarnas UV upprepas var 1,1 m; fanéret får finare, lodrät ådring (texturen täcker 1,2 m, vriden 90°).
+      const k = 1.1 / 1.2, lodratt = (t) => { t.center.set(0.5, 0.5); t.rotation = Math.PI / 2; return t; };
+      const m = new THREE.MeshStandardMaterial({ color: ton(rum.tapet?.grund || '#6a3a24', TRA.medel).multiplyScalar(0.8), map: lodratt(upprepad(d, k, k)), normalMap: lodratt(upprepad(n, k, k)), roughnessMap: lodratt(upprepad(r, k, k)), roughness: 0.6, metalness: 0 });
+      m.normalScale.set(0.5, 0.5);
+      for (const v of ytor.vaggar) v.material = m; // eget material för rummet; frigörs vid rumsbyte
+    }));
+  }
   // Väggmaterialen kommer ur den delade cachen i foremal/grund.js; de ändras en gång och behåller ändringen.
-  if (ytor.vagg && !ytor.vagg.userData.ytor) {
+  if (ytor.vagg && !travagg && !ytor.vagg.userData.ytor) {
     jobb.push(Promise.all([tex(PUTS.namn + '_nor'), tex(PUTS.namn + '_rough')]).then(([n, r]) => {
       const m = ytor.vagg, k = 1.1 / PUTS.meter; // väggarnas UV upprepas var 1,1 m
       m.userData.ytor = true;

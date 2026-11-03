@@ -145,6 +145,7 @@ export class Rum3D {
       for (const [L, [x, z], ry] of sidor) {
         const v = new THREE.Mesh(uvSkala(new THREE.PlaneGeometry(L, H), L * vskala[0], H * vskala[1]), tapet);
         v.position.set(x, H / 2, z); v.rotation.y = ry; scen.add(v);
+        (ytor.vaggar ||= []).push(v);
         if (rum.panel === false) continue;
         const p = new THREE.Mesh(uvSkala(new THREE.BoxGeometry(L, 0.9, 0.03), L / 1.6, 1), pan);
         p.position.set(x, 0.45, z); p.rotation.y = ry; p.translateZ(0.015); scen.add(p);
