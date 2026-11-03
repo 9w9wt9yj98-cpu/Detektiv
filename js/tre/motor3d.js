@@ -96,8 +96,14 @@ export class Rum3D {
     const dimma = rum.dimma || [];
     scen.fog = new THREE.Fog(dimma[2] || rum.bakgrund || (veranda ? '#e9cfa0' : '#24170c'), dimma[0] ?? (veranda ? 14 : 7), dimma[1] ?? (veranda ? 40 : 16));
     // Förhandsgranskningen 'verklig' får en del av sitt fyllnadsljus från omgivningskartan i stället.
-    const fyll = VERKLIG ? 0.6 : 1;
-    if (VERKLIG) { this._utomhus = ute || veranda; scen.environment = this.miljoKarta(this._utomhus); scen.environmentIntensity = this._utomhus ? 0.9 : 0.85; }
+    // Ljusnivån beror på platsen: inomhus, dagsljus ute eller natt under öppen himmel (t.ex. gatan i snöyran).
+    const natt = !ute && !veranda && rum.tak === false;
+    const fyll = !VERKLIG ? 1 : ute || veranda ? 0.75 : 0.6;
+    if (VERKLIG) {
+      this._utomhus = ute || veranda; scen.environment = this.miljoKarta(this._utomhus);
+      scen.environmentIntensity = this._utomhus ? 0.3 : natt ? 0.12 : 0.85;
+      this.renderer.toneMappingExposure = this._utomhus ? 0.95 : natt ? 1.1 : 1.25;
+    }
     scen.add(new THREE.HemisphereLight(ljus.omgivning || '#ffe2b8', '#3a2414', (ljus.omgivning_styrka ?? 0.6) * fyll));
     scen.add(new THREE.AmbientLight('#ffdcae', (ljus.bas ?? 0.25) * fyll));
     this.sol = null; this.lampor = [];
