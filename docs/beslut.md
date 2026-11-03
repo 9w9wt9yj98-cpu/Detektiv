@@ -219,3 +219,13 @@ Martin tyckte att skillnaden med `?stil=verklig` var för liten och ville se rik
 Före- och efterbilder (samma kameravinklar, dator och mobil): `docs/bilder/modeller-sovrum/`.
 
 Avvikelse att ta ställning till: sängen i texten är en *himmelssäng*, men modellen är en sänggavelsäng med fyra höga stolpar utan sänghimmel.
+
+## Verklig grafik: resten av fall 1, riktiga golv och väggar (november 2026)
+
+Martin godkände sovrummet och bad om resten av fall 1, bättre texturer på väggar och golv och att småfel rättas på vägen.
+
+- **Matsalen och köksgången** har fått modeller: skänk, bord, ljuskronor, krukväxt, tavla, pendyl, lampbord och oljelampa, och **stolarna runt långbordet** är nu läderstolar. Stolarna ingår i långbordets prefab; prefaben märker dem (`userData.del = "stol"`) och `modell.delar` byter bara dem. Långbordet med duk och kuvert är kvar. Ljuskronor hänger från taket (`modell.hanger`).
+- **Golv, väggar, panel och tak** (`js/tre/ytor.js`, bara i förhandsgranskningen): trägolv blir fotograferade plankor färgade mot rummets golvfärg, eller fiskbensparkett med `rum.verklig_golv: "fiskben"` (matsalen). Stengolv blir rutiga kalkstensplattor. Tapet och puts får putsstruktur och matthetsvariation under mönstret, panelen får ådring och taket putsstruktur. Det gäller alla inomhusrum i förhandsgranskningen. Texturerna är 0,6 MB; källor i `texturer/KALLOR.md`.
+- **Småfel:** sängen beskrivs nu som ”sängen med de fyra höga stolparna” i stället för ”himmelssängen”, vilket stämmer med både prefaben och modellen. Pendylen i sovrummet visade ungefär 10.47 i stället för 21.14 i båda stilarna. Nu har pendylen ett fält `tid`, och sovrummet visar 21.14. Matsalens pendyl visar 21.25 – spelaren kommer alltid dit efter sovrummet.
+
+Före- och efterbilder: `docs/bilder/modeller-fall1/`.

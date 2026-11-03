@@ -11,8 +11,11 @@
 //           "skala" – samma skala åt alla håll (fältet skala, standard 1)
 //   rot     vridning i grader [x, y, z] (y först i föremålets riktning, sedan x och z), före passningen
 //   skala   för passa "skala"; för övriga lägen en extra faktor
+//   hanger  true: modellens översta punkt i föremålets origo (för passa "skala") eller prefabens topp – för ljuskronor
 //   pos     förskjutning [x, y, z] i föremålets egna koordinater
 //   glas    namn på noder vars material byts mot spelets genomskinliga glas (t.ex. ett lampglas som annars blir mörkt)
+//   delar   { namn: spec } – byter bara prefabens delar märkta userData.del = namn (t.ex. "stol" i långbordet);
+//           spec som ovan; "fil" på översta nivån kan då utelämnas så att resten av prefaben står kvar
 //   urtavla { nod, tid: [h, m] } – lägger en urtavla som visar rätt tid över modellens urtavla (noden med glaset)
 import * as THREE from '../../vendor/three/three.module.min.js';
 import { GLTFLoader } from '../../vendor/three/addons/loaders/GLTFLoader.js';
@@ -66,7 +69,9 @@ export async function byggModell(spec, prefabBox) {
   if (passa === 'box') vridd.position.set(prefabBox.min.x - mb.min.x * s.x, prefabBox.min.y - mb.min.y * s.y, prefabBox.min.z - mb.min.z * s.z);
   else {
     const pc = passa === 'skala' ? new THREE.Vector3(0, 0, 0) : prefabBox.getCenter(new THREE.Vector3()).setY(prefabBox.min.y);
-    vridd.position.set(pc.x - mitt.x * s.x, pc.y - mb.min.y * s.y, pc.z - mitt.z * s.z);
+    // hanger: modellen hänger med sin översta punkt i föremålets origo (ljuskronor, origo i taket).
+    const y = spec.hanger ? (passa === 'skala' ? 0 : prefabBox.max.y) - mb.max.y * s.y : pc.y - mb.min.y * s.y;
+    vridd.position.set(pc.x - mitt.x * s.x, y, pc.z - mitt.z * s.z);
   }
   if (spec.pos) yttre.position.set(...spec.pos);
   for (const namn of spec.glas || []) modell.getObjectByName(namn)?.traverse((o) => { if (o.isMesh) o.material = glas(); });
@@ -89,27 +94,53 @@ function laggUrtavla(yttre, modell, { nod, tid = [12, 0] }) {
   yttre.add(tavla);
 }
 
-/**
- * Byter utseende på föremålet `g` (redan placerat i scenen). `prefabBox` är prefabens låda i föremålets egna
- * koordinater. `arLampa`: föremålet är en ljuskälla, och modellen ska då inte kasta skugga (som prefabens lampdelar).
- * Returnerar false om modellen inte gick att ladda – då står prefaben kvar.
- */
-export async function ersattMedModell(g, def, prefabBox, { arLampa = false } = {}) {
-  let m;
-  try { m = await byggModell(def.modell, prefabBox); }
-  catch (e) { console.warn('Kunde inte ladda modellen', def.modell.fil, e); return false; }
-  g.traverse((o) => {
+/** Lådan runt en del (t.ex. en stol i långbordet) i delens egna koordinater. */
+function lokalBox(del) {
+  del.updateWorldMatrix(true, true);
+  const inv = new THREE.Matrix4().copy(del.matrixWorld).invert(), m4 = new THREE.Matrix4(), b = new THREE.Box3();
+  del.traverse((o) => {
+    if (!o.isMesh) return;
+    if (!o.geometry.boundingBox) o.geometry.computeBoundingBox();
+    b.union(o.geometry.boundingBox.clone().applyMatrix4(m4.multiplyMatrices(inv, o.matrixWorld)));
+  });
+  return b;
+}
+function dolj(rot) {
+  rot.traverse((o) => {
     if (!o.isMesh || o.userData.behall) return;
     o.visible = false; o.layers.set(31); // syns inte och träffas inte av strålar (layer 31 används inte)
   });
-  m.traverse((o) => {
-    if (!o.isMesh) return;
-    const mt = Array.isArray(o.material) ? o.material[0] : o.material;
-    const lyser = mt?.emissive && (mt.emissive.r + mt.emissive.g + mt.emissive.b) > 0.3;
-    o.castShadow = !arLampa && !mt?.transparent && !lyser;
-    o.receiveShadow = true;
-    if (g.userData.interaktivId || def.interaktiv || def.funktion || def.gar_till) o.userData.interaktivId = def.id;
-  });
-  g.add(m);
+}
+
+/**
+ * Byter utseende på föremålet `g` (redan placerat i scenen). `prefabBox` är prefabens låda i föremålets egna
+ * koordinater. Med `modell.fil` ersätts hela föremålet; med `modell.delar` ({ namn: spec }) ersätts bara de
+ * delar som prefaben har märkt med `userData.del = namn` (t.ex. stolarna runt långbordet), var och en anpassad
+ * till sin egen låda. `arLampa`: föremålet är en ljuskälla, och modellen ska då inte kasta skugga (som
+ * prefabens lampdelar). Returnerar false om någon modell inte gick att ladda – då står den delen av prefaben kvar.
+ */
+export async function ersattMedModell(g, def, prefabBox, { arLampa = false } = {}) {
+  const spec = def.modell;
+  const forbered = (m) => {
+    m.traverse((o) => {
+      if (!o.isMesh) return;
+      const mt = Array.isArray(o.material) ? o.material[0] : o.material;
+      const lyser = mt?.emissive && (mt.emissive.r + mt.emissive.g + mt.emissive.b) > 0.3;
+      o.castShadow = !arLampa && !mt?.transparent && !lyser;
+      o.receiveShadow = true;
+      if (def.interaktiv || def.funktion || def.gar_till) o.userData.interaktivId = def.id;
+    });
+    return m;
+  };
+  const jobb = [];
+  if (spec.fil) jobb.push(byggModell(spec, prefabBox).then((m) => { dolj(g); g.add(forbered(m)); }));
+  for (const [namn, delspec] of Object.entries(spec.delar || {})) {
+    const delar = [];
+    g.traverse((o) => { if (o.userData.del === namn) delar.push(o); });
+    for (const del of delar) jobb.push(byggModell(delspec, lokalBox(del)).then((m) => { dolj(del); del.add(forbered(m)); }));
+  }
+  const res = await Promise.allSettled(jobb);
+  const fel = res.find((r) => r.status === 'rejected');
+  if (fel) { console.warn('Kunde inte ladda modellen', spec.fil || Object.keys(spec.delar || {}), fel.reason); return false; }
   return true;
 }

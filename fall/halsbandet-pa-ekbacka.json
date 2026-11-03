@@ -294,7 +294,11 @@
                     14
                   ]
                 }
-              }
+              },
+              "tid": [
+                21,
+                14
+              ]
             },
             {
               "id": "tavla",
@@ -380,7 +384,7 @@
               "rot": -90,
               "interaktiv": {
                 "namn": "Sängen",
-                "text": "Himmelssängen är bäddad med stärkta lakan. Ingen har rört den sedan Elsa vek ner överkastet vid sjutiden."
+                "text": "Sängen med de fyra höga stolparna är bäddad med stärkta lakan. Ingen har rört den sedan Elsa vek ner överkastet vid sjutiden."
               },
               "modell": {
                 "fil": "modeller/gothic_bed_01.glb",
@@ -602,7 +606,11 @@
                 0.5,
                 0.8,
                 0.4
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/classic_nightstand_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "lampa",
@@ -613,7 +621,15 @@
                 2.25
               ],
               "ljus": true,
-              "styrka": 2.0
+              "styrka": 2.0,
+              "modell": {
+                "fil": "modeller/vintage_oil_lamp.glb",
+                "passa": "skala",
+                "skala": 0.7,
+                "glas": [
+                  "vintage_oil_lamp_glass"
+                ]
+              }
             },
             {
               "id": "bok",
@@ -636,7 +652,13 @@
                 2.8,
                 -1.4
               ],
-              "styrka": 1.6
+              "styrka": 1.6,
+              "modell": {
+                "fil": "modeller/chandelier_01.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "hanger": true
+              }
             }
           ],
           "ljud": [
@@ -715,6 +737,14 @@
               "interaktiv": {
                 "namn": "Middagsbordet",
                 "text": "Långbordet med femton kuvert. Friherrinnans stol står vid kortänden, närmast brasan, med full uppsikt över salen."
+              },
+              "modell": {
+                "delar": {
+                  "stol": {
+                    "fil": "modeller/dining_chair_02.glb",
+                    "passa": "box"
+                  }
+                }
               }
             },
             {
@@ -730,7 +760,11 @@
                 1.6,
                 0.95,
                 0.5
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/classic_console_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "vinflaskan",
@@ -768,7 +802,11 @@
                 0.8,
                 0.75,
                 0.5
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "gastlistan",
@@ -853,6 +891,21 @@
               "interaktiv": {
                 "namn": "Pendylen",
                 "text": "Pendylen på spiselhyllan. Den slog halv nio när soppan bars in."
+              },
+              "tid": [
+                21,
+                25
+              ],
+              "modell": {
+                "fil": "modeller/mantel_clock_01.glb",
+                "passa": "skala",
+                "urtavla": {
+                  "nod": "mantel_clock_01_glass",
+                  "tid": [
+                    21,
+                    25
+                  ]
+                }
               }
             },
             {
@@ -867,7 +920,11 @@
                 1.4,
                 0.9
               ],
-              "seed": 73
+              "seed": 73,
+              "modell": {
+                "fil": "modeller/fancy_picture_frame_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "krona",
@@ -877,7 +934,12 @@
                 3.4,
                 0
               ],
-              "styrka": 2.4
+              "styrka": 2.4,
+              "modell": {
+                "fil": "modeller/chandelier_03.glb",
+                "passa": "skala",
+                "hanger": true
+              }
             },
             {
               "id": "vaxt",
@@ -886,7 +948,12 @@
                 3.0,
                 0,
                 2.5
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/potted_plant_02.glb",
+                "passa": "skala",
+                "skala": 1.0
+              }
             }
           ],
           "ljud": [
@@ -895,7 +962,8 @@
               "typ": "tick",
               "styrka": 0.5
             }
-          ]
+          ],
+          "verklig_golv": "fiskben"
         }
       }
     }

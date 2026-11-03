@@ -137,7 +137,7 @@ function langbord(d, ctx) {
     for (let i = 0; i < kuvert; i++) {
       const sida = i % 2 ? 1 : -1, idx = Math.floor(i / 2);
       const z = -l / 2 + 0.4 + (idx * (l - 0.8)) / Math.max(1, perSida - 1);
-      const s = prefabs.stol({}).grupp; s.position.set(sida * (w / 2 + 0.3), 0, z); s.rotation.y = sida * -Math.PI / 2; g.add(s);
+      const s = prefabs.stol({}).grupp; s.position.set(sida * (w / 2 + 0.3), 0, z); s.rotation.y = sida * -Math.PI / 2; s.userData.del = 'stol'; g.add(s);
     }
   }
   return { grupp: g };

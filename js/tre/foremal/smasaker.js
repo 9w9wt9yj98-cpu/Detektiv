@@ -33,10 +33,11 @@ function skrin(d) {
   return { grupp: g, kollision: false };
 }
 
-function pendyl() {
+/** Pendyl på spiselhyllan. tid: [h, m] (utan tid: en urtavla utan bestämd tid). */
+function pendyl(d) {
   const g = new THREE.Group();
   box(g, 0.3, 0.32, 0.14, mat('#7a5418', { emissive: '#1c1004' }), 0, 0.16, 0);
-  plan(g, 0.18, 0.18, mat('#ffffff', { map: T.urtavla() }), 0, 0.2, 0.072);
+  plan(g, 0.18, 0.18, mat('#ffffff', { map: d.tid ? T.urtavlaTid(d.tid[0], d.tid[1]) : T.urtavla() }), 0, 0.2, 0.072);
   sph(g, 0.06, massing(), 0, 0.37, 0, 8);
   return { grupp: g, kollision: false };
 }

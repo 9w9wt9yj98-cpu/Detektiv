@@ -70,14 +70,17 @@ export const prefabs = {};
  * Delar märkta `userData.behall` (de som står kvar när en 3D-modell ersätter föremålet, se tre/modeller.js)
  * slås bara ihop med varandra, och den sammanslagna meshen behåller märket.
  */
-export function slaIhop(rot) {
+export function slaIhop(rot, { utomDelar = false } = {}) {
   rot.updateMatrixWorld(true);
+  // utomDelar: delar märkta userData.del (som en 3D-modell kan ersätta, se tre/modeller.js) lämnas som de är.
+  const iDel = (o) => { for (let p = o; p && p !== rot; p = p.parent) if (p.userData.del) return true; return false; };
   const inv = new THREE.Matrix4().copy(rot.matrixWorld).invert();
   const perMaterial = new Map();
   rot.traverse((o) => {
     if (!o.isMesh || o.isInstancedMesh || Array.isArray(o.material)) return;
     const g = o.geometry, a = g.attributes;
     if (o.material.transparent || !o.visible || o.renderOrder !== 0 || !g.index || !a.position || !a.normal || !a.uv) return;
+    if (utomDelar && iDel(o)) return;
     const k = o.userData.behall ? 'behall:' + o.material.uuid : o.material;
     if (!perMaterial.has(k)) perMaterial.set(k, []);
     perMaterial.get(k).push(o);
