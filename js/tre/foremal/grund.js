@@ -67,6 +67,8 @@ export const prefabs = {};
  * Slår ihop ett föremåls ogenomskinliga delar till en mesh per material, så att föremålet ritas med
  * några få anrop i stället för ett per del. Genomskinliga, osynliga och särskilt sorterade delar
  * (renderOrder) lämnas orörda, liksom ljus och allt som inte är en mesh. Utseendet blir detsamma.
+ * Delar märkta `userData.behall` (de som står kvar när en 3D-modell ersätter föremålet, se tre/modeller.js)
+ * slås bara ihop med varandra, och den sammanslagna meshen behåller märket.
  */
 export function slaIhop(rot) {
   rot.updateMatrixWorld(true);
@@ -76,12 +78,14 @@ export function slaIhop(rot) {
     if (!o.isMesh || o.isInstancedMesh || Array.isArray(o.material)) return;
     const g = o.geometry, a = g.attributes;
     if (o.material.transparent || !o.visible || o.renderOrder !== 0 || !g.index || !a.position || !a.normal || !a.uv) return;
-    if (!perMaterial.has(o.material)) perMaterial.set(o.material, []);
-    perMaterial.get(o.material).push(o);
+    const k = o.userData.behall ? 'behall:' + o.material.uuid : o.material;
+    if (!perMaterial.has(k)) perMaterial.set(k, []);
+    perMaterial.get(k).push(o);
   });
   const m4 = new THREE.Matrix4(), n3 = new THREE.Matrix3(), v = new THREE.Vector3();
-  for (const [material, delar] of perMaterial) {
+  for (const [k, delar] of perMaterial) {
     if (delar.length < 2) continue;
+    const material = delar[0].material;
     let nv = 0, ni = 0;
     for (const o of delar) { nv += o.geometry.attributes.position.count; ni += o.geometry.index.count; }
     const pos = new Float32Array(nv * 3), nor = new Float32Array(nv * 3), uv = new Float32Array(nv * 2);
@@ -109,7 +113,9 @@ export function slaIhop(rot) {
     geo.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
     geo.setIndex(new THREE.BufferAttribute(idx, 1));
     geo.computeBoundingSphere(); geo.computeBoundingBox();
-    rot.add(new THREE.Mesh(geo, material));
+    const ny = new THREE.Mesh(geo, material);
+    if (typeof k === 'string') ny.userData.behall = true;
+    rot.add(ny);
   }
   return rot;
 }

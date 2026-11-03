@@ -12,6 +12,8 @@ export async function nySida(browser, mobil, namn, { guideKlar = true } = {}) {
   const ctx = await browser.newContext(mobil
     ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1' }
     : { viewport: { width: 1280, height: 800 } });
+  // STIL=verklig kör testerna i förhandsgranskningen (3D-modeller, js/tre/stil.js).
+  if (process.env.STIL) await ctx.addInitScript((stil) => localStorage.setItem('detektiv:stil', stil), process.env.STIL);
   if (guideKlar) await ctx.addInitScript(() => { if (!localStorage.getItem('detektiv:v1')) localStorage.setItem('detektiv:v1', JSON.stringify({ fall: {}, installningar: { autofyll: true, handledningKlar: true, settBokBanner: true } })); });
   const p = await ctx.newPage();
   p.setDefaultTimeout(15000);

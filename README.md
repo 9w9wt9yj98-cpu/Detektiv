@@ -29,6 +29,7 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 | `js/motor/` | Laddning av fall, sparning, poäng och en generisk lösare för logikrutnät. |
 | `js/tre/` | 3D-motorn: rum från JSON (`motor3d.js`), canvastexturer och kontroller. |
 | `js/tre/foremal/` | Föremålsbiblioteket, en fil per sort: `byggdelar`, `mobler`, `belysning`, `smasaker`, `personer`, `ute`. `grund.js` har registret, delade geometrier/material och färger. |
+| `js/tre/modeller.js` | Förhandsgranskningen `?stil=verklig`: ersätter ett föremåls utseende med en glTF-modell ur `modeller/` (fältet `objekt.modell`). Källor och licenser i `modeller/KALLOR.md`. |
 | `js/ljud.js` | Miljöljud och effekter, syntetiserade med Web Audio (inga ljudfiler). |
 | `js/vyer/` | Meny, presentation, utredning, anteckningsbok, anklagelse och upplösning. |
 | `js/mekaniker/` | Mekanikerna i anteckningsboken: logikrutnät (`logikrutnat.js`), förhör/dokument (`jamfor.js`), bildjämförelse (`bildjamforelse.js`) och tidslinje (`tidslinje.js`). |
@@ -44,6 +45,7 @@ Utöver fälten i [designförslaget](docs/forslag-v1.md#13-dataformat-för-fall-
 - Varje objekt har `typ` (se `js/tre/foremal/`: bl.a. `dorr`, `fonster`, `byra`, `skrin`, `eldstad`, `bokhylla`, `stol`, `langbord`, `vinglas`, `anteckningsbok`), `pos: [x, y, z]`, `rot`, samt valfritt `interaktiv: { namn, text, ger_fynd }`, `gar_till` (dörr till ett annat moment) och `funktion: "anteckningsbok"`.
 - Rummet kan också ha `miljo: "ute"` (gård med gräs och himmel), `vagg` (`tapet`, `puts`, `sten`, `trapanel`, `fasad`), `tak: false`, `panel: false` och `sno` (snöfall).
 - `rum.ljud`: miljöljud, t.ex. `["tag", {"typ": "vind", "styrka": 0.6}]`. Typer: `vind`, `storm`, `tag`, `tick`, `brasa`, `dropp`, `hav`, `faglar`, `syrsor` (se `js/ljud.js`; validatorn kontrollerar namnen).
+- `objekt.modell` (valfritt, bara i förhandsgranskningen `?stil=verklig`): en 3D-modell som ersätter prefabens utseende, t.ex. `{ "fil": "modeller/gothic_bed_01.glb", "passa": "golv" }`. Se `js/tre/modeller.js`.
 - `moment[].last_upp_av` (fynd som krävs) och `last_text` (vad spelaren får höra innan dess).
 - `logikrutnat`-payload: `kategorier`, `grannar`, `ledtradar` med maskinläsbara `regler` (`samma`, `inte_samma`, `en_av`, `bredvid`, `inte_bredvid`, `mellan`), `losning` och `ger_fynd_nar_lost`.
 - `anklagelse` (hur/när-alternativ, max antal bevis), `losning.hur`, `losning.uteslutningar_text`, `fynd[].titel/ikon/forklaring` och `aterkoppling.forklaring_steg` som objekt `{ text, fynd }`.
@@ -56,6 +58,7 @@ Första gången: `npm install` och `npx playwright install chromium`.
 npm run validera                        # validerar fallen och kontrollerar fillistan i sw.js
 npm test                                # samma sak + spelar alla fall (ca 9 min); skärmbilder hamnar i shots/
 node test/spela.mjs fall1               # bara ett fall (fall1, fall2, fall3 …)
+STIL=verklig node test/spela.mjs fall1  # samma test i förhandsgranskningen ?stil=verklig
 node test/framkomlighet.mjs             # går det att gå fram till varje dörr och föremål i alla rum?
 node test/rundtur.mjs <fall-id> <prefix> # skärmbilder från alla 3D-rum (kräver en server, t.ex. python3 -m http.server 18431)
 npm run release                         # före varje release: höjer service workerns cacheversion

@@ -3,6 +3,9 @@ import * as THREE from '../../vendor/three/three.module.min.js';
 import { prefabs, mat, DELADE, slaIhop } from './foremal/index.js';
 import * as T from './texturer.js';
 import { VERKLIG } from './stil.js';
+// Modell-laddaren (och GLTFLoader) hämtas bara i förhandsgranskningen 'verklig'. Går den inte att hämta
+// (t.ex. offline innan modellerna har cachats) står prefaberna kvar.
+const ersattMedModell = (...a) => import('./modeller.js').then((m) => m.ersattMedModell(...a)).catch((e) => { console.warn('3D-modellerna kunde inte laddas', e); return false; });
 import { Kontroller } from './kontroller.js';
 
 const OGONHOJD = 1.6, RADIE = 0.28, FART = 1.7, MAX_AVSTAND = 3.4;
@@ -150,11 +153,13 @@ export class Rum3D {
       this.lampor.push({ l, grupp });
       if (flimrar) this.flimmer.push({ l, bas: styrka, fas: Math.random() * 10 });
     } };
+    const modeller = [];
     for (const def of rum.objekt || []) {
       const fab = prefabs[def.typ];
       if (!fab) { console.warn('Okänd föremålstyp', def.typ); continue; }
       const res = fab(def, ctx);
       const g = slaIhop(res.grupp); // färre ritanrop: en mesh per material och föremål
+      const prefabBox = VERKLIG && def.modell ? new THREE.Box3().setFromObject(g) : null; // i föremålets egna koordinater
       const [x, y, z] = def.pos || [0, 0, 0];
       g.position.set(x, y || 0, z);
       g.rotation.y = rad(def.rot || 0);
@@ -188,6 +193,8 @@ export class Rum3D {
         scen.add(halo);
         this.interaktiva.set(def.id, { def, grupp: g, halo, inspekterad: inspekterade.has(def.id) });
       }
+      // Förhandsgranskningen 'verklig': en 3D-modell ersätter prefabens utseende när den har laddats (tre/modeller.js).
+      if (prefabBox) modeller.push(ersattMedModell(g, def, prefabBox, { arLampa: this.lampor.some((l) => l.grupp === g) }));
     }
     // Snöfall: partiklar som faller och vrids lätt i vinden
     this.sno = null;
@@ -202,6 +209,8 @@ export class Rum3D {
     this.flyttaTill(start.pos[0], start.pos[1], start.titta || 0);
     this.skuggor(rum, W, D, H, ute || veranda);
     this.anpassa();
+    // Modellerna laddas i bakgrunden; rummet går att använda med prefaberna under tiden.
+    this.modellerKlara = Promise.all(modeller).then(() => { if (this.scen === scen) this.renderer.shadowMap.needsUpdate = true; });
   }
 
   /**
