@@ -194,3 +194,14 @@ Kvar till senare (svårighet): fall 6:s hakparentes om bläcket i loggboken avsl
 Martin kom inte förbi fru Ahl i sovvagnskorridoren. Orsak: de nya, mer detaljerade personerna räknades som hinder över hela armbredden, och tillsammans med det lilla bordet stängde hon korridoren. Personer räknas nu bara som ett smalt fotavtryck (36 cm), och bordet med anteckningsboken står längre bak i korridoren.
 
 Ett nytt test, `test/framkomlighet.mjs` (ingår i `npm test`), fyller i alla platser man kan gå till från rummets start och kräver att varje dörr kan nås inom 1,5 m och varje föremål inom 2,2 m. Det hittade två fel till i fall 6, som också är rättade: startpunkten i lanternan låg inne i bordets hinder, och Johan låg så långt upp på köksbänken att huvudet stack in i väggen.
+
+## Förhandsgranskning: verklig grafik (november 2026) – väntar på beslut
+
+Martin vill att grafiken ska se mer verklig ut. Det går delvis emot beslut 1 (sepia, gravyr och akvarell), så den nya stilen ligger som en **förhandsgranskning** som bara syns för den som slår på den:
+
+- Slå på: `https://9w9wt9yj98-cpu.github.io/Detektiv/?stil=verklig` – valet sparas i webbläsaren, och menyn visar en skylt med länk tillbaka.
+- Slå av: `?stil=vanlig`.
+
+Förhandsgranskningen (`js/tre/stil.js`) byter till fysiskt baserade material (mässing glänser som metall, glas blankt, lackat trä halvblankt, tapet matt), relief av texturerna, reflektioner från en förfiltrerad omgivningskarta (varmt rum inomhus, himmel och gräs ute) och filmisk färgåtergivning (AgX). Fyllnadsljuset är något svagare eftersom omgivningskartan ger indirekt ljus. Allt annat – fall, rum, föremål, skuggor och markörer – är detsamma. Utan parametern är spelet oförändrat.
+
+Om Martin väljer den: gör den till standard (och skriv om beslut 1). Om inte: ta bort `stil.js` och grenarna för VERKLIG.

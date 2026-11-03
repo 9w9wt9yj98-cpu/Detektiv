@@ -5,16 +5,26 @@
 // (väggföremål: origo i väggplanet). "rot" i JSON vrider runt y-axeln i grader.
 import * as THREE from '../../../vendor/three/three.module.min.js';
 import * as T from '../texturer.js';
+import { VERKLIG } from '../stil.js';
 
 const geoCache = new Map();
 const matCache = new Map();
 /** Geometrier och material som delas mellan föremål och rum. De får inte frigöras när ett rum byts. */
 export const DELADE = new WeakSet();
 
-export function mat(farg, { map = null, emissive = null, transparent = false, opacity = 1, side = THREE.FrontSide } = {}) {
-  const k = [farg, map?.uuid, emissive, transparent, opacity, side].join('|');
+/**
+ * Delat material. I den vanliga stilen ett enkelt matt material; i förhandsgranskningen 'verklig' ett fysiskt
+ * baserat material där `glans` (0 = spegelblankt, 1 = helt matt) och `metall` (0–1) styr ytan, och mönstrade
+ * ytor får relief av sin egen textur.
+ */
+export function mat(farg, { map = null, emissive = null, transparent = false, opacity = 1, side = THREE.FrontSide, glans = null, metall = 0 } = {}) {
+  const k = [farg, map?.uuid, emissive, transparent, opacity, side, glans, metall].join('|');
   if (!matCache.has(k)) {
-    const m = new THREE.MeshLambertMaterial({ color: farg, map, transparent, opacity, side });
+    let m;
+    if (VERKLIG) {
+      m = new THREE.MeshStandardMaterial({ color: farg, map, transparent, opacity, side, roughness: glans ?? (transparent ? 0.08 : 0.68), metalness: metall });
+      if (map && !transparent) { m.bumpMap = map; m.bumpScale = 3; }
+    } else m = new THREE.MeshLambertMaterial({ color: farg, map, transparent, opacity, side });
     if (emissive) { m.emissive = new THREE.Color(emissive); m.emissiveIntensity = 1; }
     if (transparent) m.depthWrite = false;
     matCache.set(k, m); DELADE.add(m);
@@ -46,8 +56,8 @@ export function plan(g, w, h, m, x, y, z, rx = 0, ry = 0) {
 export const TRA = '#5e3b20', MORKTRA = '#3d2614', MASSING = '#b8893a', MARMOR = '#d9ccb4', TYG = '#7d5a3a';
 export const HUD = ['#e8c4a0', '#d9b08c', '#c99a74', '#f0d2b4'], MAHOGNY = '#4a2216';
 export const FALU = '#8a2a1e', VIT = '#efe9dc', JARN = '#2a2a2c';
-export const massing = () => mat(MASSING, { emissive: '#2a1a05' });
-export const glas = () => mat('#cfe0e0', { transparent: true, opacity: 0.35 });
+export const massing = () => mat(MASSING, { emissive: '#2a1a05', glans: 0.26, metall: 0.75 });
+export const glas = () => mat('#cfe0e0', { transparent: true, opacity: 0.35, glans: 0.04 });
 export const flamma = () => mat('#ffd27a', { emissive: '#ffb030' });
 
 /** Registret: typnamn -> funktion(def, ctx) som returnerar { grupp, kollision?, haloPos? }. Fylls av kategorifilerna. */

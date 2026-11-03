@@ -2,6 +2,7 @@
 import * as THREE from '../../vendor/three/three.module.min.js';
 import { prefabs, mat, DELADE, slaIhop } from './foremal/index.js';
 import * as T from './texturer.js';
+import { VERKLIG } from './stil.js';
 import { Kontroller } from './kontroller.js';
 
 const OGONHOJD = 1.6, RADIE = 0.28, FART = 1.7, MAX_AVSTAND = 3.4;
@@ -27,8 +28,8 @@ export class Rum3D {
     this._langsam = 0;
     this.renderer.setPixelRatio(this.pixelkvot);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.05;
+    this.renderer.toneMapping = VERKLIG ? THREE.AgXToneMapping : THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure = VERKLIG ? 1.25 : 1.05;
     // Skuggor: rummen står still, så skuggkartan räknas bara om när ett rum laddas (se skuggor()).
     this.mobil = mobil;
     this.renderer.shadowMap.enabled = true;
@@ -47,6 +48,7 @@ export class Rum3D {
     this.renderer.domElement.addEventListener('webglcontextrestored', () => {
       this.tappad = false;
       this.renderer.shadowMap.needsUpdate = true;
+      if (this._miljo) { this._miljo = null; if (this.scen && VERKLIG) this.scen.environment = this.miljoKarta(this._utomhus); }
       if (this._startaIgen) { this._startaIgen = false; this.starta(); }
     });
     this.kamera = new THREE.PerspectiveCamera(68, 1, 0.05, 60);
@@ -93,8 +95,11 @@ export class Rum3D {
     scen.background = new THREE.Color(rum.bakgrund || (veranda ? '#e9cfa0' : ute ? '#c8d6dc' : '#1a120a'));
     const dimma = rum.dimma || [];
     scen.fog = new THREE.Fog(dimma[2] || rum.bakgrund || (veranda ? '#e9cfa0' : '#24170c'), dimma[0] ?? (veranda ? 14 : 7), dimma[1] ?? (veranda ? 40 : 16));
-    scen.add(new THREE.HemisphereLight(ljus.omgivning || '#ffe2b8', '#3a2414', ljus.omgivning_styrka ?? 0.6));
-    scen.add(new THREE.AmbientLight('#ffdcae', ljus.bas ?? 0.25));
+    // Förhandsgranskningen 'verklig' får en del av sitt fyllnadsljus från omgivningskartan i stället.
+    const fyll = VERKLIG ? 0.6 : 1;
+    if (VERKLIG) { this._utomhus = ute || veranda; scen.environment = this.miljoKarta(this._utomhus); scen.environmentIntensity = this._utomhus ? 0.9 : 0.85; }
+    scen.add(new THREE.HemisphereLight(ljus.omgivning || '#ffe2b8', '#3a2414', (ljus.omgivning_styrka ?? 0.6) * fyll));
+    scen.add(new THREE.AmbientLight('#ffdcae', (ljus.bas ?? 0.25) * fyll));
     this.sol = null; this.lampor = [];
     if (veranda || ute) { const sol = new THREE.DirectionalLight('#ffd49a', ljus.sol ?? 1.4); sol.position.set(4, 5, -8); scen.add(sol); this.sol = sol; }
 
@@ -103,7 +108,7 @@ export class Rum3D {
     const golvFarg = typeof rum.golv === 'object' ? rum.golv.farg : rum.golv;
     const gtex = golvTyp === 'sten' ? T.sten([W / 1.2, D / 1.2]) : golvTyp === 'jarn' ? T.jarnplat([W / 1.2, D / 1.2]) : T.traGolv(golvFarg || '#6b4a2c', [W / 2.2, D / 2.2]);
     if (!ute) {
-      const golv = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: gtex }));
+      const golv = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: gtex, glans: golvTyp === 'tra' ? 0.45 : 0.85, metall: golvTyp === 'jarn' ? 0.6 : 0 }));
       golv.rotation.x = -Math.PI / 2; scen.add(golv);
     }
 
@@ -117,8 +122,8 @@ export class Rum3D {
       const vtyp = rum.vagg || 'tapet';
       const vtex = vtyp === 'fasad' ? T.fasad(rum.fasadfarg) : vtyp === 'puts' ? T.puts(rum.putsfarg) : vtyp === 'sten' ? T.stenvagg() : vtyp === 'trapanel' ? T.trapanel(rum.panelfarg) : T.tapet(rum.tapet?.grund, rum.tapet?.monster);
       const vskala = vtyp === 'fasad' ? [1 / 7, 1 / H] : vtyp === 'sten' ? [1 / 2.2, 1 / 2.2] : [1 / 1.1, 1 / 1.1];
-      const tapet = mat('#ffffff', { map: vtex });
-      const pan = mat('#ffffff', { map: T.panel(rum.panel || '#5a3b22') });
+      const tapet = mat('#ffffff', { map: vtex, glans: 0.92 });
+      const pan = mat('#ffffff', { map: T.panel(rum.panel || '#5a3b22'), glans: 0.55 });
       const sidor = [
         [W, [0, -D / 2], 0], [W, [0, D / 2], Math.PI], [D, [-W / 2, 0], Math.PI / 2], [D, [W / 2, 0], -Math.PI / 2],
       ];
@@ -191,6 +196,29 @@ export class Rum3D {
     this.flyttaTill(start.pos[0], start.pos[1], start.titta || 0);
     this.skuggor(rum, W, D, H, ute || veranda);
     this.anpassa();
+  }
+
+  /**
+   * Förhandsgranskningen 'verklig': en förfiltrerad omgivningskarta som blanka ytor speglar och som ger mjukt
+   * indirekt ljus. Inomhus ett varmt rum med en taklampa och två fönsterljus, utomhus himmel och gräs.
+   * Byggs en gång per sort och återanvänds mellan rummen.
+   */
+  miljoKarta(ute) {
+    const nyckel = ute ? 'ute' : 'inne';
+    if (this._miljo?.[nyckel]) return this._miljo[nyckel];
+    const s = new THREE.Scene(), delar = [];
+    const lagg = (geo, farg, styrka, pos, side = THREE.DoubleSide) => {
+      const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: new THREE.Color(farg).multiplyScalar(styrka), side }));
+      if (pos) { m.position.set(...pos); m.lookAt(0, 0, 0); } s.add(m); delar.push(m);
+    };
+    lagg(new THREE.BoxGeometry(10, 6, 10), ute ? '#a8bccb' : '#3a2a1c', 1, null, THREE.BackSide);
+    if (ute) { lagg(new THREE.PlaneGeometry(9, 9), '#fff2d8', 4, [0, 2.9, 0]); lagg(new THREE.PlaneGeometry(10, 10), '#55703a', 1, [0, -2.9, 0]); }
+    else { lagg(new THREE.PlaneGeometry(1.4, 1.4), '#ffd49a', 10, [0, 2.9, 0]); lagg(new THREE.PlaneGeometry(1.2, 2), '#ffe6c0', 3, [-4.9, 1, 0]); lagg(new THREE.PlaneGeometry(1.2, 2), '#ffe6c0', 2, [4.9, 1.2, 1]); }
+    const pm = new THREE.PMREMGenerator(this.renderer);
+    const t = pm.fromScene(s, 0.04).texture;
+    pm.dispose(); for (const m of delar) { m.geometry.dispose(); m.material.dispose(); }
+    (this._miljo ||= {})[nyckel] = t;
+    return t;
   }
 
   byggVeranda(rum, W, D, H) {
