@@ -9,8 +9,9 @@ function vas(d) {
   const m = mat('#e4dccb'), blom = mat('#a33b2a'), stjalk = mat('#4c5a2a');
   if (d.valt) {
     const v = cyl(g, 0.06, 0.08, 0.28, m, 0, 0.08, 0, 10); v.rotation.z = Math.PI / 2; v.rotation.y = 0.5;
-    cyl(g, 0.14, 0.14, 0.003, mat('#4b5a5a', { transparent: true, opacity: 0.5 }), 0.05, 0.003, 0.15, 14);
-    for (let i = 0; i < 4; i++) { sph(g, 0.03, blom, -0.05 + i * 0.07, 0.03, 0.22 + (i % 2) * 0.05, 6); box(g, 0.15, 0.008, 0.008, stjalk, -0.05 + i * 0.05, 0.02, 0.15, 0, i, 0); }
+    // Vattnet och blommorna står kvar när en 3D-modell ersätter själva vasen (userData.behall).
+    cyl(g, 0.14, 0.14, 0.003, mat('#4b5a5a', { transparent: true, opacity: 0.5 }), 0.05, 0.003, 0.15, 14).userData.behall = true;
+    for (let i = 0; i < 4; i++) { sph(g, 0.03, blom, -0.05 + i * 0.07, 0.03, 0.22 + (i % 2) * 0.05, 6).userData.behall = true; box(g, 0.15, 0.008, 0.008, stjalk, -0.05 + i * 0.05, 0.02, 0.15, 0, i, 0).userData.behall = true; }
   } else {
     cyl(g, 0.06, 0.08, 0.28, m, 0, 0.14, 0, 10);
     for (let i = 0; i < 4; i++) sph(g, 0.035, blom, Math.sin(i * 2) * 0.06, 0.34 + (i % 2) * 0.05, Math.cos(i * 2) * 0.06, 6);

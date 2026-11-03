@@ -205,3 +205,17 @@ Martin vill att grafiken ska se mer verklig ut. Det går delvis emot beslut 1 (s
 Förhandsgranskningen (`js/tre/stil.js`) byter till fysiskt baserade material (mässing glänser som metall, glas blankt, lackat trä halvblankt, tapet matt), relief av texturerna, reflektioner från en förfiltrerad omgivningskarta (varmt rum inomhus, himmel och gräs ute) och filmisk färgåtergivning (AgX). Fyllnadsljuset är något svagare eftersom omgivningskartan ger indirekt ljus. Allt annat – fall, rum, föremål, skuggor och markörer – är detsamma. Utan parametern är spelet oförändrat.
 
 Om Martin väljer den: gör den till standard (och skriv om beslut 1). Om inte: ta bort `stil.js` och grenarna för VERKLIG.
+
+## Förhandsgranskning: riktiga 3D-modeller i sovrummet, fall 1 (november 2026) – väntar på beslut
+
+Martin tyckte att skillnaden med `?stil=verklig` var för liten och ville se riktiga 3D-modeller. Som prov har **sovrummet i Halsbandet på Ekbacka** fått modeller från Poly Haven (CC0) – bara i förhandsgranskningen. Utan `?stil=verklig` är spelet oförändrat (kontrollbilderna i vanlig stil är identiska), och varken modellerna eller GLTFLoader laddas.
+
+- **Hur:** ett valfritt fält `modell` på föremålet i rummets JSON (`fil`, `passa`, `rot`, `skala`, `pos`, `glas`, `urtavla`, se `js/tre/modeller.js`). Prefaben byggs alltid först, så id, interaktiv-text, markör, kollision och träffyta är desamma; när modellen har laddats döljs prefabens delar och modellen ställs i dess ställe, anpassad till prefabens mått. Delar som måste synas för fallets skull står kvar (`userData.behall`): friherrinnans sjal på fåtöljen och vattnet och blommorna vid vasen. Pendylens urtavla läggs på av spelet och visar 21.14.
+- **Modeller (9):** säng, byrå, fönsterbord, fåtölj, två runda bord, pendyl, oljelampa, vas och tavla. Källor och licenser i `modeller/KALLOR.md`. Dörr, fönster, eldstad, bokhylla (luckan i bokraden är ett fynd), matta, smyckeskrin, askkopp och anteckningsbok är kvar som prefaber – Poly Haven har ingen eldstad eller tidstypisk dörr.
+- **Storlek:** 2,5 MB modeller (WebP-texturer, 1k för möbler och 512 för småsaker, förenklade nät) plus 167 kB GLTFLoader. Laddas bara i förhandsgranskningen och cachas av service workern när de har hämtats. Omkring 36 000 trianglar för modellerna i rummet; antalet ritanrop är ungefär detsamma som förut.
+- **Personer:** inga ändrade. Det finns inga fria, realistiska personmodeller i 1920-talskläder hos de tillåtna källorna (Quaternius och Kenney har bara lågpolygonfigurer i modern stil).
+- **Verktyg:** `vendor/three/addons/` innehåller GLTFLoader med beroenden ur npm-paketet three@0.186.1 (samma version som `three.module.min.js`), med importerna omskrivna till relativa sökvägar. `STIL=verklig node test/spela.mjs fall1` kör speltestet i förhandsgranskningen.
+
+Före- och efterbilder (samma kameravinklar, dator och mobil): `docs/bilder/modeller-sovrum/`.
+
+Avvikelse att ta ställning till: sängen i texten är en *himmelssäng*, men modellen är en sänggavelsäng med fyra höga stolpar utan sänghimmel.

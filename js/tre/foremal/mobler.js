@@ -111,7 +111,7 @@ function fatolj() {
   box(g, 0.8, 0.7, 0.18, m, 0, 0.75, -0.3, -0.12);
   box(g, 0.14, 0.32, 0.7, m, -0.36, 0.55, 0); box(g, 0.14, 0.32, 0.7, m, 0.36, 0.55, 0);
   for (const sx of [-1, 1]) for (const sz of [-1, 1]) box(g, 0.06, 0.25, 0.06, b, sx * 0.33, 0.125, sz * 0.3);
-  box(g, 0.3, 0.5, 0.03, mat('#2d3550'), 0.38, 0.55, 0.1, 0, 0, 0.3); // sjal
+  box(g, 0.3, 0.5, 0.03, mat('#2d3550'), 0.38, 0.55, 0.1, 0, 0, 0.3).userData.behall = true; // sjal (står kvar med 3D-modell)
   return { grupp: g };
 }
 
