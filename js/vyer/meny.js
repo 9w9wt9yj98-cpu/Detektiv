@@ -3,6 +3,7 @@ import { las, nollstallAllt } from '../motor/lagring.js';
 import { totalGlas, rang, kapitelStatus } from '../motor/poang.js';
 import { esc, glasRad, bekrafta, $ } from './gemensamt.js';
 import { VERSION } from '../version.js';
+import { VERKLIG } from '../tre/stil.js';
 
 /** ”Kapitel I – Aspirant” → ”kapitel I” */
 const kortTitel = (t) => (t.split(' – ')[0] || t).replace(/^Kapitel/, 'kapitel');
@@ -70,6 +71,7 @@ export async function visaMeny(app) {
     <footer class="meny-fot">
       <p>Allt som behövs för att lösa ett fall finns i materialet. Du behöver aldrig gissa.</p>
       <button class="lank" id="nollstall">Nollställ all progression</button>
+      ${VERKLIG ? '<p class="stil-merke">Förhandsgranskning: verklig grafik · <a href="?stil=vanlig#/">tillbaka till vanlig</a></p>' : ''}
       <p class="version">Version ${VERSION}</p>
     </footer>
   </div>`;

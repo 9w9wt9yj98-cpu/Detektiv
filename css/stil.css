@@ -495,3 +495,5 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-vis
   .coach { top: calc(64px + var(--sakert-topp)); }
   .fokus-knapp { bottom: calc(14px + var(--sakert-botten)); min-height: 44px; padding: 6px 18px; font-size: 16px; }
 }
+.stil-merke { display: inline-block; margin: 6px auto; padding: 4px 12px; border: 1px solid var(--massing); border-radius: 12px; color: var(--massing-ljus); font-size: 14px; }
+.stil-merke a { color: var(--massing-ljus); }
