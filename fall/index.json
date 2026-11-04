@@ -41,6 +41,11 @@
           "nummer": 6,
           "id": "fyren-pa-graskar",
           "fil": "fyren-pa-graskar.json"
+        },
+        {
+          "nummer": 7,
+          "id": "sista-akten",
+          "fil": "sista-akten.json"
         }
       ]
     }

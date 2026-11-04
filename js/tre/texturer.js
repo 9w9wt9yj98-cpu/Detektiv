@@ -451,3 +451,154 @@ export function stormnatt() {
     for (let i = 0; i < 70; i++) { const x = r() * w, y = r() * h; g.beginPath(); g.moveTo(x, y); g.lineTo(x - 4, y + 12); g.stroke(); }
   });
 }
+
+// ---- Teatern (foremal/teater.js) ----
+
+/** Guldfrans: täta guldtrådar mot mörkt rött, upprepas runt ridåns veck. */
+export function frans() {
+  return skapa('frans', 64, 32, (g, w, h) => {
+    g.fillStyle = '#3a0c0e'; g.fillRect(0, 0, w, h);
+    const r = rng(101);
+    for (let x = 0; x < w; x += 2) {
+      g.fillStyle = `hsl(42, 62%, ${52 + r() * 18}%)`;
+      g.fillRect(x, 0, 1.4, h - r() * 5);
+    }
+    g.fillStyle = 'rgba(60,30,0,0.35)'; g.fillRect(0, 0, w, 3);
+  }, { upprepa: [3, 1] });
+}
+
+/** Säckväv: grov, gles väv i sandbrunt. */
+export function sackvav() {
+  return skapa('sackvav', 128, 128, (g, w, h) => {
+    g.fillStyle = '#a68a5c'; g.fillRect(0, 0, w, h);
+    const r = rng(103);
+    for (let y = 0; y < h; y += 4) for (let x = 0; x < w; x += 4) {
+      const ljus = ((x + y) / 4) % 2 ? 0.16 : -0.1;
+      g.fillStyle = ljus > 0 ? `rgba(225,200,150,${ljus + r() * 0.08})` : `rgba(50,35,15,${-ljus + r() * 0.08})`;
+      g.fillRect(x, y, 3, 3);
+    }
+    for (let i = 0; i < 40; i++) { g.strokeStyle = `rgba(60,40,15,${0.15 + r() * 0.2})`; g.lineWidth = 1; const y = r() * h; g.beginPath(); g.moveTo(0, y); g.lineTo(w, y + (r() - 0.5) * 3); g.stroke(); }
+    gravyr(g, w, h, 0.1, 105);
+  });
+}
+
+/** Utrunnen sand: en avsmalnande sträng med lösa korn på genomskinlig grund (stor ände nedtill). */
+export function sandstrang() {
+  return skapa('sandstrang', 64, 128, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    const r = rng(117);
+    for (let i = 0; i < 60; i++) {
+      const t = i / 59, y = h - 8 - t * (h - 20), x = w / 2 + Math.sin(t * 5) * 6 + (r() - 0.5) * 4, rr = (1 - t * 0.8) * 16 * (0.7 + r() * 0.5);
+      g.fillStyle = `rgba(${196 + r() * 20 | 0},${176 + r() * 18 | 0},${128 + r() * 16 | 0},${0.35 + r() * 0.3})`;
+      g.beginPath(); g.ellipse(x, y, rr, rr * 0.8, 0, 0, 7); g.fill();
+    }
+    for (let i = 0; i < 260; i++) { const y = r() * h, s = 1 - y / h; g.fillStyle = `rgba(${r() < 0.5 ? '220,200,150' : '120,100,60'},${0.3 + r() * 0.5})`; g.fillRect(w / 2 + (r() - 0.5) * 50 * (1 - s * 0.6), y, 1.5, 1.5); }
+  });
+}
+
+/** Kritkryss på scengolvet: vita, lite suddiga streck på genomskinlig grund. */
+export function kritkryss() {
+  return skapa('kritkryss', 128, 128, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    const r = rng(107);
+    g.lineCap = 'round';
+    for (const [x0, y0, x1, y1] of [[18, 20, 110, 106], [108, 16, 22, 110]]) {
+      for (let i = 0; i < 9; i++) {
+        g.strokeStyle = `rgba(255,255,255,${0.12 + r() * 0.2})`; g.lineWidth = 4 + r() * 7;
+        const d = () => (r() - 0.5) * 7;
+        g.beginPath(); g.moveTo(x0 + d(), y0 + d()); g.quadraticCurveTo((x0 + x1) / 2 + d(), (y0 + y1) / 2 + d(), x1 + d(), y1 + d()); g.stroke();
+      }
+    }
+    // Kritkornig yta: små hål i strecken och lösa korn omkring
+    g.globalCompositeOperation = 'destination-out';
+    for (let i = 0; i < 700; i++) { g.fillStyle = `rgba(0,0,0,${0.4 + r() * 0.6})`; g.fillRect(r() * w, r() * h, 1.5, 1.5); }
+    g.globalCompositeOperation = 'source-over';
+    for (let i = 0; i < 120; i++) { g.fillStyle = `rgba(255,255,255,${r() * 0.35})`; g.fillRect(14 + r() * 100, 14 + r() * 100, 1.5, 1.5); }
+  });
+}
+
+/** Spegelglas: kall, blank grå ton med snett ljusstråk och ärgade kanter. */
+export function spegel() {
+  return skapa('spegel', 128, 128, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, w, h); gr.addColorStop(0, '#8e9590'); gr.addColorStop(0.5, '#5f6662'); gr.addColorStop(1, '#3c403e');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.fillStyle = 'rgba(255,250,235,0.18)';
+    g.beginPath(); g.moveTo(w * 0.15, h); g.lineTo(w * 0.45, 0); g.lineTo(w * 0.62, 0); g.lineTo(w * 0.32, h); g.fill();
+    g.fillStyle = 'rgba(255,250,235,0.1)';
+    g.beginPath(); g.moveTo(w * 0.5, h); g.lineTo(w * 0.8, 0); g.lineTo(w * 0.86, 0); g.lineTo(w * 0.56, h); g.fill();
+    g.strokeStyle = 'rgba(40,35,25,0.45)'; g.lineWidth = 8; g.strokeRect(0, 0, w, h);
+  });
+}
+
+/** Ljuskägla från en strålkastare: genomskinlig, starkast vid linsen. */
+export function ljuskon() {
+  return skapa('ljuskon', 4, 64, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, 0, h);
+    // Överkanten hamnar vid konens spets (linsen)
+    gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(0.3, 'rgba(255,255,255,0.45)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+  });
+}
+
+const nyans = (farg, f) => '#' + new THREE.Color(farg).multiplyScalar(f).getHexString();
+const kulissMatt = ([b, hj]) => [256, Math.max(128, Math.round((256 * hj) / b / 32) * 32)];
+
+/** Kulissens målade framsida: en salongsvägg med fält, bröstpanel, sockel och en målad tavla. */
+export function kulissMalad(farg = '#4f6b4a', storlek = [1.4, 3.2]) {
+  const [w, h] = kulissMatt(storlek);
+  return skapa('kuliss' + farg + w + 'x' + h, w, h, (g) => {
+    const r = rng(109);
+    const ljus = nyans(farg, 1.35), mork = nyans(farg, 0.6), list = '#d8c690';
+    g.fillStyle = farg; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 260; i++) { g.fillStyle = r() < 0.5 ? `rgba(255,245,220,${r() * 0.07})` : `rgba(20,25,10,${r() * 0.08})`; g.fillRect(r() * w, r() * h, 10 + r() * 30, 3 + r() * 5); }
+    const sockel = h * 0.06, brost = h * 0.3, krans = h * 0.05;
+    // Målade lister: ljus överkant och skugga under, som om de vore på riktigt
+    const lista = (y, tj) => { g.fillStyle = list; g.fillRect(0, y, w, tj); g.fillStyle = 'rgba(255,250,230,0.5)'; g.fillRect(0, y, w, tj * 0.3); g.fillStyle = 'rgba(30,20,5,0.45)'; g.fillRect(0, y + tj, w, tj * 0.5); };
+    const falt = (x, y, fw, fh) => {
+      g.strokeStyle = mork; g.lineWidth = 6; g.strokeRect(x + 3, y + 3, fw, fh);
+      g.strokeStyle = ljus; g.lineWidth = 5; g.strokeRect(x, y, fw, fh);
+      g.strokeStyle = list; g.lineWidth = 2; g.strokeRect(x + 1, y + 1, fw - 2, fh - 2);
+    };
+    g.fillStyle = mork; g.fillRect(0, h - sockel, w, sockel);
+    lista(h - sockel - 6, 6);
+    g.fillStyle = nyans(farg, 0.85); g.fillRect(0, h - brost, w, brost - sockel - 6);
+    falt(22, h - brost + 18, w / 2 - 36, brost - sockel - 46); falt(w / 2 + 14, h - brost + 18, w / 2 - 36, brost - sockel - 46);
+    lista(h - brost - 8, 8);
+    const fh = h - brost - krans - 64;
+    falt(26, krans + 30, w - 52, fh);
+    const tx = w / 2 - 44, ty = krans + 30 + fh * 0.3;
+    g.fillStyle = '#5a3a1a'; g.fillRect(tx - 6, ty - 6, 100, 76); g.fillStyle = '#b8893a'; g.fillRect(tx - 3, ty - 3, 94, 70);
+    const gr = g.createLinearGradient(0, ty, 0, ty + 64); gr.addColorStop(0, '#9fb0a8'); gr.addColorStop(0.6, '#d8c8a0'); gr.addColorStop(1, '#5a6a3a');
+    g.fillStyle = gr; g.fillRect(tx, ty, 88, 64);
+    g.fillStyle = mork; g.fillRect(0, 0, w, krans); lista(krans, 7);
+    gravyr(g, w, h, 0.07, 111);
+  });
+}
+
+/** Kulissens baksida: oblekt duk med genomslag av färg och schablontext (\n ger flera rader). */
+export function kulissBak(text = '', storlek = [1.4, 3.2]) {
+  const [w, h] = kulissMatt(storlek);
+  return skapa('kulissbak' + text + w + 'x' + h, w, h, (g) => {
+    const r = rng(113), duk = '#d6c9a8';
+    g.fillStyle = duk; g.fillRect(0, 0, w, h);
+    for (let y = 0; y < h; y += 3) { g.fillStyle = `rgba(120,95,55,${0.05 + r() * 0.05})`; g.fillRect(0, y, w, 1); }
+    for (let x = 0; x < w; x += 3) { g.fillStyle = `rgba(120,95,55,${0.03 + r() * 0.04})`; g.fillRect(x, 0, 1, h); }
+    for (let i = 0; i < 18; i++) { g.fillStyle = `rgba(${r() < 0.5 ? '70,90,60' : '110,80,50'},${0.05 + r() * 0.08})`; g.beginPath(); g.ellipse(r() * w, r() * h, 8 + r() * 30, 6 + r() * 20, r() * 3, 0, 7); g.fill(); }
+    if (text) {
+      const rader = String(text).split('\n');
+      let st = 34;
+      const typ = () => { g.font = `bold ${st}px "Courier New", Courier, monospace`; };
+      typ();
+      const bredast = Math.max(...rader.map((t) => g.measureText(t).width));
+      if (bredast > w - 24) { st = Math.floor((st * (w - 24)) / bredast); typ(); }
+      g.textAlign = 'center'; g.textBaseline = 'middle';
+      rader.forEach((t, i) => {
+        const y = h * 0.42 + (i - (rader.length - 1) / 2) * st * 1.3;
+        g.fillStyle = 'rgba(25,20,15,0.18)'; g.fillText(t, w / 2 + 1.5, y + 1.5); // sprej utanför schablonen
+        g.fillStyle = 'rgba(25,20,15,0.85)'; g.fillText(t, w / 2, y);
+        g.fillStyle = duk; for (let x = 0; x < w; x += st * 0.6) g.fillRect(x + st * 0.27, y - 1, 2, 2.5); // schablonens bryggor
+      });
+    }
+    gravyr(g, w, h, 0.06, 115);
+  });
+}
