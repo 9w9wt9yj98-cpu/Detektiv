@@ -373,3 +373,7 @@ Martin ville att fall 8 skulle utspela sig i ett ganska stort slott. En extra ag
 **Nya föremål** (`js/tre/foremal/slott.js`): biljardbord, väggtelefon, telefonväxel, rustning, flygel, notställ, kakelugn, pelare, gobeläng, balustrad, slottsfasad, fyrverkeri och kandelaber. Omslaget `bilder/fall8/vitanas.jpg` är, som för fall 7, en sepiatonad bild ur 3D-scenen tills Martin bestämt om de ska vara tecknade.
 
 **Blindtest:** en blind agent löste fallet rätt (säkerhet 5/5) med bara spelarvyn. Rapport: `docs/blindtest/rapport-2026-11-04-fall8.md`. Rättat efter den: en slutsats sa ”åtta minuter” till biblioteket och tillbaka (det är sex); gångtiden terrassen–biblioteket är 5 minuter, som via balsalen eller rökrummet; kaptensgraden i kavalleriet hette ryttmästare 1912; hovmästaren fick telefonistens besked tjugo i tolv och gick upp kvart i tolv; biblioteket och galleriet ligger en trappa upp; växeln som greven hade framför sig finns inte kvar på skrivbordet; Lunde stod vid orkestern från kvart i elva; en ny slutsatsfråga utesluter fröken Sand; språkliga rättelser.
+
+## Buggfixar får slås ihop direkt (november 2026)
+
+Martin har bestämt att Claude själv får slå ihop rena buggfixar – sådant som redan är fel – när alla tester är gröna, eftersom han inte alltid hinner testa direkt. Varje sådan fix skrivs in här. Nya fall och förbättringar som ändrar hur något fungerar eller ser ut lämnas som pull request till Martin. Regeln står också i `CLAUDE.md`.

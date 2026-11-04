@@ -10,6 +10,7 @@ Ett 3D-deckarspel för vuxna i klassisk stil (Agatha Christie, Sherlock Holmes) 
 - Svara och skriv alla speltexter på svenska.
 - Martin är projektledare. **Större beslut** – ny mekanik, ändrad svårighetsgrad, nytt övergripande tema, större designändringar, monetisering, omskrivning av motorn – ska föreslås och vänta på hans godkännande innan de genomförs.
 - Gör små, tydliga ändringar åt gången. Arbeta på en egen gren och öppna en pull request. **Pusha aldrig direkt till `main`.**
+- **Buggfixar** (sådant som redan är fel: motsägelser i fall, trasiga knappar, föremål som inte går att nå o.d.) får Claude slå ihop själv när alla tester är gröna, och skriva in i `docs/beslut.md`. Allt nytt – nya fall, förbättringar som ändrar hur något fungerar eller ser ut – lämnas som pull request till Martin.
 - Skriv in godkända beslut och avvikelser i `docs/beslut.md`.
 
 ## Fallen (`fall/*.json`)
