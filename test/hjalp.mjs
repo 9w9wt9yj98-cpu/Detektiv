@@ -2,6 +2,8 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 export { assert };
+// TIDSFAKTOR=6 förlänger alla tidsgränser, t.ex. för STIL=verklig när webbläsaren ritar utan grafikkort.
+export const TID = Math.max(1, +(process.env.TIDSFAKTOR || 1));
 export const BAS = (process.env.BAS || 'http://localhost:18431/').replace(/\/?$/, '/');
 export const ARGS = ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'];
 export const fel = [];
@@ -16,7 +18,7 @@ export async function nySida(browser, mobil, namn, { guideKlar = true } = {}) {
   if (process.env.STIL) await ctx.addInitScript((stil) => localStorage.setItem('detektiv:stil', stil), process.env.STIL);
   if (guideKlar) await ctx.addInitScript(() => { if (!localStorage.getItem('detektiv:v1')) localStorage.setItem('detektiv:v1', JSON.stringify({ fall: {}, installningar: { autofyll: true, handledningKlar: true, settBokBanner: true } })); });
   const p = await ctx.newPage();
-  p.setDefaultTimeout(15000);
+  p.setDefaultTimeout(15000 * TID);
   p.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') fel.push(`[${namn}] ${m.type()}: ${m.text()}`); });
   p.on('response', (r) => { if (r.status() >= 400) fel.push(`[${namn}] HTTP ${r.status()}: ${r.url()}`); });
   p.on('pageerror', (e) => fel.push(`[${namn}] pageerror: ${e.message}`));
@@ -30,7 +32,7 @@ export async function undersok(p, id, x, z, { viaKnapp = false } = {}) {
   await p.evaluate(([id, x, z]) => { const m = window.__detektiv.motor; if (x !== null) m.flyttaTill(x, z); m.tittaPa(id); }, [id, x ?? null, z ?? null]);
   await vanta(350);
   if (viaKnapp) {
-    await p.locator('[data-fokus]:not([hidden])').waitFor({ timeout: 3000 });
+    await p.locator('[data-fokus]:not([hidden])').waitFor({ timeout: 3000 * TID });
     await p.locator('[data-fokus]').click();
   } else {
     const pos = await p.evaluate((id) => window.__detektiv.motor.projicera(id), id);
@@ -39,13 +41,13 @@ export async function undersok(p, id, x, z, { viaKnapp = false } = {}) {
     const px = r.x + pos.x * r.width, py = r.y + pos.y * r.height;
     if (p.mobil) await p.touchscreen.tap(px, py); else await p.mouse.click(px, py);
   }
-  await p.locator('.modal-bakgrund.oppen, .bok-bakgrund.oppen').first().waitFor({ timeout: 4000 });
+  await p.locator('.modal-bakgrund.oppen, .bok-bakgrund.oppen').first().waitFor({ timeout: 4000 * TID });
   await vanta(200);
 }
 /** Snabbare: undersök via testkroken (används för att gå igenom många föremål). */
 export async function inspektera(p, id) {
   await p.evaluate((id) => window.__detektiv.inspektera(id), id);
-  await p.locator('.modal-bakgrund.oppen').first().waitFor({ timeout: 4000 });
+  await p.locator('.modal-bakgrund.oppen').first().waitFor({ timeout: 4000 * TID });
   await vanta(150);
 }
 export async function stangKort(p) { await p.locator('.modal-bakgrund.oppen [data-stang]').last().click(); await vanta(250); }

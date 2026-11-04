@@ -237,6 +237,7 @@ export class Rum3D {
     const MAX_VANTA = 8000, duk = this.renderer.domElement;
     const nr = (this._visning = (this._visning || 0) + 1);
     duk.style.transition = 'none'; duk.style.opacity = '0';
+    this._dold = true; // ingen idé att rita bildrutor som inte syns medan modellerna laddas
     const meddela = setTimeout(() => { if (this._visning === nr) this.onMeddelande?.('Laddar rummet …'); }, 1200);
     const klar = this.modellerKlara.then(async () => {
       if (this.scen !== scen) return;
@@ -245,6 +246,7 @@ export class Rum3D {
     await Promise.race([klar, new Promise((r) => setTimeout(r, MAX_VANTA))]);
     clearTimeout(meddela);
     if (this._visning !== nr || this.scen !== scen) return;
+    this._dold = false;
     this.renderer.render(scen, this.kamera); // första bilden ritas medan duken fortfarande är osynlig
     requestAnimationFrame(() => { duk.style.transition = 'opacity .35s ease-out'; duk.style.opacity = '1'; });
   }
@@ -513,7 +515,7 @@ export class Rum3D {
       halo.position.y = halo.userData.y0 + (iFokus ? 0.035 : 0.015) * Math.sin(t * (iFokus ? 4 : 2) + halo.id);
     }
     this.onRam?.();
-    this.renderer.render(this.scen, this.kamera);
+    if (!this._dold) this.renderer.render(this.scen, this.kamera);
     this._ramar++;
     if (t - this._fpsT >= 1) {
       this.fps = this._ramar / (t - this._fpsT); this._ramar = 0; this._fpsT = t; window.__fps = this.fps;
