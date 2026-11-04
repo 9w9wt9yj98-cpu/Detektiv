@@ -299,3 +299,16 @@ En ny blind agent, som inte visste något om den första rundan, granskade de r�
 | 6 | Stormen har ”mojnat så pass” att en båt kan lägga till – rummen visar fortfarande blåsten. Väderstationen ligger på öns *södra* udde, åt samma håll som dörren, och tvärs över viken – fågelvägen knappt hundra meter – så att doktorn kan höra dunsen. Signe såg att fyren blinkade som vanligt (förut ”såg ingenting”, som kunde läsas som att fyren var släckt). Kläderna är torra ”de sista timmarna” (Holger gick till tornet genom stormen vid tio). Elof har *lagt fram* papperen. Signe gick inte ut ”förrän vid sex”, i stället för ”aldrig”. Köksklockan visar 6.45, tjugo minuter före stationens klocka – det tar mer än tio minuter att gå mellan dem. |
 
 **Inte ändrat:** vagnens mått i fall 2 (kupé och korridor bredare än en verklig vagn) och att utredningen i fall 5 går fort – det är förenklingar i spelet, inte motsägelser i fallet. Att samma namn återkommer mellan fallen (Holm, Berg, Anton, Lind/Lindh/Lund) och vem spelaren är i nutid (Maja Strand) får vänta på Martin.
+
+## Vägledning: så löser du ett fall, hjälpen i lampan och signal när man fastnat (november 2026)
+
+Martin frågade efter ett enkelt sätt att hjälpa den som fastnat, tydligare ledtrådar och en bättre förklaring av vad spelet går ut på, och bad om alla fyra delarna i förslaget. Inga pussel eller lösningar ändras, och poängen är densamma som förut.
+
+1. **”Så löser du ett fall”** – fyra steg (Undersök, Läs fynden, Tänk i boken, Anklaga) och en rad om lampan. Rutan är utfälld på fallets första sida tills man har startat ett fall en gång, och sedan ihopfälld. Kortet kan också öppnas från hjälpen i lampan. Handledningens sista steg nämner det gratis tipset.
+2. **Lampan är en hjälpstege.** Först ett **gratis tips** om nästa steg, som räknas fram ur hur långt spelaren har kommit: en ny fråga under Slutsatser, rummet man står i eller ett annat rum med mer att hitta, en mekanik i boken som inte är klar (hur många motsägelser, upptäckter eller steg som återstår, och hur man gör), ett låst moment och vägen dit, eller till sist att det är dags att anklaga. Tipset pekar på *var* och *hur*, aldrig på vem. Därefter de tre ledtrådarna som förut (−10/−25/−50 poäng) och sist ”Jag ger upp – visa lösningen”. Platser-fliken i boken visar samma tips.
+3. **Fastnat-signal.** Har spelaren inte hittat, löst eller besvarat något på fyra minuter (tiden i anteckningsboken räknas med, men signalen väntar tills boken och korten är stängda) börjar lampan glöda och ett meddelande säger ”Fastnat? Tryck på lampan – första tipset är gratis.” Signalen ges en gång per stopp och slutar när lampan öppnas eller spelaren kommer vidare. Med ”minska rörelser” i systemet lyser lampan i stället för att pulsera.
+4. **Jämnare ledtrådar i alla sex fall** – se nedan.
+
+Rättat på vägen: bekräftelsen för ledtråd 2 och 3 sa att den kostade 10 poäng, fast knappen (och poängräkningen) sa 25 och 50.
+
+`verktyg/spelarvy.mjs --ledtradar` skriver ut ledtrådarna i lampan för ett blindtest av att de hjälper stegvis.
