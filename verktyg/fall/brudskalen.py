@@ -20,7 +20,7 @@ fall = {"id": "brudskalen", "version": 1,
    {"id": "gunnar", "namn": "Gunnar Sahlin", "roll": "Gårdens ägare, anmälde stölden", "misstankt": T, "beskrivning": "Stolt över gården och över skålen, som gått i släkten sedan 1760-talet."},
    {"id": "lena", "namn": "Lena Sahlin", "roll": "Gunnars fru", "misstankt": T, "beskrivning": "Hämtade sin mor på Arlanda under dagen."},
    {"id": "mikael", "namn": "Mikael Ström", "roll": "Antikhandlare, gäst", "misstankt": T, "beskrivning": "Kan silver. Gick tidigt från festen med en stor väska."},
-   {"id": "olle", "namn": "Olle Sahlin", "roll": "Brorson, 19 år", "misstankt": T, "beskrivning": "Bar ut tårtan. Stod länge vid skänken."},
+   {"id": "olle", "namn": "Olle Sahlin", "roll": "Brorson, 19 år", "misstankt": T, "beskrivning": "Bar in tårtan. Stod länge vid skänken."},
    {"id": "karin", "namn": "Karin Berglund", "roll": "Granne och gäst", "misstankt": False, "beskrivning": "Fotograferar allt. Var först in i salen."},
    {"id": "birgitta", "namn": "Birgitta Sahlin", "roll": "Lenas syster, stod för maten", "misstankt": False, "beskrivning": "Märkte först att skålen var borta."}
  ]}
@@ -36,8 +36,8 @@ salen = {"id": "salen", "namn": "Salen", "mekanik": "scen", "payload": {"visning
     obj("skank", "skank", [0, 0, -2.7], storlek=[1.8, 0.95, 0.5]),
     obj("skanken", "skal", [0, 0.95, -2.7], tom=True, halostorlek=0.4, halo=[0, 1.15, -2.62], interaktiv=ia("Skänken",
         "Platsen där brudskålen stod. I det tunna lagret damm på skänken syns en ljus ring efter skålens fot. Vasen och ljusstaken står kvar.", "f-tom-plats")),
-    obj("vas", "vas", [-0.62, 0.95, -2.7]),
-    obj("ljusstake", "ljusstake", [0.62, 0.95, -2.7], ljus=True, styrka=0.8),
+    obj("vas", "vas", [0.62, 0.95, -2.7]),
+    obj("ljusstake", "ljusstake", [-0.62, 0.95, -2.7], ljus=True, styrka=0.8),
     obj("fonster", "dagfonster", [0, 0, -2.99], y0=1.15, hojd=1.15, bredd=1.0, gardin=True, dragen=True),
     obj("fonster2", "dagfonster", [-3.49, 0, -0.6], rot=90, gardin=True),
     obj("fonster3", "dagfonster", [-3.49, 0, 1.6], rot=90, gardin=True),
@@ -49,7 +49,7 @@ salen = {"id": "salen", "namn": "Salen", "mekanik": "scen", "payload": {"visning
     obj("gunnar", "person", [-1.7, 0, -1.3], rot=40, rock="#e8e4d8", byxor="#3a4a5a", har="#9a9a96", glasogon=True, seed=2,
         interaktiv=ia("Gunnar Sahlin", "Gunnar är röd om kinderna. ”Jag såg den halv fem, med sin gamla buckla på kanten – den har haft den sedan farfars tid. Kvart i sex var den borta! Jag var ensam här på gården hela dagen och fixade inför festen, ända tills bussen kom – ingen kunde ha kommit åt den då.”", ["f-gunnar-anmalan", "f-gunnar-ensam"])),
     obj("olle", "person", [2.3, 0, -1.2], rot=-60, rock="#2a3a5a", byxor="#3a3a40", har="#5a3a20", seed=4,
-        interaktiv=ia("Olle Sahlin", "Olle skruvar på sig. ”Jag bar in tårtan vid fem och ställde mig vid skänken för att ta en bild åt faster. Skålen stod där när jag gick ut igen, det syns ju på bilden.” Han visar sin mobil.", material=["bild-d"])),
+        interaktiv=ia("Olle Sahlin", "Olle skruvar på sig. ”Jag bar in tårtan vid fem och ställde mig vid skänken för att ta en bild åt farbror Gunnar. Skålen stod där när jag gick ut igen, det syns ju på bilden.” Han visar sin mobil.", material=["bild-d"])),
     obj("birgitta", "person", [-2.4, 0, 2.0], rot=200, kon="k", rock="#c8a0b0", har="#b89a6a", forklade=True, seed=1,
         interaktiv=ia("Birgitta Sahlin", "Birgitta torkar händerna på förklädet. ”Jag tog en bild på dukningen tjugo över fem – och då var skålen redan borta. Jag trodde Gunnar hade ställt undan den.”", material=["bild-e"])),
     obj("dorr-ut", "dorr", [-1.6, 0, 2.99], rot=180, farg="#2e4a3a", gar_till="garden", interaktiv=ia("Ut på gården", "Farstudörren ut mot gården och midsommarstången.")),
@@ -117,7 +117,7 @@ bilder = {"id": "bilderna", "namn": "Bilderna", "mekanik": "bildjamforelse", "pa
   "instruktion": "Välj två bilder i remsan. Tryck på en detalj som skiljer dem åt – eller på något som är exakt likadant och betyder något. Alla skillnader är inte viktiga. Fel tryck kostar ingenting.",
   "bilder": [
     {"id": "bild-f", "ordning": 0, "tid": "2019", "kort": "Försäkring", "titel": "Försäkringsfotot", "kalla": "Gunnars pärm", "motiv": "narbild", "varden": V(bakgrund="sammet", tidning="forsakring", skal="finns", kant="buckla", handtag="S")},
-    {"id": "bild-a", "ordning": 1, "tid": "09.12", "kort": "Instagram", "titel": "”Putsat brudskålen inför festen!”", "kalla": "Gunnars Instagram", "motiv": "narbild", "varden": V(bakgrund="kok", tidning="dagens", skal="finns", kant="buckla", handtag="S")},
+    {"id": "bild-a", "ordning": 1, "tid": "09.10", "kort": "Instagram", "titel": "”Putsat brudskålen inför festen!”", "kalla": "Gunnars Instagram", "motiv": "narbild", "varden": V(bakgrund="kok", tidning="dagens", skal="finns", kant="buckla", handtag="S")},
     {"id": "bild-b", "ordning": 2, "tid": "15.16", "kort": "Karin", "titel": "Skänken när gästerna kom", "kalla": "Karins mobil", "motiv": "skank", "varden": V(skal="finns", kant="slat", handtag="slat", vas="v", ljus="slackt", gardin="oppen", utsikt="bil-in", person="ingen")},
     {"id": "bild-c", "ordning": 3, "tid": "16.05", "kort": "Karin", "titel": "Skänken efter kaffet", "kalla": "Karins mobil", "motiv": "skank", "varden": V(skal="finns", kant="slat", handtag="slat", vas="h", ljus="slackt", gardin="oppen", utsikt="kaffebord", person="ingen")},
     {"id": "bild-d", "ordning": 4, "tid": "17.05", "kort": "Olle", "titel": "Olle med tårtan", "kalla": "Olles mobil", "motiv": "skank", "varden": V(skal="finns", kant="slat", handtag="slat", vas="h", ljus="tand", gardin="oppen", utsikt="kaffebord", person="olle")},
@@ -150,8 +150,8 @@ fall["fynd"] = [
   {"id": "f-gunnar-anmalan", "titel": "Gunnars anmälan", "ikon": "🗣️", "typ": "nyckel", "galler": ["gunnar"], "text": "Gunnar: ”Jag såg den halv fem, med sin gamla buckla på kanten. Kvart i sex var den borta.”"},
   {"id": "f-gunnar-ensam", "titel": "Ensam på gården", "ikon": "🏡", "typ": "nyckel", "galler": ["gunnar"], "text": "Gunnar var ensam på gården hela dagen tills bussen kom – det säger han själv."},
   {"id": "f-forsakring", "titel": "Höjd försäkring", "ikon": "📄", "typ": "stod", "galler": ["gunnar"], "text": "I mars höjde Gunnar skålens försäkringsvärde från 180 000 kr till 650 000 kr."},
-  {"id": "f-akta", "titel": "Morgonens skål är äkta", "ikon": "🏺", "typ": "nyckel", "text": "Skålen på Gunnars bild kl. 09.12 har samma buckla och samma S i handtaget som försäkringsfotot."},
-  {"id": "f-bild-idag", "titel": "Dagens tidning", "ikon": "📰", "typ": "stod", "text": "På morgonbilden ligger dagens Dala-Demokraten bredvid skålen. Bilden är från i dag, 09.12."},
+  {"id": "f-akta", "titel": "Morgonens skål är äkta", "ikon": "🏺", "typ": "nyckel", "text": "Skålen på Gunnars bild kl. 09.10 har samma buckla och samma S i handtaget som försäkringsfotot."},
+  {"id": "f-bild-idag", "titel": "Dagens tidning", "ikon": "📰", "typ": "stod", "text": "På morgonbilden ligger dagens Dala-Demokraten bredvid skålen. Bilden togs i dag, kl. 09.10."},
   {"id": "f-kopia", "titel": "En annan skål", "ikon": "🔍", "typ": "nyckel", "text": "Skålen på alla bilder från 15.16 och framåt saknar bucklan och S:et. Det är en kopia – den äkta skålen byttes ut före 15.16."},
   {"id": "f-borta", "titel": "Kopian försvinner", "ikon": "⌛", "typ": "bakgrund", "text": "Skålen på skänken (kopian) försvann mellan 17.05 och 17.20."},
   {"id": "f-buss", "titel": "Bussen kom 15.14", "ikon": "🚌", "typ": "nyckel", "galler": ["mikael", "olle"], "text": "Alla gästerna, och maten, kom med samma buss. Den nådde gården kl. 15.14."},
@@ -166,15 +166,15 @@ fall["fynd"] = [
 fall["slutsatser"] = [
   {"id": "s-akta", "kraver": ["f-akta", "f-bild-idag"], "fraga": "Vad visar Gunnars morgonbild?", "alternativ": [
     {"text": "En gammal bild – den kan vara från vilken dag som helst.", "svar": "Dagens tidning ligger bredvid skålen. Bilden är från i dag."},
-    {"text": "Den äkta skålen, i dag kl. 09.12.", "ratt": True},
+    {"text": "Den äkta skålen, i dag kl. 09.10.", "ratt": True},
     {"text": "En kopia.", "svar": "Bucklan och S:et stämmer med försäkringsfotot från 2019."}],
-   "slutsats": "Kl. 09.12 i dag fanns den äkta brudskålen på gården."},
+   "slutsats": "Kl. 09.10 i dag fanns den äkta brudskålen på gården."},
   {"id": "s-kopia", "kraver": ["f-kopia"], "efter": ["s-akta"], "fraga": "Skålen på eftermiddagens bilder saknar bucklan och S:et. Vad betyder det?", "alternativ": [
     {"text": "Någon har lagat bucklan under festen.", "svar": "Bucklan saknas redan på bilden kl. 15.16, när gästerna klev in – och ett ingraverat S går inte att laga bort."},
-    {"text": "Det är en kopia. Den äkta skålen byttes ut mellan 09.12 och 15.16.", "ratt": True},
+    {"text": "Det är en kopia. Den äkta skålen byttes ut mellan 09.10 och 15.16.", "ratt": True},
     {"text": "Bilderna är för dåliga för att säga något.", "svar": "Handtagen syns tydligt på alla bilder – släta."}],
-   "slutsats": "Skålen gästerna såg var en kopia. Den äkta försvann mellan 09.12 och 15.16 – innan festen ens börjat."},
-  {"id": "s-vem", "kraver": ["f-buss", "f-parkering", "f-lena-resa", "f-lena-ankomst", "f-gunnar-ensam"], "efter": ["s-kopia"], "fraga": "Vem var på gården mellan 09.12 och 15.16?", "alternativ": [
+   "slutsats": "Skålen gästerna såg var en kopia. Den äkta försvann mellan 09.10 och 15.16 – innan festen ens börjat."},
+  {"id": "s-vem", "kraver": ["f-buss", "f-parkering", "f-lena-resa", "f-lena-ankomst", "f-gunnar-ensam"], "efter": ["s-kopia"], "fraga": "Vem var på gården mellan 09.10 och bussens ankomst 15.14?", "alternativ": [
     {"text": "Gästerna.", "svar": "Alla gästerna kom med bussen kl. 15.14, och då var bytet redan gjort."},
     {"text": "Lena.", "svar": "Lena åkte halv nio och stod på Arlanda 11.02–12.44. Hem är det två och en halv timme – hon körde in på gården först kl. 15.16."},
     {"text": "Bara Gunnar.", "ratt": True}],
@@ -208,7 +208,7 @@ fall["anklagelse"] = {"hur_fraga": "Hur försvann den äkta skålen?", "hur_alte
 fall["ledtradar"] = [
   {"niva": 1, "kostnad": 10, "kraver": ["bild-a", "bild-f", "bild-b"], "text": "Jämför Instagrambilden från morgonen med försäkringsfotot. Jämför sedan med eftermiddagens bilder. Titta på kanten."},
   {"niva": 2, "kostnad": 25, "kraver": ["f-kopia", "f-buss"], "text": "Skålen på festen är inte samma skål. När byttes den ut – och vilka fanns på gården då?"},
-  {"niva": 3, "kostnad": 50, "kraver": ["f-gunnar-ensam", "f-gunnar-anmalan"], "text": "Mellan 09.12 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"}]
+  {"niva": 3, "kostnad": 50, "kraver": ["f-gunnar-ensam", "f-gunnar-anmalan"], "text": "Mellan 09.10 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"}]
 fall["aterkoppling"] = {
   "ratt": "Den bästa stölden är den som aldrig händer. Gunnar bytte skålen i lugn och ro medan han var ensam på gården. Sedan lät han en kopia ”försvinna” inför tjugofem vittnen. Han glömde bara att han själv hade lagt ut beviset på Instagram.",
   "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian låg i Gunnars bil. Han hade beställt den av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
@@ -219,8 +219,8 @@ fall["aterkoppling"] = {
     "gunnar": ""},
   "fel_allman": "Strand höjer ett ögonbryn …",
   "forklaring_steg": [
-    {"text": "Gunnars Instagrambild kl. 09.12 visar samma buckla och samma S som försäkringsfotot, och dagens tidning ligger bredvid. Skålen var äkta i morse.", "fynd": ["f-akta", "f-bild-idag"]},
-    {"text": "Alla bilder från 15.16 och framåt visar en skål utan buckla och med släta handtag. Det är en kopia. Den äkta skålen byttes ut mellan 09.12 och 15.16.", "fynd": ["f-kopia"]},
+    {"text": "Gunnars Instagrambild kl. 09.10 visar samma buckla och samma S som försäkringsfotot, och dagens tidning ligger bredvid. Skålen var äkta i morse.", "fynd": ["f-akta", "f-bild-idag"]},
+    {"text": "Alla bilder från 15.16 och framåt visar en skål utan buckla och med släta handtag. Det är en kopia. Den äkta skålen byttes ut mellan 09.10 och 15.16.", "fynd": ["f-kopia"]},
     {"text": "Gästerna kom med bussen 15.14. Lena stod på Arlanda till 12.44 och körde in på gården 15.16. Bara Gunnar var på gården när bytet kan ha skett – det säger han själv.", "fynd": ["f-buss", "f-parkering", "f-lena-ankomst", "f-gunnar-ensam"]},
     {"text": "Gunnar säger att han såg skålen ”med sin gamla buckla” kl. 16.30. Men då stod kopian där. Han beskriver skålen han vet att den borde vara.", "fynd": ["f-gunnar-anmalan"]},
     {"text": "Kopian försvann 17.05–17.20 – stölden var iscensatt. Olle och Mikael är villospår: skålen stod kvar efter dem, och det var ändå bara kopian.", "fynd": ["f-borta", "f-olle-skank", "f-mikael-vaska"]},

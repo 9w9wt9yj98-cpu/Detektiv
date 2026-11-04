@@ -39,7 +39,7 @@ urmakeriet = {"id": "urmakeriet", "namn": "Urmakeriet", "mekanik": "scen", "payl
     obj("lucka", "lucka", [-1.2, 0, -2.19], interaktiv=ia("Fönsterluckan",
         "Luckan mot gränden är uppbruten utifrån med ett järn – träet är splittrat kring regeln, och snö har blåst in över golvet. Den som kom in här klättrade över fönsterbänken.", "f-luckan")),
     obj("vaggur", "vaggur", [2.49, 0, -1.2], rot=-90, krossad=True, tid=[10, 47], interaktiv=ia("Den krossade väggklockan",
-        "Väggklockan har slitits ned från sin krok bredvid fönstret och ligger krossad på golvet. Visarna har stannat på 22.47. Fältskog: ”Den gick på sekunden – jag ställde den efter Storkyrkan i förrgår.”", "f-klockan")),
+        "Väggklockan har slitits ned från sin krok på väggen och ligger krossad på golvet. Visarna har stannat på 22.47. Fältskog: ”Den gick på sekunden – jag ställde den efter Storkyrkan i förrgår.”", "f-klockan")),
     obj("krok", "skylt", [2.485, 1.95, -1.2], rot=-90, text="⌀", storlek=[0.08, 0.08], textstorlek=40),
     obj("bank", "arbetsbank", [-2.15, 0, 0.6], rot=90, bredd=1.6, styrka=1.6),
     obj("span", "span", [-1.4, 0, 0.6], yta=[1.4, 1.8], antal=90, interaktiv=ia("Spånen på golvet",

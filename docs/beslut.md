@@ -265,3 +265,26 @@ Förhandsgranskningen i samma stil som fall 1 och 2 (`?stil=verklig`; vanlig sti
 - **Småfel i fallet (rättade i `verktyg/fall/fyren.py`):** Elofs dagbok beskrivs som svart men var rödbrun. Brevet låg ovanpå byrån fast texten sa ”i byrålådan” – texten säger nu att det ligger på byrån och har legat undanstoppat i lådan. Fotogenkannorna i stugan stod inte ”bakom dörren”. Pendylen i köket hade en urtavla utan bestämd tid (omkring 10.15) medan klockan på stationen visar 7.05; den visar nu 7.00. Tiderna, gångvägarna, barografens märken och vem som kan gå var stämmer i övrigt.
 
 Före- och efterbilder: `docs/bilder/modeller-fall6/`.
+
+## Blindtest 2 av alla fall (november 2026)
+
+Efter grafikarbetet bad Martin om en blind agent som speltestar logiken och kontrollerar att allt går att lösa. Agenten fick bara spelarvyn, som skrivs av det nya verktyget `verktyg/spelarvy.mjs`: allt spelaren kan se, men ingen lösning, inga rätta svar, motsägelser, prövningar, ledtrådar, villospårsmärkning eller fynd som man bara får genom att lösa något. Först löste den varje fall, och först därefter fick den slutsatsfrågorna (`--slutsatser`). Hela rapporten: `docs/blindtest/rapport-2026-11-04.md`.
+
+**Resultat:** alla sex fall lösta rätt, både skyldig och hur, med säkerhet 4–5 av 5. Alla 36 slutsatsfrågor besvarade rätt, och ingen fråga fick agenten att ändra sig. Inga allvarliga fel hittades. Två påpekanden stämde inte: slutsatsfrågorna om läkaren i fall 3 och om bläcket i fall 6 visas först när rutnätet respektive bläcket är löst. Att Gunnar själv lät kopian försvinna förklaras i upplösningen, som agenten inte såg.
+
+**Rättat (texter och placeringar, pusslen är oförändrade):**
+
+| Fall | Rättning |
+|---|---|
+| 1 | Avtrycken går från dörren till byrån, vidare till fönstret och samma väg tillbaka; inget börjar vid fönstret (förut ”de slutar där”, som kunde läsas som att tjuven gick ut genom fönstret). Friherrinnan och Elsa kom uppför huvudtrappan och lämnade torra spår. Holm gick ut genom serveringsdörren – källartrappan ligger i salen, så gästerna såg vilken dörr han tog. |
+| 2 | Läkaren skriver att slaget kommer från ett tungt föremål, inte från ett fall. Förut uteslöt inget fynd anklagelsens alternativ ”Berg föll och slog sig”. Fyndet om fru Ahls kedja säger att den var hakad inifrån när Lind kom, inte ”hela natten”, som han inte kunde veta. Lyktan lyste in ”genom isen på rutan” (fönstret är fastfruset). |
+| 3 | Rutnätets instruktion säger att plats 2 och 3 räknas som grannar (närmast den lediga kortänden; i 3D sitter de mitt emot varandra), och att Dryck är vad var och en drack före middagen. Vinflaskan gäller ”vinet till förrätten”. |
+| 4 | Bytet räknas från fotots tid 09.10, inte från inläggets 09.12, i frågor, fynd och bildremsan. Frågan om vem som var på gården gäller fram till bussens ankomst 15.14. Olle bar *in* tårtan och tog bilden ”åt farbror Gunnar” (det fanns ingen faster). Vasen står till höger på skänken och ljusstaken till vänster, som på bilderna efter 16.05. |
+| 5 | Väggklockan hängde ”på väggen”, inte ”bredvid fönstret” – urmakeriet har inget fönster, bara luckan. |
+| 6 | Doktorns anteckning vid kroppen är skriven 06.30, när Elof hade hämtat honom. Förut stod 06.10, fast han satte barografmärket 06.00 på stationen och vägen tar tio minuter. Anteckningen säger att kläderna är torra, vilket utesluter ”föll från galleriet i stormen”. Lagerkvist är ”läkare och meteorolog”. |
+
+**Kvar – kräver beslut:**
+- *Svårighet:* flera fynd- och frågetexter drar slutsatsen åt spelaren, till exempel vasen i fall 1, fru Ahls kedja i fall 2, bläckkommentaren i loggboken i fall 6 och personbeskrivningarna som avslöjar yrkena i fall 3. Detta fanns redan bland det som skulle vänta.
+- *Fall 2:* det låsta rummet vilar på Linds ord, och han är själv misstänkt. Ett andra vittne till kedjan, till exempel Nyqvist, skulle täppa till luckan.
+- *Fall 4:* inget fynd i spelet visar att det var Gunnar som tog kopian 17.05–17.20; bara upplösningen säger det. Ett fynd (kopian i kontoret) vore tydligare.
+- *Småsaker:* namnen återkommer mellan fallen (Holm, Berg, Lind/Lindh). Hustrun räknas som ”oberoende källa” i fall 5.

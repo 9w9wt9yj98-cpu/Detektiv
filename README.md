@@ -71,6 +71,7 @@ npm run release                         # före varje release: höjer service wo
 
 - 📄 [Designförslag v1](docs/forslag-v1.md)
 - ✅ [Beslut och avvikelser](docs/beslut.md)
+- 🕵️ [Blindtest av alla fall, november 2026](docs/blindtest/rapport-2026-11-04.md)
 
 ## Projektledare
 

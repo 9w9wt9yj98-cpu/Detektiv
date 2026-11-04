@@ -23,7 +23,7 @@ fall = {"id": "fyren-pa-graskar", "version": 1,
  "personer": [
    {"id": "elof", "namn": "Elof Granath", "roll": "Fyrbiträde", "misstankt": T, "beskrivning": "Vänlig och hjälpsam. Har samlat alla papper åt dig. Bor i biträdesstugan."},
    {"id": "signe", "namn": "Signe Wenngren", "roll": "Fyrmästarens hustru", "misstankt": T, "beskrivning": "Blek och tystlåten. Bor i fyrmästarbostaden."},
-   {"id": "lagerkvist", "namn": "Dr. Arvid Lagerkvist", "roll": "Meteorolog vid väderstationen", "misstankt": T, "beskrivning": "Har grälat med fyrmästaren om stationens placering."},
+   {"id": "lagerkvist", "namn": "Dr. Arvid Lagerkvist", "roll": "Läkare och meteorolog vid väderstationen", "misstankt": T, "beskrivning": "Har grälat med fyrmästaren om stationens placering."},
    {"id": "johan", "namn": "Johan Sjöberg", "roll": "Skeppsbruten fiskare", "misstankt": T, "beskrivning": "Flöt i land kvällen innan med ett brutet ben. Ligger på köksbänken."},
    {"id": "holger", "namn": "Holger Wenngren", "roll": "Fyrmästare, död", "misstankt": False, "beskrivning": "Sträng, noggrann, alltid med blyertspennan i bröstfickan."},
  ]}
@@ -128,7 +128,7 @@ stationen = {"id": "stationen", "namn": "Väderstationen", "mekanik": "scen", "p
     obj("barografen", "barograf", [0.35, 0.78, -1.25], interaktiv=ia("Barografen", "Barografens trumma vrids av ett urverk. Rullen från natten mot den fjortonde sitter kvar. Vid varje observation har doktorn tryckt ned tidsmärkespaken, som slår ett litet hack i kurvan.", "f-barograf", ["dok-barograf"])),
     obj("journalen", "liggare", [-0.35, 0.78, -1.2], storlek=[0.42, 0.3], farg="#3a3a2a", interaktiv=ia("Väderjournalen", "Doktorns journal, förd med vetenskaplig noggrannhet.", "f-gangvag", ["dok-journal"])),
     obj("lagerkvist", "person", [1.0, 0, 0.1], rot=-120, rock="#4a4a3a", byxor="#2a2a24", har="#c8c4b8", glasogon=True, skagg=True, seed=2,
-        interaktiv=ia("Dr. Lagerkvist", "Doktorn putsar sina glasögon. ”Ni har väl läst min anteckning vid kroppen? Jag skrev den klockan tio över sex. Och nej, jag lämnade inte stationen den natten – stormvarning betyder observation var femtonde minut, och det har jag gjort i tjugo år.”", ["f-duns-lagerkvist", "f-grall"], ["dok-lagerkvist"])),
+        interaktiv=ia("Dr. Lagerkvist", "Doktorn putsar sina glasögon. ”Ni har väl läst min anteckning vid kroppen? Jag skrev den klockan halv sju, när Elof hade hämtat mig. Och nej, jag lämnade inte stationen den natten – stormvarning betyder observation var femtonde minut, och det har jag gjort i tjugo år.”", ["f-duns-lagerkvist", "f-grall"], ["dok-lagerkvist"])),
     obj("barometer", "vaggur", [1.79, 1.1, -0.6], rot=-90, tid=[7, 5], farg="#5a3a1a"),
     obj("lampa", "oljelampa", [-0.6, 0.78, -1.3], ljus=True, styrka=2.0, modell=LAMPA),
     obj("fonster", "stormfonster", [-1.79, 0, -0.3], rot=90, bredd=0.8, hojd=0.9, y0=1.0, ram="#d8ccb0"),
@@ -161,9 +161,9 @@ dokument = {"id": "dokumenten", "namn": "Dokumenten", "mekanik": "dokument", "pa
       S("Jag gick till kojs vid elva och sov tungt till sex, då Signes skrik väckte mig.", "d-sov"),
       S("Vid fyratiden vaknade jag kort av att Holger visslade uppe i tornet, som han alltid gör vid uppdragningen, och så somnade jag om.", "d-visslade"),
       S("Stackars Holger. Trappan är brant, och han var inte så ung längre.", "d-olycka")]},
-    {"id": "dok-fyndet", "titel": "Dr. Lagerkvists anteckning vid fyndet", "underrubrik": "14 oktober, kl. 06.10", "ikon": "🩺", "stil": "hand", "stycken": [
+    {"id": "dok-fyndet", "titel": "Dr. Lagerkvists anteckning vid fyndet", "underrubrik": "14 oktober, kl. 06.30", "ikon": "🩺", "stil": "hand", "stycken": [
       S("Kroppen låg tvärs över trappan på nedre avsatsen. Ingen kan passera upp till lanternan utan att kliva över honom.", "n-trappa"),
-      S("Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade flera timmar före sex.", "n-grepp")]},
+      S("Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade flera timmar före sex. Kläderna är torra: han har inte varit ute i stormen.", "n-grepp")]},
     {"id": "dok-journal", "titel": "Väderjournal, Gråskärs station", "underrubrik": "13–14 oktober 1931", "ikon": "📒", "stil": "logg", "stycken": [
       S("Stormvarning från kl. 21. Observation var 15:e minut enligt instruktion; varje avläsning märks med tidsmärke på barografens rulle.", "j-storm"),
       S("02.00–06.00: vid varje observation antecknat ”Fyren lyser normalt”.", "j-fyr"),

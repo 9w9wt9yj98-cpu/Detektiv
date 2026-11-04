@@ -57,7 +57,7 @@
       "namn": "Olle Sahlin",
       "roll": "Brorson, 19 år",
       "misstankt": true,
-      "beskrivning": "Bar ut tårtan. Stod länge vid skänken."
+      "beskrivning": "Bar in tårtan. Stod länge vid skänken."
     },
     {
       "id": "karin",
@@ -164,7 +164,7 @@
               "id": "vas",
               "typ": "vas",
               "pos": [
-                -0.62,
+                0.62,
                 0.95,
                 -2.7
               ]
@@ -173,7 +173,7 @@
               "id": "ljusstake",
               "typ": "ljusstake",
               "pos": [
-                0.62,
+                -0.62,
                 0.95,
                 -2.7
               ],
@@ -329,7 +329,7 @@
               "seed": 4,
               "interaktiv": {
                 "namn": "Olle Sahlin",
-                "text": "Olle skruvar på sig. ”Jag bar in tårtan vid fem och ställde mig vid skänken för att ta en bild åt faster. Skålen stod där när jag gick ut igen, det syns ju på bilden.” Han visar sin mobil.",
+                "text": "Olle skruvar på sig. ”Jag bar in tårtan vid fem och ställde mig vid skänken för att ta en bild åt farbror Gunnar. Skålen stod där när jag gick ut igen, det syns ju på bilden.” Han visar sin mobil.",
                 "ger_material": [
                   "bild-d"
                 ]
@@ -984,7 +984,7 @@
           {
             "id": "bild-a",
             "ordning": 1,
-            "tid": "09.12",
+            "tid": "09.10",
             "kort": "Instagram",
             "titel": "”Putsat brudskålen inför festen!”",
             "kalla": "Gunnars Instagram",
@@ -1262,14 +1262,14 @@
       "titel": "Morgonens skål är äkta",
       "ikon": "🏺",
       "typ": "nyckel",
-      "text": "Skålen på Gunnars bild kl. 09.12 har samma buckla och samma S i handtaget som försäkringsfotot."
+      "text": "Skålen på Gunnars bild kl. 09.10 har samma buckla och samma S i handtaget som försäkringsfotot."
     },
     {
       "id": "f-bild-idag",
       "titel": "Dagens tidning",
       "ikon": "📰",
       "typ": "stod",
-      "text": "På morgonbilden ligger dagens Dala-Demokraten bredvid skålen. Bilden är från i dag, 09.12."
+      "text": "På morgonbilden ligger dagens Dala-Demokraten bredvid skålen. Bilden togs i dag, kl. 09.10."
     },
     {
       "id": "f-kopia",
@@ -1374,7 +1374,7 @@
           "svar": "Dagens tidning ligger bredvid skålen. Bilden är från i dag."
         },
         {
-          "text": "Den äkta skålen, i dag kl. 09.12.",
+          "text": "Den äkta skålen, i dag kl. 09.10.",
           "ratt": true
         },
         {
@@ -1382,7 +1382,7 @@
           "svar": "Bucklan och S:et stämmer med försäkringsfotot från 2019."
         }
       ],
-      "slutsats": "Kl. 09.12 i dag fanns den äkta brudskålen på gården."
+      "slutsats": "Kl. 09.10 i dag fanns den äkta brudskålen på gården."
     },
     {
       "id": "s-kopia",
@@ -1399,7 +1399,7 @@
           "svar": "Bucklan saknas redan på bilden kl. 15.16, när gästerna klev in – och ett ingraverat S går inte att laga bort."
         },
         {
-          "text": "Det är en kopia. Den äkta skålen byttes ut mellan 09.12 och 15.16.",
+          "text": "Det är en kopia. Den äkta skålen byttes ut mellan 09.10 och 15.16.",
           "ratt": true
         },
         {
@@ -1407,7 +1407,7 @@
           "svar": "Handtagen syns tydligt på alla bilder – släta."
         }
       ],
-      "slutsats": "Skålen gästerna såg var en kopia. Den äkta försvann mellan 09.12 och 15.16 – innan festen ens börjat."
+      "slutsats": "Skålen gästerna såg var en kopia. Den äkta försvann mellan 09.10 och 15.16 – innan festen ens börjat."
     },
     {
       "id": "s-vem",
@@ -1421,7 +1421,7 @@
       "efter": [
         "s-kopia"
       ],
-      "fraga": "Vem var på gården mellan 09.12 och 15.16?",
+      "fraga": "Vem var på gården mellan 09.10 och bussens ankomst 15.14?",
       "alternativ": [
         {
           "text": "Gästerna.",
@@ -1604,7 +1604,7 @@
         "f-gunnar-ensam",
         "f-gunnar-anmalan"
       ],
-      "text": "Mellan 09.12 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"
+      "text": "Mellan 09.10 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"
     }
   ],
   "aterkoppling": {
@@ -1619,14 +1619,14 @@
     "fel_allman": "Strand höjer ett ögonbryn …",
     "forklaring_steg": [
       {
-        "text": "Gunnars Instagrambild kl. 09.12 visar samma buckla och samma S som försäkringsfotot, och dagens tidning ligger bredvid. Skålen var äkta i morse.",
+        "text": "Gunnars Instagrambild kl. 09.10 visar samma buckla och samma S som försäkringsfotot, och dagens tidning ligger bredvid. Skålen var äkta i morse.",
         "fynd": [
           "f-akta",
           "f-bild-idag"
         ]
       },
       {
-        "text": "Alla bilder från 15.16 och framåt visar en skål utan buckla och med släta handtag. Det är en kopia. Den äkta skålen byttes ut mellan 09.12 och 15.16.",
+        "text": "Alla bilder från 15.16 och framåt visar en skål utan buckla och med släta handtag. Det är en kopia. Den äkta skålen byttes ut mellan 09.10 och 15.16.",
         "fynd": [
           "f-kopia"
         ]

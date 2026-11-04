@@ -116,7 +116,8 @@ for (const m of f.moment) {
   if (m.mekanik === 'bildjamforelse') {
     p('Bilderna (beskrivna med de detaljer som syns på dem):');
     for (const b of [...(pl.bilder || [])].sort((a, c) => a.ordning - c.ordning)) p(`- **${b.titel}** (${b.kort}, tid ${b.tid}, källa: ${b.kalla}, motiv: ${b.motiv}): ${Object.entries(b.varden || {}).map(([k, v]) => `${k} = ${v}`).join(', ')}`);
-    p(`Detaljer man kan peka på: ${Object.keys(pl.regioner || {}).join(', ')}.`);
+    const regioner = new Set([...Object.keys(pl.regioner || {}), ...(pl.upptackter || []).map((u) => u.region)]);
+    p(`Detaljer man kan peka på: ${[...regioner].join(', ')}.`);
   }
 }
 p(); p('## Anklagelsen');

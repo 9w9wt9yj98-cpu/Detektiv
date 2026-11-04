@@ -50,7 +50,7 @@
     {
       "id": "lagerkvist",
       "namn": "Dr. Arvid Lagerkvist",
-      "roll": "Meteorolog vid väderstationen",
+      "roll": "Läkare och meteorolog vid väderstationen",
       "misstankt": true,
       "beskrivning": "Har grälat med fyrmästaren om stationens placering."
     },
@@ -1103,7 +1103,7 @@
               "seed": 2,
               "interaktiv": {
                 "namn": "Dr. Lagerkvist",
-                "text": "Doktorn putsar sina glasögon. ”Ni har väl läst min anteckning vid kroppen? Jag skrev den klockan tio över sex. Och nej, jag lämnade inte stationen den natten – stormvarning betyder observation var femtonde minut, och det har jag gjort i tjugo år.”",
+                "text": "Doktorn putsar sina glasögon. ”Ni har väl läst min anteckning vid kroppen? Jag skrev den klockan halv sju, när Elof hade hämtat mig. Och nej, jag lämnade inte stationen den natten – stormvarning betyder observation var femtonde minut, och det har jag gjort i tjugo år.”",
                 "ger_fynd": [
                   "f-duns-lagerkvist",
                   "f-grall"
@@ -1318,7 +1318,7 @@
           {
             "id": "dok-fyndet",
             "titel": "Dr. Lagerkvists anteckning vid fyndet",
-            "underrubrik": "14 oktober, kl. 06.10",
+            "underrubrik": "14 oktober, kl. 06.30",
             "ikon": "🩺",
             "stil": "hand",
             "stycken": [
@@ -1328,7 +1328,7 @@
               },
               {
                 "id": "n-grepp",
-                "text": "Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade flera timmar före sex."
+                "text": "Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade flera timmar före sex. Kläderna är torra: han har inte varit ute i stormen."
               }
             ]
           },

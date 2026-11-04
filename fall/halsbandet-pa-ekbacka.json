@@ -253,7 +253,7 @@
               ],
               "interaktiv": {
                 "namn": "Avtryck på mattan",
-                "text": "Fuktiga avtryck av släta skosulor löper över mattan: från dörren till byrån, och vidare bort till fönstret. Inga avtryck kommer in från fönstret – de slutar där.",
+                "text": "Fuktiga avtryck av släta skosulor löper över mattan: från dörren till byrån, vidare bort till fönstret och samma väg tillbaka. Inget avtryck börjar vid fönstret. (Friherrinnan och Elsa kom uppför huvudtrappan och har lämnat torra spår.)",
                 "ger_fynd": "f-fotspar"
               }
             },
@@ -819,7 +819,7 @@
               "antal": 3,
               "interaktiv": {
                 "namn": "Gästernas vittnesmål",
-                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen. Elsa Lund serverade soppan och sedan steken – kokerskan räckte in faten genom serveringsluckan – och lämnade inte salen förrän hon följde friherrinnan upp strax efter nio. Gustav Wrede satt mitt emot friherrinnan och lämnade aldrig bordet. Holm gick ut 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
+                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen. Elsa Lund serverade soppan och sedan steken – kokerskan räckte in faten genom serveringsluckan – och lämnade inte salen förrän hon följde friherrinnan upp strax efter nio. Gustav Wrede satt mitt emot friherrinnan och lämnade aldrig bordet. Holm gick ut genom serveringsdörren 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
                 "ger_fynd": [
                   "f-servering",
                   "f-holm-borta"
@@ -987,7 +987,7 @@
       "id": "f-fotspar",
       "titel": "Avtryck på mattan",
       "ikon": "👞",
-      "text": "Fuktiga avtryck av släta sulor går från dörren till byrån och vidare till fönstret – men inga kommer in från fönstret.",
+      "text": "Fuktiga avtryck av släta sulor går från dörren till byrån, vidare till fönstret och tillbaka – men inget börjar vid fönstret.",
       "typ": "stod"
     },
     {
@@ -1078,7 +1078,7 @@
       "id": "f-holm-borta",
       "titel": "Holm gick ut",
       "ikon": "🕣",
-      "text": "Holm lämnade salen 20.30–20.40 ”för att hämta 1919 års Bordeaux i källaren”.",
+      "text": "Holm lämnade salen genom serveringsdörren 20.30–20.40 ”för att hämta 1919 års Bordeaux i källaren”.",
       "typ": "nyckel",
       "galler": [
         "holm"

@@ -320,7 +320,7 @@
               ],
               "interaktiv": {
                 "namn": "Vinflaskan",
-                "text": "Vinet serverades ur samma flaska till alla fem vid bordet. Ingen annan blev sjuk."
+                "text": "Vinet till förrätten serverades ur samma flaska till alla fem vid bordet. Ingen annan blev sjuk."
               }
             },
             {
@@ -489,7 +489,7 @@
       "mekanik": "logikrutnat",
       "payload": {
         "rubrik": "Vem satt var?",
-        "instruktion": "Tryck i en ruta för att växla mellan tom, ✗ och ✓. Översten satt vid kortänden; plats 1–4 räknas runt bordet från hans högra sida, så plats 1 och 4 sitter bredvid honom och plats 4 är hans vänstra sida. Plats 1 och 4 räknas inte som grannar till varandra – översten sitter emellan.",
+        "instruktion": "Tryck i en ruta för att växla mellan tom, ✗ och ✓. Översten satt vid kortänden; plats 1–4 räknas runt bordet från hans högra sida, så plats 1 och 4 sitter bredvid honom och plats 4 är hans vänstra sida. Plats 1 och 4 räknas inte som grannar till varandra – översten sitter emellan. Plats 2 och 3 räknas som grannar – de sitter närmast bordets lediga kortände. Dryck är vad var och en drack före middagen; vinet till förrätten fick alla ur samma flaska.",
         "kategorier": [
           {
             "id": "person",
