@@ -68,7 +68,7 @@ export async function fel(browser) {
   assert.equal(await p.locator('[data-ledtrad]').evaluate((b) => b.classList.contains('fastnat')), false, 'lampan ska sluta pulsera när hjälpen öppnas');
   await p.locator('[data-saloserdu]').click();
   await p.locator('.sa-loser-du').waitFor();
-  assert.match(await p.locator('.sa-loser-du').innerText(), /Undersök[\s\S]*Läs fynden[\s\S]*Tänk i boken[\s\S]*Anklaga/);
+  assert.match(await p.locator('.sa-loser-du').innerText(), /Undersök[\s\S]*Läs fynden[\s\S]*Koppla ihop i boken[\s\S]*Anklaga/);
   await bild(p, 'f1-sa-loser-du');
   await p.locator('.sa-loser-du [data-stang]').click(); await vanta(300);
   await p.evaluate(() => { window.__detektiv.fastnatEfter = 240; });

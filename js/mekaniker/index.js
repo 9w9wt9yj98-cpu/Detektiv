@@ -16,7 +16,7 @@ export const MEKANIKER = {
       });
     },
     klar: (m, st) => !!st.rutnatLost,
-    framsteg: (m, st) => ({ hittade: st.rutnatLost ? 1 : 0, totalt: 1, text: 'rutnätet är inte löst än. Ta ledtrådarna en i taget och kryssa bort det som inte kan stämma.' }),
+    framsteg: (m, st) => ({ hittade: st.rutnatLost ? 1 : 0, totalt: 1, text: 'rutnätet är inte löst än. Gå igenom uppgifterna en i taget och kryssa bort det som inte kan stämma.' }),
   },
 };
 // framsteg: { hittade, totalt, text } för det gratis tipset i lampan (motor/vagledning.js, nastaSteg).

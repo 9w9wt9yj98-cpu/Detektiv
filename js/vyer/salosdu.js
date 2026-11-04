@@ -2,10 +2,10 @@
 import { esc, modal, lampa } from './gemensamt.js';
 
 export const STEG = [
-  ['🔍', 'Undersök', 'Gå runt och tryck på allt som har ett ! ovanför. Det du hittar skrivs in i anteckningsboken.'],
-  ['📖', 'Läs fynden', 'Vad stämmer inte? Jämför tider, vem som kan gå var och vem som har nyckel.'],
-  ['🧩', 'Tänk i boken', 'Lös pusslet i anteckningsboken – förhör, dokument, tidslinje … – och svara på frågorna under Slutsatser. De leder dig steg för steg.'],
-  ['⚖️', 'Anklaga', 'Välj den skyldige och de fynd som bevisar det. Rätt lösning förklarar också varför ingen annan kan ha gjort det.'],
+  ['🔍', 'Undersök', 'Gå runt och tryck på allt som har ett ! ovanför – föremål, papper och personer. Det viktiga skrivs in i anteckningsboken, och räknaren Fynd visar hur mycket som är kvar.'],
+  ['📖', 'Läs fynden', 'Leta efter det som inte går ihop: tider, vem som kunde vara var, vem som kunde komma åt vad – och vem som säger emot sig själv eller någon annan.'],
+  ['🧩', 'Koppla ihop i boken', 'Lös fallets pussel i anteckningsboken om det har ett (förhör, bilder, tidslinje …) och svara på frågorna under Slutsatser. De tar dig steg för steg.'],
+  ['⚖️', 'Anklaga', 'Välj den skyldige – och gärna upp till tre fynd som bevis: rätt bevis ger ett extra förstoringsglas. Kan du utesluta alla andra? Då är du säker. Du har två försök.'],
 ];
 
 /** Stegen som lista (används både på fallets första sida och i hjälpkortet). */

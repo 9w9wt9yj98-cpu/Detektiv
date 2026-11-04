@@ -53,7 +53,7 @@ export function rendera(sida, m, ctx) {
         const saknas = lista.length - kanda.length;
         return `<section class="jf-person">${medaljong(pers)}<div><strong>${esc(pers.namn)}</strong> <em>${esc(pers.roll)}</em>
           ${kanda.map((u) => `<button class="jf-post bubbla ${valda.includes(u.id) ? 'vald' : ''}" data-id="${u.id}">${esc(u.text)}</button>`).join('')}
-          ${saknas ? `<p class="jf-okand">${saknas === 1 ? 'Kanske har hen mer att säga – senare.' : 'Mer kan komma fram senare.'}</p>` : ''}</div></section>`;
+          ${saknas ? `<p class="jf-okand">${saknas === 1 ? `Kanske har ${esc(pers.namn)} mer att säga – senare.` : 'Mer kan komma fram senare.'}</p>` : ''}</div></section>`;
       }).join('');
     } else {
       const agda = (p.dokument || []).filter((d) => har(st, d.id));

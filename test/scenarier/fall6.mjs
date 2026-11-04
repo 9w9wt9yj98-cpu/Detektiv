@@ -97,7 +97,9 @@ export async function fel(browser) {
   await startaFall(p, ID);
   await p.locator('[data-ledtrad]').click(); await p.locator('[data-ta]').click(); await p.locator('[data-ja]').click(); await vanta(300);
   const lt = await p.locator('.ledtradlista').innerText();
-  assert.match(lt, /instruktion|Lanternan|loggbok/i, 'ledtråden pekar inte ut källorna: ' + lt);
+  assert.match(lt, /instruktion|loggbok/i, 'ledtråden pekar inte ut källorna: ' + lt);
+  // Pekaren (inte bara ledtrådens egen text) visar vägen till den låsta lanternan via kroppen i tornet.
+  assert.match(await p.locator('.ledtradlista .pekare').innerText(), /komma åt Lanternan/);
   await bild(p, 'f6-ledtrad');
   await p.locator('.ledtradar [data-stang]').last().click(); await vanta(300);
   await anklaga(p, 'johan');

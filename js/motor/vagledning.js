@@ -32,7 +32,21 @@ export function vagTill(fall, st, id, djup = 0) {
     const v = nyckel && vagTill(fall, st, nyckel, djup + 1);
     if (v) return { ...v, for: m.namn };
   }
+  // Följdfrågor och annat material som låses upp av fynd: följ det som saknas.
+  const mat = materialMap(fall)[id];
+  if (mat?.kraver) {
+    const saknas = mat.kraver.find((x) => !har(st, x));
+    const v = saknas && vagTill(fall, st, saknas, djup + 1);
+    if (v) return v;
+  }
   const mk = mekanikKallor(fall)[id];
+  // Fynd som en slutsatsfråga ger: saknar frågan underlag pekar vi på det i stället.
+  if (mk?.slutsats) {
+    const fraga = (fall.slutsatser || []).find((x) => x.id === mk.slutsats);
+    const saknas = (fraga?.kraver || []).find((x) => !har(st, x));
+    const v = saknas && vagTill(fall, st, saknas, djup + 1);
+    if (v) return v;
+  }
   if (mk) {
     // Kräver mekaniken något som saknas?
     const m = mk.moment && fall.moment.find((mm) => mm.id === mk.moment);
@@ -49,8 +63,11 @@ export function vagTill(fall, st, id, djup = 0) {
 export function pekarText(v) {
   if (!v) return '';
   if (v.flik) return `Öppna anteckningsboken och arbeta vidare under fliken ”${v.flik}”.`;
-  const namn = v.person || v.egen ? v.objektNamn : v.objektNamn.charAt(0).toLowerCase() + v.objektNamn.slice(1);
-  return `Gå till ${v.rumNamn} och ${v.person ? 'prata med' : 'undersök'} ${namn}.${v.for ? ` (Det behövs för att komma åt ${v.for}.)` : ''}`;
+  const for_ = v.for ? ` (Det behövs för att komma åt ${v.for}.)` : '';
+  // Personer nämns inte vid namn: pekaren får aldrig råka peka ut den skyldige.
+  if (v.person) return `Gå till ${v.rumNamn} och prata med personerna där.${for_}`;
+  const namn = v.egen ? v.objektNamn : v.objektNamn.charAt(0).toLowerCase() + v.objektNamn.slice(1);
+  return `Gå till ${v.rumNamn} och undersök ${namn}.${for_}`;
 }
 
 /** Saknade underlag för en ledtrådsnivå: returnerar första vägen eller null. */

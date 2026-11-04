@@ -1430,11 +1430,11 @@
       "fraga": "Kupé 2:s egen korridordörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15, fönstret är fastfruset och mot kupé 1 finns ingen dörr. Vad betyder det för den som gick genom mellandörren?",
       "alternativ": [
         {
-          "text": "Hen kunde gå vidare ut i korridoren.",
+          "text": "Den kunde gå vidare ut i korridoren.",
           "svar": "Inte utan att haka av kedjan på kupé 2 – och den satt på inifrån ända till morgonen."
         },
         {
-          "text": "Hen måste ha stannat i kupé 2 – och där fanns bara fru Ahl.",
+          "text": "Den måste ha stannat i kupé 2 – och där fanns bara fru Ahl.",
           "ratt": true
         },
         {

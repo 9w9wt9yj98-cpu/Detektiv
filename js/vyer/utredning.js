@@ -240,7 +240,7 @@ export async function visaUtredning(app, id) {
   const FASTNAT_SEK = 240;
   const lampKnapp = $('[data-ledtrad]', app);
   const framstegsNyckel = () => [st.fynd.length, st.material.length, Object.keys(st.slutsatser || {}).length, st.ledtradar,
-    st.rutnatLost ? 1 : 0, JSON.stringify(st.mek || {}).length].join('|');
+    st.rutnatLost ? 1 : 0, JSON.stringify(st.mek || {}), JSON.stringify(st.rutnat || {}), (st.anteckningar || '').length].join('|');
   let senast = framstegsNyckel(), utanFramsteg = 0, signalerat = false;
   function kollaFastnat() {
     const n = framstegsNyckel();
@@ -248,7 +248,7 @@ export async function visaUtredning(app, id) {
     if (++utanFramsteg < (window.__detektiv?.fastnatEfter ?? FASTNAT_SEK) || signalerat || modalOppen) return;
     signalerat = true;
     lampKnapp.classList.add('fastnat');
-    toast('Fastnat? Tryck på lampan – första tipset är gratis.');
+    toast('Fastnat? Tryck på lampan – där finns ett gratis tips om vad du kan göra härnäst.');
   }
 
   // Tid och position sparas löpande

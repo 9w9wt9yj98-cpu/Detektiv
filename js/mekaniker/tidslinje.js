@@ -115,7 +115,7 @@ export function rendera(sida, m, ctx) {
         rader.push(`<li class="tl-resa ${kl}">↓ ${esc(txt)}</li>`);
       }
     }
-    if (an.orsak?.samtidigt && provat) rader.push(`<li class="tl-resa fel">↯ ${esc(plats(an.orsak.fran.plats))} ${klocka(an.orsak.fran._fran)}–${klocka(an.orsak.fran._till)} – hen kan inte samtidigt ha varit i ${esc(plats(p.brott.plats))}.</li>`);
+    if (an.orsak?.samtidigt && provat) rader.push(`<li class="tl-resa fel">↯ ${esc(plats(an.orsak.fran.plats))} ${klocka(an.orsak.fran._fran)}–${klocka(an.orsak.fran._till)} – alltså inte samtidigt i ${esc(plats(p.brott.plats))}.</li>`);
     const konf = utan.konflikter.map((c) => {
       const def = (p.konflikter || []).find((x) => x.kraver.includes(c.pastaende) && x.kraver.includes(c.fakta));
       const klar = def && ms.invant.includes(def.id);
@@ -123,7 +123,7 @@ export function rendera(sida, m, ctx) {
     }).join('');
     let provKnapp = '';
     if (prov && p.brott) {
-      if (provat) provKnapp = `<p class="tl-prov ${provat === 'mojlig' ? 'mojlig' : 'omojlig'}">${provat === 'mojlig' ? '✓ Det går ihop: hen kan ha varit vid montern.' : '✗ Omöjligt: hen kan inte ha varit vid montern.'}</p>`;
+      if (provat) provKnapp = `<p class="tl-prov ${provat === 'mojlig' ? 'mojlig' : 'omojlig'}">${provat === 'mojlig' ? '✓ Det går ihop: personen kan ha varit vid montern.' : '✗ Omöjligt: personen kan inte ha varit vid montern.'}</p>`;
       else if (!brottKant()) provKnapp = `<p class="jf-okand">Fastställ brottstiden först (fliken Slutsatser), sedan kan du pröva varje person mot den.</p>`;
       else provKnapp = `<button class="knapp liten sekundar tl-provknapp" data-prova="${pid}">Pröva: ${esc(p.brott.fraga || 'vid brottsplatsen')} ${esc(p.brott.fran)}–${esc(p.brott.till)}?</button>`;
     }

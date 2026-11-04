@@ -140,6 +140,7 @@ function nastaSteg(f, st) { return nastaStegBas(f, st, { framsteg: (m) => MEKANI
  * Hjälpen i lampan, som en stege: 1) ett gratis tips om nästa steg, 2) fallets tre ledtrådar, som kostar poäng,
  * 3) hela lösningen. Överst en länk till ”Så löser du ett fall”.
  */
+const LEDTRAD_RUBRIK = ['Var du ska titta', 'Frågan att ställa', 'Nästan svaret'];
 export function oppnaLedtradar(f, st, { onAndrat, onVisaLosning } = {}) {
   const rita = () => {
     const tagna = f.ledtradar.slice(0, st.ledtradar);
@@ -154,7 +155,7 @@ export function oppnaLedtradar(f, st, { onAndrat, onVisaLosning } = {}) {
         <p class="bok-not">Tre ledtrådar, var och en tydligare än den förra. De ger aldrig namnet – sista steget tar du själv.</p>
         <ol class="ledtradlista">${tagna.map((l) => {
           const p = ledtradPekare(f, st, l);
-          return `<li><span class="niva">Ledtråd ${l.niva}</span>${p ? `<p class="pekare">📍 Du har inte hittat allt som behövs för det här steget än. ${esc(pekarText(p.vag))}</p>` : ''}${esc(l.text)}</li>`;
+          return `<li><span class="niva">${l.niva} · ${LEDTRAD_RUBRIK[l.niva - 1] || 'Ledtråd'}</span>${p ? `<p class="pekare">📍 Du har inte hittat allt som behövs för det här steget än. ${esc(pekarText(p.vag))}</p>` : ''}${esc(l.text)}</li>`;
         }).join('') || '<li class="tom">Du har inte tagit någon ledtråd ännu.</li>'}</ol>
         <div class="knapprad">${nasta ? `<button class="knapp massing" data-ta>Ta ledtråd ${st.ledtradar + 1} (−${kostnad} poäng)</button>` : '<p class="bok-not">Alla tre ledtrådar är tagna.</p>'}</div>
       </section>

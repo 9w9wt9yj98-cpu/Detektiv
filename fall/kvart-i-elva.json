@@ -27,7 +27,7 @@
   "intro": {
     "rubrik": "Österlånggatan, Stockholm. En snönatt i december 1897.",
     "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
-    "uppdrag": "Vem stal kronometern – och hur hann hen?",
+    "uppdrag": "Vem stal kronometern – och hur hann tjuven?",
     "bild": "bilder/fall5/urmakeriet.jpg",
     "berattare": "Överkonstapel August Strand"
   },
@@ -1383,7 +1383,7 @@
             "f-brottstid"
           ],
           "fraga": "i urmakeriet",
-          "text": "Vid montern – om hen gjorde det"
+          "text": "Vid montern – om det var den här personen"
         },
         "konflikter": [
           {

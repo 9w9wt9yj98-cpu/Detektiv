@@ -182,8 +182,8 @@ fall["slutsatser"] = [
     {"text": "Genom väggen till kupé 4.", "svar": "Väggen mot kupé 4 är en hel panel utan dörr."}],
    "slutsats": "Den enda vägen ut ur kupé 3 var mellandörren – in i kupé 2."},
   {"id": "s-kupe2", "kraver": ["f-ahl-kedja"], "efter": ["s-utvag"], "fraga": "Kupé 2:s egen korridordörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15, fönstret är fastfruset och mot kupé 1 finns ingen dörr. Vad betyder det för den som gick genom mellandörren?", "alternativ": [
-    {"text": "Hen kunde gå vidare ut i korridoren.", "svar": "Inte utan att haka av kedjan på kupé 2 – och den satt på inifrån ända till morgonen."},
-    {"text": "Hen måste ha stannat i kupé 2 – och där fanns bara fru Ahl.", "ratt": True},
+    {"text": "Den kunde gå vidare ut i korridoren.", "svar": "Inte utan att haka av kedjan på kupé 2 – och den satt på inifrån ända till morgonen."},
+    {"text": "Den måste ha stannat i kupé 2 – och där fanns bara fru Ahl.", "ratt": True},
     {"text": "Det spelar ingen roll.", "svar": "Jo. Två kedjor inifrån stänger alla vägar utom en."}],
    "slutsats": "Den som gick genom mellandörren stannade i kupé 2. Där fanns bara fru Ahl."},
   {"id": "s-vaken", "kraver": ["f-ahl-vaken", "f-duns", "f-dodstid"], "efter": ["s-kupe2"], "fraga": "Fru Ahl säger att hon sov hela natten. Stämmer det?", "alternativ": [
