@@ -6,3 +6,4 @@ import './belysning.js';
 import './smasaker.js';
 import './personer.js';
 import './ute.js';
+import './teater.js';
