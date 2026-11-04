@@ -1,5 +1,5 @@
 // Service worker: cachar spelets filer så att det fungerar offline och kan läggas på hemskärmen.
-const VERSION = 'detektiv-v24';
+const VERSION = 'detektiv-v25';
 const FILER = [
   './',
   './index.html',
@@ -23,6 +23,7 @@ const FILER = [
   './js/tre/foremal/index.js',
   './js/tre/foremal/mobler.js',
   './js/tre/foremal/personer.js',
+  './js/tre/foremal/slott.js',
   './js/tre/foremal/smasaker.js',
   './js/tre/foremal/teater.js',
   './js/tre/foremal/ute.js',

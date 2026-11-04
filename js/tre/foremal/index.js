@@ -7,3 +7,4 @@ import './smasaker.js';
 import './personer.js';
 import './ute.js';
 import './teater.js';
+import './slott.js';
