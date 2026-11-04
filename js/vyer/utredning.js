@@ -108,6 +108,8 @@ export async function visaUtredning(app, id) {
     const inspekterade = new Set(st.inspekterade);
     motor.ladda(m.payload.rum, { inspekterade, position: anvandSparad && st.position ? st.position : null });
     ljud.spelaRum(m.payload.rum.ljud);
+    // Förhandsgranskningen 'verklig': hämta modellerna för rummen som dörrarna här leder till.
+    motor.forladda(m.payload.rum.objekt.filter((o) => o.gar_till).map((o) => f.moment.find((x) => x.id === o.gar_till)?.payload?.rum).filter(Boolean));
     spara();
     uppdateraHud();
   }

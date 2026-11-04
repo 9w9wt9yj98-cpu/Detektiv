@@ -219,6 +219,38 @@ export class Rum3D {
     // Modellerna och texturerna laddas i bakgrunden; rummet går att använda med prefaberna under tiden.
     if (VERKLIG && !ute && !veranda) modeller.push(forbattraYtor(ytor, rum, W, D, golvFarg));
     this.modellerKlara = Promise.all(modeller).then(() => { if (this.scen === scen) this.renderer.shadowMap.needsUpdate = true; });
+    if (VERKLIG) this.visaNarKlart(scen);
+  }
+
+  /**
+   * Förhandsgranskningen 'verklig': rummet visas först när modellerna och texturerna har laddats och skuggorna
+   * och materialen är förberedda, så att spelaren aldrig ser de enkla föremålen bytas ut. Duken tonas in. Om det
+   * dröjer mer än MAX_VANTA ms (långsamt nät) visas rummet ändå, med de enkla föremålen tills modellerna kommer.
+   */
+  async visaNarKlart(scen) {
+    const MAX_VANTA = 8000, duk = this.renderer.domElement;
+    const nr = (this._visning = (this._visning || 0) + 1);
+    duk.style.transition = 'none'; duk.style.opacity = '0';
+    const meddela = setTimeout(() => { if (this._visning === nr) this.onMeddelande?.('Laddar rummet …'); }, 1200);
+    const klar = this.modellerKlara.then(async () => {
+      if (this.scen !== scen) return;
+      try { await this.renderer.compileAsync(scen, this.kamera); } catch { /* äldre webbläsare: kompileras vid första bilden */ }
+    });
+    await Promise.race([klar, new Promise((r) => setTimeout(r, MAX_VANTA))]);
+    clearTimeout(meddela);
+    if (this._visning !== nr || this.scen !== scen) return;
+    this.renderer.render(scen, this.kamera); // första bilden ritas medan duken fortfarande är osynlig
+    requestAnimationFrame(() => { duk.style.transition = 'opacity .35s ease-out'; duk.style.opacity = '1'; });
+  }
+
+  /** Förhandsgranskningen 'verklig': hämtar modeller och texturer för rum man kan gå till härnäst. */
+  forladda(rumLista) {
+    if (!VERKLIG || !rumLista?.length) return;
+    import('./modeller.js').then((m) => { for (const r of rumLista) for (const o of r.objekt || []) {
+      if (o.modell?.fil) m.laddaModell(o.modell.fil).catch(() => {});
+      for (const d of Object.values(o.modell?.delar || {})) if (d.fil) m.laddaModell(d.fil).catch(() => {});
+    } }).catch(() => {});
+    import('./ytor.js').then((y) => { for (const r of rumLista) y.forladdaYtor(r); }).catch(() => {});
   }
 
   /**

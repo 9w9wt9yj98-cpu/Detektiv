@@ -43,6 +43,18 @@ function ton(farg, medel) {
  * rum.verklig_vagg "tra" ger fanérade träväggar i stället för tapet.
  * Trägolv: rum.verklig_golv väljer sort ("plankor" som standard eller "fiskben"). Stengolv får kalkstensplattor.
  */
+/** Hämtar texturerna ett rum kommer att behöva (för rum man kan gå till härnäst). */
+export function forladdaYtor(rum) {
+  if (rum.miljo === 'ute' || rum.miljo === 'veranda') return;
+  const golvTyp = typeof rum.golv === 'object' ? rum.golv.typ : 'tra';
+  const g = golvTyp === 'sten' ? GOLV.sten : golvTyp === 'tra' ? GOLV[rum.verklig_golv] || GOLV.plankor : null;
+  const namn = [PUTS.namn + '_nor', PUTS.namn + '_rough', TRA.namn + '_nor', TRA.namn + '_rough'];
+  if (g) namn.push(g.namn + '_nor', g.namn + '_rough');
+  for (const n of namn) tex(n).catch(() => {});
+  if (g) tex(g.namn + '_diff', { farg: true }).catch(() => {});
+  if (rum.verklig_vagg === 'tra') tex(TRA.namn + '_diff', { farg: true }).catch(() => {});
+}
+
 export async function forbattraYtor(ytor, rum, W, D, golvFarg) {
   const jobb = [];
   if (ytor.golv) {
