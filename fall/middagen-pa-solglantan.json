@@ -106,7 +106,16 @@
                 2.2
               ],
               "duk": true,
-              "farg": "#4a2e18"
+              "farg": "#4a2e18",
+              "modell": {
+                "fil": "modeller/painted_wooden_table.glb",
+                "passa": "box",
+                "rot": [
+                  0,
+                  90,
+                  0
+                ]
+              }
             },
             {
               "id": "stol-o",
@@ -120,6 +129,10 @@
               "interaktiv": {
                 "namn": "Överstens stol",
                 "text": "Överstens stol vid kortänden, utdragen och snett vänd. Härifrån har man plats 1 på sin högra sida och plats 4 på sin vänstra."
+              },
+              "modell": {
+                "fil": "modeller/painted_wooden_chair_01.glb",
+                "passa": "box"
               }
             },
             {
@@ -131,7 +144,11 @@
                 -0.85
               ],
               "rot": 90,
-              "nummer": 1
+              "nummer": 1,
+              "modell": {
+                "fil": "modeller/painted_wooden_chair_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "stol-2",
@@ -142,7 +159,11 @@
                 0.1
               ],
               "rot": 90,
-              "nummer": 2
+              "nummer": 2,
+              "modell": {
+                "fil": "modeller/painted_wooden_chair_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "stol-3",
@@ -153,7 +174,11 @@
                 0.1
               ],
               "rot": -90,
-              "nummer": 3
+              "nummer": 3,
+              "modell": {
+                "fil": "modeller/painted_wooden_chair_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "stol-4",
@@ -168,6 +193,10 @@
               "interaktiv": {
                 "namn": "Stol 4",
                 "text": "Stolen på överstens vänstra sida. Från den här platsen når man överstens glas utan att resa sig – från de andra gör man inte det."
+              },
+              "modell": {
+                "fil": "modeller/painted_wooden_chair_01.glb",
+                "passa": "box"
               }
             },
             {
@@ -306,7 +335,11 @@
                 0.8,
                 0.75,
                 0.5
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "protokollen",
@@ -339,7 +372,11 @@
                 0.62,
                 0.55
               ],
-              "rund": true
+              "rund": true,
+              "modell": {
+                "fil": "modeller/round_wooden_table_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bok",
@@ -416,7 +453,11 @@
                 -3.0,
                 0,
                 -2.5
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/potted_plant_02.glb",
+                "passa": "skala"
+              }
             },
             {
               "id": "vaxt2",
@@ -425,7 +466,11 @@
                 3.0,
                 0,
                 1.6
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/potted_plant_02.glb",
+                "passa": "skala"
+              }
             }
           ],
           "ljud": [

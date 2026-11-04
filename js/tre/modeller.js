@@ -13,9 +13,10 @@
 //   skala   för passa "skala"; för övriga lägen en extra faktor
 //   hanger  true: modellens översta punkt i föremålets origo (för passa "skala") eller prefabens topp – för ljuskronor
 //   pos     förskjutning [x, y, z] i föremålets egna koordinater
-//   glas    namn på noder vars material byts mot spelets genomskinliga glas (t.ex. ett lampglas som annars blir mörkt)
+//   glas    namn på noder eller material vars material byts mot spelets genomskinliga glas (t.ex. ett lampglas som annars blir mörkt)
 //   delar   { namn: spec } – byter bara prefabens delar märkta userData.del = namn (t.ex. "stol" i långbordet);
 //           spec som ovan; "fil" på översta nivån kan då utelämnas så att resten av prefaben står kvar
+//   lyser   namn på noder eller material vars material byts mot ett glödande lyktglas
 //   urtavla { nod, tid: [h, m] } – lägger en urtavla som visar rätt tid över modellens urtavla (noden med glaset)
 import * as THREE from '../../vendor/three/three.module.min.js';
 import { GLTFLoader } from '../../vendor/three/addons/loaders/GLTFLoader.js';
@@ -74,7 +75,15 @@ export async function byggModell(spec, prefabBox) {
     vridd.position.set(pc.x - mitt.x * s.x, y, pc.z - mitt.z * s.z);
   }
   if (spec.pos) yttre.position.set(...spec.pos);
-  for (const namn of spec.glas || []) modell.getObjectByName(namn)?.traverse((o) => { if (o.isMesh) o.material = glas(); });
+  // glas/lyser anger noder eller material (glTF-material i samma nät blir egna delnät med materialets namn).
+  const byt = (namn, nytt) => { if (!namn?.length) return; modell.traverse((o) => {
+    if (!o.isMesh) return;
+    let p = o; while (p && !namn.includes(p.name)) p = p.parent === modell.parent ? null : p.parent;
+    if (p || namn.includes(o.material?.name)) o.material = nytt();
+  }); };
+  byt(spec.glas, glas);
+  // lyser: lyktglas och liknande som ska glöda (som prefabens lyktor); kastar då ingen skugga.
+  byt(spec.lyser, () => mat('#ffe6a8', { emissive: '#d89a3a', transparent: true, opacity: 0.92 }));
   if (spec.urtavla) laggUrtavla(yttre, modell, spec.urtavla);
   return yttre;
 }

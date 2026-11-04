@@ -137,7 +137,7 @@ export class Rum3D {
       const vskala = vtyp === 'fasad' ? [1 / 7, 1 / H] : vtyp === 'sten' ? [1 / 2.2, 1 / 2.2] : [1 / 1.1, 1 / 1.1];
       const tapet = mat('#ffffff', { map: vtex, glans: 0.92 });
       const pan = mat('#ffffff', { map: T.panel(rum.panel || '#5a3b22'), glans: 0.55 });
-      if (vtyp === 'tapet' || vtyp === 'puts') ytor.vagg = tapet;
+      if (vtyp === 'tapet' || vtyp === 'puts' || vtyp === 'fasad') { ytor.vagg = tapet; ytor.vaggTyp = vtyp; ytor.H = H; }
       if (rum.panel !== false) ytor.panel = pan;
       const sidor = [
         [W, [0, -D / 2], 0], [W, [0, D / 2], Math.PI], [D, [-W / 2, 0], Math.PI / 2], [D, [W / 2, 0], -Math.PI / 2],
@@ -166,7 +166,13 @@ export class Rum3D {
       if (!fab) { console.warn('Okänd föremålstyp', def.typ); continue; }
       const res = fab(def, ctx);
       const g = slaIhop(res.grupp, { utomDelar: VERKLIG && !!def.modell?.delar }); // färre ritanrop: en mesh per material och föremål
-      const prefabBox = VERKLIG && def.modell ? new THREE.Box3().setFromObject(g) : null; // i föremålets egna koordinater
+      // Prefabens låda i föremålets egna koordinater, utan delar som står kvar bredvid modellen (duk, sjal, blommor).
+      let prefabBox = null;
+      if (VERKLIG && def.modell) {
+        prefabBox = new THREE.Box3(); g.updateMatrixWorld(true);
+        g.traverse((o) => { if (o.isMesh && !o.userData.behall) prefabBox.expandByObject(o); });
+        if (prefabBox.isEmpty()) prefabBox.setFromObject(g);
+      }
       const [x, y, z] = def.pos || [0, 0, 0];
       g.position.set(x, y || 0, z);
       g.rotation.y = rad(def.rot || 0);
@@ -217,7 +223,7 @@ export class Rum3D {
     this.skuggor(rum, W, D, H, ute || veranda);
     this.anpassa();
     // Modellerna och texturerna laddas i bakgrunden; rummet går att använda med prefaberna under tiden.
-    if (VERKLIG && !ute && !veranda) modeller.push(forbattraYtor(ytor, rum, W, D, golvFarg));
+    if (VERKLIG && !ute) modeller.push(forbattraYtor(ytor, rum, W, D, golvFarg));
     this.modellerKlara = Promise.all(modeller).then(() => { if (this.scen === scen) this.renderer.shadowMap.needsUpdate = true; });
     if (VERKLIG) this.visaNarKlart(scen);
   }

@@ -240,3 +240,15 @@ Förhandsgranskningen i samma stil som fall 1 (`?stil=verklig`; vanlig stil är 
 - **Granskning av texterna:** tidtabellen, notorna, dunsen kl. 01.25, Linds väg i Boden och säkerhetskedjorna stämmer. Kupé 2 ligger åt samma håll från korridoren och från kupé 3. Inga fel hittades utöver väggen ovan.
 
 Före- och efterbilder: `docs/bilder/modeller-fall2/`.
+
+## Verklig grafik: inga synliga byten, och fall 3–5 (november 2026)
+
+Martin såg att möblerna bytte utseende efter ungefär en sekund och ville att de gamla aldrig skulle synas, och att arbetet fortsatte med alla rum.
+
+- **Laddningen:** i förhandsgranskningen visas rummet först när modeller och texturer är klara och materialen förberedda (`compileAsync`). Duken tonas in på 0,35 s. Dröjer det mer än 1,2 s visas ”Laddar rummet …”, och efter 8 s visas rummet ändå, med de enkla föremålen som reserv. Medan man är i ett rum hämtas modellerna och texturerna för rummen som dörrarna leder till (`Rum3D.forladda`).
+- **Fall 3 (verandan):** målat bord och vita stolar. **Duken ligger kvar** på bordet, eftersom pulverspillet ligger ”på duken till vänster om överstens glas”, och **platsnumren** sitter kvar på stolarna. Krukväxter och plankgolv; verandor får nu golvtextur.
+- **Fall 4 (salen och kontoret):** vita allmogestolar runt långbordet, tavla och skrivbord. **Skänken, vasen och ljusstaken är kvar som prefaber**, eftersom bildjämförelsen visar foton av skänken – en annan skänk i 3D skulle inte stämma med bilderna. Gården är oförändrad: Poly Haven har inga björkar, granar, gärdsgårdar, midsommarstång, bilar eller bussar, och stolarna där har personer sittande på sig.
+- **Fall 5:** butiksdisk, bord och oljelampor, och **gatan** har kullersten (`verklig_golv: "kullersten"`) och gatlyktor vars glas glöder (`modell.lyser`). Fasaderna har fått putsstruktur. Väggur, monter, arbetsbänk, vedspis och pulpet är kvar, eftersom tider och detaljer i texterna hänger på dem.
+- **Rättat på vägen:** gatan i fall 5 hade fått schackrutiga kalkstensplattor i förhandsgranskningen (alla stengolv fick samma textur). Delar som står kvar bredvid en modell (duk, sjal, blommor) räknas inte längre in när modellen passas in, så att de inte göms under den.
+
+Före- och efterbilder: `docs/bilder/modeller-fall3/`, `modeller-fall4/` och `modeller-fall5/`.

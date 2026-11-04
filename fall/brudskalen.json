@@ -231,7 +231,15 @@
                 3.0
               ],
               "kuvert": 8,
-              "stolar": true
+              "stolar": true,
+              "modell": {
+                "delar": {
+                  "stol": {
+                    "fil": "modeller/painted_wooden_chair_01.glb",
+                    "passa": "box"
+                  }
+                }
+              }
             },
             {
               "id": "bok",
@@ -277,7 +285,11 @@
                 0.7,
                 0.5
               ],
-              "seed": 12
+              "seed": 12,
+              "modell": {
+                "fil": "modeller/fancy_picture_frame_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "gunnar",
@@ -835,7 +847,11 @@
                 0.75,
                 0.7
               ],
-              "farg": "#8a6a44"
+              "farg": "#8a6a44",
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "stol",

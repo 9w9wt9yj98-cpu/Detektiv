@@ -27,7 +27,8 @@ function upprepad(t, rx, ry) { const k = t.clone(); k.repeat.set(rx, ry); k.need
 const GOLV = {
   plankor: { namn: 'wood_floor_worn', meter: 2, medel: [137, 88, 47] },
   fiskben: { namn: 'herringbone_parquet', meter: 3.4, medel: [147, 112, 77] },
-  sten: { namn: 'floor_tiles_06', meter: 2 }, // schackrutiga kalkstensplattor; behåller sin egen färg
+  sten: { namn: 'floor_tiles_06', meter: 2 },
+  kullersten: { namn: 'cobblestone_floor_05', meter: 2 }, // gator; stengolv med rum.verklig_golv "kullersten" // schackrutiga kalkstensplattor; behåller sin egen färg
 };
 const PUTS = { namn: 'plastered_wall_04', meter: 3.2 };
 const TRA = { namn: 'dark_wood', meter: 2, medel: [93, 43, 24] };
@@ -41,13 +42,14 @@ function ton(farg, medel) {
 /**
  * ytor: { golv (mesh), golvTyp ('tra' | 'sten'), vagg (material för tapet/puts), panel (material), tak (mesh) } – det som finns i rummet.
  * rum.verklig_vagg "tra" ger fanérade träväggar i stället för tapet.
- * Trägolv: rum.verklig_golv väljer sort ("plankor" som standard eller "fiskben"). Stengolv får kalkstensplattor.
+ * Trägolv: rum.verklig_golv väljer sort ("plankor" som standard eller "fiskben"). Stengolv får kalkstensplattor,
+ * eller kullersten med rum.verklig_golv "kullersten". Verandor får bara golvet.
  */
 /** Hämtar texturerna ett rum kommer att behöva (för rum man kan gå till härnäst). */
 export function forladdaYtor(rum) {
-  if (rum.miljo === 'ute' || rum.miljo === 'veranda') return;
+  if (rum.miljo === 'ute') return;
   const golvTyp = typeof rum.golv === 'object' ? rum.golv.typ : 'tra';
-  const g = golvTyp === 'sten' ? GOLV.sten : golvTyp === 'tra' ? GOLV[rum.verklig_golv] || GOLV.plankor : null;
+  const g = golvTyp === 'sten' ? (rum.verklig_golv === 'kullersten' ? GOLV.kullersten : GOLV.sten) : golvTyp === 'tra' ? GOLV[rum.verklig_golv] || GOLV.plankor : null;
   const namn = [PUTS.namn + '_nor', PUTS.namn + '_rough', TRA.namn + '_nor', TRA.namn + '_rough'];
   if (g) namn.push(g.namn + '_nor', g.namn + '_rough');
   for (const n of namn) tex(n).catch(() => {});
@@ -58,7 +60,7 @@ export function forladdaYtor(rum) {
 export async function forbattraYtor(ytor, rum, W, D, golvFarg) {
   const jobb = [];
   if (ytor.golv) {
-    const g = ytor.golvTyp === 'sten' ? GOLV.sten : GOLV[rum.verklig_golv] || GOLV.plankor;
+    const g = ytor.golvTyp === 'sten' ? (rum.verklig_golv === 'kullersten' ? GOLV.kullersten : GOLV.sten) : GOLV[rum.verklig_golv] || GOLV.plankor;
     jobb.push(Promise.all([tex(g.namn + '_diff', { farg: true }), tex(g.namn + '_nor'), tex(g.namn + '_rough')]).then(([d, n, r]) => {
       const rx = W / g.meter, ry = D / g.meter;
       // Färga mot rummets golvfärg: förhållandet mellan önskad färg och texturens medelfärg (linjärt).
@@ -83,10 +85,12 @@ export async function forbattraYtor(ytor, rum, W, D, golvFarg) {
   // Väggmaterialen kommer ur den delade cachen i foremal/grund.js; de ändras en gång och behåller ändringen.
   if (ytor.vagg && !travagg && !ytor.vagg.userData.ytor) {
     jobb.push(Promise.all([tex(PUTS.namn + '_nor'), tex(PUTS.namn + '_rough')]).then(([n, r]) => {
-      const m = ytor.vagg, k = 1.1 / PUTS.meter; // väggarnas UV upprepas var 1,1 m
+      // Tapet och puts upprepar sin UV var 1,1 m; en fasad täcker 7 m × väggens höjd med en enda UV.
+      const m = ytor.vagg, fasad = ytor.vaggTyp === 'fasad';
+      const kx = fasad ? 7 / PUTS.meter : 1.1 / PUTS.meter, ky = fasad ? (ytor.H || 3) / PUTS.meter : kx;
       m.userData.ytor = true;
-      m.normalMap = upprepad(n, k, k); m.normalScale.set(0.6, 0.6);
-      m.roughnessMap = upprepad(r, k, k); m.roughness = 1;
+      m.normalMap = upprepad(n, kx, ky); m.normalScale.set(0.6, 0.6);
+      m.roughnessMap = upprepad(r, kx, ky); m.roughness = 1;
       m.bumpScale = 1.5; // tapetmönstrets egen relief, svagare när putsen ger strukturen
       m.needsUpdate = true;
     }));
