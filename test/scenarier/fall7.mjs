@@ -4,7 +4,7 @@ import { assert, vanta, nySida, bild, undersok, inspektera, stangKort, gaTill, s
 const ID = 'sista-akten';
 
 async function hittaAllt(p) {
-  await undersok(p, 'sandsacken', 0.6, 1.9); await bild(p, 'f7-sandsacken'); await stangKort(p);
+  await undersok(p, 'sandsacken', 1.0, 1.6); await bild(p, 'f7-sandsacken'); await stangKort(p);
   for (const o of ['tejpen', 'ridan', 'korbok', 'rapporten', 'ruth', 'persson', 'viveka', 'agren']) { await inspektera(p, o); await stangKort(p); }
   // Lindraget öppnas av sandsäcken; undre maskineriet av linan
   await gaTill(p, 'stegen', 'lindraget');

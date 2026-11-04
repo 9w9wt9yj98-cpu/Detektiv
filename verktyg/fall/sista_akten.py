@@ -38,7 +38,7 @@ fall = {
 }
 
 # Färger och ljus som går igen
-SCENLJUS = {"omgivning": "#ffd9b0", "omgivning_styrka": 0.5, "bas": 0.3}
+SCENLJUS = {"omgivning": "#ffd9b0", "omgivning_styrka": 0.75, "bas": 0.42}
 MORKT = {"omgivning": "#c8b8a0", "omgivning_styrka": 0.4, "bas": 0.22}
 
 # ---------- Rum 1: Scenen ----------
@@ -46,18 +46,18 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
   "bredd": 9.0, "djup": 6.4, "hojd": 5.0, "miljo": "inomhus", "bakgrund": "#0c0a0a", "dimma": [8, 18, "#120e0c"],
   "golv": "#3a2a1c", "verklig_golv": "plankor", "vagg": "puts", "putsfarg": "#2a2420", "panel": False,
   "ljus": SCENLJUS,
-  "start": {"pos": [0.6, 1.9], "titta": 0},
+  "start": {"pos": [1.0, 1.6], "titta": 0},
   "objekt": [
     # Ridån är nere mot salongen (söder). Bakom oss: dekoren ”Den gröna salongen”.
     obj("ridan", "rida", [0, 0, 3.05], rot=180, bredd=9.0, hojd=5.0, interaktiv=ia("Ridån",
         "Du kikar ut genom springan i ridån. Salongen är halvtom nu. Rad 7, plats 12 – regissör Werns plats, mitt framför din egen. Du minns hans nacke under hela andra akten. Han reste sig först när sandsäcken slog i golvet.", "f-wern-alibi")),
     obj("luckan", "sufflorlucka", [0, 0, 2.55], rot=180, gar_till="undre", interaktiv=ia("Sufflörluckan",
         "Sufflörluckan i scenkanten. Härifrån följer sufflösen varje replik och viskar fram den som tappar texten. Inuti är det mörkt och trångt – en kort stege leder ner under scenen.")),
-    obj("fond", "kuliss", [0, 0, -3.0], storlek=[6.4, 4.2], farg="#3e5a3e", kollision=False),
-    obj("kv1", "kuliss", [-3.3, 0, -1.2], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e"),
-    obj("kv2", "kuliss", [-3.3, 0, 0.9], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e"),
-    obj("kh1", "kuliss", [3.3, 0, -1.2], rot=-90, storlek=[1.4, 3.6], farg="#3e5a3e"),
-    obj("kh2", "kuliss", [3.3, 0, 0.9], rot=-90, storlek=[1.4, 3.6], farg="#3e5a3e"),
+    obj("fond", "kuliss", [0, 0, -3.1], storlek=[6.4, 4.2], farg="#3e5a3e", stotta=False),
+    obj("kv1", "kuliss", [-3.3, 0, -1.2], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
+    obj("kv2", "kuliss", [-3.3, 0, 0.9], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
+    obj("kh1", "kuliss", [3.3, 0, -1.2], rot=-90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
+    obj("kh2", "kuliss", [3.3, 0, 0.9], rot=-90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
     obj("fatolj1", "fatolj", [-1.7, 0, -1.6], rot=20, modell={"fil": "modeller/arm_chair_01.glb", "passa": "box"}),
     obj("fatolj2", "fatolj", [1.7, 0, -1.6], rot=-20, modell={"fil": "modeller/arm_chair_01.glb", "passa": "box"}),
     obj("bord", "bord", [0, 0, -1.9], storlek=[1.0, 0.72, 0.6], modell={"fil": "modeller/round_wooden_table_01.glb", "passa": "box"}),
@@ -70,7 +70,7 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
     obj("sandsacken", "sandsack", [0.4, 0, 0.5], liggande=True, interaktiv=ia("Sandsäcken",
         "En sandsäck i säckväv, fyrtio kilo. Den har spruckit i ena hörnet och sanden ligger utspilld. Den hängde i lina 7, rakt ovanför scenens mitt, och landade mitt på kritkrysset. Linan har följt med ner och ligger hoprasad bredvid – hel, varken skuren eller nött.", "f-sandsack")),
     # Vänster kulisser: brandvakten och järnstegen upp till lindraget
-    obj("stegen", "stege", [-4.42, 0, -1.4], rot=90, hojd=5.0, gar_till="lindraget", interaktiv=ia("Järnstegen",
+    obj("stegen", "stege", [-4.5, 0, -1.4], rot=90, hojd=5.0, gar_till="lindraget", interaktiv=ia("Järnstegen",
         "En järnstege längs väggen bakom vänstra kulissen, upp till lindraget åtta meter ovanför scenen. Brandmannens stol står vid foten.")),
     obj("brandstol", "stol", [-3.9, 0, -0.5], rot=90),
     obj("persson", "person", [-3.9, 0, -0.5], rot=90, pose="sitta", rock="#1e2433", byxor="#1e2433", hatt="mossa", hattfarg="#1e2433", har="#6a6a6a", skagg=True, seed=4,
@@ -83,8 +83,8 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
         "Inspicientens rapport från generalrepetitionen i går kväll. ”Närvarande: hela ensemblen, fröken Hallin (ersättare), regissör Wern, scenmästare Nilsson och scenpersonalen. Frånvarande: fru Wall, sjuk – eleven Berit Lund sufflerade. Ändring: i scen 2:3 står fru Sterner vid den vita tejpen, en meter från kritkrysset. Krysset gäller inte längre.”", "f-genrep")),
     obj("ruth", "person", [3.7, 0, 0.7], rot=-110, kon="k", rock="#2a2a30", har="#3a2a1a", glasogon=True, seed=5,
         interaktiv=ia("Inspicient Sandell", "Ruth Sandell står kvar vid sin pulpet, blek men samlad.", "f-kalle-alibi", ["u-ruth"])),
-    obj("strk1", "stralkastare", [-2.8, 0, 2.2], rot=150, lyser=True, styrka=1.6),
-    obj("strk2", "stralkastare", [2.8, 0, 2.2], rot=-150, lyser=True, styrka=1.6),
+    obj("strk1", "stralkastare", [-2.8, 0, 2.2], rot=150, lyser=True, lutning=25),
+    obj("strk2", "stralkastare", [2.8, 0, 2.2], rot=-150, lyser=True, lutning=25),
     # Skådespelarna på scenen
     obj("viveka", "person", [-1.3, 0, 0.2], rot=30, kon="k", rock="#2e5a4a", har="#c8a050", seed=7,
         interaktiv=ia("Viveka Sterner", "Viveka Sterner har en sjal om axlarna och ett glas vatten i handen som skakar lite.", material=["u-viv", "u-viv-wall"])),
@@ -98,27 +98,27 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
 lindrag = {"id": "lindraget", "namn": "Lindraget", "mekanik": "scen", "last_upp_av": ["f-sandsack"],
   "last_text": "Strand pekar på sandsäcken: ”Titta på den först – var hängde den?”",
   "payload": {"visning": "3d", "rum": {
-  "bredd": 2.0, "djup": 8.0, "hojd": 2.8, "miljo": "inomhus", "bakgrund": "#0a0808", "dimma": [4, 12, "#0e0b0a"],
+  "bredd": 2.6, "djup": 8.0, "hojd": 2.8, "miljo": "inomhus", "bakgrund": "#0a0808", "dimma": [4, 12, "#0e0b0a"],
   "golv": "#3a2c20", "verklig_golv": "plankor", "vagg": "puts", "putsfarg": "#2a2420", "panel": False,
   "ljus": MORKT,
   "start": {"pos": [0.0, 3.2], "titta": 0},
   "objekt": [
-    obj("racket", "racke", [0.95, 0, 0], rot=90, langd=8.0),
-    obj("nagelbanken", "nagelbank", [-0.92, 0, -0.6], rot=90, langd=3.0, antal=10, tom=[6], hojd=2.8, interaktiv=ia("Nagelbänken",
+    obj("racket", "racke", [0.75, 0, 0], rot=90, langd=8.0),
+    obj("nagelbanken", "nagelbank", [-1.3, 0, -0.6], rot=90, langd=3.0, antal=10, tom=[6], hojd=2.8, interaktiv=ia("Nagelbänken",
         "Tio naglar. Nio linor sitter beslagna i prydliga åttor med ett låsslag överst. Nagel 7 är tom – lina 7 bar sandsäcken rakt ovanför scenens mitt, och den har rusat upp genom blocket i taket och ligger nu nere på scenen. Ingenting här är avbrutet eller skuret. Ett beslag på en nagel lossnar inte av sig självt: någon har lyft av linan.", "f-lina")),
-    obj("penna", "skrivdon", [-0.55, 0.0, 0.25], blackhorn=False, penna="blyerts", interaktiv=ia("En blyertspenna",
+    obj("penna", "skrivdon", [-0.85, 0.0, 0.25], blackhorn=False, penna="blyerts", interaktiv=ia("En blyertspenna",
         "En kort gul blyertspenna ligger på golvet framför nagelbänken. Den är tuggad i änden.", "f-penna")),
-    obj("schemat", "tavelkarta", [-0.985, 1.45, 2.0], rot=90, storlek=[0.6, 0.7], textstorlek=24,
+    obj("schemat", "tavelkarta", [-1.285, 1.45, 2.0], rot=90, storlek=[0.6, 0.7], textstorlek=24,
         text="KÖRSCHEMA AKT II\n\n21.10  Ridå upp\n21.12  Fönsterduken ned\n—  inga körningar  —\n21.45  Månen upp\n22.05  Ridå",
         interaktiv=ia("Körschemat", "Körschemat för andra akten sitter fastnålat på väggen. Efter fönsterduken kl. 21.12 finns inga linkörningar förrän 21.45 – lindraget ska vara tomt under scen 2:3. Körningarna görs på replik: härifrån ser man inte scengolvet för strålkastarna, men man hör varje ord.", "f-korschema")),
-    *[obj(f"sack{i}", "sandsack", [1.25, 0, z], hojd=2.8) for i, z in enumerate([-2.6, -1.3, 1.1])],
-    obj("trappan", "spiraltrappa", [-0.2, 0, -3.3], radie=0.75, hojd=2.8, gar_till="undre", interaktiv=ia("Spiraltrappan",
+    *[obj(f"sack{i}", "sandsack", [1.05, 0, z], y0=0.5, hojd=2.8, kollision=False) for i, z in enumerate([-2.6, -1.3, 1.1])],
+    obj("trappan", "spiraltrappa", [-0.4, 0, -3.2], radie=0.75, hojd=2.8, gar_till="undre", interaktiv=ia("Spiraltrappan",
         "En smal spiraltrappa av järn i lindragets norra ände. Den går hela vägen ner till undre maskineriet, under scenen. I dammet på trappstegen syns färska spår.", "f-trappa")),
-    obj("stegtopp", "stege", [-0.98, 0, 3.6], rot=90, hojd=1.2, gar_till="scenen", interaktiv=ia("Järnstegen ner",
+    obj("stegtopp", "stege", [-1.3, 0, 3.6], rot=90, hojd=1.2, gar_till="scenen", interaktiv=ia("Järnstegen ner",
         "Järnstegen ner till scenen. Längst ner sitter brandman Persson på sin stol – han ser rakt upp längs stegen.")),
-    obj("bok", "anteckningsbok", [-0.6, 0.0, 1.4], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
-    obj("l1", "vagglampa", [-0.98, 2.1, -1.8], rot=90, styrka=0.8, rackvidd=4),
-    obj("l2", "vagglampa", [-0.98, 2.1, 2.8], rot=90, styrka=0.7, rackvidd=4)
+    obj("bok", "anteckningsbok", [-0.9, 0.0, 1.4], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
+    obj("l1", "vagglampa", [-1.28, 2.1, -1.8], rot=90, styrka=0.8, rackvidd=4),
+    obj("l2", "vagglampa", [-1.28, 2.1, 2.8], rot=90, styrka=0.7, rackvidd=4)
   ]}}}
 
 # ---------- Rum 3: Undre maskineriet ----------
@@ -128,9 +128,9 @@ undre = {"id": "undre", "namn": "Undre maskineriet", "mekanik": "scen", "last_up
   "bredd": 6.0, "djup": 4.6, "hojd": 2.3, "miljo": "inomhus", "bakgrund": "#0a0808", "dimma": [4, 11, "#0c0a08"],
   "golv": "#3a3026", "vagg": "sten", "panel": False,
   "ljus": MORKT,
-  "start": {"pos": [-1.2, -0.6], "titta": 180},
+  "start": {"pos": [-0.5, -0.2], "titta": 180},
   "objekt": [
-    obj("lucktrappan", "stege", [0, 0, 2.27], rot=180, hojd=2.3, gar_till="scenen", interaktiv=ia("Stegen till sufflörluckan",
+    obj("lucktrappan", "stege", [0, 0, 2.3], rot=180, hojd=2.3, gar_till="scenen", interaktiv=ia("Stegen till sufflörluckan",
         "En kort stege leder upp i sufflörluckan, rakt ovanför. Det är sufflösens egen väg: hon går ner hit och upp i luckan, och kommer upp på samma sätt.", "f-lucktrappa")),
     obj("hyllan", "hylla", [1.4, 0, 2.05], rot=180, storlek=[1.0]),
     obj("exemplaret", "liggare", [0.45, 0.0, 1.75], rot=200, interaktiv=ia("Sufflörsexemplaret",
