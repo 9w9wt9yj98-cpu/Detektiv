@@ -353,3 +353,23 @@ Martin bad om en fortsättning: fall 7 först, sedan fall 8 och vidare. En extra
 **Nya föremål** (`js/tre/foremal/teater.js`): ridå, sufflörlucka, nagelbänk, sandsäck, järnstege, golvmärke (kryss/tejp), sminkbord, kuliss, klädställning och strålkastare. Omslaget `bilder/fall7/teatern.jpg` är tills vidare en sepiatonad bild ur 3D-scenen – de andra omslagen är tecknade, och ett tecknat omslag får Martin ta ställning till.
 
 **Blindtest:** en blind agent löste fallet rätt (säkerhet 4/5) med bara spelarvyn. Rapport: `docs/blindtest/rapport-2026-11-04-fall7.md`. Rättat efter den: Märtas alibi gäller till ridån; scenen har två luckor och båda är fastskruvade; sufflörluckan sitter i rampljuset, så ingen kommer ner i den från scenen utan att publiken ser det; slutsatsfrågan om krysset frågar vem som fortfarande trodde att fru Sterner stod där (förut kunde ”hon ville bara skrämma” inte uteslutas); fru Sterner sa ut sitt krav i korridoren så att alla hörde; fru Wall har låga skor; ”belagd lina”.
+
+## Fall 8 – Nyårsnatten på Vitanäs (november 2026)
+
+Martin ville att fall 8 skulle utspela sig i ett ganska stort slott. En extra agent byggde slottsföremålen medan fallet skrevs.
+
+**Fallet:** Vitanäs slott i Skåne, nyårsafton 1912. Under nyårsbalen dödas greve Edvard Vinge i biblioteket, mitt i ett telefonsamtal till överste Rehnberg. Sex rum – biblioteket, porträttgalleriet, balsalen, rökrummet, telefonväxeln och terrassen i snön – och tidslinje som kärnmekanik. Källa: `verktyg/fall/vitanas.py`.
+
+| Dimension | Fall 8 | Variationsreglerna |
+|---|---|---|
+| Miljö / epok | Slott, 1910-tal | Ny miljö och ny epok. |
+| Brott | Mord | Mord förekommer en gång bland de fem senaste (fall 6). |
+| Kärnmekanik | Tidslinje | Fall 7 hade förhör; tidslinje användes senast i fall 5. |
+| Skyldig / motiv | Auktoritet (ryttmästaren) / pengar och rädsla | Följer rotationen efter fall 7:s sympatiska sufflös. |
+| Twist | Ingen | Senaste vändningen var fall 6. |
+
+**Lösningen i korthet:** växeljournalen och telefonisten ger brottstiden 23.16. Fönstret är haspat och snön orörd, så gärningspersonen kom inifrån. Axel dansade kadriljen 23.14–23.22, fröken Sand låg i gästflygeln 23.10 (åtta minuter bort) och Lunde stod vid fyrverkeriet med trädgårdsmästaren. Ryttmästare Ekwall satt ensam i rökrummet från 23.05, säger att han satt kvar till halv tolv men dansade valsen 23.24 – och östra trappan till biblioteket tar tre minuter. I rökrummets spis ligger den brända växeln med grevens förfalskade namnteckning, och under skrivbordet en vit herrhandske; ryttmästaren dansade valsen utan handskar.
+
+**Nya föremål** (`js/tre/foremal/slott.js`): biljardbord, väggtelefon, telefonväxel, rustning, flygel, notställ, kakelugn, pelare, gobeläng, balustrad, slottsfasad, fyrverkeri och kandelaber. Omslaget `bilder/fall8/vitanas.jpg` är, som för fall 7, en sepiatonad bild ur 3D-scenen tills Martin bestämt om de ska vara tecknade.
+
+**Blindtest:** en blind agent löste fallet rätt (säkerhet 5/5) med bara spelarvyn. Rapport: `docs/blindtest/rapport-2026-11-04-fall8.md`. Rättat efter den: en slutsats sa ”åtta minuter” till biblioteket och tillbaka (det är sex); gångtiden terrassen–biblioteket är 5 minuter, som via balsalen eller rökrummet; kaptensgraden i kavalleriet hette ryttmästare 1912; hovmästaren fick telefonistens besked tjugo i tolv och gick upp kvart i tolv; biblioteket och galleriet ligger en trappa upp; växeln som greven hade framför sig finns inte kvar på skrivbordet; Lunde stod vid orkestern från kvart i elva; en ny slutsatsfråga utesluter fröken Sand; språkliga rättelser.

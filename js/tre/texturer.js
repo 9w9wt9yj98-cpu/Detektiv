@@ -410,13 +410,13 @@ export function fasad(farg = '#c9a26a') {
   });
 }
 /** Vitkalkad eller putsad vägg. */
-export function puts(farg = '#e8e0cc') {
+export function puts(farg = '#e8e0cc', upprepa = [1, 1]) {
   return skapa('puts' + farg, 256, 256, (g, w, h) => {
     g.fillStyle = farg; g.fillRect(0, 0, w, h);
     const r = rng(61);
     for (let i = 0; i < 700; i++) { g.fillStyle = `rgba(${r() < 0.5 ? '60,45,30' : '255,250,240'},${r() * 0.09})`; g.beginPath(); g.arc(r() * w, r() * h, 1 + r() * 7, 0, 7); g.fill(); }
     gravyr(g, w, h, 0.05, 63);
-  });
+  }, { upprepa });
 }
 /** Granitblock (fyrtornets insida). */
 export function stenvagg() {
@@ -600,5 +600,216 @@ export function kulissBak(text = '', storlek = [1.4, 3.2]) {
       });
     }
     gravyr(g, w, h, 0.06, 115);
+  });
+}
+
+// ---- Slottet (foremal/slott.js) ----
+
+/** Biljardkläde: tät grön filt med svag nopp. */
+export function kladet() {
+  return skapa('kladet', 128, 128, (g, w, h) => {
+    g.fillStyle = '#2f6a3a'; g.fillRect(0, 0, w, h);
+    const r = rng(121);
+    for (let i = 0; i < 1600; i++) { g.fillStyle = r() < 0.5 ? `rgba(10,40,15,${r() * 0.18})` : `rgba(120,170,110,${r() * 0.1})`; g.fillRect(r() * w, r() * h, 1 + r(), 1 + r()); }
+  }, { upprepa: [3, 2] });
+}
+
+/** Vitt kakel med blå dekor: en blomma mitt på varje platta och rosetter där fyra plattor möts (2 × 2 plattor per ruta). */
+export function kakel(upprepa = [1, 1]) {
+  return skapa('kakel', 256, 256, (g, w) => {
+    const r = rng(127), s = w / 2, bla = '#2c4a8a';
+    g.lineCap = 'round';
+    for (let ty = 0; ty < 2; ty++) for (let tx = 0; tx < 2; tx++) {
+      const x0 = tx * s, y0 = ty * s, cx = x0 + s / 2, cy = y0 + s / 2;
+      const gr = g.createRadialGradient(x0 + s * 0.4, y0 + s * 0.35, 4, cx, cy, s * 0.75);
+      gr.addColorStop(0, '#fbf9f2'); gr.addColorStop(1, '#e4ddcc');
+      g.fillStyle = gr; g.fillRect(x0, y0, s, s);
+      g.strokeStyle = bla; g.fillStyle = bla;
+      g.globalAlpha = 0.85; // blomma med fyra kronblad
+      for (let i = 0; i < 4; i++) { const a = (i * Math.PI) / 2 + Math.PI / 4; g.beginPath(); g.ellipse(cx + Math.cos(a) * 14, cy + Math.sin(a) * 14, 12, 6, a, 0, 7); g.fill(); }
+      g.globalAlpha = 0.6; g.lineWidth = 2; // rankor
+      for (let i = 0; i < 4; i++) { const a = (i * Math.PI) / 2; g.beginPath(); g.moveTo(cx + Math.cos(a) * 18, cy + Math.sin(a) * 18); g.quadraticCurveTo(cx + Math.cos(a + 0.4) * 34, cy + Math.sin(a + 0.4) * 34, cx + Math.cos(a) * 42, cy + Math.sin(a) * 42); g.stroke(); }
+      g.globalAlpha = 1; g.fillStyle = '#f6f2e6'; g.beginPath(); g.arc(cx, cy, 5, 0, 7); g.fill(); g.stroke();
+      g.globalAlpha = 0.7; g.fillStyle = bla; g.lineWidth = 3;
+      for (const [hx, hy] of [[x0, y0], [x0 + s, y0], [x0, y0 + s], [x0 + s, y0 + s]]) { g.beginPath(); g.arc(hx, hy, 13, 0, 7); g.stroke(); g.beginPath(); g.arc(hx, hy, 5, 0, 7); g.fill(); }
+      g.globalAlpha = 1;
+      // Fogar och lite krakelering i glasyren
+      g.strokeStyle = 'rgba(120,110,90,0.55)'; g.lineWidth = 2; g.strokeRect(x0 + 1, y0 + 1, s - 2, s - 2);
+      g.strokeStyle = 'rgba(110,100,80,0.12)'; g.lineWidth = 0.6;
+      for (let i = 0; i < 5; i++) { let x = x0 + r() * s, y = y0 + r() * s; g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 4; k++) { x += (r() - 0.5) * 30; y += (r() - 0.5) * 30; g.lineTo(x, y); } g.stroke(); }
+    }
+  }, { upprepa });
+}
+
+/** Ljus marmor med grå ådror. */
+export function marmor(upprepa = [1, 1]) {
+  return skapa('marmor', 256, 256, (g, w, h) => {
+    g.fillStyle = '#e6ddcc'; g.fillRect(0, 0, w, h);
+    const r = rng(131);
+    for (let i = 0; i < 40; i++) { g.fillStyle = `rgba(${r() < 0.5 ? '180,170,150' : '250,246,236'},${r() * 0.1})`; g.beginPath(); g.ellipse(r() * w, r() * h, 20 + r() * 50, 8 + r() * 20, r() * 3, 0, 7); g.fill(); }
+    for (let i = 0; i < 9; i++) {
+      g.strokeStyle = `rgba(110,100,90,${0.12 + r() * 0.22})`; g.lineWidth = 0.4 + r() * 0.9;
+      let x = r() * w, y = 0; g.beginPath(); g.moveTo(x, y);
+      while (y < h) { const nx = x + (r() - 0.45) * 40, ny = y + 10 + r() * 30; g.quadraticCurveTo(x + (r() - 0.5) * 30, (y + ny) / 2, nx, ny); x = nx; y = ny; }
+      g.stroke();
+    }
+    gravyr(g, w, h, 0.04, 133);
+  }, { upprepa });
+}
+
+/** Ullfrans till gobelängen: tvinnade trådar i dova färger på genomskinlig grund. */
+export function ullfrans() {
+  return skapa('ullfrans', 128, 16, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    const r = rng(145);
+    for (let x = 0; x < w; x += 2) {
+      g.fillStyle = ['#b8a070', '#a08860', '#8a3a2a', '#c8b488'][(r() * 4) | 0];
+      g.fillRect(x, 0, 1.5, h - 1 - r() * 3);
+    }
+    g.fillStyle = '#6a5a3a'; g.fillRect(0, 0, w, 3);
+  }, { upprepa: [6, 1] });
+}
+
+/** Notblad: notsystem med noter och taktstreck under en rubrik. */
+export function notblad(seed = 1) {
+  return skapa('notblad' + seed, 128, 176, (g, w, h) => {
+    g.fillStyle = '#efe6cf'; g.fillRect(0, 0, w, h);
+    const r = rng(137 + seed);
+    g.fillStyle = '#3a2a1a'; g.font = 'italic 9px Georgia, serif'; g.textAlign = 'center'; g.fillText(['Valse', 'Menuett', 'Nocturne', 'Polka'][seed % 4], w / 2, 13);
+    for (let s = 0; s < 7; s++) {
+      const y0 = 24 + s * 21;
+      g.strokeStyle = 'rgba(40,30,20,0.7)'; g.lineWidth = 0.6;
+      for (let l = 0; l < 5; l++) { g.beginPath(); g.moveTo(8, y0 + l * 2.6); g.lineTo(w - 8, y0 + l * 2.6); g.stroke(); }
+      for (const x of [8, 44, 82, w - 8]) { g.beginPath(); g.moveTo(x, y0); g.lineTo(x, y0 + 10.4); g.stroke(); }
+      g.fillStyle = '#2a1e14';
+      for (let x = 15; x < w - 12; x += 5 + r() * 4) {
+        const y = y0 - 2 + Math.round(r() * 8) * 1.3; g.beginPath(); g.ellipse(x, y, 1.7, 1.2, -0.4, 0, 7); g.fill();
+        g.fillRect(x + 1.2, y - 7, 0.6, 7);
+      }
+    }
+    gravyr(g, w, h, 0.05, 139);
+  });
+}
+
+/** Växelbordets front: två rader fallklaffar med nummer (två har fallit) och ett jackfält med mässingsringar. */
+export function vaxelpanel() {
+  return skapa('vaxelpanel', 256, 160, (g, w, h) => {
+    g.fillStyle = '#3c2014'; g.fillRect(0, 0, w, h);
+    const r = rng(141);
+    for (let i = 0; i < 60; i++) { g.strokeStyle = `rgba(20,8,2,${r() * 0.3})`; const y = r() * h; g.beginPath(); g.moveTo(0, y); g.lineTo(w, y + (r() - 0.5) * 4); g.stroke(); }
+    const kol = 10, dx = (w - 24) / kol;
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    for (let rad = 0; rad < 2; rad++) for (let i = 0; i < kol; i++) {
+      const x = 12 + i * dx + dx / 2, y = 14 + rad * 24, nr = rad * kol + i + 1, fallen = nr === 7 || nr === 15;
+      g.fillStyle = '#b8893a'; g.fillRect(x - 9, y - 9, 18, 18);
+      g.fillStyle = fallen ? '#e8e0cc' : '#151212'; g.fillRect(x - 7, y - 7, 14, 14);
+      g.fillStyle = fallen ? '#151212' : '#d8ccb0'; g.font = 'bold 9px Georgia, serif'; g.fillText(String(nr), x, y + 0.5);
+    }
+    g.fillStyle = 'rgba(184,137,58,0.8)'; g.fillRect(6, 62, w - 12, 2);
+    for (let rad = 0; rad < 4; rad++) for (let i = 0; i < kol; i++) {
+      const x = 12 + i * dx + dx / 2, y = 82 + rad * 21;
+      g.fillStyle = '#e8dfc8'; g.fillRect(x - 6, y - 10, 12, 5);
+      g.fillStyle = '#3a2a1a'; g.font = '5px sans-serif'; g.fillText(String(rad * kol + i + 1), x, y - 7.3);
+      g.fillStyle = '#c9a050'; g.beginPath(); g.arc(x, y + 3, 4.6, 0, 7); g.fill();
+      g.fillStyle = '#0c0806'; g.beginPath(); g.arc(x, y + 3, 2.2, 0, 7); g.fill();
+    }
+    gravyr(g, w, h, 0.05, 143);
+  });
+}
+
+/** Klaviatur sedd uppifrån: 52 vita tangenter med de svarta mellan, basen till vänster (u = 0). */
+export function klaviatur() {
+  return skapa('klaviatur', 1024, 64, (g, w, h) => {
+    g.fillStyle = '#f2ecdc'; g.fillRect(0, 0, w, h);
+    const n = 52, kw = w / n;
+    g.fillStyle = 'rgba(80,70,50,0.6)';
+    for (let i = 1; i < n; i++) g.fillRect(i * kw - 0.6, 0, 1.2, h);
+    g.fillStyle = 'rgba(255,255,250,0.5)'; g.fillRect(0, h - 6, w, 3);
+    // A0 och H0 först, sedan C D E F G A H i varje oktav: svart tangent efter C, D, F, G och A
+    g.fillStyle = '#141012';
+    const svart = (i) => g.fillRect((i + 1) * kw - kw * 0.3, 0, kw * 0.6, h * 0.62);
+    svart(0);
+    for (let i = 2; i < n - 1; i++) { const t = (i - 2) % 7; if (t !== 2 && t !== 6) svart(i); }
+  });
+}
+
+/** Flygelns inre: gjutjärnsramen i matt guld med strängar längs flygeln. */
+export function strangar() {
+  return skapa('strangar', 64, 64, (g, w, h) => {
+    g.fillStyle = '#9a7a3a'; g.fillRect(0, 0, w, h);
+    for (let x = 1; x < w; x += 4) { g.fillStyle = 'rgba(230,220,190,0.7)'; g.fillRect(x, 0, 1, h); g.fillStyle = 'rgba(40,25,5,0.4)'; g.fillRect(x + 1, 0, 1, h); }
+  }, { upprepa: [8, 1] });
+}
+
+/** Vävd bonad i dova färger: 'jakt' (ryttare, hjort och hundar i skogen) eller 'slott' (slott på en höjd vid en å). */
+export function gobelang(motiv = 'jakt', seed = 1, storlek = [2, 1.6]) {
+  const w = 512, h = Math.max(256, Math.round((512 * storlek[1]) / storlek[0] / 32) * 32);
+  return skapa('gobelang' + motiv + seed + 'x' + h, w, h, (g) => {
+    const r = rng(151 + seed * 7);
+    const B = 26, iw = w - 2 * B, ih = h - 2 * B;
+    const GRON = ['#4a5a3a', '#5a6a40', '#3c4a32', '#66704a'], BRUN = '#5a3e26', OCKRA = '#b08a4a', BLA = '#5a6a7a', ROD = '#8a3a2a', GRADD = '#d8c8a0';
+    g.save(); g.beginPath(); g.rect(B, B, iw, ih); g.clip(); g.translate(B, B);
+    // Himmel och avlägsna kullar
+    const hg = g.createLinearGradient(0, 0, 0, ih * 0.45); hg.addColorStop(0, '#8a9890'); hg.addColorStop(1, '#c8bc94');
+    g.fillStyle = hg; g.fillRect(0, 0, iw, ih);
+    g.fillStyle = '#7a8a70';
+    g.beginPath(); g.moveTo(0, ih * 0.42); for (let x = 0; x <= iw; x += 32) g.lineTo(x, ih * (0.36 + r() * 0.08)); g.lineTo(iw, ih); g.lineTo(0, ih); g.fill();
+    g.fillStyle = GRON[1]; g.fillRect(0, ih * 0.5, iw, ih * 0.5);
+    const trad = (x, y, s) => {
+      g.fillStyle = BRUN; g.fillRect(x - s * 0.08, y - s * 0.9, s * 0.16, s * 0.9);
+      for (let i = 0; i < 7; i++) { g.fillStyle = GRON[(r() * 4) | 0]; g.beginPath(); g.ellipse(x + (r() - 0.5) * s * 0.8, y - s * (1 + r() * 0.6), s * (0.3 + r() * 0.2), s * (0.25 + r() * 0.15), 0, 0, 7); g.fill(); }
+    };
+    // Hjort, häst eller hund i språng: kropp, hals, huvud och ben
+    const djur = (x, y, s, farg, horn) => {
+      g.fillStyle = farg; g.strokeStyle = farg; g.lineWidth = s * 0.09; g.lineCap = 'round';
+      g.beginPath(); g.ellipse(x, y, s * 0.5, s * 0.2, -0.1, 0, 7); g.fill();
+      g.beginPath(); g.moveTo(x + s * 0.4, y - s * 0.05); g.lineTo(x + s * 0.6, y - s * 0.38); g.stroke();
+      g.beginPath(); g.ellipse(x + s * 0.68, y - s * 0.4, s * 0.14, s * 0.08, 0.3, 0, 7); g.fill();
+      for (const [a, b] of [[-0.35, -0.9], [-0.25, -0.6], [0.3, 0.7], [0.38, 1.0]]) { g.beginPath(); g.moveTo(x + a * s, y + s * 0.1); g.lineTo(x + b * s * 0.7, y + s * 0.55); g.stroke(); }
+      if (horn) {
+        g.lineWidth = s * 0.04;
+        for (const sx of [-1, 1]) { g.beginPath(); g.moveTo(x + s * 0.62, y - s * 0.45); g.lineTo(x + s * (0.6 + sx * 0.12), y - s * 0.8); g.lineTo(x + s * (0.66 + sx * 0.18), y - s * 0.95); g.moveTo(x + s * (0.61 + sx * 0.06), y - s * 0.65); g.lineTo(x + s * (0.5 + sx * 0.2), y - s * 0.72); g.stroke(); }
+      }
+    };
+    if (motiv === 'slott') {
+      g.fillStyle = BLA; g.beginPath(); g.moveTo(0, ih * 0.78); g.bezierCurveTo(iw * 0.3, ih * 0.7, iw * 0.6, ih * 0.9, iw, ih * 0.74); g.lineTo(iw, ih * 0.82); g.bezierCurveTo(iw * 0.6, ih * 0.98, iw * 0.3, ih * 0.78, 0, ih * 0.86); g.fill();
+      g.fillStyle = GRON[3]; g.beginPath(); g.moveTo(iw * 0.18, ih * 0.62); g.quadraticCurveTo(iw * 0.5, ih * 0.3, iw * 0.82, ih * 0.62); g.fill();
+      const sx = iw * 0.5, sy = ih * 0.47, sw = iw * 0.32;
+      g.fillStyle = GRADD; g.fillRect(sx - sw / 2, sy - ih * 0.14, sw, ih * 0.14);
+      for (const [tx, th] of [[-0.5, 0.26], [0.5, 0.26], [0, 0.32]]) {
+        const x = sx + tx * sw, tw = iw * 0.06;
+        g.fillStyle = GRADD; g.fillRect(x - tw / 2, sy - ih * th, tw, ih * th);
+        g.fillStyle = ROD; g.beginPath(); g.moveTo(x - tw * 0.65, sy - ih * th); g.lineTo(x, sy - ih * (th + 0.1)); g.lineTo(x + tw * 0.65, sy - ih * th); g.fill();
+      }
+      g.fillStyle = '#3a3a3a';
+      for (let i = 0; i < 6; i++) g.fillRect(sx - sw * 0.4 + i * sw * 0.15, sy - ih * 0.1, 5, 9);
+      for (let i = 0; i < 4; i++) trad(iw * (0.06 + r() * 0.14), ih * (0.7 + r() * 0.15), ih * 0.2);
+      for (let i = 0; i < 4; i++) trad(iw * (0.82 + r() * 0.14), ih * (0.7 + r() * 0.15), ih * 0.2);
+      djur(iw * 0.3, ih * 0.9, ih * 0.1, BRUN, true);
+    } else {
+      for (let i = 0; i < 9; i++) trad(iw * (i / 8) + (r() - 0.5) * 30, ih * (0.6 + r() * 0.12), ih * (0.22 + r() * 0.08));
+      const rx = iw * 0.32, ry = ih * 0.76, s = ih * 0.2; // ryttaren
+      djur(rx, ry, s, '#7a5a3a', false);
+      g.fillStyle = ROD; g.fillRect(rx - s * 0.12, ry - s * 0.6, s * 0.22, s * 0.42);
+      g.fillStyle = '#d8b898'; g.beginPath(); g.arc(rx, ry - s * 0.7, s * 0.09, 0, 7); g.fill();
+      g.fillStyle = '#2a2420'; g.fillRect(rx - s * 0.13, ry - s * 0.82, s * 0.26, s * 0.06);
+      g.strokeStyle = OCKRA; g.lineWidth = 3; g.beginPath(); g.moveTo(rx + s * 0.05, ry - s * 0.45); g.lineTo(rx + s * 0.55, ry - s * 0.95); g.stroke(); // spjutet
+      djur(iw * 0.7, ih * 0.72, ih * 0.16, OCKRA, true); // hjorten
+      djur(iw * 0.52, ih * 0.88, ih * 0.08, '#d0c0a0', false); djur(iw * 0.6, ih * 0.92, ih * 0.08, BRUN, false); // hundarna
+    }
+    // Millefleurs i förgrunden
+    for (let i = 0; i < 90; i++) { g.fillStyle = [ROD, GRADD, OCKRA, BLA][(r() * 4) | 0]; g.beginPath(); g.arc(r() * iw, ih * (0.8 + r() * 0.2), 1.5 + r() * 2, 0, 7); g.fill(); }
+    g.restore();
+    // Bården: mörkblå med rankor och ett rött band innanför
+    g.fillStyle = '#2e3644'; g.fillRect(0, 0, w, B); g.fillRect(0, h - B, w, B); g.fillRect(0, 0, B, h); g.fillRect(w - B, 0, B, h);
+    g.strokeStyle = OCKRA; g.lineWidth = 2;
+    for (let x = 0; x < w; x += 22) for (const y of [B / 2, h - B / 2]) { g.beginPath(); g.arc(x, y, 6, 0, Math.PI); g.stroke(); g.fillStyle = ROD; g.beginPath(); g.arc(x + 11, y - 2, 3, 0, 7); g.fill(); }
+    for (let y = 0; y < h; y += 22) for (const x of [B / 2, w - B / 2]) { g.beginPath(); g.arc(x, y, 6, -Math.PI / 2, Math.PI / 2); g.stroke(); g.fillStyle = ROD; g.beginPath(); g.arc(x - 2, y + 11, 3, 0, 7); g.fill(); }
+    g.strokeStyle = ROD; g.lineWidth = 3; g.strokeRect(B - 2, B - 2, iw + 4, ih + 4);
+    // Väven: täta inslag, blekning och nötning
+    for (let y = 0; y < h; y += 2) { g.fillStyle = `rgba(${y % 4 ? '255,240,210' : '30,20,10'},${0.06 + r() * 0.04})`; g.fillRect(0, y, w, 1); }
+    for (let x = 0; x < w; x += 3) { g.fillStyle = 'rgba(30,20,10,0.05)'; g.fillRect(x, 0, 1, h); }
+    g.fillStyle = 'rgba(150,130,100,0.18)'; g.fillRect(0, 0, w, h);
+    gravyr(g, w, h, 0.08, 157 + seed);
   });
 }
