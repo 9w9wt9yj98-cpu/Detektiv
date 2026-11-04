@@ -19,6 +19,7 @@ const FILER = [
   './js/motor/vagledning.js',
   './js/tre/foremal/belysning.js',
   './js/tre/foremal/byggdelar.js',
+  './js/tre/foremal/fjall.js',
   './js/tre/foremal/grund.js',
   './js/tre/foremal/index.js',
   './js/tre/foremal/mobler.js',
