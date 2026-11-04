@@ -233,6 +233,11 @@ LJUD = {"salen": [{"typ": "faglar", "styrka": 0.4}], "garden": ["faglar", {"typ"
 for m in fall["moment"]:
   if m["id"] in LJUD: m["payload"]["rum"]["ljud"] = LJUD[m["id"]]
 
+# Hur rummen skrivs i löptext (”Det finns mer att hitta på scenen”, ”Gå till scenen”)
+TEXT_I = {"salen": "i salen", "garden": "på gården", "kontoret": "i Gunnars kontor"}
+for m in fall["moment"]:
+  if m["id"] in TEXT_I: m["text_i"] = TEXT_I[m["id"]]
+
 ut = os.path.join(os.path.dirname(__file__), '..', '..', 'fall', 'brudskalen.json')
 json.dump(fall, open(ut, 'w'), ensure_ascii=False, indent=2)
 print('skrev', os.path.normpath(ut))

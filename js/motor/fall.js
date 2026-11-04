@@ -55,13 +55,16 @@ export function arEgennamn(fall, namn) {
   const forsta = String(namn).split(/\s+/)[0];
   return forsta.endsWith('.') || ord.has(forsta) || ord.has(forsta.replace(/s$/, ''));
 }
+/** Hur ett rum skrivs i löptext: ”på scenen”, ”i sovrummet” (fältet text_i), och utan preposition: ”scenen”. */
+export function rumI(m) { return m?.text_i || `i ${m?.namn ?? ''}`; }
+export function rumTill(m) { return rumI(m).replace(/^(i|på) /, ''); }
 /** Var varje fynd/material kan hittas i 3D-rummen: id -> [{ rum, rumNamn, objekt, objektNamn }]. */
 export function kallor(fall) {
   if (fall._kallor) return fall._kallor;
   const ut = {};
   for (const m of rumMoment(fall)) for (const o of m.payload.rum.objekt || []) {
     const g = objektGer(o);
-    for (const id of [...g.fynd, ...g.material]) (ut[id] ||= []).push({ rum: m.id, rumNamn: m.namn, objekt: o.id, objektNamn: o.interaktiv?.namn || o.id, person: o.typ === 'person', egen: arEgennamn(fall, o.interaktiv?.namn || o.id) });
+    for (const id of [...g.fynd, ...g.material]) (ut[id] ||= []).push({ rum: m.id, rumNamn: m.namn, rumI: rumI(m), rumTill: rumTill(m), objekt: o.id, objektNamn: o.interaktiv?.namn || o.id, person: o.typ === 'person', egen: arEgennamn(fall, o.interaktiv?.namn || o.id) });
   }
   Object.defineProperty(fall, '_kallor', { value: ut, enumerable: false });
   return ut;
@@ -72,7 +75,7 @@ export function har(st, id) { return st.fynd.includes(id) || (st.material || [])
 export function rakning(fall, st) {
   const k = kallor(fall);
   const perRum = {};
-  for (const m of rumMoment(fall)) perRum[m.id] = { namn: m.namn, total: 0, hittat: 0, upplast: arUpplast(m, st), moment: m };
+  for (const m of rumMoment(fall)) perRum[m.id] = { namn: m.namn, i: rumI(m), total: 0, hittat: 0, upplast: arUpplast(m, st), moment: m };
   const sett = new Set();
   for (const [id, lista] of Object.entries(k)) {
     const hittad = har(st, id);

@@ -88,11 +88,11 @@ export async function fel(browser) {
   const p = await nySida(browser, true, 'f8-fel');
   await startaFall(p, ID);
   await p.locator('[data-ledtrad]').click();
-  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /Biblioteket/);
+  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /här i biblioteket/);
   await p.locator('[data-ta]').click(); await p.locator('[data-ja]').click(); await vanta(300);
   const lt = await p.locator('.ledtradlista').innerText();
   assert.match(lt, /exakt när dog greven/);
-  assert.match(await p.locator('.ledtradlista .pekare').innerText(), /Biblioteket|komma åt/, 'pekaren pekar fel: ' + lt);
+  assert.match(await p.locator('.ledtradlista .pekare').innerText(), /biblioteket|komma åt/, 'pekaren pekar fel: ' + lt);
   await bild(p, 'f8-ledtrad');
   await p.locator('.ledtradar [data-stang]').last().click(); await vanta(300);
   await anklaga(p, 'axel');

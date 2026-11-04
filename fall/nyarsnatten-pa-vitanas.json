@@ -415,7 +415,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i biblioteket"
     },
     {
       "id": "galleriet",
@@ -752,7 +753,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i porträttgalleriet"
     },
     {
       "id": "balsalen",
@@ -1082,7 +1084,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i balsalen"
     },
     {
       "id": "rokrummet",
@@ -1316,7 +1319,8 @@
             "brasa"
           ]
         }
-      }
+      },
+      "text_i": "i rökrummet"
     },
     {
       "id": "vaxeln",
@@ -1462,7 +1466,8 @@
             "tick"
           ]
         }
-      }
+      },
+      "text_i": "i telefonväxeln"
     },
     {
       "id": "terrassen",
@@ -1672,7 +1677,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "på terrassen"
     },
     {
       "id": "tidslinjen",

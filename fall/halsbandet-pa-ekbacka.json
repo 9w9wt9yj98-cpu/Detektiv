@@ -451,7 +451,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i sovrummet"
     },
     {
       "id": "koksgangen",
@@ -665,7 +666,8 @@
             "dropp"
           ]
         }
-      }
+      },
+      "text_i": "i köksgången"
     },
     {
       "id": "matsalen",
@@ -1013,7 +1015,8 @@
           ],
           "verklig_golv": "fiskben"
         }
-      }
+      },
+      "text_i": "i stora salen"
     }
   ],
   "fynd": [

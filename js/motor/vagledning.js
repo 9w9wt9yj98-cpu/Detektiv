@@ -1,5 +1,5 @@
 // Vägledning: var finns det som saknas, vad är nästa steg? Används av ledtrådar, Platser och HUD.
-import { kallor, har, rumMoment, arUpplast, rakning, materialMap } from './fall.js';
+import { kallor, har, rumMoment, arUpplast, rakning, materialMap, rumTill } from './fall.js';
 
 /** Vilket moment (mekanik i boken) eller vilken slutsats ger ett visst fynd? */
 export function mekanikKallor(fall) {
@@ -30,7 +30,7 @@ export function vagTill(fall, st, id, djup = 0) {
     const m = fall.moment.find((mm) => mm.id === k[0].rum);
     const nyckel = (m.last_upp_av || []).find((x) => !har(st, x));
     const v = nyckel && vagTill(fall, st, nyckel, djup + 1);
-    if (v) return { ...v, for: m.namn };
+    if (v) return { ...v, for: rumTill(m) };
   }
   // Följdfrågor och annat material som låses upp av fynd: följ det som saknas.
   const mat = materialMap(fall)[id];
@@ -53,7 +53,7 @@ export function vagTill(fall, st, id, djup = 0) {
     if (m && !arUpplast(m, st)) {
       const nyckel = (m.last_upp_av || []).find((x) => !har(st, x));
       const v = nyckel && vagTill(fall, st, nyckel, djup + 1);
-      if (v) return { ...v, for: m.namn };
+      if (v) return { ...v, for: rumTill(m) };
     }
     return { id, flik: mk.namn };
   }
@@ -65,9 +65,9 @@ export function pekarText(v) {
   if (v.flik) return `Öppna anteckningsboken och arbeta vidare under fliken ”${v.flik}”.`;
   const for_ = v.for ? ` (Det behövs för att komma åt ${v.for}.)` : '';
   // Personer nämns inte vid namn: pekaren får aldrig råka peka ut den skyldige.
-  if (v.person) return `Gå till ${v.rumNamn} och prata med personerna där.${for_}`;
+  if (v.person) return `Gå till ${v.rumTill} och prata med personerna där.${for_}`;
   const namn = v.egen ? v.objektNamn : v.objektNamn.charAt(0).toLowerCase() + v.objektNamn.slice(1);
-  return `Gå till ${v.rumNamn} och undersök ${namn}.${for_}`;
+  return `Gå till ${v.rumTill} och undersök ${namn}.${for_}`;
 }
 
 /** Saknade underlag för en ledtrådsnivå: returnerar första vägen eller null. */
@@ -94,9 +94,9 @@ export function nastaSteg(fall, st, { framsteg } = {}) {
   if (redo.length) return redo.length === 1 ? 'En ny fråga väntar under Slutsatser i anteckningsboken.' : `${redo.length} nya frågor väntar under Slutsatser i anteckningsboken.`;
   // 1. Fynd kvar i rummet man står i, sedan i andra öppna rum
   const har_ = r.perRum[st.rum];
-  if (har_?.upplast && kvar(har_) > 0) return `Det finns mer att hitta här i ${har_.namn} – ${kvar(har_)} kvar. Gå nära allt som har ett ! ovanför.`;
+  if (har_?.upplast && kvar(har_) > 0) return `Det finns mer att hitta här ${har_.i} – ${kvar(har_)} kvar. Gå nära allt som har ett ! ovanför.`;
   const oppna = Object.values(r.perRum).filter((x) => x.upplast && kvar(x) > 0);
-  if (oppna.length) return `Det finns mer att hitta i ${oppna.map((x) => `${x.namn} (${kvar(x)} kvar)`).join(' och ')}.`;
+  if (oppna.length) return `Det finns mer att hitta ${oppna.map((x) => `${x.i} (${kvar(x)} kvar)`).join(' och ')}.`;
   // 2. Ett pussel i anteckningsboken som är öppet men inte klart
   for (const m of fall.moment.filter((x) => x.mekanik !== 'scen' && arUpplast(x, st))) {
     const p = framsteg?.(m);

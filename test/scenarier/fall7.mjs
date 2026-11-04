@@ -71,7 +71,7 @@ export async function fel(browser) {
   assert.match(await p.locator('.modal-bakgrund.oppen').innerText(), /Titta på den först/);
   await stangKort(p);
   await p.locator('[data-ledtrad]').click();
-  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /Scenen/);
+  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /här på scenen/);
   await p.locator('[data-ta]').click(); await p.locator('[data-ja]').click(); await vanta(300);
   const lt = await p.locator('.ledtradlista').innerText();
   assert.match(lt, /olycka/);
