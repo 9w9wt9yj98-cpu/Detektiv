@@ -759,7 +759,8 @@
               "modell": {
                 "fil": "modeller/dining_chair_02.glb",
                 "passa": "box"
-              }
+              },
+              "kollision": false
             },
             {
               "id": "tallrik-friherrinnan",
@@ -782,7 +783,8 @@
               "modell": {
                 "fil": "modeller/dining_chair_02.glb",
                 "passa": "box"
-              }
+              },
+              "kollision": false
             },
             {
               "id": "tallrik-gustav",
