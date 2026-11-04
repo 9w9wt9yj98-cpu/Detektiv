@@ -31,7 +31,7 @@ fall = {
 # ---------- Rum 1: Kupé 3 ----------
 kupe3 = {"id": "kupe3", "namn": "Kupé 3", "mekanik": "scen", "payload": {"visning": "3d", "rum": {
   "bredd": 2.6, "djup": 3.2, "hojd": 2.6, "miljo": "inomhus", "bakgrund": "#10141c", "dimma": [6, 14, "#141820"],
-  "golv": "#3a2a22", "tapet": {"grund": "#6a3a24", "monster": "#53301c"}, "panel": "#3a1a0e",
+  "golv": "#3a2a22", "verklig_vagg": "tra", "tapet": {"grund": "#6a3a24", "monster": "#53301c"}, "panel": "#3a1a0e",
   "ljus": {"omgivning": "#ffd9a8", "omgivning_styrka": 0.5, "bas": 0.3},
   "start": {"pos": [-0.35, 1.05], "titta": -10},
   "objekt": [
@@ -41,7 +41,7 @@ kupe3 = {"id": "kupe3", "namn": "Kupé 3", "mekanik": "scen", "payload": {"visni
     obj("koj", "koj", [0.82, 0, -0.35]),
     obj("kroppen", "taeckt", [0.82, 0.55, -0.35], interaktiv=ia("Grosshandlare Berg",
         "Anton Berg ligger under en filt på kojen. Ett hårt slag mot vänster tinning. Doktor Wiklund, som reser i andra vagnen, har skrivit på en lapp: ”Döden inträffade mellan kl. 01.00 och 02.00. Inga tecken på kamp.”", "f-dodstid")),
-    obj("bord", "bord", [-0.62, 0, -1.3], storlek=[0.7, 0.7, 0.42]),
+    obj("bord", "bord", [-0.62, 0, -1.3], storlek=[0.7, 0.7, 0.42], modell={"fil": "modeller/classic_nightstand_01.glb", "passa": "box"}),
     obj("planboken", "papper", [-0.78, 0.7, -1.32], antal=2, interaktiv=ia("Bergs plånbok",
         "Bergs plånbok ligger uppslagen på bordet. Bland sedlarna finns en skuldsedel: ”Skyldig A. Berg trehundra kronor. Stockholm den 14 februari. /E. Sundin”", "f-skuldsedel")),
     obj("bok", "anteckningsbok", [-0.42, 0.7, -1.28], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
@@ -63,7 +63,7 @@ korr = {"id": "korridoren", "namn": "Sovvagnskorridoren", "mekanik": "scen", "la
   "last_text": "Strand håller upp handen: ”Titta på dörren och kedjan först – hur satt den?”",
   "payload": {"visning": "3d", "rum": {
   "bredd": 1.6, "djup": 9.0, "hojd": 2.5, "miljo": "inomhus", "bakgrund": "#10141c", "dimma": [5, 13, "#141820"],
-  "golv": {"typ": "tra", "farg": "#3a2418"}, "tapet": {"grund": "#6a3a24", "monster": "#53301c"}, "panel": "#3a1a0e",
+  "golv": {"typ": "tra", "farg": "#3a2418"}, "verklig_vagg": "tra", "tapet": {"grund": "#6a3a24", "monster": "#53301c"}, "panel": "#3a1a0e",
   "ljus": {"omgivning": "#ffd9a8", "omgivning_styrka": 0.5, "bas": 0.3},
   "start": {"pos": [0.1, 0.6], "titta": 0},
   "objekt": [
@@ -86,7 +86,7 @@ korr = {"id": "korridoren", "namn": "Sovvagnskorridoren", "mekanik": "scen", "la
     obj("vagnsdorr", "kupedorr", [0.2, 0, 4.49], rot=180, interaktiv=ia("Vagnsdörren", "Dörren ut mot plattformen mellan vagnarna. Snö har yrt in över tröskeln.")),
     obj("restdorr", "kupedorr", [0, 0, -4.49], gar_till="restaurangvagnen", interaktiv=ia("Till restaurangvagnen", "Genom bälgen och vidare till restaurangvagnen.")),
     obj("restskylt", "skylt", [0, 2.28, -4.48], text="RESTAURANGVAGN", storlek=[0.7, 0.14], textstorlek=44),
-    obj("fallbord", "bord", [-0.55, 0, 1.0], storlek=[0.4, 0.72, 0.32]),
+    obj("fallbord", "bord", [-0.55, 0, 1.0], storlek=[0.4, 0.72, 0.32], modell={"fil": "modeller/side_table_tall_01.glb", "passa": "box"}),
     obj("bok", "anteckningsbok", [-0.55, 0.72, 1.0], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("l1", "vagglampa", [-0.78, 2.0, -2.6], rot=90, styrka=1.0, rackvidd=4),
     obj("l2", "vagglampa", [-0.78, 2.0, 0.9], rot=90, styrka=1.0, rackvidd=4),
@@ -98,7 +98,7 @@ rest = {"id": "restaurangvagnen", "namn": "Restaurangvagnen", "mekanik": "scen",
   "last_text": "Strand: ”Förhör grannarna i korridoren först. Konduktören och de andra väntar i restaurangvagnen.”",
   "payload": {"visning": "3d", "rum": {
   "bredd": 2.9, "djup": 7.2, "hojd": 2.6, "miljo": "inomhus", "bakgrund": "#10141c", "dimma": [6, 15, "#141820"],
-  "golv": "#4a2a1a", "tapet": {"grund": "#7a4a2c", "monster": "#6a3a20"}, "panel": "#3a1a0e",
+  "golv": "#4a2a1a", "verklig_vagg": "tra", "tapet": {"grund": "#7a4a2c", "monster": "#6a3a20"}, "panel": "#3a1a0e",
   "ljus": {"omgivning": "#ffdcae", "omgivning_styrka": 0.55, "bas": 0.3},
   "start": {"pos": [0.0, 2.9], "titta": 0},
   "objekt": [
@@ -110,12 +110,12 @@ rest = {"id": "restaurangvagnen", "namn": "Restaurangvagnen", "mekanik": "scen",
         interaktiv=ia("Servitör Olsson", "Olsson torkar glas bakom disken. Han har inte sovit en blund.", "f-sundin-alibi", ["u-ols"])),
     obj("notor", "papper", [-0.45, 1.05, -2.95], antal=3, interaktiv=ia("Olssons notor",
         "Nattens notor från bord 4: kaffe 00.40, konjak 01.15, kaffe och smörgås 01.50. Varje rad är kvitterad av servitören när den bars fram.", "f-notan")),
-    obj("bv1", "bord", [-0.95, 0, -0.6], storlek=[0.75, 0.75, 0.62]),
+    obj("bv1", "bord", [-0.95, 0, -0.6], storlek=[0.75, 0.75, 0.62], modell={"fil": "modeller/wooden_table_02.glb", "passa": "box"}),
     obj("bank1", "sittbank", [-0.95, 0, 0.05], rot=180, bredd=0.9),
     obj("bok", "anteckningsbok", [-0.95, 0.75, -0.6], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
-    obj("bv2", "bord", [-0.95, 0, 1.5], storlek=[0.75, 0.75, 0.62]),
+    obj("bv2", "bord", [-0.95, 0, 1.5], storlek=[0.75, 0.75, 0.62], modell={"fil": "modeller/wooden_table_02.glb", "passa": "box"}),
     obj("bank2", "sittbank", [-0.95, 0, 0.85], bredd=0.9),
-    obj("bord4", "bord", [0.95, 0, 1.2], storlek=[0.75, 0.75, 0.62]),
+    obj("bord4", "bord", [0.95, 0, 1.2], storlek=[0.75, 0.75, 0.62], modell={"fil": "modeller/wooden_table_02.glb", "passa": "box"}),
     obj("bank4", "sittbank", [0.95, 0, 1.9], rot=180, bredd=0.9),
     obj("kort", "kortlek", [0.95, 0.75, 1.15]),
     obj("sundin", "person", [0.95, 0, 1.75], rot=180, pose="sitta", rock="#5a4a3a", byxor="#3a3028", slips="#7a2e1f", har="#3a2a1a", skagg=True, seed=0,
@@ -125,7 +125,7 @@ rest = {"id": "restaurangvagnen", "namn": "Restaurangvagnen", "mekanik": "scen",
     obj("dorr", "kupedorr", [0, 0, 3.59], rot=180, gar_till="korridoren", interaktiv=ia("Till sovvagnen", "Tillbaka genom bälgen till sovvagnskorridoren.")),
     obj("l1", "vagglampa", [-1.42, 1.95, -0.6], rot=90, styrka=1.2),
     obj("l2", "vagglampa", [1.42, 1.95, 1.2], rot=-90, styrka=1.2),
-    obj("l3", "ljuskrona", [0, 2.6, -2.2], styrka=1.2)
+    obj("l3", "ljuskrona", [0, 2.6, -2.2], styrka=1.2, modell={"fil": "modeller/chandelier_01.glb", "passa": "skala", "skala": 0.6, "hanger": True})
   ]}}}
 
 forhor = {"id": "forhoret", "namn": "Förhör", "mekanik": "forhor", "payload": {

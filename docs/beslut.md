@@ -229,3 +229,14 @@ Martin godkände sovrummet och bad om resten av fall 1, bättre texturer på vä
 - **Småfel:** sängen beskrivs nu som ”sängen med de fyra höga stolparna” i stället för ”himmelssängen”, vilket stämmer med både prefaben och modellen. Pendylen i sovrummet visade fel tid i vanlig stil (timvisaren nära elva, inte nio), fast texten säger 21.14. Nu har pendylen ett fält `tid`, och sovrummet visar 21.14. Matsalens pendyl visar 21.25 – spelaren kommer alltid dit efter sovrummet.
 
 Före- och efterbilder: `docs/bilder/modeller-fall1/`.
+
+## Verklig grafik: fall 2, Nattåget mot Narvik (november 2026)
+
+Förhandsgranskningen i samma stil som fall 1 (`?stil=verklig`; vanlig stil är oförändrad):
+
+- **Väggarna** i kupén, korridoren och restaurangvagnen är fanérad mahogny med lodrät ådring (`rum.verklig_vagg: "tra"`). Det gör störst skillnad i tåget och stämmer med texten om väggen mot kupé 4 (”en hel mahognypanel”), som i vanlig stil är tapetserad.
+- **Modeller:** borden i restaurangvagnen och kupén, bordet i korridoren och ljuskronan i restaurangvagnen. Golven har trätextur.
+- **Kvar som prefaber:** kojer, kupédörrar, tågfönster, bardisk, bänkar, väggampor och portföljen. Det finns inga fria modeller av tåginredning från 1930-talet. Läderbänken som provades (*sofa_02*) gav fel sitthöjd för personerna som sitter där, och Poly Havens resväskor (två väskor med resetiketter) är inte en portfölj.
+- **Granskning av texterna:** tidtabellen, notorna, dunsen kl. 01.25, Linds väg i Boden och säkerhetskedjorna stämmer. Kupé 2 ligger åt samma håll från korridoren och från kupé 3. Inga fel hittades utöver väggen ovan.
+
+Före- och efterbilder: `docs/bilder/modeller-fall2/`.
