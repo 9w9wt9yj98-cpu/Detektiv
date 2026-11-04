@@ -23,7 +23,7 @@ function bord(d) {
     box(g, w, 0.05, dj, m, 0, h - 0.025, 0);
     for (const sx of [-1, 1]) for (const sz of [-1, 1]) box(g, 0.05, h - 0.05, 0.05, m, sx * (w / 2 - 0.05), (h - 0.05) / 2, sz * (dj / 2 - 0.05));
   }
-  if (d.duk) box(g, w + 0.06, 0.01, dj + 0.06, mat('#ffffff', { map: T.duk() }), 0, h + 0.003, 0);
+  if (d.duk) box(g, w + 0.06, 0.01, dj + 0.06, mat('#ffffff', { map: T.duk() }), 0, h + 0.003, 0).userData.behall = true; // duken står kvar med 3D-modell
   return { grupp: g };
 }
 
@@ -86,10 +86,11 @@ function stol(d) {
   box(g, 0.04, 0.55, 0.04, m, -0.19, 0.75, -0.2); box(g, 0.04, 0.55, 0.04, m, 0.19, 0.75, -0.2);
   for (let i = 0; i < 3; i++) box(g, 0.38, 0.05, 0.02, m, 0, 0.6 + i * 0.16, -0.2);
   if (d.nummer) {
+    // Platsnumren står kvar när en 3D-modell ersätter stolen (userData.behall).
     const s = plan(g, 0.14, 0.14, mat('#ffffff', { map: T.siffra(String(d.nummer)), transparent: true }), 0, 0.88, -0.225, 0, Math.PI);
-    s.renderOrder = 2;
+    s.renderOrder = 2; s.userData.behall = true;
     const s2 = plan(g, 0.14, 0.14, mat('#ffffff', { map: T.siffra(String(d.nummer)), transparent: true }), 0, 0.88, -0.185);
-    s2.renderOrder = 2;
+    s2.renderOrder = 2; s2.userData.behall = true;
   }
   return { grupp: g };
 }

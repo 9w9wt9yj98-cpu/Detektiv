@@ -92,6 +92,7 @@
           "golv": {
             "typ": "sten"
           },
+          "verklig_golv": "hallar",
           "ljus": {
             "omgivning": "#c8d0d8",
             "omgivning_styrka": 0.45,
@@ -165,7 +166,15 @@
                 0,
                 1.7
               ],
-              "antal": 3
+              "antal": 3,
+              "modell": {
+                "delar": {
+                  "kanna": {
+                    "fil": "modeller/oil_tin.glb",
+                    "passa": "box"
+                  }
+                }
+              }
             },
             {
               "id": "lampa1",
@@ -436,7 +445,11 @@
                 0.75,
                 0.6
               ],
-              "farg": "#5a4a3a"
+              "farg": "#5a4a3a",
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "loggboken",
@@ -638,7 +651,16 @@
                 1.0,
                 0.85,
                 0.45
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/gothic_commode_01.glb",
+                "passa": "box",
+                "pos": [
+                  0,
+                  -0.015,
+                  0
+                ]
+              }
             },
             {
               "id": "klockan",
@@ -648,7 +670,22 @@
                 0.85,
                 0.3
               ],
-              "rot": 90
+              "rot": 90,
+              "tid": [
+                7,
+                0
+              ],
+              "modell": {
+                "fil": "modeller/mantel_clock_01.glb",
+                "passa": "skala",
+                "urtavla": {
+                  "nod": "mantel_clock_01_glass",
+                  "tid": [
+                    7,
+                    0
+                  ]
+                }
+              }
             },
             {
               "id": "brevet",
@@ -660,8 +697,8 @@
               ],
               "rot": 90,
               "interaktiv": {
-                "namn": "Ett brev i byrålådan",
-                "text": "Halvt undanstoppat i byrålådan ligger ett oavsänt brev i Signes handstil, adresserat till en man i Norrtälje.",
+                "namn": "Ett brev på byrån",
+                "text": "På byrån ligger ett oavsänt brev i Signes handstil, adresserat till en man i Norrtälje. Det har legat undanstoppat i byrålådan.",
                 "ger_fynd": "f-signe-brev",
                 "ger_material": [
                   "dok-brevet"
@@ -695,7 +732,17 @@
                 0.7
               ],
               "farg": "#8a6a44",
-              "duk": true
+              "duk": true,
+              "modell": {
+                "fil": "modeller/dining_table.glb",
+                "passa": "box",
+                "pos": [
+                  0,
+                  -0.008,
+                  0
+                ],
+                "behall": false
+              }
             },
             {
               "id": "lampa",
@@ -706,7 +753,15 @@
                 0.4
               ],
               "ljus": true,
-              "styrka": 2.0
+              "styrka": 2.0,
+              "modell": {
+                "fil": "modeller/vintage_oil_lamp.glb",
+                "passa": "skala",
+                "skala": 0.7,
+                "glas": [
+                  "vintage_oil_lamp_glass"
+                ]
+              }
             },
             {
               "id": "bok",
@@ -804,7 +859,11 @@
                 0.75,
                 0.6
               ],
-              "farg": "#6a4a2c"
+              "farg": "#6a4a2c",
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "dagboken",
@@ -818,7 +877,7 @@
                 0.34,
                 0.24
               ],
-              "farg": "#5a2a1a",
+              "farg": "#1e1a18",
               "interaktiv": {
                 "namn": "Elofs dagbok",
                 "text": "En svart dagbok, prydligt förd med reservoarpenna. Ett bokmärke ligger vid natten mot den fjortonde.",
@@ -850,7 +909,15 @@
                 -1.3
               ],
               "ljus": true,
-              "styrka": 2.0
+              "styrka": 2.0,
+              "modell": {
+                "fil": "modeller/vintage_oil_lamp.glb",
+                "passa": "skala",
+                "skala": 0.7,
+                "glas": [
+                  "vintage_oil_lamp_glass"
+                ]
+              }
             },
             {
               "id": "kannor",
@@ -861,9 +928,17 @@
                 1.2
               ],
               "antal": 2,
+              "modell": {
+                "delar": {
+                  "kanna": {
+                    "fil": "modeller/oil_tin.glb",
+                    "passa": "box"
+                  }
+                }
+              },
               "interaktiv": {
                 "namn": "Fotogenkannor",
-                "text": "Två fotogenkannor med Kungl. Lotsverkets stämpel står bakom dörren – i biträdets egen stuga, inte i fyrens förråd. Båda är tomma.",
+                "text": "Två fotogenkannor med Kungl. Lotsverkets stämpel står på golvet – i biträdets egen stuga, inte i fyrens förråd. Båda är tomma.",
                 "ger_fynd": "f-fotogen-stuga"
               }
             },
@@ -966,7 +1041,11 @@
                 0.78,
                 0.6
               ],
-              "farg": "#6a5a40"
+              "farg": "#6a5a40",
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "barografen",
@@ -1058,7 +1137,15 @@
                 -1.3
               ],
               "ljus": true,
-              "styrka": 2.0
+              "styrka": 2.0,
+              "modell": {
+                "fil": "modeller/vintage_oil_lamp.glb",
+                "passa": "skala",
+                "skala": 0.7,
+                "glas": [
+                  "vintage_oil_lamp_glass"
+                ]
+              }
             },
             {
               "id": "fonster",

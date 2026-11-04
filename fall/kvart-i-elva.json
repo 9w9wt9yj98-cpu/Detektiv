@@ -258,7 +258,11 @@
                 1.4,
                 0.95,
                 0.5
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/gothic_commode_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "kassabok",
@@ -409,6 +413,7 @@
           "golv": {
             "typ": "sten"
           },
+          "verklig_golv": "kullersten",
           "ljus": {
             "omgivning": "#9fb0d0",
             "omgivning_styrka": 0.55,
@@ -430,7 +435,15 @@
                 0,
                 2.6
               ],
-              "styrka": 3.4
+              "styrka": 3.4,
+              "modell": {
+                "fil": "modeller/street_lamp_01.glb",
+                "passa": "skala",
+                "skala": 0.88,
+                "lyser": [
+                  "street_lamp_01_glass"
+                ]
+              }
             },
             {
               "id": "lykta2",
@@ -440,7 +453,15 @@
                 0,
                 -3.4
               ],
-              "styrka": 3.0
+              "styrka": 3.0,
+              "modell": {
+                "fil": "modeller/street_lamp_01.glb",
+                "passa": "skala",
+                "skala": 0.88,
+                "lyser": [
+                  "street_lamp_01_glass"
+                ]
+              }
             },
             {
               "id": "dorr-butik",
@@ -571,7 +592,11 @@
                 0.8,
                 0.5
               ],
-              "farg": "#4a3a2a"
+              "farg": "#4a3a2a",
+              "modell": {
+                "fil": "modeller/side_table_tall_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bok",
@@ -698,7 +723,11 @@
                 0.76,
                 0.8
               ],
-              "farg": "#5a3a20"
+              "farg": "#5a3a20",
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "liggaren",
@@ -867,7 +896,15 @@
                 -0.85
               ],
               "ljus": true,
-              "styrka": 2.2
+              "styrka": 2.2,
+              "modell": {
+                "fil": "modeller/vintage_oil_lamp.glb",
+                "passa": "skala",
+                "skala": 0.7,
+                "glas": [
+                  "vintage_oil_lamp_glass"
+                ]
+              }
             },
             {
               "id": "fonster",
@@ -979,7 +1016,11 @@
                 0.7
               ],
               "farg": "#8a6a44",
-              "duk": true
+              "duk": true,
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "ritningen",
@@ -1097,7 +1138,15 @@
                 -0.75
               ],
               "ljus": true,
-              "styrka": 2.0
+              "styrka": 2.0,
+              "modell": {
+                "fil": "modeller/vintage_oil_lamp.glb",
+                "passa": "skala",
+                "skala": 0.7,
+                "glas": [
+                  "vintage_oil_lamp_glass"
+                ]
+              }
             },
             {
               "id": "fonster",

@@ -121,7 +121,7 @@ export class Rum3D {
     if (!ute) {
       const golv = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: gtex, glans: golvTyp === 'tra' ? 0.45 : 0.85, metall: golvTyp === 'jarn' ? 0.6 : 0 }));
       golv.rotation.x = -Math.PI / 2; scen.add(golv);
-      if (golvTyp === 'tra' || golvTyp === 'sten') { ytor.golv = golv; ytor.golvTyp = golvTyp; }
+      ytor.golv = golv; // tre/ytor.js väljer textur efter golvtypen
     }
 
     if (ute) this.byggUte(rum, W, D);
@@ -137,7 +137,7 @@ export class Rum3D {
       const vskala = vtyp === 'fasad' ? [1 / 7, 1 / H] : vtyp === 'sten' ? [1 / 2.2, 1 / 2.2] : [1 / 1.1, 1 / 1.1];
       const tapet = mat('#ffffff', { map: vtex, glans: 0.92 });
       const pan = mat('#ffffff', { map: T.panel(rum.panel || '#5a3b22'), glans: 0.55 });
-      if (vtyp === 'tapet' || vtyp === 'puts') ytor.vagg = tapet;
+      if (vtyp === 'tapet' || vtyp === 'puts' || vtyp === 'fasad') { ytor.vagg = tapet; ytor.vaggTyp = vtyp; ytor.H = H; }
       if (rum.panel !== false) ytor.panel = pan;
       const sidor = [
         [W, [0, -D / 2], 0], [W, [0, D / 2], Math.PI], [D, [-W / 2, 0], Math.PI / 2], [D, [W / 2, 0], -Math.PI / 2],
@@ -166,7 +166,13 @@ export class Rum3D {
       if (!fab) { console.warn('Okänd föremålstyp', def.typ); continue; }
       const res = fab(def, ctx);
       const g = slaIhop(res.grupp, { utomDelar: VERKLIG && !!def.modell?.delar }); // färre ritanrop: en mesh per material och föremål
-      const prefabBox = VERKLIG && def.modell ? new THREE.Box3().setFromObject(g) : null; // i föremålets egna koordinater
+      // Prefabens låda i föremålets egna koordinater, utan delar som står kvar bredvid modellen (duk, sjal, blommor).
+      let prefabBox = null;
+      if (VERKLIG && def.modell) {
+        prefabBox = new THREE.Box3(); g.updateMatrixWorld(true);
+        g.traverse((o) => { if (o.isMesh && (def.modell.behall === false || !o.userData.behall)) prefabBox.expandByObject(o); });
+        if (prefabBox.isEmpty()) prefabBox.setFromObject(g);
+      }
       const [x, y, z] = def.pos || [0, 0, 0];
       g.position.set(x, y || 0, z);
       g.rotation.y = rad(def.rot || 0);
@@ -217,8 +223,42 @@ export class Rum3D {
     this.skuggor(rum, W, D, H, ute || veranda);
     this.anpassa();
     // Modellerna och texturerna laddas i bakgrunden; rummet går att använda med prefaberna under tiden.
-    if (VERKLIG && !ute && !veranda) modeller.push(forbattraYtor(ytor, rum, W, D, golvFarg));
+    if (VERKLIG && !ute) modeller.push(forbattraYtor(ytor, rum, W, D, golvFarg));
     this.modellerKlara = Promise.all(modeller).then(() => { if (this.scen === scen) this.renderer.shadowMap.needsUpdate = true; });
+    if (VERKLIG) this.visaNarKlart(scen);
+  }
+
+  /**
+   * Förhandsgranskningen 'verklig': rummet visas först när modellerna och texturerna har laddats och skuggorna
+   * och materialen är förberedda, så att spelaren aldrig ser de enkla föremålen bytas ut. Duken tonas in. Om det
+   * dröjer mer än MAX_VANTA ms (långsamt nät) visas rummet ändå, med de enkla föremålen tills modellerna kommer.
+   */
+  async visaNarKlart(scen) {
+    const MAX_VANTA = 8000, duk = this.renderer.domElement;
+    const nr = (this._visning = (this._visning || 0) + 1);
+    duk.style.transition = 'none'; duk.style.opacity = '0';
+    this._dold = true; // ingen idé att rita bildrutor som inte syns medan modellerna laddas
+    const meddela = setTimeout(() => { if (this._visning === nr) this.onMeddelande?.('Laddar rummet …'); }, 1200);
+    const klar = this.modellerKlara.then(async () => {
+      if (this.scen !== scen) return;
+      try { await this.renderer.compileAsync(scen, this.kamera); } catch { /* äldre webbläsare: kompileras vid första bilden */ }
+    });
+    await Promise.race([klar, new Promise((r) => setTimeout(r, MAX_VANTA))]);
+    clearTimeout(meddela);
+    if (this._visning !== nr || this.scen !== scen) return;
+    this._dold = false;
+    this.renderer.render(scen, this.kamera); // första bilden ritas medan duken fortfarande är osynlig
+    requestAnimationFrame(() => { duk.style.transition = 'opacity .35s ease-out'; duk.style.opacity = '1'; });
+  }
+
+  /** Förhandsgranskningen 'verklig': hämtar modeller och texturer för rum man kan gå till härnäst. */
+  forladda(rumLista) {
+    if (!VERKLIG || !rumLista?.length) return;
+    import('./modeller.js').then((m) => { for (const r of rumLista) for (const o of r.objekt || []) {
+      if (o.modell?.fil) m.laddaModell(o.modell.fil).catch(() => {});
+      for (const d of Object.values(o.modell?.delar || {})) if (d.fil) m.laddaModell(d.fil).catch(() => {});
+    } }).catch(() => {});
+    import('./ytor.js').then((y) => { for (const r of rumLista) y.forladdaYtor(r); }).catch(() => {});
   }
 
   /**
@@ -475,7 +515,7 @@ export class Rum3D {
       halo.position.y = halo.userData.y0 + (iFokus ? 0.035 : 0.015) * Math.sin(t * (iFokus ? 4 : 2) + halo.id);
     }
     this.onRam?.();
-    this.renderer.render(this.scen, this.kamera);
+    if (!this._dold) this.renderer.render(this.scen, this.kamera);
     this._ramar++;
     if (t - this._fpsT >= 1) {
       this.fps = this._ramar / (t - this._fpsT); this._ramar = 0; this._fpsT = t; window.__fps = this.fps;

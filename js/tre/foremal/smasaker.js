@@ -211,11 +211,15 @@ function skrivdon(d) {
   return { grupp: g, kollision: false, haloPos: new THREE.Vector3(0.04, 0.12, 0) };
 }
 
-/** Fotogenkannor. */
+/** Fotogenkannor. Varje kanna är en del (userData.del = 'kanna') som en 3D-modell kan ersätta (modell.delar). */
 function fotogen(d) {
   const g = new THREE.Group();
   const n = d.antal || 3;
-  for (let i = 0; i < n; i++) { const x = (i - (n - 1) / 2) * 0.32; cyl(g, 0.13, 0.13, 0.42, mat(i % 2 ? '#5a6a4a' : '#6a4a2a'), x, 0.21, (i % 2) * 0.1, 12); cyl(g, 0.03, 0.03, 0.06, mat('#2a2a2a'), x + 0.06, 0.45, (i % 2) * 0.1, 6); }
+  for (let i = 0; i < n; i++) {
+    const k = new THREE.Group(); k.userData.del = 'kanna'; g.add(k);
+    const x = (i - (n - 1) / 2) * 0.32;
+    cyl(k, 0.13, 0.13, 0.42, mat(i % 2 ? '#5a6a4a' : '#6a4a2a'), x, 0.21, (i % 2) * 0.1, 12); cyl(k, 0.03, 0.03, 0.06, mat('#2a2a2a'), x + 0.06, 0.45, (i % 2) * 0.1, 6);
+  }
   return { grupp: g };
 }
 

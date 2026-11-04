@@ -240,3 +240,28 @@ Förhandsgranskningen i samma stil som fall 1 (`?stil=verklig`; vanlig stil är 
 - **Granskning av texterna:** tidtabellen, notorna, dunsen kl. 01.25, Linds väg i Boden och säkerhetskedjorna stämmer. Kupé 2 ligger åt samma håll från korridoren och från kupé 3. Inga fel hittades utöver väggen ovan.
 
 Före- och efterbilder: `docs/bilder/modeller-fall2/`.
+
+## Verklig grafik: inga synliga byten, och fall 3–5 (november 2026)
+
+Martin såg att möblerna bytte utseende efter ungefär en sekund och ville att de gamla aldrig skulle synas, och att arbetet fortsatte med alla rum.
+
+- **Laddningen:** i förhandsgranskningen visas rummet först när modeller och texturer är klara och materialen förberedda (`compileAsync`). Duken tonas in på 0,35 s. Dröjer det mer än 1,2 s visas ”Laddar rummet …”, och efter 8 s visas rummet ändå, med de enkla föremålen som reserv. Medan man är i ett rum hämtas modellerna och texturerna för rummen som dörrarna leder till (`Rum3D.forladda`).
+- **Fall 3 (verandan):** målat bord och vita stolar. **Duken ligger kvar** på bordet, eftersom pulverspillet ligger ”på duken till vänster om överstens glas”, och **platsnumren** sitter kvar på stolarna. Krukväxter och plankgolv; verandor får nu golvtextur.
+- **Fall 4 (salen och kontoret):** vita allmogestolar runt långbordet, tavla och skrivbord. **Skänken, vasen och ljusstaken är kvar som prefaber**, eftersom bildjämförelsen visar foton av skänken – en annan skänk i 3D skulle inte stämma med bilderna. Gården är oförändrad: Poly Haven har inga björkar, granar, gärdsgårdar, midsommarstång, bilar eller bussar, och stolarna där har personer sittande på sig.
+- **Fall 5:** butiksdisk, bord och oljelampor, och **gatan** har kullersten (`verklig_golv: "kullersten"`) och gatlyktor vars glas glöder (`modell.lyser`). Fasaderna har fått putsstruktur. Väggur, monter, arbetsbänk, vedspis och pulpet är kvar, eftersom tider och detaljer i texterna hänger på dem.
+- **Medan rummet laddas ritas inga bildrutor.** I testmiljön utan grafikkort köades annars de osynliga bildrutorna och betalades på en gång när rummet visades (8 s i köksgången i stället för 1 s). Därefter ritas en förberedande bild innan duken tonas in.
+- **Testerna:** `TIDSFAKTOR=6` förlänger tidsgränserna i `test/hjalp.mjs`. Med `STIL=verklig TIDSFAKTOR=6` går fall 1–6 igenom utom handledningen i fall 1, som kräver att spelaren hinner gå under ett kort drag – med 1–2 bildrutor per sekund utan grafikkort hinner man inte (samma på `main`).
+- **Rättat på vägen:** gatan i fall 5 hade fått schackrutiga kalkstensplattor i förhandsgranskningen (alla stengolv fick samma textur). Delar som står kvar bredvid en modell (duk, sjal, blommor) räknas inte längre in när modellen passas in, så att de inte göms under den.
+
+Före- och efterbilder: `docs/bilder/modeller-fall3/`, `modeller-fall4/` och `modeller-fall5/`.
+
+## Verklig grafik: fall 6, Fyren på Gråskär (november 2026)
+
+Förhandsgranskningen i samma stil som fall 1 och 2 (`?stil=verklig`; vanlig stil är oförändrad utom småfelen nedan):
+
+- **Golv och väggar** (`js/tre/ytor.js`): tornets stenväggar är natursten med kalkbruk och golvet grova stenhällar (`rum.verklig_golv: "hallar"`). Lanternans järngolv är nitade järnplåtar. Träpanelen i biträdesstugan och väderstationen är liggande panel, färgad mot rummets panelfärg. Stenväggar, träpanel och järngolv får texturerna automatiskt (bara fall 6 har sådana rum). Väggsorterna ligger i en tabell; fanéret i fall 2 är oförändrat. Texturerna är 1,7 MB (stenen har mycket relief); källor i `texturer/KALLOR.md`.
+- **Modeller:** borden i lanternan, stugan och stationen, köksbordet (med modellens egen rutiga duk i stället för prefabens vita, `modell.behall: false`), byrån och pendylen i köket, oljelamporna och fotogenkannorna i tornet och stugan (plåtdunkar, en modell per kanna via `modell.delar`). Två nya modeller, 0,5 MB; resten återanvänds från fall 1 och 2.
+- **Kvar som prefaber:** spiraltrappan, linsen, urverket, lanternglasen, pulpeten, barografen, loggboken och dagboken, skrivdonen, kojen som Johan ligger på, vedspisen, stormfönstren, dörrarna, väggklockan, vägglamporna och sängen. Det finns inga fria modeller av fyrutrustning eller väderinstrument från 1930-talet. Kökssoffan som provades (*painted_wooden_sofa*) gav fel liggyta för Johan, och sängarna som finns (den gotiska från fall 1, en järnsäng utan madrass) passar inte.
+- **Småfel i fallet (rättade i `verktyg/fall/fyren.py`):** Elofs dagbok beskrivs som svart men var rödbrun. Brevet låg ovanpå byrån fast texten sa ”i byrålådan” – texten säger nu att det ligger på byrån och har legat undanstoppat i lådan. Fotogenkannorna i stugan stod inte ”bakom dörren”. Pendylen i köket hade en urtavla utan bestämd tid (omkring 10.15) medan klockan på stationen visar 7.05; den visar nu 7.00. Tiderna, gångvägarna, barografens märken och vem som kan gå var stämmer i övrigt.
+
+Före- och efterbilder: `docs/bilder/modeller-fall6/`.
