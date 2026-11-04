@@ -275,9 +275,9 @@ fall["anklagelse"] = {"hur_fraga": "Vad hände i tornet?", "hur_alternativ": [
     {"id": "knuff-0320", "text": "Holger knuffades kl. 03.20 – loggboken förfalskades efteråt"},
     {"id": "galleri", "text": "Holger föll från galleriet i stormen och bars in"}], "hur_kravs": False, "bevis_max": 3}
 fall["ledtradar"] = [
-  {"niva": 1, "kostnad": 10, "kraver": ["dok-instruktion", "dok-loggbok"], "text": "Läs fyrinstruktionen. Vad säger den om urverket – och om hur loggboken förs?"},
-  {"niva": 2, "kostnad": 25, "kraver": ["f-uppdragen", "dok-fyndet", "f-dodstid"], "text": "Fyren lyste hela natten, så någon drog upp urverket kl. 04. Men kroppen låg i vägen redan från 03.20, och ingen kan ta sig upp utan att kliva över den. Vem skrev 04-anteckningen – och med vad?"},
-  {"niva": 3, "kostnad": 50, "kraver": ["dok-dagbok", "f-04-black"], "text": "Stäm av alla fyra mot 03.20. Vem saknar alibi? Läs sedan berättarens egen dagbok en gång till: hur kan han veta att Holger visslade kl. 04?"}]
+  {"niva": 1, "kostnad": 10, "kraver": ["dok-instruktion", "dok-loggbok", "f-duns-signe", "f-duns-lagerkvist"], "text": "Läs fyrinstruktionen och loggboken uppe i lanternan: vad säger instruktionen om urverket och om hur loggboken ska föras? Ta också reda på när dunsen hördes – i fyrmästarbostaden och på väderstationen."},
+  {"niva": 2, "kostnad": 25, "kraver": ["dok-journal", "dok-fyndet", "f-duns-signe", "f-duns-lagerkvist", "f-dodstid", "f-uppdragen"], "text": "Hur länge går urverket – och slocknade fyren någon gång i natt? Den som drog upp det efter dunsen måste ha klivit över fyrmästaren i trappan. Vem skrev 04-raden i loggboken, och med vilken penna?"},
+  {"niva": 3, "kostnad": 50, "kraver": ["f-johan-ben", "f-johan-koket", "f-barograf", "f-04-black", "dok-dagbok"], "text": "Pröva alla fyra på ön mot 03.20. En kan inte gå, en slog tidsmärken på stationen var femtonde minut, och en kunde bara gå ut genom köket, där någon låg vaken. Den fjärde har den enda reservoarpennan på ön – och skriver själv att fyrmästaren visslade i tornet vid fyratiden."}]
 fall["aterkoppling"] = {
   "ratt": "Ni lät er inte förföras av en vänlig röst. Den som berättar en historia väljer vad som utelämnas. Elof glömde bara att hans egen penna skrev i bläck – och att en fyr med ett lik i trappan inte drar upp sig själv.",
   "efterord": "Det här fallet berättades av gärningsmannen. Brevet du fick, papperen som låg så prydligt framlagda, dagboken med visslingen vid fyra – allt var Elofs. Läs hans brev en gång till. Allt stod där.",
