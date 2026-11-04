@@ -166,11 +166,10 @@
               "id": "vaggur",
               "typ": "vaggur",
               "pos": [
-                2.49,
+                -0.4,
                 0,
-                -1.2
+                -2.19
               ],
-              "rot": -90,
               "krossad": true,
               "tid": [
                 10,
@@ -186,11 +185,10 @@
               "id": "krok",
               "typ": "skylt",
               "pos": [
-                2.485,
+                -0.4,
                 1.95,
-                -1.2
+                -2.185
               ],
-              "rot": -90,
               "text": "⌀",
               "storlek": [
                 0.08,
@@ -214,18 +212,18 @@
               "id": "span",
               "typ": "span",
               "pos": [
-                -1.4,
+                -0.5,
                 0,
-                0.6
+                -0.4
               ],
               "yta": [
-                1.4,
-                1.8
+                2.6,
+                3.0
               ],
-              "antal": 90,
+              "antal": 150,
               "interaktiv": {
                 "namn": "Spånen på golvet",
-                "text": "Golvet runt arbetsbänken är strött med ljusa ekspån. Fältskog: ”Mot halkan, när kunderna drar in snö. Ek luktar gott och fastnar i allt – i sulor, i byxuppslag, i rockar.”",
+                "text": "Golvet är strött med ljusa ekspån, från arbetsbänken och fram till montern och fönstret. Fältskog: ”Mot halkan, när kunderna drar in snö. Ekspån luktar gott och fastnar i allt – i sulor, i byxuppslag, i rockar.”",
                 "ger_fynd": "f-ekspan-golv"
               }
             },
@@ -789,7 +787,7 @@
               "id": "biljetten",
               "typ": "papper",
               "pos": [
-                -0.7,
+                -0.45,
                 0.76,
                 -0.45
               ],
@@ -839,7 +837,7 @@
               "seed": 2,
               "interaktiv": {
                 "namn": "Fru Lindh",
-                "text": "Fru Lindh är upprörd. ”Jag har kommit för att hämta min handske, inget annat! Jag var hos Fältskog klockan fem med mitt armbandsur och måste ha tappat den då. I kväll var jag hos min syster vid Slussen och åkte spårvagn hem. Nyckel? Till en monter? Vad skulle jag med en sådan till?”",
+                "text": "Fru Lindh är upprörd. ”Er konstapel hämtade mig mitt i natten – för en handske! Ja, den är min. Jag var hos Fältskog klockan fem med mitt armbandsur och måste ha tappat den då. I kväll var jag hos min syster vid Slussen och åkte spårvagn hem. Nyckel? Till en monter? Vad skulle jag med en sådan till?”",
                 "ger_fynd": "f-lindh-utsaga"
               }
             },
@@ -1047,8 +1045,8 @@
               ],
               "rot": -90,
               "tid": [
-                11,
-                52
+                0,
+                25
               ],
               "farg": "#6a4a2a",
               "interaktiv": {
@@ -1207,7 +1205,7 @@
       "last_text": "Utan gångtider går det inte att räkna. Strand har en karta på poliskammaren.",
       "payload": {
         "kort_instruktion": "Lägg tidskorten på rätt person och pröva var och en mot brottstiden.",
-        "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från oberoende källor, streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
+        "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från andra källor än personen själv – vittnen, papper och klockor –, streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
         "fran": "22.00",
         "till": "23.30",
         "lucka_min": 15,
@@ -1338,7 +1336,7 @@
             "till": "22.30",
             "ikon": "📜",
             "kalla": "protokollet",
-            "text": "Mötet avslutades 22.30; Rapp skrev under."
+            "text": "Mötet avslutades 22.30; Rapp står bland de närvarande."
           },
           {
             "id": "k-rapp-pastar",

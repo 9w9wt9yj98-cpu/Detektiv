@@ -35,6 +35,7 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 | `js/mekaniker/` | Mekanikerna i anteckningsboken: logikrutnät (`logikrutnat.js`), förhör/dokument (`jamfor.js`), bildjämförelse (`bildjamforelse.js`) och tidslinje (`tidslinje.js`). |
 | `verktyg/fall/*.py` | Källor för fall 2 och senare – genererar `fall/*.json`. Ändra i `.py`-filen och kör den; ändras bara JSON-filen skrivs ändringen över nästa gång. Fall 1 och 3 saknar källa och redigeras direkt i JSON. |
 | `verktyg/` | `validera_fall.mjs` (validerar alla fall, bevisar att rutnät har exakt en lösning och att varje ledtråd behövs), `release.mjs` (service workerns cacheversion och fillista) och `verifiera_fall3.py`. |
+| `verktyg/spelarvy.mjs` | Spelarvy för blindtest: `node verktyg/spelarvy.mjs <fall-id>` skriver allt spelaren kan se i ett fall, utan facit (lösning, rätta svar, motsägelser, ledtrådar, villospårsmärkning); `--slutsatser` ger slutsatsfrågorna utan svar. |
 | `test/spela.mjs` | Playwright-test som spelar alla fall (rätt och fel väg) i iPhone-vy och på dator. |
 
 ## Fallformatet – tillägg till schemat
@@ -70,6 +71,7 @@ npm run release                         # före varje release: höjer service wo
 
 - 📄 [Designförslag v1](docs/forslag-v1.md)
 - ✅ [Beslut och avvikelser](docs/beslut.md)
+- 🕵️ Blindtest av alla fall, november 2026: [första](docs/blindtest/rapport-2026-11-04.md) och [andra granskningen](docs/blindtest/rapport-2026-11-04-andra.md)
 
 ## Projektledare
 

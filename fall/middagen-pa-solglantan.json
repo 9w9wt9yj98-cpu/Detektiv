@@ -23,7 +23,7 @@
   },
   "intro": {
     "rubrik": "Villa Solgläntan, Saltsjöbaden. Augusti 1954.",
-    "text": "Middag för fem på verandan. Solen sjunker över fjärden när överste Carl Rehnskiöld lyfter sitt vinglas till förrätten – och segnar ner över bordet.\n\nI glaset finns digitalis. Kriminalteknikern konstaterar att pulverspillet ligger på duken till vänster om överstens glas, och att glaset stod till vänster om tallriken. Alla vittnen är eniga: ingen reste sig under förrätten. Bara den som satt direkt till överstens vänster kunde nå glaset.\n\nMen placeringskorten har blåst bort i trädgården, och ingen minns säkert vem som satt var. Kommissarie Strand – numera grå vid tinningarna – lägger förhörsprotokollen framför dig. ”Som på Ekbacka”, säger han. ”Allt finns här. Det gäller bara att se det.”",
+    "text": "Middag för fem på verandan. Solen sjunker över fjärden. Överste Carl Rehnskiöld dricker sitt vin till förrätten, och en halvtimme senare, när varmrätten bärs in, segnar han ner över bordet.\n\nI glaset finns digitalis. Kriminalteknikern konstaterar att pulverspillet ligger på duken till vänster om överstens glas, och att glaset stod till vänster om tallriken. Alla vittnen är eniga: ingen reste sig under förrätten. Bara den som satt direkt till överstens vänster kunde nå glaset.\n\nMen placeringskorten har blåst ned från bordet och ut över verandan, och ingen minns säkert vem som satt var. Kommissarie Strand – numera grå vid tinningarna – lägger förhörsprotokollen framför dig. ”Som på Ekbacka”, säger han. ”Allt finns här. Det gäller bara att se det.”",
     "uppdrag": "Rekonstruera bordsplaceringen. Vem förgiftade översten?",
     "bild": "bilder/fall3/verandan.jpg",
     "berattare": "Kommissarie Nils Strand"
@@ -320,7 +320,7 @@
               ],
               "interaktiv": {
                 "namn": "Vinflaskan",
-                "text": "Vinet serverades ur samma flaska till alla fem vid bordet. Ingen annan blev sjuk."
+                "text": "Vinet till förrätten serverades ur samma flaska till alla fem vid bordet. Ingen annan blev sjuk."
               }
             },
             {
@@ -489,7 +489,7 @@
       "mekanik": "logikrutnat",
       "payload": {
         "rubrik": "Vem satt var?",
-        "instruktion": "Tryck i en ruta för att växla mellan tom, ✗ och ✓. Översten satt vid kortänden; plats 1–4 räknas runt bordet från hans högra sida, så plats 1 och 4 sitter bredvid honom och plats 4 är hans vänstra sida. Plats 1 och 4 räknas inte som grannar till varandra – översten sitter emellan.",
+        "instruktion": "Tryck i en ruta för att växla mellan tom, ✗ och ✓. Översten satt vid kortänden; plats 1–4 räknas runt bordet från hans högra sida, så plats 1 och 4 sitter bredvid honom och plats 4 är hans vänstra sida. Plats 1 och 4 räknas inte som grannar till varandra – översten sitter emellan. Plats 2 och 3 räknas som grannar – de sitter närmast bordets lediga kortände. Dryck är vad var och en drack före middagen; vinet till förrätten fick alla ur samma flaska.",
         "kategorier": [
           {
             "id": "person",

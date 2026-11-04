@@ -159,7 +159,7 @@
               ],
               "interaktiv": {
                 "namn": "Grosshandlare Berg",
-                "text": "Anton Berg ligger under en filt på kojen. Ett hårt slag mot vänster tinning. Doktor Wiklund, som reser i andra vagnen, har skrivit på en lapp: ”Döden inträffade mellan kl. 01.00 och 02.00. Inga tecken på kamp.”",
+                "text": "Anton Berg ligger under en filt på kojen – Lind fann honom på golvet, och doktorn har lagt upp honom. Ett hårt slag mot vänster tinning. Doktor Wiklund, som reser i andra vagnen, har skrivit på en lapp: ”Döden inträffade mellan kl. 01.00 och 02.00. Slaget kommer från ett tungt föremål, inte från ett fall. Inga tecken på kamp.”",
                 "ger_fynd": "f-dodstid"
               }
             },
@@ -273,7 +273,7 @@
               "gar_till": "korridoren",
               "interaktiv": {
                 "namn": "Korridordörren",
-                "text": "Säkerhetskedjan hänger avklippt. Konduktör Lind fick klippa av den kl. 06.10, eftersom den var hakad på inifrån. En sådan kedja kan bara hakas på från insidan av kupén.",
+                "text": "Säkerhetskedjan hänger avklippt. Konduktör Lind fick klippa av den kl. 06.10, eftersom den var hakad på inifrån – fröken Nyqvist stod i korridoren och såg att den satt på. En sådan kedja kan bara hakas på från insidan av kupén.",
                 "ger_fynd": "f-kedja"
               }
             },
@@ -472,7 +472,7 @@
               "nummer": 2,
               "interaktiv": {
                 "namn": "Dörren till kupé 2",
-                "text": "Fru Ahls kupé. Säkerhetskedjan är avhakad nu – enligt konduktören satt den på i natt."
+                "text": "Fru Ahls kupé. Säkerhetskedjan är avhakad nu – enligt konduktören satt den på när han knackade kl. 06.15."
               }
             },
             {
@@ -554,7 +554,7 @@
               "seed": 1,
               "interaktiv": {
                 "namn": "Fröken Nyqvist",
-                "text": "Fröken Nyqvist har redan klätt sig och håller i sitt fickur.",
+                "text": "Fröken Nyqvist har redan klätt sig och håller i sitt fickur. ”Jag stod här när konduktören klippte kedjan till kupé 3 klockan tio över sex. Den satt på – det såg jag själv.”",
                 "ger_fynd": "f-duns",
                 "ger_material": [
                   "u-nyq-duns",
@@ -1141,7 +1141,7 @@
               "u-ahl-sov",
               "f-tidtabell"
             ],
-            "text": "Boden? Det var alldeles stilla på stationen. Bara stinsens lykta som lyste in genom gardinspringan – ganska länge."
+            "text": "Boden? Det var alldeles stilla på stationen. Bara stinsens lykta som lyste in genom isen på rutan – ganska länge."
           },
           {
             "id": "u-nyq-duns",
@@ -1183,7 +1183,7 @@
             "kraver": [
               "f-sundin-patiens"
             ],
-            "text": "Konduktören gick ut i Boden en kvart, ja, det hade jag glömt. Jag lade patiens så länge. Olsson stod där bakom disken hela tiden."
+            "text": "Konduktören gick ut när vi stod i Boden, ja, det hade jag glömt. Jag lade patiens tills han kom tillbaka. Olsson stod där bakom disken hela tiden."
           },
           {
             "id": "u-ols",
@@ -1249,7 +1249,7 @@
       "titel": "Kedjan inifrån",
       "ikon": "⛓️",
       "typ": "nyckel",
-      "text": "Kupé 3:s korridordörr var hakad med säkerhetskedjan inifrån. Lind fick klippa av den kl. 06.10. Kedjan kan inte hakas på utifrån."
+      "text": "Kupé 3:s korridordörr var hakad med säkerhetskedjan inifrån. Lind fick klippa av den kl. 06.10, och fröken Nyqvist såg att den satt på. Kedjan kan inte hakas på utifrån."
     },
     {
       "id": "f-fonster-is",
@@ -1277,7 +1277,7 @@
       "titel": "Dödstiden",
       "ikon": "🕐",
       "typ": "nyckel",
-      "text": "Läkaren: Berg dog mellan kl. 01.00 och 02.00, av ett slag mot tinningen. Inga tecken på kamp."
+      "text": "Läkaren: Berg dog mellan kl. 01.00 och 02.00, av ett slag mot tinningen med ett tungt föremål – inte av ett fall. Inga tecken på kamp."
     },
     {
       "id": "f-skuldsedel",
@@ -1354,7 +1354,7 @@
       "galler": [
         "ahl"
       ],
-      "text": "Konduktör Lind såg kl. 06.15 hur fru Ahl själv hakade av säkerhetskedjan på kupé 2 – inifrån. Hennes dörr var hakad hela natten, fönstret är fastfruset och väggen mot den tomma kupé 1 saknar dörr."
+      "text": "Konduktör Lind såg kl. 06.15 hur fru Ahl själv hakade av säkerhetskedjan på kupé 2 – inifrån. Hennes dörr var hakad inifrån när han kom, fönstret är fastfruset och väggen mot den tomma kupé 1 saknar dörr."
     },
     {
       "id": "f-ahl-vaken",
@@ -1364,7 +1364,7 @@
       "galler": [
         "ahl"
       ],
-      "text": "Fru Ahl påstår att hon sov oavbrutet, men hon minns stinsens lykta under stoppet i Boden. Hon var vaken när dunsen hördes."
+      "text": "Fru Ahl påstår att hon sov oavbrutet, men hon minns stinsens lykta under stoppet i Boden. Hon var vaken under stoppet – och dunsen hördes när tåget lämnade Boden."
     },
     {
       "id": "f-sundin-motiv",
@@ -1461,11 +1461,11 @@
           "svar": "Lyssna på vad hon själv berättar om stoppet i Boden."
         },
         {
-          "text": "Nej – hon minns lyktan i Boden, så hon var vaken när dunsen hördes kl. 01.25.",
+          "text": "Nej – hon minns lyktan i Boden, så hon var vaken under stoppet, som slutade med dunsen kl. 01.25.",
           "ratt": true
         }
       ],
-      "slutsats": "Fru Ahl ljuger om sömnen. Hon var vaken när dunsen hördes kl. 01.25, mitt i läkarens tidsfönster."
+      "slutsats": "Fru Ahl ljuger om sömnen. Hon var vaken under stoppet i Boden, som slutade med dunsen kl. 01.25 – mitt i läkarens tidsfönster."
     },
     {
       "id": "s-sundin",

@@ -57,7 +57,7 @@
       "namn": "Olle Sahlin",
       "roll": "Brorson, 19 år",
       "misstankt": true,
-      "beskrivning": "Bar ut tårtan. Stod länge vid skänken."
+      "beskrivning": "Bar in tårtan. Stod länge vid skänken."
     },
     {
       "id": "karin",
@@ -68,7 +68,7 @@
     },
     {
       "id": "birgitta",
-      "namn": "Birgitta Sahlin",
+      "namn": "Birgitta Nordin",
       "roll": "Lenas syster, stod för maten",
       "misstankt": false,
       "beskrivning": "Märkte först att skålen var borta."
@@ -106,9 +106,9 @@
           "start": {
             "pos": [
               -1.1,
-              0.7
+              -0.7
             ],
-            "titta": 8
+            "titta": 172
           },
           "objekt": [
             {
@@ -117,7 +117,7 @@
               "pos": [
                 0.9,
                 0,
-                1.2
+                -1.2
               ],
               "storlek": [
                 2.6,
@@ -131,8 +131,9 @@
               "pos": [
                 0,
                 0,
-                -2.7
+                2.7
               ],
+              "rot": 180,
               "storlek": [
                 1.8,
                 0.95,
@@ -145,14 +146,14 @@
               "pos": [
                 0,
                 0.95,
-                -2.7
+                2.7
               ],
               "tom": true,
               "halostorlek": 0.4,
               "halo": [
                 0,
                 1.15,
-                -2.62
+                2.62
               ],
               "interaktiv": {
                 "namn": "Skänken",
@@ -166,7 +167,7 @@
               "pos": [
                 -0.62,
                 0.95,
-                -2.7
+                2.7
               ]
             },
             {
@@ -175,7 +176,7 @@
               "pos": [
                 0.62,
                 0.95,
-                -2.7
+                2.7
               ],
               "ljus": true,
               "styrka": 0.8
@@ -186,8 +187,9 @@
               "pos": [
                 0,
                 0,
-                -2.99
+                2.99
               ],
+              "rot": 180,
               "y0": 1.15,
               "hojd": 1.15,
               "bredd": 1.0,
@@ -200,7 +202,7 @@
               "pos": [
                 -3.49,
                 0,
-                -0.6
+                0.6
               ],
               "rot": 90,
               "gardin": true
@@ -211,7 +213,7 @@
               "pos": [
                 -3.49,
                 0,
-                1.6
+                -1.6
               ],
               "rot": 90,
               "gardin": true
@@ -222,7 +224,7 @@
               "pos": [
                 1.1,
                 0,
-                1.3
+                -1.3
               ],
               "rot": 90,
               "storlek": [
@@ -247,7 +249,7 @@
               "pos": [
                 0.2,
                 0.77,
-                1.5
+                -1.5
               ],
               "funktion": "anteckningsbok",
               "interaktiv": {
@@ -260,7 +262,7 @@
               "pos": [
                 1.7,
                 0.77,
-                1.2
+                -1.2
               ]
             },
             {
@@ -269,7 +271,7 @@
               "pos": [
                 1.1,
                 0.77,
-                1.15
+                -1.15
               ]
             },
             {
@@ -278,7 +280,7 @@
               "pos": [
                 -3.48,
                 1.55,
-                0.5
+                -0.5
               ],
               "rot": 90,
               "storlek": [
@@ -297,9 +299,9 @@
               "pos": [
                 -1.7,
                 0,
-                -1.3
+                1.3
               ],
-              "rot": 40,
+              "rot": 140,
               "rock": "#e8e4d8",
               "byxor": "#3a4a5a",
               "har": "#9a9a96",
@@ -320,16 +322,16 @@
               "pos": [
                 2.3,
                 0,
-                -1.2
+                1.2
               ],
-              "rot": -60,
+              "rot": -120,
               "rock": "#2a3a5a",
               "byxor": "#3a3a40",
               "har": "#5a3a20",
               "seed": 4,
               "interaktiv": {
                 "namn": "Olle Sahlin",
-                "text": "Olle skruvar på sig. ”Jag bar in tårtan vid fem och ställde mig vid skänken för att ta en bild åt faster. Skålen stod där när jag gick ut igen, det syns ju på bilden.” Han visar sin mobil.",
+                "text": "Olle skruvar på sig. ”Jag bar in tårtan vid fem och ställde mig vid skänken för att ta en bild åt farbror Gunnar. Skålen stod där när jag gick ut igen, det syns ju på bilden.” Han visar sin mobil.",
                 "ger_material": [
                   "bild-d"
                 ]
@@ -341,16 +343,16 @@
               "pos": [
                 -2.4,
                 0,
-                2.0
+                -2.0
               ],
-              "rot": 200,
+              "rot": -20,
               "kon": "k",
               "rock": "#c8a0b0",
               "har": "#b89a6a",
               "forklade": true,
               "seed": 1,
               "interaktiv": {
-                "namn": "Birgitta Sahlin",
+                "namn": "Birgitta Nordin",
                 "text": "Birgitta torkar händerna på förklädet. ”Jag tog en bild på dukningen tjugo över fem – och då var skålen redan borta. Jag trodde Gunnar hade ställt undan den.”",
                 "ger_material": [
                   "bild-e"
@@ -379,7 +381,7 @@
               "pos": [
                 3.49,
                 0,
-                -1.4
+                1.4
               ],
               "rot": -90,
               "farg": "#6a5a40",
@@ -616,7 +618,7 @@
               "etikett": "Körlogg",
               "interaktiv": {
                 "namn": "Bussens körlogg",
-                "text": "Chauffören har lagt körloggen på trappsteget: ”Midsommarbeställning Sahlin. Avg. Leksands station 14.50 – ank. gården 15.14. 25 resenärer, samt catering (B. Sahlin).” Alla gästerna kom med bussen – Olle, Mikael och Karin står på listan.",
+                "text": "Chauffören har lagt körloggen på trappsteget: ”Midsommarbeställning Sahlin. Avg. Leksands station 14.50 – ank. gården 15.14. 25 resenärer, samt catering (B. Nordin).” Alla gästerna kom med bussen – Olle, Mikael och Karin står på listan.",
                 "ger_fynd": "f-buss"
               }
             },
@@ -651,7 +653,7 @@
               "rot": -20,
               "interaktiv": {
                 "namn": "Mikaels väska",
-                "text": "En stor läderväska. I den ligger en tom tårtbricka i silver som Mikael lånat ut till Birgitta – och en auktionskatalog. Ingen skål.",
+                "text": "En stor läderväska. I den ligger ett tomt kakfat i silver som Mikael lånat ut till Birgitta till kaffet – och en auktionskatalog. Ingen skål.",
                 "ger_fynd": "f-mikael-vaska"
               }
             },
@@ -919,6 +921,21 @@
               ]
             },
             {
+              "id": "kopian",
+              "typ": "skal",
+              "pos": [
+                1.66,
+                1.915,
+                0.2
+              ],
+              "rot": 90,
+              "interaktiv": {
+                "namn": "Silverskålen på bokhyllan",
+                "text": "Högst upp på bokhyllan, ovanför ögonhöjd, står en silverskål med två handtag. Kanten är slät och handtagen är släta – ingen buckla, inget S.",
+                "ger_fynd": "f-kopian-hittad"
+              }
+            },
+            {
               "id": "bok",
               "typ": "anteckningsbok",
               "pos": [
@@ -984,7 +1001,7 @@
           {
             "id": "bild-a",
             "ordning": 1,
-            "tid": "09.12",
+            "tid": "09.10",
             "kort": "Instagram",
             "titel": "”Putsat brudskålen inför festen!”",
             "kalla": "Gunnars Instagram",
@@ -1262,14 +1279,14 @@
       "titel": "Morgonens skål är äkta",
       "ikon": "🏺",
       "typ": "nyckel",
-      "text": "Skålen på Gunnars bild kl. 09.12 har samma buckla och samma S i handtaget som försäkringsfotot."
+      "text": "Skålen på Gunnars bild kl. 09.10 har samma buckla och samma S i handtaget som försäkringsfotot."
     },
     {
       "id": "f-bild-idag",
       "titel": "Dagens tidning",
       "ikon": "📰",
       "typ": "stod",
-      "text": "På morgonbilden ligger dagens Dala-Demokraten bredvid skålen. Bilden är från i dag, 09.12."
+      "text": "På morgonbilden ligger dagens Dala-Demokraten bredvid skålen. Bilden togs i dag, kl. 09.10."
     },
     {
       "id": "f-kopia",
@@ -1277,6 +1294,16 @@
       "ikon": "🔍",
       "typ": "nyckel",
       "text": "Skålen på alla bilder från 15.16 och framåt saknar bucklan och S:et. Det är en kopia – den äkta skålen byttes ut före 15.16."
+    },
+    {
+      "id": "f-kopian-hittad",
+      "titel": "Skålen i kontoret",
+      "ikon": "🥈",
+      "typ": "nyckel",
+      "galler": [
+        "gunnar"
+      ],
+      "text": "Högst upp på bokhyllan i Gunnars kontor står en silverskål med slät kant och släta handtag – ingen buckla, inget S."
     },
     {
       "id": "f-borta",
@@ -1345,8 +1372,8 @@
       "galler": [
         "mikael"
       ],
-      "text": "I väskan: en tom tårtbricka i silver och en auktionskatalog.",
-      "forklaring": "Väskan som såg misstänkt ut innehöll bara tårtbrickan."
+      "text": "I väskan: ett tomt kakfat i silver och en auktionskatalog.",
+      "forklaring": "Väskan som såg misstänkt ut innehöll bara kakfatet."
     },
     {
       "id": "f-olle-skank",
@@ -1374,7 +1401,7 @@
           "svar": "Dagens tidning ligger bredvid skålen. Bilden är från i dag."
         },
         {
-          "text": "Den äkta skålen, i dag kl. 09.12.",
+          "text": "Den äkta skålen, i dag kl. 09.10.",
           "ratt": true
         },
         {
@@ -1382,7 +1409,7 @@
           "svar": "Bucklan och S:et stämmer med försäkringsfotot från 2019."
         }
       ],
-      "slutsats": "Kl. 09.12 i dag fanns den äkta brudskålen på gården."
+      "slutsats": "Kl. 09.10 i dag fanns den äkta brudskålen på gården."
     },
     {
       "id": "s-kopia",
@@ -1399,7 +1426,7 @@
           "svar": "Bucklan saknas redan på bilden kl. 15.16, när gästerna klev in – och ett ingraverat S går inte att laga bort."
         },
         {
-          "text": "Det är en kopia. Den äkta skålen byttes ut mellan 09.12 och 15.16.",
+          "text": "Det är en kopia. Den äkta skålen byttes ut mellan 09.10 och 15.16.",
           "ratt": true
         },
         {
@@ -1407,7 +1434,7 @@
           "svar": "Handtagen syns tydligt på alla bilder – släta."
         }
       ],
-      "slutsats": "Skålen gästerna såg var en kopia. Den äkta försvann mellan 09.12 och 15.16 – innan festen ens börjat."
+      "slutsats": "Skålen gästerna såg var en kopia. Den äkta försvann mellan 09.10 och 15.16 – innan festen ens börjat."
     },
     {
       "id": "s-vem",
@@ -1421,7 +1448,7 @@
       "efter": [
         "s-kopia"
       ],
-      "fraga": "Vem var på gården mellan 09.12 och 15.16?",
+      "fraga": "Vem var på gården mellan 09.10 och bussens ankomst 15.14?",
       "alternativ": [
         {
           "text": "Gästerna.",
@@ -1468,10 +1495,10 @@
       "efter": [
         "s-kopia"
       ],
-      "fraga": "Kopian försvann mellan 17.05 och 17.20. Är det den som tog den som är tjuven?",
+      "fraga": "Kopian försvann mellan 17.05 och 17.20. Stals brudskålen då?",
       "alternativ": [
         {
-          "text": "Ja – den som tog skålen från skänken är skyldig.",
+          "text": "Ja – den togs från skänken under festen.",
           "svar": "Det som togs från skänken var bara kopian. Den äkta skålen var borta långt innan festen började."
         },
         {
@@ -1493,7 +1520,7 @@
       "alternativ": [
         {
           "text": "För att sälja den till Mikael.",
-          "svar": "Mikaels väska innehöll bara tårtbrickan. Titta i Gunnars papper."
+          "svar": "Mikaels väska innehöll bara kakfatet. Titta i Gunnars papper."
         },
         {
           "text": "För försäkringspengarna: värdet höjdes nyss från 180 000 till 650 000 kr.",
@@ -1530,6 +1557,10 @@
         "f-kopia",
         "f-buss",
         "f-gunnar-ensam"
+      ],
+      [
+        "f-kopia",
+        "f-kopian-hittad"
       ]
     ],
     "uteslutningar": {
@@ -1550,7 +1581,7 @@
     },
     "uteslutningar_text": {
       "lena": "Lena stod på Arlanda 11.02–12.44, två och en halv timme bort, och körde in på gården kl. 15.16 – när kopian redan stod på skänken.",
-      "mikael": "Mikael kom med bussen 15.14, efter bytet. Väskan innehöll en tårtbricka.",
+      "mikael": "Mikael kom med bussen 15.14, efter bytet. Väskan innehöll ett kakfat.",
       "olle": "Olle kom med bussen 15.14. Skålen stod kvar när han gick från skänken – och det var bara kopian."
     }
   },
@@ -1604,14 +1635,14 @@
         "f-gunnar-ensam",
         "f-gunnar-anmalan"
       ],
-      "text": "Mellan 09.12 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"
+      "text": "Mellan 09.10 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"
     }
   ],
   "aterkoppling": {
     "ratt": "Den bästa stölden är den som aldrig händer. Gunnar bytte skålen i lugn och ro medan han var ensam på gården. Sedan lät han en kopia ”försvinna” inför tjugofem vittnen. Han glömde bara att han själv hade lagt ut beviset på Instagram.",
-    "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian låg i Gunnars bil. Han hade beställt den av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
+    "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian, skålen på bokhyllan i kontoret, hade han beställt av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
     "fel": {
-      "mikael": "En antikhandlare med väska ser misstänkt ut. Men han kom med bussen efter bytet, och väskan innehöll en tårtbricka.",
+      "mikael": "En antikhandlare med väska ser misstänkt ut. Men han kom med bussen efter bytet, och väskan innehöll ett kakfat.",
       "olle": "Olle stod vid skänken med tårtan, men skålen stod kvar när han gick – och det var dessutom bara kopian.",
       "lena": "Lena stod på Arlanda och körde in på gården kl. 15.16. Då stod kopian redan på skänken.",
       "gunnar": ""
@@ -1619,14 +1650,14 @@
     "fel_allman": "Strand höjer ett ögonbryn …",
     "forklaring_steg": [
       {
-        "text": "Gunnars Instagrambild kl. 09.12 visar samma buckla och samma S som försäkringsfotot, och dagens tidning ligger bredvid. Skålen var äkta i morse.",
+        "text": "Gunnars Instagrambild kl. 09.10 visar samma buckla och samma S som försäkringsfotot, och dagens tidning ligger bredvid. Skålen var äkta i morse.",
         "fynd": [
           "f-akta",
           "f-bild-idag"
         ]
       },
       {
-        "text": "Alla bilder från 15.16 och framåt visar en skål utan buckla och med släta handtag. Det är en kopia. Den äkta skålen byttes ut mellan 09.12 och 15.16.",
+        "text": "Alla bilder från 15.16 och framåt visar en skål utan buckla och med släta handtag. Det är en kopia. Den äkta skålen byttes ut mellan 09.10 och 15.16.",
         "fynd": [
           "f-kopia"
         ]
@@ -1647,9 +1678,10 @@
         ]
       },
       {
-        "text": "Kopian försvann 17.05–17.20 – stölden var iscensatt. Olle och Mikael är villospår: skålen stod kvar efter dem, och det var ändå bara kopian.",
+        "text": "Kopian försvann 17.05–17.20 och stod sedan högst upp på bokhyllan i Gunnars kontor – stölden var iscensatt. Olle och Mikael är villospår: skålen stod kvar efter dem, och det var ändå bara kopian.",
         "fynd": [
           "f-borta",
+          "f-kopian-hittad",
           "f-olle-skank",
           "f-mikael-vaska"
         ]

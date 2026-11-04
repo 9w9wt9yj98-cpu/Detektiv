@@ -3,7 +3,7 @@ import { assert, vanta, nySida, bild, undersok, inspektera, stangKort, gaTill, s
 const ID = 'brudskalen';
 
 async function hittaAllt(p) {
-  await undersok(p, 'skanken', -0.4, -1.6); await bild(p, 'f4-skanken'); await stangKort(p);
+  await undersok(p, 'skanken', -0.4, 1.6); await bild(p, 'f4-skanken'); await stangKort(p);
   for (const o of ['gunnar', 'olle', 'birgitta']) { await inspektera(p, o); await stangKort(p); }
   await gaTill(p, 'dorr-ut', 'garden');
   await bild(p, 'f4-garden');
@@ -12,7 +12,7 @@ async function hittaAllt(p) {
   await gaTill(p, 'dorr-in', 'salen');
   await gaTill(p, 'dorr-kontor', 'kontoret');
   await bild(p, 'f4-kontoret');
-  for (const o of ['dator', 'parmen']) { await inspektera(p, o); await stangKort(p); }
+  for (const o of ['dator', 'parmen', 'kopian']) { await inspektera(p, o); await stangKort(p); }
 }
 
 async function valjPar(p, a, b) {
@@ -68,7 +68,7 @@ export async function ratt(browser, mobil = true) {
   await bild(p, 'f4-slutsatser');
   await stangBok(p);
   await anklaga(p, 'mikael');
-  assert.match(await p.locator('.reaktion').innerText(), /tårtbricka/);
+  assert.match(await p.locator('.reaktion').innerText(), /kakfat/);
   await p.locator('[data-ok]').click(); await vanta(300);
   await anklaga(p, 'gunnar', { hur: 'byte', bevis: ['f-kopia', 'f-gunnar-ensam', 'f-akta'] });
   const txt = await upplosning(p, 'f4-upplosning-ratt');

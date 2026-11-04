@@ -27,7 +27,7 @@
   },
   "intro": {
     "rubrik": "Gråskärs fyrplats, Stockholms ytterskärgård. Oktober 1931.",
-    "text": "Bäste detektiv,\n\nförlåt min darriga hand – stormen har inte bedarrat förrän i dag, och det är första gången på två dygn som en båt kan lägga till. Fyrmästare Holger Wenngren är död. Fru Signe fann honom klockan sex på morgonen den fjortonde, nedanför den smala spiraltrappan i tornet. Vi har låtit honom ligga, så som doktorn sade, och klivit över honom sedan dess. Gud förlåte oss. Vi är bara fyra kvar på ön: Signe, doktorn vid väderstationen, en skeppsbruten fiskare som flöt i land kvällen före – och jag.\n\nJag är bara fyrbiträde, men jag har varit tidningsman och vet hur viktigt det är med papper. Därför har jag samlat allt åt er: fyrinstruktionen, loggboken, doktorns anteckningar – och min egen dagbok, om den kan vara till någon hjälp. Allt ligger där ni hittar det.\n\nDet var nog en olyckshändelse. Trappan är brant, och Holger var inte så ung längre. Men ni ska få bedöma själv.\n\nEr tillgivne\nElof Granath, fyrbiträde",
+    "text": "Bäste detektiv,\n\nförlåt min darriga hand – stormen har mojnat så pass i dag att en båt kan lägga till, för första gången på två dygn. Fyrmästare Holger Wenngren är död. Fru Signe fann honom klockan sex på morgonen den fjortonde, nedanför den smala spiraltrappan i tornet. Vi har låtit honom ligga, så som doktorn sade, och klivit över honom sedan dess. Gud förlåte oss. Vi är bara fyra kvar på ön: Signe, doktorn vid väderstationen, en skeppsbruten fiskare som flöt i land kvällen före – och jag.\n\nJag är bara fyrbiträde, men jag har varit tidningsman och vet hur viktigt det är med papper. Därför har jag samlat allt åt er: fyrinstruktionen, loggboken, doktorns anteckningar – och min egen dagbok, om den kan vara till någon hjälp. Allt ligger där ni hittar det.\n\nDet var nog en olyckshändelse. Trappan är brant, och Holger var inte så ung längre. Men ni ska få bedöma själv.\n\nEr tillgivne\nElof Granath, fyrbiträde",
     "uppdrag": "Hur dog fyrmästaren – och vem ljuger?",
     "bild": "bilder/fall6/fyren.jpg",
     "berattare": "Elof Granath, fyrbiträde"
@@ -38,7 +38,7 @@
       "namn": "Elof Granath",
       "roll": "Fyrbiträde",
       "misstankt": true,
-      "beskrivning": "Vänlig och hjälpsam. Har samlat alla papper åt dig. Bor i biträdesstugan."
+      "beskrivning": "Vänlig och hjälpsam. Har lagt fram alla papper åt dig. Bor i biträdesstugan."
     },
     {
       "id": "signe",
@@ -50,7 +50,7 @@
     {
       "id": "lagerkvist",
       "namn": "Dr. Arvid Lagerkvist",
-      "roll": "Meteorolog vid väderstationen",
+      "roll": "Läkare och meteorolog vid väderstationen",
       "misstankt": true,
       "beskrivning": "Har grälat med fyrmästaren om stationens placering."
     },
@@ -290,7 +290,7 @@
               "gar_till": "stationen",
               "interaktiv": {
                 "namn": "Till väderstationen",
-                "text": "Väderstationen ligger på öns norra udde – tio minuters väg i storm, enligt doktorn."
+                "text": "Väderstationen ligger på öns södra udde – tio minuters väg i storm, enligt doktorn."
               }
             }
           ],
@@ -672,8 +672,8 @@
               ],
               "rot": 90,
               "tid": [
-                7,
-                0
+                6,
+                45
               ],
               "modell": {
                 "fil": "modeller/mantel_clock_01.glb",
@@ -681,8 +681,8 @@
                 "urtavla": {
                   "nod": "mantel_clock_01_glass",
                   "tid": [
-                    7,
-                    0
+                    6,
+                    45
                   ]
                 }
               }
@@ -1103,7 +1103,7 @@
               "seed": 2,
               "interaktiv": {
                 "namn": "Dr. Lagerkvist",
-                "text": "Doktorn putsar sina glasögon. ”Ni har väl läst min anteckning vid kroppen? Jag skrev den klockan tio över sex. Och nej, jag lämnade inte stationen den natten – stormvarning betyder observation var femtonde minut, och det har jag gjort i tjugo år.”",
+                "text": "Doktorn putsar sina glasögon. ”Ni har väl läst min anteckning vid kroppen? Jag skrev den klockan halv sju, när Elof hade hämtat mig. Och nej, jag lämnade inte stationen den natten – stormvarning betyder observation var femtonde minut, och det har jag gjort i tjugo år.”",
                 "ger_fynd": [
                   "f-duns-lagerkvist",
                   "f-grall"
@@ -1318,7 +1318,7 @@
           {
             "id": "dok-fyndet",
             "titel": "Dr. Lagerkvists anteckning vid fyndet",
-            "underrubrik": "14 oktober, kl. 06.10",
+            "underrubrik": "14 oktober, kl. 06.30",
             "ikon": "🩺",
             "stil": "hand",
             "stycken": [
@@ -1328,7 +1328,7 @@
               },
               {
                 "id": "n-grepp",
-                "text": "Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade flera timmar före sex."
+                "text": "Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade några timmar före sex. Kläderna är torra – han kan inte ha varit ute i stormen de sista timmarna."
               }
             ]
           },
@@ -1349,7 +1349,7 @@
               },
               {
                 "id": "j-vag",
-                "text": "Gångväg stationen–fyrtornet i storm: 10 minuter (uppmätt i september)."
+                "text": "Gångväg stationen–fyrtornet i storm: 10 minuter runt viken (uppmätt i september). Fågelvägen knappt hundra meter."
               }
             ]
           },
@@ -1385,7 +1385,7 @@
               },
               {
                 "id": "s-koket",
-                "text": "Jag tittade ut mot tornet genom fönstret men såg ingenting, så jag gick och lade mig igen. Holger ville aldrig bli störd när han vakade."
+                "text": "Jag tittade ut mot tornet genom fönstret. Fyren blinkade som vanligt, så jag gick och lade mig igen. Holger ville aldrig bli störd när han vakade."
               }
             ]
           },
@@ -1416,7 +1416,7 @@
             "stycken": [
               {
                 "id": "la-duns",
-                "text": "Jag hörde en duns från tornet vid tjugo över tre, men trodde att det var stormen som slet i något."
+                "text": "Jag hörde en tung duns från tornet, tvärs över viken, vid tjugo över tre, men trodde att det var stormen som slet i något."
               },
               {
                 "id": "la-grall",
@@ -1589,7 +1589,7 @@
     },
     {
       "id": "f-elof-hjalp",
-      "titel": "Elof har samlat papperen",
+      "titel": "Elof har lagt fram papperen",
       "ikon": "📦",
       "typ": "bakgrund",
       "galler": [
@@ -1780,13 +1780,13 @@
     },
     {
       "id": "f-signe-alibi",
-      "titel": "Signe gick aldrig ut",
+      "titel": "Signe gick inte ut i natt",
       "ikon": "🚪",
       "typ": "nyckel",
       "galler": [
         "signe"
       ],
-      "text": "Johan, en främling utan skäl att skydda henne, låg vaken i köket. Signe gick aldrig ut."
+      "text": "Johan, en främling utan skäl att skydda henne, låg vaken i köket. Signe gick inte ut förrän vid sex."
     }
   ],
   "slutsatser": [
@@ -1827,7 +1827,7 @@
         },
         {
           "text": "Strax före sex, då Signe hittade honom.",
-          "svar": "Doktorn skriver att kroppen var kall och att döden inträffat flera timmar före sex."
+          "svar": "Doktorn skriver att kroppen var kall och att döden inträffat några timmar före sex."
         }
       ],
       "slutsats": "Signe i bostaden och doktorn på stationen hörde dunsen, oberoende av varandra, 03.20. Då föll Holger."
@@ -1866,11 +1866,11 @@
           "svar": "Motiv, ja. Men hur kom hon ut? Köket är enda vägen, och där låg Johan vaken."
         },
         {
-          "text": "Nej – Johan låg vaken i köket, den enda vägen ut, och hon gick aldrig ut.",
+          "text": "Nej – Johan låg vaken i köket, den enda vägen ut, och hon gick inte ut förrän vid sex.",
           "ratt": true
         }
       ],
-      "slutsats": "Signe har motiv men gick aldrig ut. Johan är en främling utan skäl att ljuga för henne."
+      "slutsats": "Signe har motiv men gick inte ut förrän vid sex. Johan är en främling utan skäl att ljuga för henne."
     },
     {
       "id": "s-johan",
@@ -1910,7 +1910,7 @@
         },
         {
           "text": "Signe.",
-          "svar": "Signe gick aldrig ut genom köket."
+          "svar": "Signe gick inte ut genom köket förrän vid sex."
         },
         {
           "text": "Doktor Lagerkvist.",
@@ -2078,7 +2078,7 @@
       "bekannelse": "När båten från Sandhamn lägger till sitter Elof redan på bryggan med mössan i händerna. ”Sextio liter fotogen, detektiven. Han skulle ha fått mig avskedad och utskämd för sextio liter. Jag ville bara att han skulle släppa mig – och sedan låg han där.” Han ser upp mot lanternan. ”Fyren slocknade i alla fall inte. Det såg jag till.”"
     },
     "fel": {
-      "signe": "Brevet ger ett motiv, men Johan låg vaken i köket hela natten. Signe gick aldrig ut.",
+      "signe": "Brevet ger ett motiv, men Johan låg vaken i köket hela natten. Signe gick inte ut förrän vid sex.",
       "johan": "Främlingen är alltid lätt att misstänka, men med ett spjälat ben kommer man inte upp i en spiraltrappa.",
       "lagerkvist": "Ett gräl är inget mord. Barografen fick ett tidsmärke var femtonde minut, och tornet ligger tio minuter bort.",
       "elof": ""
