@@ -1,5 +1,5 @@
 // Service worker: cachar spelets filer så att det fungerar offline och kan läggas på hemskärmen.
-const VERSION = 'detektiv-v28';
+const VERSION = 'detektiv-v30';
 const FILER = [
   './',
   './index.html',
@@ -47,6 +47,7 @@ const FILER = [
   './js/vyer/utredning.js',
   './vendor/three/three.module.min.js',
   './fall/brudskalen.json',
+  './fall/fjallgarden-1968.json',
   './fall/fyren-pa-graskar.json',
   './fall/halsbandet-pa-ekbacka.json',
   './fall/index.json',
@@ -65,6 +66,7 @@ const FILER = [
   './bilder/fall6/fyren.jpg',
   './bilder/fall7/teatern.jpg',
   './bilder/fall8/vitanas.jpg',
+  './bilder/fall9/fjallgarden.jpg',
   './ikoner/favicon.png',
   './ikoner/ikon-180.png',
   './ikoner/ikon-192.png',
