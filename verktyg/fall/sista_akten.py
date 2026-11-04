@@ -22,7 +22,7 @@ fall = {
    "uppskattad_tid_min": [12, 18], "svarighet": 3, "karnmekanik": "forhor", "bimekaniker": ["scen"], "twist": None, "kraver_rang": 0,
    "accentfarg": "#5a1a22", "omslag": "bilder/fall7/teatern.jpg", "mal": "Ta reda på vem som släppte sandsäcken", "handledning_mal": "sandsacken"},
  "intro": {"rubrik": "Teater Lyran, Göteborg. Oktober 1952.",
-   "text": "Premiärkväll på Teater Lyran. Du sitter på rad 8 bredvid kommissarie Nils Strand, som har fått biljetterna av teaterchefen. Andra akten av ”Den gröna salongen” har just nått sin stora scen när något rasar ned ur mörkret ovanför scenen.\n\nEn sandsäck på fyrtio kilo slår i scengolvet en meter från stjärnan, Viveka Sterner. Hon står kvar, vit i ansiktet. Ridån går ner, och salongen fylls av sorl.\n\nNär ni kommer upp på scenen har Strand redan bett alla i ensemblen och personalen att stanna. ”En sandsäck faller inte av sig själv”, säger han. ”Någon i det här huset vill fröken Sterner illa. Ta reda på vem – och hur den kom upp dit.”",
+   "text": "Premiärkväll på Teater Lyran. Du sitter på rad 8 bredvid kommissarie Nils Strand, som har fått biljetterna av teaterchefen. Andra akten av ”Den gröna salongen” har just nått sin stora scen när något rasar ned ur mörkret ovanför scenen.\n\nEn sandsäck på fyrtio kilo slår i scengolvet en meter från stjärnan, Viveka Sterner. Hon står kvar, vit i ansiktet. Ridån går ner, och salongen fylls av sorl.\n\nNär ni kommer upp på scenen har Strand redan bett alla i ensemblen och personalen att stanna. ”En sandsäck faller inte av sig själv”, säger han. ”Någon i det här huset vill fru Sterner illa. Ta reda på vem – och hur den kom upp dit.”",
    "uppdrag": "Vem släppte sandsäcken – och hur kom gärningspersonen upp på lindraget?", "bild": "bilder/fall7/teatern.jpg", "berattare": "Kommissarie Nils Strand"},
  "personer": [
    {"id": "viveka", "namn": "Viveka Sterner", "roll": "Skådespelerska, premiärens stjärna", "misstankt": False, "beskrivning": "Göteborgs mest omtalade aktris. Kräver mycket, av sig själv och av alla andra."},
@@ -256,7 +256,7 @@ fall["slutsatser"] = [
     {"text": "Vem som helst bakom scenen.", "svar": "Dörren från logekorridoren var låst och oskadad, och scenluckan var fastskruvad."},
     {"text": "Den som hade nyckel till dörren – Kalle och fru Wall – eller den som satt i sufflörluckan.", "ratt": True},
     {"text": "Bara den som öppnade scenluckan.", "svar": "Scenluckan är fastskruvad underifrån, muttrarna är dammiga och bordet i dekoren står ovanpå."}],
-   "slutsats": "Bara två kunde ta sig in i undre maskineriet: Kalle med sin nyckel och fru Wall – med sin nyckel eller via stegen från luckan."},
+   "slutsats": "Under akten kom man bara in i undre maskineriet med nyckel – Kalles eller fru Walls – eller genom sufflörluckan, där fru Wall satt."},
   {"id": "s-kalle", "kraver": ["f-kalle-alibi"], "efter": ["s-undre"], "fraga": "Kalle har nyckel och kan linorna bättre än någon. Kan han ha gjort det?", "alternativ": [
     {"text": "Ja – han har nyckeln och slog själv knuten.", "svar": "Var befann han sig kl. 21.32?"},
     {"text": "Nej – inspicienten såg honom vid regnmaskinen, en meter från sin pulpet, från 21.20 tills ridån gick ner.", "ratt": True}],
