@@ -320,3 +320,16 @@ Rättat på vägen:
 Agenten som skrev ledtrådarna granskade också texterna i del 1–3, och de flesta förslagen är med: stegen nämner personer och räknaren, steg 3 heter ”Koppla ihop i boken” och gäller bara fall som har ett pussel, anklagelsen nämner de två försöken och att rätt bevis ger ett extra förstoringsglas, meddelandet säger ”ett gratis tips om vad du kan göra härnäst” (förut ”första tipset är gratis”, som kunde läsas som att ledtråd 1 var gratis), och det heter ”lampan” överallt.
 
 `verktyg/spelarvy.mjs --ledtradar` skriver ut ledtrådarna i lampan för ett blindtest av att de hjälper stegvis.
+
+### Blindtest av ledtrådarna (samma dag)
+
+En ny blind agent fick bara spelarvyn och ledtrådarna (`verktyg/spelarvy.mjs --ledtradar`) och prövade dem som en spelare som har fastnat: vad säger varje ledtråd, vem pekar den ut om man bara läser ledtrådarna, och stämmer den med fallet? Rapport: `docs/blindtest/rapport-2026-11-04-ledtradar.md`. Ingen ledtråd nämnde den skyldiges namn, och alla tider och platser stämde – utom en. Rättat:
+
+| Fall | Rättning |
+|---|---|
+| 3 | **Sakfel i ledtråd 2:** den sa att man med advokaten på plats 4 skulle se ”vad som blir kvar för David att dricka”, men David får whisky utan problem – motsägelsen kommer först när de två sista ska placeras (uppgift L5). Texten säger nu det. Ledtrådarna skriver ”uppgift L3 i rutnätet” så att L1–L9 inte blandas ihop med ledtråd 1–3. |
+| 2 | Ledtråd 2 nämnde kupé 2 tre gånger och pekade därmed ut den som reste där redan på nivå 2. Nu: ”ta reda på hur det såg ut på andra sidan dörren”. Ledtråd 3 drar inte längre slutsatsen själv, utan frågar vems berättelse om natten som inte går ihop. |
+| 4 | Ledtråd 1 säger inte längre exakt vad på skålen man ska titta på. Ledtråd 3 citerade den skyldiges egna ord två gånger och utelämnade att Lena åkte halv nio, före morgonbilden. Nu: skålen byttes mellan 09.10 och 15.14, Lena var borta hela tiden, och frågan är vem som var kvar och vems berättelse inte stämmer med bilderna. |
+| 6 | Ledtråd 2 frågade ”med vilken penna?”, som ledde rakt till den enda reservoarpennan. Pennan kommer nu först i ledtråd 3. |
+
+**Kvar för Martin:** i alla sex fall beskriver ledtråd 3 den skyldige med något bara den personen har, så det sista steget blir att slå upp vem det är. Det är tänkt som ”Nästan svaret”, men nivån kan sänkas om ledtrådarna känns för givmilda.

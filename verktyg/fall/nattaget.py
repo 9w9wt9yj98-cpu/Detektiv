@@ -215,8 +215,8 @@ fall["anklagelse"] = {"hur_fraga": "Hur tog sig gärningspersonen in och ut?", "
     {"id": "olycka", "text": "Ingen – Berg föll och slog sig"}], "hur_kravs": False, "bevis_max": 3}
 fall["ledtradar"] = [
   {"niva": 1, "kostnad": 10, "kraver": ["f-kedja", "f-fonster-is", "f-vagg4", "f-mellandorr"], "text": "Börja med hur gärningspersonen kom ut ur kupé 3. Korridordörren var hakad inifrån – undersök de andra vägarna: fönstret, väggen mot kupé 4 och mellandörren."},
-  {"niva": 2, "kostnad": 25, "kraver": ["f-mellandorr", "f-ahl-kedja"], "text": "Om mellandörren var den enda vägen ut, vart ledde den – och gick det att ta sig vidare därifrån? Ta reda på hur det såg ut i kupé 2 när konduktören knackade där kl. 06.15: dörren, fönstret och väggen mot kupé 1."},
-  {"niva": 3, "kostnad": 50, "kraver": ["f-tidtabell", "f-ahl-kedja", "u-ahl-sov", "u-ahl-lykta"], "text": "Även kupé 2 var stängd inifrån i morse: kedjan på, fönstret fastfruset och ingen dörr mot kupé 1. Den som gick genom mellandörren blev alltså kvar där. Vem påstår sig ha sovit hela natten men minns ändå stinsens lykta i Boden?"}]
+  {"niva": 2, "kostnad": 25, "kraver": ["f-mellandorr", "f-ahl-kedja"], "text": "Om mellandörren var den enda vägen ut: vart ledde den, och gick det att ta sig vidare därifrån utan att lämna spår? Ta reda på hur det såg ut på andra sidan dörren i morse."},
+  {"niva": 3, "kostnad": 50, "kraver": ["f-tidtabell", "f-ahl-kedja", "u-ahl-sov", "u-ahl-lykta"], "text": "Även kupé 2 var stängd inifrån i morse: kedjan på, fönstret fastfruset och ingen dörr mot kupé 1. Vad betyder det för den som gick genom mellandörren? Läs förhören igen – vems berättelse om natten går inte ihop med sig själv?"}]
 fall["aterkoppling"] = {
   "ratt": "Ett låst rum har alltid en dörr man glömmer. Kedjan och isen stängde två vägar, och mellandörren ledde till en kupé som också var hakad inifrån. Fru Ahl var vaken – det avslöjade hon själv med stinsens lykta. Berg hade drivit hennes make i konkurs; hon knackade på mellandörren, han drog undan regeln, och när tåget ryckte igång efter Boden slog hon till.",
   "fel": {

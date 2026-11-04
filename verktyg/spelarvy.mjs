@@ -31,6 +31,8 @@ const dokument = new Map();
 for (const m of f.moment) for (const d of m.payload?.dokument || []) dokument.set(d.id, d);
 const utsaga = new Map();
 for (const m of f.moment) for (const u of m.payload?.utsagor || []) utsaga.set(u.id, u);
+const bilder = new Map();
+for (const m of f.moment) for (const b of m.payload?.bilder || []) bilder.set(b.id, b);
 const tidskort = new Map();
 for (const m of f.moment) for (const k of m.payload?.kort || []) tidskort.set(k.id, k);
 
@@ -39,6 +41,7 @@ const namnPa = (x) => {
   if (utsaga.has(x)) return `utsagan ”${utsaga.get(x).titel}”`;
   if (tidskort.has(x)) return `tidskortet ”${tidskort.get(x).titel}”`;
   if (dokument.has(x)) return `dokumentet ”${dokument.get(x).titel}”`;
+  if (bilder.has(x)) return `bilden ”${bilder.get(x).titel}”`;
   if (moment.has(x)) return `”${moment.get(x).namn}”`;
   return x;
 };

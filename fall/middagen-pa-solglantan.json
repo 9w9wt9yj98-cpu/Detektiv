@@ -877,7 +877,7 @@
     {
       "niva": 2,
       "kostnad": 25,
-      "text": "Advokaten satt bredvid översten (L3), alltså på plats 1 eller 4. Pröva plats 4 och följ uppgifterna en i taget: var hamnar whiskyn, konstnären och läkaren – och vad blir till sist kvar för David att dricka?",
+      "text": "Advokaten satt bredvid översten (uppgift L3 i rutnätet), alltså på plats 1 eller 4. Pröva plats 4 och följ uppgifterna en i taget: var hamnar whiskyn, konstnären och läkaren, och var måste David sitta? Går det sedan att placera de två sista utan att bryta mot någon uppgift?",
       "kraver": [
         "f-forhor"
       ]
@@ -885,7 +885,7 @@
     {
       "niva": 3,
       "kostnad": 50,
-      "text": "Advokaten satt på plats 1. Då satt whiskydrickaren på plats 2, konstnären på 3 och läkaren på 2 (L4, L2). För plats 4 – den enda som nådde glaset – återstår ett yrke, och L8 och L9 avgör vem som hade det.",
+      "text": "Advokaten satt på plats 1. Då satt whiskydrickaren på plats 2 och konstnären på 3 (uppgift L4), och läkaren också på 2 (L2). För plats 4 – den enda som nådde glaset – återstår ett yrke, och uppgifterna L8 och L9 avgör vem som hade det.",
       "kraver": [
         "f-forhor",
         "f-spill",
