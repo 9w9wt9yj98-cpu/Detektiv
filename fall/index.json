@@ -46,6 +46,11 @@
           "nummer": 7,
           "id": "sista-akten",
           "fil": "sista-akten.json"
+        },
+        {
+          "nummer": 8,
+          "id": "nyarsnatten-pa-vitanas",
+          "fil": "nyarsnatten-pa-vitanas.json"
         }
       ]
     }
