@@ -299,3 +299,37 @@ En ny blind agent, som inte visste något om den första rundan, granskade de r�
 | 6 | Stormen har ”mojnat så pass” att en båt kan lägga till – rummen visar fortfarande blåsten. Väderstationen ligger på öns *södra* udde, åt samma håll som dörren, och tvärs över viken – fågelvägen knappt hundra meter – så att doktorn kan höra dunsen. Signe såg att fyren blinkade som vanligt (förut ”såg ingenting”, som kunde läsas som att fyren var släckt). Kläderna är torra ”de sista timmarna” (Holger gick till tornet genom stormen vid tio). Elof har *lagt fram* papperen. Signe gick inte ut ”förrän vid sex”, i stället för ”aldrig”. Köksklockan visar 6.45, tjugo minuter före stationens klocka – det tar mer än tio minuter att gå mellan dem. |
 
 **Inte ändrat:** vagnens mått i fall 2 (kupé och korridor bredare än en verklig vagn) och att utredningen i fall 5 går fort – det är förenklingar i spelet, inte motsägelser i fallet. Att samma namn återkommer mellan fallen (Holm, Berg, Anton, Lind/Lindh/Lund) och vem spelaren är i nutid (Maja Strand) får vänta på Martin.
+
+## Vägledning: så löser du ett fall, hjälpen i lampan och signal när man fastnat (november 2026)
+
+Martin frågade efter ett enkelt sätt att hjälpa den som fastnat, tydligare ledtrådar och en bättre förklaring av vad spelet går ut på, och bad om alla fyra delarna i förslaget. Inga pussel eller lösningar ändras, och poängen är densamma som förut.
+
+1. **”Så löser du ett fall”** – fyra steg (Undersök, Läs fynden, Tänk i boken, Anklaga) och en rad om lampan. Rutan är utfälld på fallets första sida tills man har startat ett fall en gång, och sedan ihopfälld. Kortet kan också öppnas från hjälpen i lampan. Handledningens sista steg nämner det gratis tipset.
+2. **Lampan är en hjälpstege.** Först ett **gratis tips** om nästa steg, som räknas fram ur hur långt spelaren har kommit: en ny fråga under Slutsatser, rummet man står i eller ett annat rum med mer att hitta, en mekanik i boken som inte är klar (hur många motsägelser, upptäckter eller steg som återstår, och hur man gör), ett låst moment och vägen dit, eller till sist att det är dags att anklaga. Tipset pekar på *var* och *hur*, aldrig på vem. Därefter de tre ledtrådarna som förut (−10/−25/−50 poäng) och sist ”Jag ger upp – visa lösningen”. Platser-fliken i boken visar samma tips.
+3. **Fastnat-signal.** Har spelaren inte hittat, löst eller besvarat något på fyra minuter (tiden i anteckningsboken räknas med, men signalen väntar tills boken och korten är stängda) börjar lampan glöda och ett meddelande säger ”Fastnat? Tryck på lampan – första tipset är gratis.” Signalen ges en gång per stopp och slutar när lampan öppnas eller spelaren kommer vidare. Med ”minska rörelser” i systemet lyser lampan i stället för att pulsera.
+4. **Jämnare ledtrådar i alla sex fall.** De tre ledtrådarna har nu fasta roller och rubriker: *1 · Var du ska titta*, *2 · Frågan att ställa* och *3 · Nästan svaret*. Tipset säger var i spelet (rum, flik, fråga), ledtrådarna vad i logiken – de upprepar inte varandra. Ingen ledtråd nämner den skyldiges namn eller roll. Borta är bland annat ”Den som reste i kupé 2” (fall 2), ”hen” och ”pastorn” (fall 3), ”berättarens dagbok” (fall 6) och påståendet i fall 5 att ”varje nyckelinnehavare” gick hem. Nivå, kostnad och pussel är oförändrade; bara ledtrådarnas text och `kraver` har ändrats. Ledtråd 3 i fall 3 räknar upp hela kedjan i rutnätet utom det sista steget.
+
+Pekaren (”Du har inte hittat allt som behövs …”) har också förbättrats: den följer nu följdfrågor som låses upp av fynd och slutsatsfrågor som saknar underlag, i stället för att stanna vid ”arbeta under Slutsatser”. Den nämner inte personer vid namn längre (”prata med personerna där”), så att den aldrig råkar peka ut den skyldige.
+
+Rättat på vägen:
+- Bekräftelsen för ledtråd 2 och 3 sa att den kostade 10 poäng, fast knappen (och poängräkningen) sa 25 och 50.
+- Fall 1: fyndet om middagen säger att friherrinnan och Elsa gick upp *klockan nio*, inte ”strax efter nio” (dörren var låst kl. 21.00).
+- ”Hen” är ett nutida ord och passar inte 1897 och 1934. Fall 2: slutsatsens alternativ säger ”Den kunde …”/”Den måste …”. Fall 5: uppdraget är ”hur hann tjuven?”, och tidslinjens kort och prövningar talar om ”personen”. I förhören står personens namn (”Kanske har fru Ahl mer att säga”).
+- Arbete i rutnätet och i anteckningarna räknas som framsteg, så att fastnat-signalen inte kommer mitt i arbetet.
+
+Agenten som skrev ledtrådarna granskade också texterna i del 1–3, och de flesta förslagen är med: stegen nämner personer och räknaren, steg 3 heter ”Koppla ihop i boken” och gäller bara fall som har ett pussel, anklagelsen nämner de två försöken och att rätt bevis ger ett extra förstoringsglas, meddelandet säger ”ett gratis tips om vad du kan göra härnäst” (förut ”första tipset är gratis”, som kunde läsas som att ledtråd 1 var gratis), och det heter ”lampan” överallt.
+
+`verktyg/spelarvy.mjs --ledtradar` skriver ut ledtrådarna i lampan för ett blindtest av att de hjälper stegvis.
+
+### Blindtest av ledtrådarna (samma dag)
+
+En ny blind agent fick bara spelarvyn och ledtrådarna (`verktyg/spelarvy.mjs --ledtradar`) och prövade dem som en spelare som har fastnat: vad säger varje ledtråd, vem pekar den ut om man bara läser ledtrådarna, och stämmer den med fallet? Rapport: `docs/blindtest/rapport-2026-11-04-ledtradar.md`. Ingen ledtråd nämnde den skyldiges namn, och alla tider och platser stämde – utom en. Rättat:
+
+| Fall | Rättning |
+|---|---|
+| 3 | **Sakfel i ledtråd 2:** den sa att man med advokaten på plats 4 skulle se ”vad som blir kvar för David att dricka”, men David får whisky utan problem – motsägelsen kommer först när de två sista ska placeras (uppgift L5). Texten säger nu det. Ledtrådarna skriver ”uppgift L3 i rutnätet” så att L1–L9 inte blandas ihop med ledtråd 1–3. |
+| 2 | Ledtråd 2 nämnde kupé 2 tre gånger och pekade därmed ut den som reste där redan på nivå 2. Nu: ”ta reda på hur det såg ut på andra sidan dörren”. Ledtråd 3 drar inte längre slutsatsen själv, utan frågar vems berättelse om natten som inte går ihop. |
+| 4 | Ledtråd 1 säger inte längre exakt vad på skålen man ska titta på. Ledtråd 3 citerade den skyldiges egna ord två gånger och utelämnade att Lena åkte halv nio, före morgonbilden. Nu: skålen byttes mellan 09.10 och 15.14, Lena var borta hela tiden, och frågan är vem som var kvar och vems berättelse inte stämmer med bilderna. |
+| 6 | Ledtråd 2 frågade ”med vilken penna?”, som ledde rakt till den enda reservoarpennan. Pennan kommer nu först i ledtråd 3. |
+
+**Kvar för Martin:** i alla sex fall beskriver ledtråd 3 den skyldige med något bara den personen har, så det sista steget blir att slå upp vem det är. Det är tänkt som ”Nästan svaret”, men nivån kan sänkas om ledtrådarna känns för givmilda.

@@ -11,7 +11,7 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 - **Mobil:** dra med vänster tumme för att gå, dra på höger sida för att se dig omkring, tryck på föremål med utropstecken (de syns när du kommer nära).
 - **Dator:** W A S D eller piltangenterna för att gå, dra med musen för att titta, klicka för att undersöka.
 - **Anteckningsboken** ligger i rummet. Gå fram och tryck på den för att läsa fynd, koppla fynd till personer, lösa deduktionstavlan, ta ledtrådar och anklaga.
-- Tre ledtrådar per fall (−10/−25/−50 poäng), två felaktiga anklagelser (−30 poäng vardera) innan upplösningen visas. Betyg 1–3 förstoringsglas. Allt sparas i webbläsaren.
+- **Fastnat?** Lampan ger först ett gratis tips om nästa steg, sedan tre ledtrådar (−10/−25/−50 poäng) och sist lösningen. Står du still i fyra minuter börjar lampan glöda. Två felaktiga anklagelser (−30 poäng vardera) innan upplösningen visas. Betyg 1–3 förstoringsglas. Allt sparas i webbläsaren.
 
 ## Teknik
 
@@ -35,7 +35,7 @@ Ett pusselspel med logik, observation och deduktion i klassisk deckarmiljö i st
 | `js/mekaniker/` | Mekanikerna i anteckningsboken: logikrutnät (`logikrutnat.js`), förhör/dokument (`jamfor.js`), bildjämförelse (`bildjamforelse.js`) och tidslinje (`tidslinje.js`). |
 | `verktyg/fall/*.py` | Källor för fall 2 och senare – genererar `fall/*.json`. Ändra i `.py`-filen och kör den; ändras bara JSON-filen skrivs ändringen över nästa gång. Fall 1 och 3 saknar källa och redigeras direkt i JSON. |
 | `verktyg/` | `validera_fall.mjs` (validerar alla fall, bevisar att rutnät har exakt en lösning och att varje ledtråd behövs), `release.mjs` (service workerns cacheversion och fillista) och `verifiera_fall3.py`. |
-| `verktyg/spelarvy.mjs` | Spelarvy för blindtest: `node verktyg/spelarvy.mjs <fall-id>` skriver allt spelaren kan se i ett fall, utan facit (lösning, rätta svar, motsägelser, ledtrådar, villospårsmärkning); `--slutsatser` ger slutsatsfrågorna utan svar. |
+| `verktyg/spelarvy.mjs` | Spelarvy för blindtest: `node verktyg/spelarvy.mjs <fall-id>` skriver allt spelaren kan se i ett fall, utan facit (lösning, rätta svar, motsägelser, ledtrådar, villospårsmärkning); `--slutsatser` ger slutsatsfrågorna utan svar och `--ledtradar` ledtrådarna i lampan. |
 | `test/spela.mjs` | Playwright-test som spelar alla fall (rätt och fel väg) i iPhone-vy och på dator. |
 
 ## Fallformatet – tillägg till schemat

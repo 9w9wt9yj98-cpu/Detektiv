@@ -182,8 +182,8 @@ fall["slutsatser"] = [
     {"text": "Genom väggen till kupé 4.", "svar": "Väggen mot kupé 4 är en hel panel utan dörr."}],
    "slutsats": "Den enda vägen ut ur kupé 3 var mellandörren – in i kupé 2."},
   {"id": "s-kupe2", "kraver": ["f-ahl-kedja"], "efter": ["s-utvag"], "fraga": "Kupé 2:s egen korridordörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15, fönstret är fastfruset och mot kupé 1 finns ingen dörr. Vad betyder det för den som gick genom mellandörren?", "alternativ": [
-    {"text": "Hen kunde gå vidare ut i korridoren.", "svar": "Inte utan att haka av kedjan på kupé 2 – och den satt på inifrån ända till morgonen."},
-    {"text": "Hen måste ha stannat i kupé 2 – och där fanns bara fru Ahl.", "ratt": True},
+    {"text": "Den kunde gå vidare ut i korridoren.", "svar": "Inte utan att haka av kedjan på kupé 2 – och den satt på inifrån ända till morgonen."},
+    {"text": "Den måste ha stannat i kupé 2 – och där fanns bara fru Ahl.", "ratt": True},
     {"text": "Det spelar ingen roll.", "svar": "Jo. Två kedjor inifrån stänger alla vägar utom en."}],
    "slutsats": "Den som gick genom mellandörren stannade i kupé 2. Där fanns bara fru Ahl."},
   {"id": "s-vaken", "kraver": ["f-ahl-vaken", "f-duns", "f-dodstid"], "efter": ["s-kupe2"], "fraga": "Fru Ahl säger att hon sov hela natten. Stämmer det?", "alternativ": [
@@ -214,9 +214,9 @@ fall["anklagelse"] = {"hur_fraga": "Hur tog sig gärningspersonen in och ut?", "
     {"id": "mellandorr", "text": "Genom mellandörren från kupé 2, när tåget lämnade Boden"},
     {"id": "olycka", "text": "Ingen – Berg föll och slog sig"}], "hur_kravs": False, "bevis_max": 3}
 fall["ledtradar"] = [
-  {"niva": 1, "kostnad": 10, "kraver": ["f-kedja", "f-fonster-is"], "text": "Hur kan någon lämna en kupé som är hakad inifrån och har ett fastfruset fönster?"},
-  {"niva": 2, "kostnad": 25, "kraver": ["f-mellandorr", "f-ahl-kedja"], "text": "Det finns bara en väg kvar: mellandörren. Vart leder den – och kunde den som gick den vägen sedan ta sig vidare?"},
-  {"niva": 3, "kostnad": 50, "kraver": ["u-ahl-sov", "u-ahl-lykta"], "text": "Den som reste i kupé 2 säger att hon sov hela natten. Läs vad hon själv minns från stoppet i Boden – kan båda sakerna vara sanna?"}]
+  {"niva": 1, "kostnad": 10, "kraver": ["f-kedja", "f-fonster-is", "f-vagg4", "f-mellandorr"], "text": "Börja med hur gärningspersonen kom ut ur kupé 3. Korridordörren var hakad inifrån – undersök de andra vägarna: fönstret, väggen mot kupé 4 och mellandörren."},
+  {"niva": 2, "kostnad": 25, "kraver": ["f-mellandorr", "f-ahl-kedja"], "text": "Om mellandörren var den enda vägen ut: vart ledde den, och gick det att ta sig vidare därifrån utan att lämna spår? Ta reda på hur det såg ut på andra sidan dörren i morse."},
+  {"niva": 3, "kostnad": 50, "kraver": ["f-tidtabell", "f-ahl-kedja", "u-ahl-sov", "u-ahl-lykta"], "text": "Även kupé 2 var stängd inifrån i morse: kedjan på, fönstret fastfruset och ingen dörr mot kupé 1. Vad betyder det för den som gick genom mellandörren? Läs förhören igen – vems berättelse om natten går inte ihop med sig själv?"}]
 fall["aterkoppling"] = {
   "ratt": "Ett låst rum har alltid en dörr man glömmer. Kedjan och isen stängde två vägar, och mellandörren ledde till en kupé som också var hakad inifrån. Fru Ahl var vaken – det avslöjade hon själv med stinsens lykta. Berg hade drivit hennes make i konkurs; hon knackade på mellandörren, han drog undan regeln, och när tåget ryckte igång efter Boden slog hon till.",
   "fel": {

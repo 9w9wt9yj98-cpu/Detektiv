@@ -1430,11 +1430,11 @@
       "fraga": "Kupé 2:s egen korridordörr var hakad inifrån tills fru Ahl hakade av den kl. 06.15, fönstret är fastfruset och mot kupé 1 finns ingen dörr. Vad betyder det för den som gick genom mellandörren?",
       "alternativ": [
         {
-          "text": "Hen kunde gå vidare ut i korridoren.",
+          "text": "Den kunde gå vidare ut i korridoren.",
           "svar": "Inte utan att haka av kedjan på kupé 2 – och den satt på inifrån ända till morgonen."
         },
         {
-          "text": "Hen måste ha stannat i kupé 2 – och där fanns bara fru Ahl.",
+          "text": "Den måste ha stannat i kupé 2 – och där fanns bara fru Ahl.",
           "ratt": true
         },
         {
@@ -1588,9 +1588,11 @@
       "kostnad": 10,
       "kraver": [
         "f-kedja",
-        "f-fonster-is"
+        "f-fonster-is",
+        "f-vagg4",
+        "f-mellandorr"
       ],
-      "text": "Hur kan någon lämna en kupé som är hakad inifrån och har ett fastfruset fönster?"
+      "text": "Börja med hur gärningspersonen kom ut ur kupé 3. Korridordörren var hakad inifrån – undersök de andra vägarna: fönstret, väggen mot kupé 4 och mellandörren."
     },
     {
       "niva": 2,
@@ -1599,16 +1601,18 @@
         "f-mellandorr",
         "f-ahl-kedja"
       ],
-      "text": "Det finns bara en väg kvar: mellandörren. Vart leder den – och kunde den som gick den vägen sedan ta sig vidare?"
+      "text": "Om mellandörren var den enda vägen ut: vart ledde den, och gick det att ta sig vidare därifrån utan att lämna spår? Ta reda på hur det såg ut på andra sidan dörren i morse."
     },
     {
       "niva": 3,
       "kostnad": 50,
       "kraver": [
+        "f-tidtabell",
+        "f-ahl-kedja",
         "u-ahl-sov",
         "u-ahl-lykta"
       ],
-      "text": "Den som reste i kupé 2 säger att hon sov hela natten. Läs vad hon själv minns från stoppet i Boden – kan båda sakerna vara sanna?"
+      "text": "Även kupé 2 var stängd inifrån i morse: kedjan på, fönstret fastfruset och ingen dörr mot kupé 1. Vad betyder det för den som gick genom mellandörren? Läs förhören igen – vems berättelse om natten går inte ihop med sig själv?"
     }
   ],
   "aterkoppling": {

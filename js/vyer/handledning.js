@@ -11,7 +11,7 @@ export function startaHandledning({ app, motor, f, mal, touch, onKlar }) {
     { id: 'titta', text: touch ? '<strong>Se dig omkring:</strong> dra med fingret på högra halvan av skärmen.' : '<strong>Se dig omkring:</strong> håll ned musknappen och dra.', ikon: touch ? 'tumme-h' : null },
     { id: 'undersok', text: `<strong>Undersök:</strong> när du kommer nära något som går att undersöka syns ett <strong>!</strong> ovanför det. Följ pilen till ${esc(malNamn)}, gå nära och tryck på det – eller på knappen <em>Undersök</em> som dyker upp.`, pil: true },
     { id: 'bok', text: '<strong>Bra!</strong> Fyndet skrevs in i din anteckningsbok. Öppna den med bokknappen uppe till höger.', bok: true },
-    { id: 'anklaga', text: `<strong>Sista tipset:</strong> räknaren <em>Fynd</em> visar hur mycket som finns kvar att hitta. När du vet vem som är skyldig trycker du på <em>Anklaga</em>. Du har två försök, och fastnar du finns ledtrådar under glödlampan.`, knapp: 'Nu kör vi' },
+    { id: 'anklaga', text: `<strong>Sista tipset:</strong> räknaren <em>Fynd</em> visar hur mycket som finns kvar att hitta. När du vet vem som är skyldig trycker du på <em>Anklaga</em>. Du har två försök. Fastnar du ger lampan först ett gratis tips om nästa steg.`, knapp: 'Nu kör vi' },
   ];
   let i = 0;
   const el = html(`<div class="coach" role="status"><div class="coach-kort"><p class="coach-steg"></p><p class="coach-text"></p><div class="coach-knappar"><button class="lank" data-hoppa>Hoppa över guiden</button><button class="knapp liten massing" data-nasta hidden></button></div></div></div>`);

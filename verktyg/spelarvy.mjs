@@ -1,13 +1,14 @@
 // Spelarvy för blindtest: allt spelaren kan se i ett fall, men inget facit.
 //   node verktyg/spelarvy.mjs <fall-id>               spelarvyn (inledning, personer, rum, fynd från föremål, mekaniker, anklagelse)
 //   node verktyg/spelarvy.mjs <fall-id> --slutsatser  slutsatsfrågorna med alternativ, utan rätt svar (andra steget i ett blindtest)
+//   node verktyg/spelarvy.mjs <fall-id> --ledtradar   de tre ledtrådarna i lampan, i tur och ordning (för att pröva att de hjälper stegvis)
 // Utelämnas: lösning, återkoppling, ledtrådar, rätta svar och svarstexter i slutsatser, motsägelser och konflikter,
 // prövningar, upptäckter i bildjämförelsen, rutnätets lösning och maskinläsbara regler, fyndens typ (t.ex. villospår)
 // och koppling till personer, och fynd som man bara får genom att lösa något (de beskrivs bara som "ett fynd från …").
 import { readFileSync } from 'node:fs';
 
 const [id, flagga] = process.argv.slice(2);
-if (!id) { console.error('Användning: node verktyg/spelarvy.mjs <fall-id> [--slutsatser]'); process.exit(1); }
+if (!id) { console.error('Användning: node verktyg/spelarvy.mjs <fall-id> [--slutsatser | --ledtradar]'); process.exit(1); }
 const f = JSON.parse(readFileSync(new URL(`../fall/${id}.json`, import.meta.url), 'utf8'));
 const ut = [];
 const p = (s = '') => ut.push(s);
@@ -30,6 +31,8 @@ const dokument = new Map();
 for (const m of f.moment) for (const d of m.payload?.dokument || []) dokument.set(d.id, d);
 const utsaga = new Map();
 for (const m of f.moment) for (const u of m.payload?.utsagor || []) utsaga.set(u.id, u);
+const bilder = new Map();
+for (const m of f.moment) for (const b of m.payload?.bilder || []) bilder.set(b.id, b);
 const tidskort = new Map();
 for (const m of f.moment) for (const k of m.payload?.kort || []) tidskort.set(k.id, k);
 
@@ -38,6 +41,7 @@ const namnPa = (x) => {
   if (utsaga.has(x)) return `utsagan ”${utsaga.get(x).titel}”`;
   if (tidskort.has(x)) return `tidskortet ”${tidskort.get(x).titel}”`;
   if (dokument.has(x)) return `dokumentet ”${dokument.get(x).titel}”`;
+  if (bilder.has(x)) return `bilden ”${bilder.get(x).titel}”`;
   if (moment.has(x)) return `”${moment.get(x).namn}”`;
   return x;
 };
@@ -51,6 +55,19 @@ if (flagga === '--slutsatser') {
   for (const s of f.slutsatser || []) {
     p(); p(`## ${s.fraga}`);
     for (const [i, a] of (s.alternativ || []).entries()) p(`${'ABCDEFG'[i]}. ${a.text}`);
+  }
+  console.log(ut.join('\n'));
+  process.exit(0);
+}
+
+if (flagga === '--ledtradar') {
+  p(`# ${f.meta.titel} – ledtrådarna i lampan`);
+  p();
+  p('Spelaren tar dem en i taget och betalar poäng för varje. Före ledtrådarna finns alltid ett gratis tips om nästa steg (vilket rum som har mer att hitta, vilken mekanik som inte är klar, vilken fråga som väntar). Saknar spelaren något som en ledtråd bygger på visas också var det finns.');
+  for (const [i, l] of (f.ledtradar || []).entries()) {
+    p(); p(`## Ledtråd ${i + 1} (−${l.kostnad ?? [10, 25, 50][i]} poäng)`);
+    if (l.kraver) p(`*Bygger på ${krav(l.kraver)}.*`);
+    p(l.text);
   }
   console.log(ut.join('\n'));
   process.exit(0);

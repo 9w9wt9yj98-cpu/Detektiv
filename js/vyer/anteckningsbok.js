@@ -3,7 +3,8 @@ import { fyndMap, arUpplast, kallor, rakning, rumMoment } from '../motor/fall.js
 import { spara } from '../motor/lagring.js';
 import { aktuellPoang, ledtradKostnad } from '../motor/poang.js';
 import { MEKANIKER, bokMoment } from '../mekaniker/index.js';
-import { ledtradPekare, pekarText, nastaSteg, redoSlutsatser } from '../motor/vagledning.js';
+import { ledtradPekare, pekarText, nastaSteg as nastaStegBas, redoSlutsatser } from '../motor/vagledning.js';
+import { visaSaLoserDu } from './salosdu.js';
 import { renderaSlutsatser } from './slutsatser.js';
 import { esc, html, modal, medaljong, lampa, bekrafta, toast, $, $$ } from './gemensamt.js';
 
@@ -132,32 +133,47 @@ export function oppnaAnteckningsbok(f, st, { flik = 'fynd', onAnklaga, onStang, 
   return { stang, visa, el };
 }
 
+/** Det gratis tipset, med framsteget i anteckningsbokens pussel. */
+function nastaSteg(f, st) { return nastaStegBas(f, st, { framsteg: (m) => MEKANIKER[m.mekanik]?.framsteg?.(m, st) }); }
+
+/**
+ * Hjälpen i lampan, som en stege: 1) ett gratis tips om nästa steg, 2) fallets tre ledtrådar, som kostar poäng,
+ * 3) hela lösningen. Överst en länk till ”Så löser du ett fall”.
+ */
+const LEDTRAD_RUBRIK = ['Var du ska titta', 'Frågan att ställa', 'Nästan svaret'];
 export function oppnaLedtradar(f, st, { onAndrat, onVisaLosning } = {}) {
   const rita = () => {
     const tagna = f.ledtradar.slice(0, st.ledtradar);
     const nasta = f.ledtradar[st.ledtradar];
-    const kostnad = nasta ? nasta.kostnad ?? [10, 25, 50][st.ledtradar] : 0;
+    const kostnad = nasta ? ledtradKostnad(f, st.ledtradar + 1) - ledtradKostnad(f, st.ledtradar) : 0;
     const steg = nastaSteg(f, st);
-    return `<h3>${lampa()} Ledtrådar</h3>
-      <p class="bok-not">Nuvarande poäng: <strong>${aktuellPoang(f, st)}</strong> av 100. Ledtrådarna ger aldrig namnet – sista steget tar du själv.</p>
-      ${steg ? `<p class="nasta-steg">➜ ${esc(steg)} <small>(gratis)</small></p>` : ''}
-      <ol class="ledtradlista">${tagna.map((l) => {
-        const p = ledtradPekare(f, st, l);
-        return `<li><span class="niva">Nivå ${l.niva}</span>${p ? `<p class="pekare">📍 Du har inte hittat allt som behövs för det här steget än. ${esc(pekarText(p.vag))}</p>` : ''}${esc(l.text)}</li>`;
-      }).join('') || '<li class="tom">Du har inte tagit någon ledtråd ännu.</li>'}</ol>
-      <div class="knapprad">${nasta ? `<button class="knapp massing" data-ta>Ta ledtråd ${st.ledtradar + 1} (−${kostnad} poäng)</button>` : '<p class="bok-not">Alla tre ledtrådar är tagna.</p>'}<button class="knapp sekundar" data-stang>Stäng</button></div>
-      ${onVisaLosning ? '<p class="visa-losning"><button class="lank" data-losning>Jag ger upp – visa lösningen</button></p>' : ''}`;
+    return `<h3>${lampa()} Hjälp</h3>
+      <p class="hjalp-intro"><button class="lank" data-saloserdu>Så löser du ett fall</button></p>
+      <section class="hjalp-steg"><h4><span class="hjalp-nr">1</span> Gratis tips</h4>
+        <p class="nasta-steg">➜ ${esc(steg)}</p></section>
+      <section class="hjalp-steg"><h4><span class="hjalp-nr">2</span> Ledtrådar <small>kostar poäng – du har ${aktuellPoang(f, st)} av 100</small></h4>
+        <p class="bok-not">Tre ledtrådar, var och en tydligare än den förra. De ger aldrig namnet – sista steget tar du själv.</p>
+        <ol class="ledtradlista">${tagna.map((l) => {
+          const p = ledtradPekare(f, st, l);
+          return `<li><span class="niva">${l.niva} · ${LEDTRAD_RUBRIK[l.niva - 1] || 'Ledtråd'}</span>${p ? `<p class="pekare">📍 Du har inte hittat allt som behövs för det här steget än. ${esc(pekarText(p.vag))}</p>` : ''}${esc(l.text)}</li>`;
+        }).join('') || '<li class="tom">Du har inte tagit någon ledtråd ännu.</li>'}</ol>
+        <div class="knapprad">${nasta ? `<button class="knapp massing" data-ta>Ta ledtråd ${st.ledtradar + 1} (−${kostnad} poäng)</button>` : '<p class="bok-not">Alla tre ledtrådar är tagna.</p>'}</div>
+      </section>
+      ${onVisaLosning ? '<section class="hjalp-steg sista"><h4><span class="hjalp-nr">3</span> Lösningen</h4><p class="visa-losning"><button class="lank" data-losning>Jag ger upp – visa lösningen</button></p></section>' : ''}
+      <div class="knapprad"><button class="knapp sekundar" data-stang>Stäng</button></div>`;
   };
   const m = modal(rita(), { klass: 'over-bok ledtradar' });
   const koppla = () => {
     const b = $('[data-ta]', m.el);
     $$('[data-stang]', m.el).forEach((x) => x.onclick = m.stang);
     if (b) b.onclick = async () => {
-      const nasta = f.ledtradar[st.ledtradar];
-      if (!(await bekrafta(`Ta ledtråd ${st.ledtradar + 1}? Den kostar ${nasta.kostnad ?? 10} poäng.`, { ja: 'Ta ledtråden' }))) return;
+      const kostnad = ledtradKostnad(f, st.ledtradar + 1) - ledtradKostnad(f, st.ledtradar);
+      if (!(await bekrafta(`Ta ledtråd ${st.ledtradar + 1}? Den kostar ${kostnad} poäng.`, { ja: 'Ta ledtråden' }))) return;
       st.ledtradar++; spara(); onAndrat?.();
       $('.modal', m.el).innerHTML = rita(); koppla();
     };
+    const sld = $('[data-saloserdu]', m.el);
+    if (sld) sld.onclick = () => visaSaLoserDu();
     const l = $('[data-losning]', m.el);
     if (l) l.onclick = async () => {
       if (!(await bekrafta('Visa hela lösningen? Fallet räknas då som olöst, men du kan spela det igen senare.', { ja: 'Visa lösningen' }))) return;

@@ -1617,25 +1617,29 @@
         "bild-f",
         "bild-b"
       ],
-      "text": "Jämför Instagrambilden från morgonen med försäkringsfotot. Jämför sedan med eftermiddagens bilder. Titta på kanten."
+      "text": "Börja med själva skålen. Jämför morgonens Instagrambild med försäkringsfotot och sedan med gästernas bilder från eftermiddagen – är det verkligen samma skål?"
     },
     {
       "niva": 2,
       "kostnad": 25,
       "kraver": [
+        "f-akta",
         "f-kopia",
         "f-buss"
       ],
-      "text": "Skålen på festen är inte samma skål. När byttes den ut – och vilka fanns på gården då?"
+      "text": "Om skålen på festen inte är samma skål som i morse: mellan vilka klockslag byttes den, och vem fanns på gården då? Ta reda på när bussen och Lenas bil kom fram."
     },
     {
       "niva": 3,
       "kostnad": 50,
       "kraver": [
+        "f-buss",
+        "f-parkering",
+        "f-lena-ankomst",
         "f-gunnar-ensam",
         "f-gunnar-anmalan"
       ],
-      "text": "Mellan 09.10 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"
+      "text": "Skålen byttes efter morgonbilden 09.10 och innan gästerna kom med bussen 15.14. Lena åkte hemifrån halv nio och kom tillbaka först efter bussen – parkeringskvittot och vägen till Arlanda visar att hon inte hann hem emellan. Vem var på gården hela tiden – och vems berättelse om skålen stämmer inte med bilderna?"
     }
   ],
   "aterkoppling": {

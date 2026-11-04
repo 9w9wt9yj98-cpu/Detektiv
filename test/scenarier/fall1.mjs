@@ -17,7 +17,11 @@ export async function handledning(browser) {
   await startaFall(p, ID);
   await p.locator('.coach').waitFor();
   await bild(p, 'f1-guide-1-ga');
-  await dra(p, [90, 650], [90, 560], 900);
+  // Guiden går vidare efter 0,7 m. På en hårt belastad dator blir det få bilder per sekund, så dra igen vid behov.
+  for (let n = 0; n < 4; n++) {
+    await dra(p, [90, 650], [90, 560], 900);
+    if (await p.evaluate(() => /Se dig omkring/.test(document.querySelector('.coach-text')?.textContent || ''))) break;
+  }
   await p.waitForFunction(() => /Se dig omkring/.test(document.querySelector('.coach-text')?.textContent || ''));
   await bild(p, 'f1-guide-2-titta');
   await dra(p, [330, 500], [180, 500], 100);
@@ -55,8 +59,20 @@ export async function fel(browser) {
   await startaFall(p, ID);
   await bild(p, 'f1-start');
   assert.match(await raknare(p), /Fynd 0\/14/);
-  // Ledtråd 1 innan något är hittat → pekar på fönstret
+  // Fastnat: utan framsteg pulserar lampan och ett meddelande pekar på det gratis tipset (tiden förkortas här).
+  await p.evaluate(() => { window.__detektiv.fastnatEfter = 2; });
+  await p.waitForFunction(() => /Fastnat\?/.test(document.getElementById('toast')?.textContent || '') && document.querySelector('[data-ledtrad]').classList.contains('fastnat'));
+  // Hjälpen i lampan: först ett gratis tips om nästa steg, och kortet ”Så löser du ett fall”
   await p.locator('[data-ledtrad]').click();
+  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /Det finns mer att hitta här i Sovrummet/);
+  assert.equal(await p.locator('[data-ledtrad]').evaluate((b) => b.classList.contains('fastnat')), false, 'lampan ska sluta pulsera när hjälpen öppnas');
+  await p.locator('[data-saloserdu]').click();
+  await p.locator('.sa-loser-du').waitFor();
+  assert.match(await p.locator('.sa-loser-du').innerText(), /Undersök[\s\S]*Läs fynden[\s\S]*Koppla ihop i boken[\s\S]*Anklaga/);
+  await bild(p, 'f1-sa-loser-du');
+  await p.locator('.sa-loser-du [data-stang]').click(); await vanta(300);
+  await p.evaluate(() => { window.__detektiv.fastnatEfter = 240; });
+  // Ledtråd 1 innan något är hittat → pekar på fönstret
   await p.locator('[data-ta]').click(); await p.locator('[data-ja]').click(); await vanta(300);
   const lt = await p.locator('.ledtradlista').innerText();
   assert.match(lt, /Sovrummet och undersök fönstret/, 'ledtråden pekar inte på fönstret: ' + lt);
@@ -64,6 +80,10 @@ export async function fel(browser) {
   await p.locator('.ledtradar [data-stang]').last().click(); await vanta(300);
   await hittaAllt(p);
   assert.match(await raknare(p), /Fynd 14\/14/);
+  // Allt i rummen är hittat: tipset pekar vidare (frågor under Slutsatser eller anklagelsen)
+  await p.locator('[data-ledtrad]').click();
+  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /Slutsatser|anklaga/);
+  await p.locator('.ledtradar [data-stang]').last().click(); await vanta(300);
   await oppnaBok(p, 'platser');
   assert.match(await p.locator('.platser').innerText(), /Allt hittat/);
   await bild(p, 'f1-platser');

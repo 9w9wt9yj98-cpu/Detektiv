@@ -15,7 +15,7 @@ fall = {"id": "kvart-i-elva", "version": 1,
    "accentfarg": "#2a3a5a", "omslag": "bilder/fall5/urmakeriet.jpg", "mal": "Ta reda på vem som stal kronometern Polaris", "handledning_mal": "monter"},
  "intro": {"rubrik": "Österlånggatan, Stockholm. En snönatt i december 1897.",
    "text": "Snön har fallit hela kvällen över Gamla stan. Strax efter elva bultar nattväktaren på hos polisen: Fältskogs urmakeri har haft inbrott. Fönsterluckan mot gränden är uppbruten, och ur glasmontern är kronometern Polaris borta – urmakare Fältskogs mästerverk, värt mer än ett hus på Söder.\n\nÖverkonstapel August Strand möter dig i den kalla butiken. ”Konstigt inbrott”, säger han och pekar med blyertspennan. ”Luckan är bruten – men montern är öppnad med nyckel, utan en repa. Och väggklockan där på golvet stannade när den föll.”\n\n”Det här är en fråga om minuter. Ta reda på när det hände, vem som kan ha varit här just då – och vem som bara säger det.”",
-   "uppdrag": "Vem stal kronometern – och hur hann hen?", "bild": "bilder/fall5/urmakeriet.jpg", "berattare": "Överkonstapel August Strand"},
+   "uppdrag": "Vem stal kronometern – och hur hann tjuven?", "bild": "bilder/fall5/urmakeriet.jpg", "berattare": "Överkonstapel August Strand"},
  "personer": [
    {"id": "faltskog", "namn": "Johan Fältskog", "roll": "Urmakare, ägare av butiken", "misstankt": T, "beskrivning": "Kom direkt från sin dotters bröllopsmiddag, fortfarande i frack."},
    {"id": "karl", "namn": "Karl Ek", "roll": "Gesäll hos Fältskog", "misstankt": T, "beskrivning": "Ung och skuldsatt. Har egen nyckel till montern."},
@@ -166,7 +166,7 @@ tidslinje = {"id": "tidslinjen", "namn": "Tidslinjen", "mekanik": "tidslinje", "
     K("k-rapp-hem", "rapp", "rapp_hem", "23.05", "Kommer hem", ankomst=True, ikon="🏠", kalla="hustrun och köksuret", text="Hilma: han kom fem över elva."),
     K("k-lindh-sparvagn", "lindh", "sparvagn", "22.40", "Spårvagnen Slussen–Skanstull", till="22.52", ikon="🚋", kalla="biljetten och konduktören", text="Stämplad 22.40, av vid Skanstull 22.52."),
   ],
-  "brott": {"plats": "urmakeriet", "fran": "22.45", "till": "22.47", "kraver": ["f-brottstid"], "fraga": "i urmakeriet", "text": "Vid montern – om hen gjorde det"},
+  "brott": {"plats": "urmakeriet", "fran": "22.45", "till": "22.47", "kraver": ["f-brottstid"], "fraga": "i urmakeriet", "text": "Vid montern – om det var den här personen"},
   "konflikter": [
     {"id": "m-karl", "kraver": ["k-karl-pastar", "k-karl-pant"], "ger_fynd": "f-karl-ljuger", "text": "Karl säger att han satt på Freden hela kvällen – men kl. 22.40 stod han vid disken på pantlånekontoret på Hornsgatan."},
     {"id": "m-rapp", "kraver": ["k-rapp-pastar", "k-rapp-hem"], "ger_fynd": "f-rapp-lucka", "text": "Rapp säger att han var hemma kvart i elva. Hustrun säger fem över elva. Raka vägen från gillet tar 15 minuter – han kom 20 minuter för sent."},
@@ -251,9 +251,9 @@ fall["anklagelse"] = {"hur_fraga": "Hur gick det till?", "hur_alternativ": [
     {"id": "lanad", "text": "Tjuven lånade gesällens nyckel medan han satt på krogen"},
     {"id": "efter", "text": "Efter elva, sedan väktaren gått förbi"}], "hur_kravs": False, "bevis_max": 3}
 fall["ledtradar"] = [
-  {"niva": 1, "kostnad": 10, "kraver": ["f-vaktaren", "f-grannen", "f-klockan"], "text": "Fastställ först när inbrottet skedde. Tre oberoende källor pekar på samma tidpunkt."},
-  {"niva": 2, "kostnad": 25, "kraver": ["f-nyckelinnehavare", "f-monter", "f-gangtider"], "text": "Montern öppnades med nyckel. Lägg nyckelinnehavarnas tidskort på tidslinjen och pröva var och en mot brottstiden."},
-  {"niva": 3, "kostnad": 50, "kraver": ["k-karl-pant", "k-rapp-gillet", "k-rapp-hem"], "text": "Karl ljuger – men var var han kl. 22.40? Räkna sedan på varje nyckelinnehavares raka väg hem och jämför med när de faktiskt kom hem. Var blir det minuter över?"}]
+  {"niva": 1, "kostnad": 10, "kraver": ["f-vaktaren", "f-grannen", "f-klockan", "f-monter"], "text": "Börja med två frågor: när skedde inbrottet, och hur öppnades montern? Tiden får du fram ur nattväktarens rundor, grannens skräll och den krossade klockan på golvet. Titta också noga på monterns lås."},
+  {"niva": 2, "kostnad": 25, "kraver": ["f-nyckelinnehavare", "f-monter", "f-gangtider", "f-brottstid"], "text": "Om montern öppnades med nyckel: vilka kan ha gjort det, och var befann de sig vid brottstiden? Lägg deras tidskort på tidslinjen och pröva var och en – heldragna kort väger tyngre än personens eget påstående."},
+  {"niva": 3, "kostnad": 50, "kraver": ["k-faltskog-grand", "k-karl-pant", "k-rapp-gillet", "k-rapp-hem", "f-ekspan-rapp"], "text": "Två av nyckelinnehavarna har vittnen eller papper som håller dem borta vid brottstiden – också den som ljög om krogen. Den tredje säger att han gick raka vägen hem, men hustrun och köksuret säger något annat. Vad räcker de extra minuterna till – och vad sitter i rocken på kroken?"}]
 fall["aterkoppling"] = {
   "ratt": "Rapp gav sig själv alibit ”kvart i elva”. Men den som går raka vägen kommer inte hem tjugo minuter för sent. De tjugo minuterna räckte precis till en omväg via Österlånggatan – och ekspånen följde med hem i rocken.",
   "efterord": "Polaris hittades i Rapps verkstadsskåp, inlindad i ett sämskskinn. ”Den var min”, sa han till Strand. ”Hälften av den, i alla fall.” Karl Ek fick tillbaka sin fars fickur – Fältskog löste ut det åt honom dagen efter. Och August Strand gick hem genom snön till sin hustru, som väntade deras första barn – en pojke som skulle döpas till Nils och en dag bli konstapel på Ekbacka.",

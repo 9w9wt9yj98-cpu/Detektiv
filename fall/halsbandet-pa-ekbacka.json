@@ -1115,7 +1115,7 @@
       "id": "f-servering",
       "titel": "Vid bordet hela tiden",
       "ikon": "🍲",
-      "text": "Gästerna: friherrinnan satt vid bordet och Elsa serverade i salen hela middagen. Strax efter nio gick de upp tillsammans. Gustav lämnade aldrig bordet.",
+      "text": "Gästerna: friherrinnan satt vid bordet och Elsa serverade i salen hela middagen. Klockan nio gick de upp tillsammans. Gustav lämnade aldrig bordet.",
       "typ": "nyckel",
       "galler": [
         "friherrinnan",
@@ -1225,15 +1225,16 @@
     {
       "niva": 1,
       "kostnad": 10,
-      "text": "Hur kom tjuven in? Titta noga på fönstret.",
+      "text": "Börja med hur tjuven kom in i sovrummet. Titta noga på fönstret – det yttre blecket och rabatten nedanför – och på dörrens lås.",
       "kraver": [
-        "f-fonster"
+        "f-fonster",
+        "f-dorr"
       ]
     },
     {
       "niva": 2,
       "kostnad": 25,
-      "text": "Om fönstret inte användes måste tjuven ha haft nyckel. Vilka har nyckel, och var var de mellan 19.55 och 21.00?",
+      "text": "Kunde någon klättra in utan att röra lövskräpet på blecket? Om inte, låstes dörren upp med nyckel – vilka har en, och var befann sig var och en av dem mellan 19.55 och 21.00?",
       "kraver": [
         "f-dorr",
         "f-nycklar",
@@ -1244,9 +1245,10 @@
     {
       "niva": 3,
       "kostnad": 50,
-      "text": "Två av nyckelinnehavarna satt eller serverade vid bordet hela tiden. Den tredje lämnade salen. Stämmer hans förklaring med vinflaskan?",
+      "text": "Två av nyckelinnehavarna syntes i salen hela middagen och gick sedan upp tillsammans. Den tredje lämnade salen i tio minuter för att hämta vin i källaren, sa han. Stämmer det med flaskan på serveringsbordet och med källarboken?",
       "kraver": [
         "f-holm-borta",
+        "f-servering",
         "f-vinflaskan",
         "f-kallarboken"
       ]

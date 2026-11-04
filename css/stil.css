@@ -497,3 +497,24 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-vis
 }
 .stil-merke { display: inline-block; margin: 6px auto; padding: 4px 12px; border: 1px solid var(--massing); border-radius: 12px; color: var(--massing-ljus); font-size: 14px; }
 .stil-merke a { color: var(--massing-ljus); }
+
+/* Vägledning: ”Så löser du ett fall”, hjälpstegen i lampan och signalen när man fastnat */
+.sa-loser-du-ruta { margin: 0 0 16px; border: 1px solid var(--massing); border-radius: 6px; background: rgba(255,240,200,.25); }
+.sa-loser-du-ruta summary { cursor: pointer; padding: 10px 12px; font-weight: 600; }
+.sa-loser-du-ruta[open] summary { border-bottom: 1px solid rgba(184,137,58,.4); }
+.sa-loser-du-ruta .sa-loser-du-lista, .sa-loser-du-ruta .sld-fastnat { margin: 10px 12px; }
+.sa-loser-du-lista { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 10px; }
+.sa-loser-du-lista li { display: flex; gap: 10px; align-items: flex-start; }
+.sa-loser-du-lista .sld-ikon { font-size: 22px; line-height: 1.2; flex: 0 0 28px; text-align: center; }
+.sa-loser-du-lista strong { display: block; }
+.sa-loser-du-lista span { font-size: 15px; }
+.sld-fastnat { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; padding: 8px 10px; border-left: 4px solid var(--massing); background: rgba(184,137,58,.12); }
+.sld-fastnat svg { flex: 0 0 auto; width: 20px; height: 20px; }
+.hjalp-intro { margin: 0 0 8px; text-align: right; }
+.hjalp-steg { margin: 10px 0; padding-top: 8px; border-top: 1px solid rgba(90,59,34,.2); }
+.hjalp-steg h4 { margin: 0 0 6px; font-size: 16px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.hjalp-steg h4 small { font-weight: 400; color: var(--brun3); font-size: 13px; }
+.hjalp-nr { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--massing); color: #fff; font-size: 13px; }
+[data-ledtrad].fastnat { animation: fastnat 1.2s ease-in-out infinite; }
+@keyframes fastnat { 50% { box-shadow: 0 0 0 4px rgba(246,221,150,.55), 0 0 16px var(--massing-ljus); } }
+@media (prefers-reduced-motion: reduce) { [data-ledtrad].fastnat { animation: none; box-shadow: 0 0 0 3px var(--massing-ljus); } }
