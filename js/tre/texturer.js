@@ -813,3 +813,82 @@ export function gobelang(motiv = 'jakt', seed = 1, storlek = [2, 1.6]) {
     gravyr(g, w, h, 0.08, 157 + seed);
   });
 }
+
+// ---- Fjällhotellet (foremal/fjall.js) ----
+
+/** En bräda liggande pärlspont i gulnad furu: ådring och kvistar längs brädan, fogen och pärlan i överkant. */
+export function parlspont(farg = '#c49a62') {
+  return skapa('parlspont' + farg, 512, 32, (g, w, h) => {
+    g.fillStyle = farg; g.fillRect(0, 0, w, h);
+    const r = rng(161);
+    for (let i = 0; i < 16; i++) {
+      g.strokeStyle = `rgba(90,50,15,${0.07 + r() * 0.16})`; g.lineWidth = 0.6 + r();
+      const y = 9 + r() * (h - 10);
+      g.beginPath(); g.moveTo(0, y); g.bezierCurveTo(w * 0.3, y + (r() - 0.5) * 6, w * 0.7, y + (r() - 0.5) * 6, w, y + (r() - 0.5) * 3); g.stroke();
+    }
+    for (let i = 0; i < 2; i++) {
+      const x = r() * w, y = 14 + r() * (h - 20);
+      g.fillStyle = 'rgba(95,48,14,0.5)'; g.beginPath(); g.ellipse(x, y, 5 + r() * 3, 3, 0, 0, 7); g.fill();
+      g.strokeStyle = 'rgba(95,48,14,0.2)'; g.beginPath(); g.ellipse(x, y, 10, 5, 0, 0, 7); g.stroke();
+    }
+    g.fillStyle = 'rgba(22,12,4,0.8)'; g.fillRect(0, 0, w, 2); // fogen
+    g.fillStyle = 'rgba(255,236,200,0.35)'; g.fillRect(0, 3, w, 2); // pärlans högdager
+    g.fillStyle = 'rgba(40,22,8,0.5)'; g.fillRect(0, 7, w, 1.5); // spåret under pärlan
+    g.fillStyle = 'rgba(20,10,0,0.18)'; g.fillRect(0, h - 3, w, 3);
+    gravyr(g, w, h, 0.05, 163);
+  });
+}
+
+/** Byggplast: halvgenomskinlig, med ljusa veck och skrynklor och lite byggdamm nedtill. */
+export function byggplast() {
+  return skapa('byggplast', 256, 256, (g, w, h) => {
+    g.fillStyle = 'rgba(214,224,230,0.3)'; g.fillRect(0, 0, w, h);
+    const r = rng(167);
+    for (let i = 0; i < 26; i++) { // veck från upphängningen och nedåt
+      const x = r() * w, b = 2 + r() * 7;
+      g.strokeStyle = `rgba(255,255,255,${0.08 + r() * 0.25})`; g.lineWidth = b;
+      g.beginPath(); g.moveTo(x, 0); g.bezierCurveTo(x + (r() - 0.5) * 40, h * 0.35, x + (r() - 0.5) * 40, h * 0.7, x + (r() - 0.5) * 30, h); g.stroke();
+    }
+    for (let i = 0; i < 30; i++) { // skrynklor
+      const x = r() * w, y = r() * h, l = 5 + r() * 14, a = r() * Math.PI;
+      g.strokeStyle = `rgba(255,255,255,${0.08 + r() * 0.16})`; g.lineWidth = 1.5;
+      g.beginPath(); g.moveTo(x, y); g.lineTo(x + Math.cos(a) * l, y + Math.sin(a) * l); g.lineTo(x + Math.cos(a + 0.6) * l * 1.4, y + Math.sin(a + 0.6) * l * 0.6); g.stroke();
+    }
+    const dg = g.createLinearGradient(0, h * 0.7, 0, h); dg.addColorStop(0, 'rgba(170,150,120,0)'); dg.addColorStop(1, 'rgba(170,150,120,0.35)');
+    g.fillStyle = dg; g.fillRect(0, h * 0.7, w, h * 0.3);
+    for (let i = 0; i < 300; i++) { g.fillStyle = `rgba(150,130,100,${r() * 0.3})`; g.fillRect(r() * w, h * 0.5 + r() * h * 0.5, 1.5, 1.5); }
+  });
+}
+
+/** Spindelväv i ett hörn: trådar ut från hörnet uppe till vänster och bågar mellan dem, på genomskinlig grund. */
+export function spindelvav() {
+  return skapa('spindelvav', 128, 128, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    const r = rng(173), n = 7, vinklar = [];
+    for (let i = 0; i < n; i++) vinklar.push((i / (n - 1)) * Math.PI / 2 + (r() - 0.5) * 0.12);
+    g.strokeStyle = 'rgba(235,235,230,0.55)'; g.lineWidth = 1;
+    for (const a of vinklar) { g.beginPath(); g.moveTo(0, 0); g.lineTo(Math.cos(a) * w * 1.2, Math.sin(a) * h * 1.2); g.stroke(); }
+    for (let k = 1; k < 9; k++) {
+      const R = k * 13 + r() * 4;
+      g.strokeStyle = `rgba(235,235,230,${0.25 + r() * 0.3})`;
+      g.beginPath();
+      vinklar.forEach((a, i) => {
+        const x = Math.cos(a) * R, y = Math.sin(a) * R;
+        if (i === 0) g.moveTo(x, y); else { const m = (a + vinklar[i - 1]) / 2; g.quadraticCurveTo(Math.cos(m) * R * 0.88, Math.sin(m) * R * 0.88, x, y); }
+      });
+      g.stroke();
+    }
+    for (let i = 0; i < 30; i++) { g.fillStyle = `rgba(210,205,190,${r() * 0.4})`; g.fillRect(r() * w * 0.7, r() * h * 0.7, 1.5, 1.5); }
+  });
+}
+
+/** Brun kartong: fläckig och lite nött. */
+export function kartong(farg = '#9a7650') {
+  return skapa('kartong' + farg, 128, 128, (g, w, h) => {
+    g.fillStyle = farg; g.fillRect(0, 0, w, h);
+    const r = rng(179);
+    for (let i = 0; i < 40; i++) { g.fillStyle = r() < 0.5 ? `rgba(255,230,190,${r() * 0.07})` : `rgba(40,25,10,${r() * 0.08})`; g.beginPath(); g.ellipse(r() * w, r() * h, 6 + r() * 18, 4 + r() * 10, r() * 3, 0, 7); g.fill(); }
+    for (let x = 0; x < w; x += 5) { g.fillStyle = 'rgba(40,25,10,0.04)'; g.fillRect(x, 0, 2, h); }
+    gravyr(g, w, h, 0.08, 181);
+  });
+}
