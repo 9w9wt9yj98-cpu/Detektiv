@@ -377,3 +377,7 @@ Martin ville att fall 8 skulle utspela sig i ett ganska stort slott. En extra ag
 ## Buggfixar får slås ihop direkt (november 2026)
 
 Martin har bestämt att Claude själv får slå ihop rena buggfixar – sådant som redan är fel – när alla tester är gröna, eftersom han inte alltid hinner testa direkt. Varje sådan fix skrivs in här. Nya fall och förbättringar som ändrar hur något fungerar eller ser ut lämnas som pull request till Martin. Regeln står också i `CLAUDE.md`.
+
+### Buggfix: rummen i löptext (november 2026)
+
+Det gratis tipset, pekaren och slutsatsvyn skrev rummen med stor bokstav och alltid med ”i”: ”här i Scenen”, ”i Gården”, ”Gå till Sovrummet”. Varje rum har nu fältet `text_i` (”på scenen”, ”i sovrummet”, ”på Österlånggatan”), och texterna blir ”Det finns mer att hitta här på scenen” och ”Gå till sovrummet och undersök fönstret”. Gäller alla åtta fall.
