@@ -62,9 +62,9 @@
     {
       "id": "ekwall",
       "namn": "Bengt Ekwall",
-      "roll": "Kapten vid Skånska dragonerna",
+      "roll": "Ryttmästare vid Skånska dragonerna",
       "misstankt": true,
-      "beskrivning": "Grevens vän och jaktkamrat, i gala­uniform. Tjänstgör under överste Rehnberg i Ystad."
+      "beskrivning": "Grevens vän och jaktkamrat, i galauniform. Tjänstgör under överste Rehnberg i Ystad."
     },
     {
       "id": "sofia",
@@ -232,7 +232,7 @@
               ],
               "interaktiv": {
                 "namn": "Anteckningsblocket",
-                "text": "På skrivbordet ligger ett block med grevens prydliga handstil: ”Ring överste Rehnberg i kväll. Växeln på 20 000 kr – namnteckningen är INTE min.” Under det, hårt understruket: ”Han ska få veta det före tolvslaget.”",
+                "text": "På skrivbordet ligger ett block med grevens prydliga handstil: ”Ring överste Rehnberg i kväll. Växeln på 20 000 kr – namnteckningen är INTE min.” Under det, hårt understruket: ”Han ska få veta det före tolvslaget.” Strand: ”Hovmästaren säger att greven hade ett bankpapper framför sig när han bar upp kaffet vid tio. Det finns inte här nu.”",
                 "ger_fynd": "f-blocket"
               }
             },
@@ -276,7 +276,7 @@
               "rot": -90,
               "interaktiv": {
                 "namn": "Fönstret mot terrassen",
-                "text": "Fönstret är stängt och haspat inifrån. Snön ligger orörd på det yttre blecket och i rabatten nedanför. Ingen har kommit in den här vägen i kväll.",
+                "text": "Fönstret är stängt och haspat inifrån. Snön ligger orörd på det yttre blecket, och nedanför är det sex meter ner till terrassen. Ingen har kommit in den här vägen i kväll.",
                 "ger_fynd": "f-fonstret"
               }
             },
@@ -361,7 +361,7 @@
               "seed": 21,
               "interaktiv": {
                 "namn": "Doktor Sjöstedt",
-                "text": "Doktor Sjöstedt torkar sina glasögon. ”Ett enda kraftigt slag bakifrån, med brevpressen. Han föll framåt och dog nästan genast. Ingen olycka – man faller inte på bakhuvudet framåt. Döden inträffade mellan elva och tjugo i tolv; närmare än så kan jag inte säga.”",
+                "text": "Doktor Sjöstedt torkar sina glasögon. ”Ett enda kraftigt slag bakifrån, med brevpressen. Han föll framåt och dog nästan genast. Ingen olycka – han föll framåt, och ett fall ger inte ett sådant sår i bakhuvudet. Döden inträffade mellan elva och tjugo i tolv; närmare än så kan jag inte säga.”",
                 "ger_fynd": "f-lakaren"
               }
             },
@@ -619,7 +619,7 @@
               "antal": 2,
               "interaktiv": {
                 "namn": "Strands skiss över slottet",
-                "text": "Strand har ritat en skiss över slottet och gått sträckorna med hovmästaren, med fickur, i rask takt. Balsalen–rökrummet 1 minut, rökrummet–biblioteket uppför östra trappan 3, balsalen–biblioteket genom galleriet 4, balsalen–terrassen 1, terrassen–biblioteket 6, terrassen–rökrummet 2, balsalen–gästflygeln 4, gästflygeln–rökrummet 5 och gästflygeln–biblioteket 8. Snabbare än så går ingen i balklänning eller uniform.",
+                "text": "Strand har ritat en skiss över slottet och gått sträckorna med hovmästaren, med fickur, i rask takt. Balsalen–rökrummet 1 minut, rökrummet–biblioteket uppför östra trappan 3, balsalen–biblioteket uppför stora trappan och genom galleriet 4, balsalen–terrassen 1, terrassen–biblioteket 5, terrassen–rökrummet 2, balsalen–gästflygeln 4, gästflygeln–rökrummet 5 och gästflygeln–biblioteket 8. Snabbare än så går ingen i balklänning eller uniform.",
                 "ger_fynd": "f-gangtider"
               }
             },
@@ -652,7 +652,7 @@
               "seed": 22,
               "interaktiv": {
                 "namn": "Hovmästare Ståhl",
-                "text": "Hovmästare Ståhl står rak i ryggen, men händerna darrar. ”Jag bar in konjak till rökrummet fem i elva. Kaptenen och unge greven satt där. När jag kom tillbaka med vatten fem över gick unge greven just ut mot balsalen. Kaptenen satt kvar med tidningen. Kvart i tolv gick jag upp för att påminna greven om talet – och fann honom.”",
+                "text": "Hovmästare Ståhl står rak i ryggen, men händerna darrar. ”Jag bar in konjak till rökrummet fem i elva. Ryttmästaren och unge greven satt där. När jag kom tillbaka med vatten fem över gick unge greven just ut mot balsalen. Ryttmästaren satt kvar med tidningen. Tjugo i tolv sa fröken Norén att biblioteket inte svarade. Jag trodde att greven ville vara ifred, men kvart i tolv gick jag upp ändå för att påminna om talet – och fann honom.”",
                 "ger_fynd": "f-hovmastaren",
                 "ger_material": [
                   "k-axel-rok",
@@ -747,7 +747,7 @@
               "gar_till": "balsalen",
               "interaktiv": {
                 "namn": "Till balsalen",
-                "text": "Dubbeldörrarna till balsalen."
+                "text": "Ner för stora trappan till balsalen."
               }
             }
           ]
@@ -921,7 +921,7 @@
               "seed": 25,
               "interaktiv": {
                 "namn": "Kapellmästare Rosén",
-                "text": "Kapellmästare Rosén håller sin danslista. ”Vi spelar efter klockan, min herre. Polkan 23.08 till 23.14, kadriljen 23.14 till 23.22, valsen 23.24 till 23.30. Godsförvaltaren kom hit och frågade om tiden för fyrverkeriet – det var strax före elva, sedan gick han ut på terrassen.”",
+                "text": "Kapellmästare Rosén håller sin danslista. ”Vi spelar efter klockan, min herre. Polkan 23.08 till 23.14, kadriljen 23.14 till 23.22, valsen 23.24 till 23.30. Godsförvaltaren stod här vid orkestern från kvart i elva och ville veta exakt när vi slutar före tolvslaget, för fyrverkeriets skull. Strax före elva gick han ut på terrassen.”",
                 "ger_fynd": "f-danslistan",
                 "ger_material": [
                   "k-lunde-bal"
@@ -997,7 +997,7 @@
               "seed": 28,
               "interaktiv": {
                 "namn": "Fröken Linde",
-                "text": "Greta Linde håller fram sitt balkort, med en liten penna i ett snöre. ”Polkan dansade jag med unge greve Vinge, och valsen tjugofyra över med kapten Ekwall. Han hade inga handskar på sig i valsen – det är inte comme il faut, men jag sa ingenting.”",
+                "text": "Greta Linde håller fram sitt balkort, med en liten penna i ett snöre. ”Polkan dansade jag med unge greve Vinge, och valsen tjugofyra över med ryttmästare Ekwall. Han hade inga handskar på sig i valsen – det är inte comme il faut, men jag sa ingenting.”",
                 "ger_fynd": "f-balkortet",
                 "ger_material": [
                   "k-axel-polka",
@@ -1046,7 +1046,7 @@
               "gar_till": "galleriet",
               "interaktiv": {
                 "namn": "Till galleriet",
-                "text": "Dubbeldörrarna till porträttgalleriet och östra flygeln."
+                "text": "Ut till stora trappan och upp till porträttgalleriet och östra flygeln."
               }
             },
             {
@@ -1239,8 +1239,8 @@
               "skagg": true,
               "seed": 29,
               "interaktiv": {
-                "namn": "Kapten Ekwall",
-                "text": "Kapten Bengt Ekwall, i dragonernas blå galauniform, står vid biljardbordet med kön i handen och händerna bara. ”En fruktansvärd natt. Jag satt här i rökrummet med tidningen ända till halv tolv – jag dansar inte gärna. Edvard var min bäste vän.”",
+                "namn": "Ryttmästare Ekwall",
+                "text": "Ryttmästare Bengt Ekwall, i dragonernas blå galauniform, står vid biljardbordet med kön i handen och händerna bara. ”En fruktansvärd natt. Jag satt här i rökrummet med tidningen ända till halv tolv – jag dansar inte gärna. Edvard var min bäste vän.”",
                 "ger_material": [
                   "k-ekwall-pastar"
                 ]
@@ -1725,7 +1725,7 @@
           [
             "terrassen",
             "biblioteket",
-            6
+            5
           ],
           [
             "terrassen",
@@ -1771,7 +1771,7 @@
             "till": "23.05",
             "ikon": "🥃",
             "kalla": "hovmästaren",
-            "text": "Satt med kaptenen 22.55; gick ut mot balsalen 23.05."
+            "text": "Satt med ryttmästaren 22.55; gick ut mot balsalen 23.05."
           },
           {
             "id": "k-axel-polka",
@@ -1888,8 +1888,8 @@
             "typ": "pastaende",
             "till": "23.30",
             "ikon": "📰",
-            "kalla": "kaptenen själv",
-            "text": "Kaptenen: satt i rökrummet hela tiden."
+            "kalla": "ryttmästaren själv",
+            "text": "Ryttmästaren: satt i rökrummet hela tiden."
           },
           {
             "id": "k-ekwall-rok",
@@ -1934,7 +1934,7 @@
               "k-axel-rok"
             ],
             "ger_fynd": "f-axel-ljog",
-            "text": "Axel säger att han dansade i balsalen hela kvällen – men 22.55–23.05 satt han i rökrummet med kaptenen."
+            "text": "Axel säger att han dansade i balsalen hela kvällen – men 22.55–23.05 satt han i rökrummet med ryttmästaren."
           },
           {
             "id": "m-ekwall",
@@ -1943,7 +1943,7 @@
               "k-ekwall-vals"
             ],
             "ger_fynd": "f-ekwall-ljog",
-            "text": "Kaptenen säger att han satt i rökrummet till halv tolv och inte dansar gärna – men 23.24 dansade han valsen i balsalen med fröken Linde."
+            "text": "Ryttmästaren säger att han satt i rökrummet till halv tolv och inte dansar gärna – men 23.24 dansade han valsen i balsalen med fröken Linde."
           }
         ],
         "prov": [
@@ -2030,7 +2030,7 @@
       "titel": "Grevens anteckning",
       "ikon": "📝",
       "typ": "nyckel",
-      "text": "”Ring överste Rehnberg i kväll. Växeln på 20 000 kr – namnteckningen är INTE min. Han ska få veta det före tolvslaget.”",
+      "text": "”Ring överste Rehnberg i kväll. Växeln på 20 000 kr – namnteckningen är INTE min. Han ska få veta det före tolvslaget.” Bankpapperet som greven hade framför sig vid tio finns inte kvar.",
       "forklaring": "Någon hade förfalskat grevens namn på en växel – och greven tänkte anmäla det till överste Rehnberg, chef för en av sina officerare."
     },
     {
@@ -2077,7 +2077,7 @@
         "axel",
         "ekwall"
       ],
-      "text": "Hovmästaren serverade kaptenen och Axel i rökrummet 22.55. Axel gick 23.05; kaptenen satt kvar ensam med tidningen."
+      "text": "Hovmästaren serverade ryttmästaren och Axel i rökrummet 22.55. Axel gick 23.05; ryttmästaren satt kvar ensam med tidningen."
     },
     {
       "id": "f-danslistan",
@@ -2094,7 +2094,7 @@
       "galler": [
         "ekwall"
       ],
-      "text": "Fröken Linde dansade polkan med Axel och valsen 23.24 med kapten Ekwall – som inte hade några handskar på sig."
+      "text": "Fröken Linde dansade polkan med Axel och valsen 23.24 med ryttmästare Ekwall – som inte hade några handskar på sig."
     },
     {
       "id": "f-fyrverkeri",
@@ -2132,17 +2132,17 @@
         "axel"
       ],
       "text": "Axel sa att han dansade hela kvällen, men 22.55–23.05 satt han i rökrummet.",
-      "forklaring": "Axel bad kaptenen om pengar till sina spelskulder och ville inte att modern skulle få veta det. Han ljög om rökrummet – inte om biblioteket."
+      "forklaring": "Axel bad ryttmästaren om pengar till sina spelskulder och ville inte att modern skulle få veta det. Han ljög om rökrummet – inte om biblioteket."
     },
     {
       "id": "f-ekwall-ljog",
-      "titel": "Kaptenens vals",
+      "titel": "Ryttmästarens vals",
       "ikon": "💃",
       "typ": "nyckel",
       "galler": [
         "ekwall"
       ],
-      "text": "Kaptenen säger att han satt i rökrummet till halv tolv och inte dansar gärna – men 23.24 dansade han valsen i balsalen."
+      "text": "Ryttmästaren säger att han satt i rökrummet till halv tolv och inte dansar gärna – men 23.24 dansade han valsen i balsalen."
     },
     {
       "id": "f-axel-omojlig",
@@ -2176,7 +2176,7 @@
     },
     {
       "id": "f-ekwall-hinner",
-      "titel": "Kaptenen hinner",
+      "titel": "Ryttmästaren hinner",
       "ikon": "🧭",
       "typ": "nyckel",
       "galler": [
@@ -2226,7 +2226,7 @@
         },
         {
           "text": "Greven föll och slog sig.",
-          "svar": "Doktorn: ett slag bakifrån med brevpressen. Man faller inte på bakhuvudet framåt."
+          "svar": "Doktorn: ett slag bakifrån med brevpressen. Han föll framåt – ett fall ger inte ett sådant sår i bakhuvudet."
         },
         {
           "text": "Nej – gärningspersonen fanns i huset och kom genom en dörr.",
@@ -2272,15 +2272,15 @@
           "svar": "Greven bär båda sina handskar."
         },
         {
-          "text": "Den som dansade utan handskar efter mordet.",
+          "text": "En herre i balkläder tappade den – och han dansade sedan utan handskar.",
           "ratt": true
         },
         {
-          "text": "Vem som helst av herrarna.",
-          "svar": "Herrarna bär handskar till dansen – vem saknade sina?"
+          "text": "Den säger ingenting – handskar finns överallt på en bal.",
+          "svar": "Men vem saknade sina efteråt? Läs fröken Lindes balkort."
         }
       ],
-      "slutsats": "Kapten Ekwall dansade valsen 23.24 utan handskar. Den vita handsken under skrivbordet passar honom."
+      "slutsats": "Ryttmästare Ekwall dansade valsen 23.24 utan handskar – och under skrivbordet låg en vit herrhandske."
     },
     {
       "id": "s-axel",
@@ -2303,6 +2303,27 @@
         }
       ],
       "slutsats": "Axel ljög om skulderna, inte om mordet. Han dansade kadriljen när greven dog."
+    },
+    {
+      "id": "s-ingeborg",
+      "kraver": [
+        "f-ingeborg-omojlig"
+      ],
+      "efter": [
+        "s-tid"
+      ],
+      "fraga": "Greven ville skicka bort fröken Sand efter ett gräl i höstas. Kan hon ha gjort det?",
+      "alternativ": [
+        {
+          "text": "Ja – hon gick från balsalen strax före elva och var ensam.",
+          "svar": "Ensam, ja – men kammarjungfrun såg henne i sängen 23.10."
+        },
+        {
+          "text": "Nej – 23.10 låg hon i gästflygeln, åtta minuter från biblioteket. Hon kunde vara där tidigast 23.18.",
+          "ratt": true
+        }
+      ],
+      "slutsats": "Fröken Sand hann inte: 23.10 låg hon i gästflygeln, åtta minuter från biblioteket."
     },
     {
       "id": "s-lunde",
@@ -2335,24 +2356,24 @@
       "efter": [
         "s-tid"
       ],
-      "fraga": "Kaptenen säger att han satt i rökrummet till halv tolv. Vad visar tidslinjen?",
+      "fraga": "Ryttmästaren säger att han satt i rökrummet till halv tolv. Vad visar tidslinjen?",
       "alternativ": [
         {
           "text": "Att han talar sanning – hovmästaren såg honom där.",
           "svar": "Hovmästaren såg honom 22.55–23.05. Efter det?"
         },
         {
-          "text": "Att han ljuger: 23.24 dansade han i balsalen, och från rökrummet hinner man till biblioteket och tillbaka på åtta minuter.",
+          "text": "Att han ljuger: 23.24 dansade han i balsalen, och från rökrummet hinner man till biblioteket och tillbaka på sex minuter.",
           "ratt": true
         }
       ],
-      "slutsats": "Kaptenen var ensam i rökrummet från 23.05, och östra trappan leder rakt upp till biblioteket. Hans omväg går ihop på minuten."
+      "slutsats": "Ryttmästaren var ensam i rökrummet från 23.05, och östra trappan leder rakt upp till biblioteket. Hans omväg går ihop på minuten."
     }
   ],
   "losning": {
     "skyldig": "ekwall",
     "hur": "trappan",
-    "hur_text": "Från rökrummet uppför östra trappan till biblioteket, där greven just talade med överste Rehnberg. Efter slaget tog kaptenen den förfalskade växeln, gick samma väg tillbaka, brände den i rökrummets spis och dansade valsen 23.24 – utan sin ena handske, som låg kvar under skrivbordet.",
+    "hur_text": "Från rökrummet uppför östra trappan till biblioteket, där greven just talade med överste Rehnberg. Efter slaget tog ryttmästaren den förfalskade växeln, gick samma väg tillbaka, brände den i rökrummets spis och dansade valsen 23.24 – utan sin ena handske, som låg kvar under skrivbordet.",
     "bevisgrupper": [
       [
         "f-ekwall-hinner",
@@ -2393,7 +2414,7 @@
       ]
     },
     "uteslutningar_text": {
-      "axel": "Dansade kadriljen med grevinnan i balsalen 23.14–23.22. Han ljög om rökrummet för att dölja att han bad kaptenen om pengar.",
+      "axel": "Dansade kadriljen med grevinnan i balsalen 23.14–23.22. Han ljög om rökrummet för att dölja att han bad ryttmästaren om pengar.",
       "ingeborg": "Låg i gästflygeln när kammarjungfrun kom med pulvret 23.10 – åtta minuter från biblioteket.",
       "lunde": "Stod vid fyrverkeriet på terrassen med trädgårdsmästaren 23.00–23.30."
     }
@@ -2430,7 +2451,7 @@
         "f-noren",
         "f-gangtider"
       ],
-      "text": "Börja med två frågor: exakt när dog greven, och hur långt är det mellan slottets rum? Växeln i köksflygeln och skissen i galleriet ger dig svaren. Lägg sedan tidskorten på tidslinjen."
+      "text": "Börja med två frågor: exakt när dog greven, och hur långt är det mellan slottets rum? Telefonväxeln i köksflygeln och skissen i galleriet ger dig svaren. Lägg sedan tidskorten på tidslinjen."
     },
     {
       "niva": 2,
@@ -2457,7 +2478,7 @@
     }
   ],
   "aterkoppling": {
-    "ratt": "Ett stort hus har långa avstånd – men inte från alla rum. Kaptenen satt ensam i rökrummet med östra trappan rakt upp till biblioteket. Han hade skrivit grevens namn på en växel på 20 000 kr, och när greven ringde hans överste för att anmäla det gick han upp. Tillbaka i rökrummet brände han växeln i spisen och gick in och dansade valsen, som om ingenting hänt. Men den ena vita handsken låg kvar under skrivbordet.",
+    "ratt": "Ett stort hus har långa avstånd – men inte från alla rum. Ryttmästaren satt ensam i rökrummet med östra trappan rakt upp till biblioteket. Han hade skrivit grevens namn på en växel på 20 000 kr, och när greven ringde hans överste för att anmäla det gick han upp. Tillbaka i rökrummet brände han växeln i spisen och gick in och dansade valsen, som om ingenting hänt. Men den ena vita handsken låg kvar under skrivbordet.",
     "fel": {
       "axel": "Axel ljög om rökrummet för att dölja sina skulder – men han dansade kadriljen med sin mor när greven dog.",
       "ingeborg": "Fröken Sand låg i gästflygeln 23.10, åtta minuter från biblioteket. Hon hann inte.",
@@ -2489,7 +2510,7 @@
         ]
       },
       {
-        "text": "Kaptenen satt ensam i rökrummet från 23.05. Han säger att han satt kvar till halv tolv, men dansade valsen 23.24. Östra trappan till biblioteket tar tre minuter – omvägen går ihop.",
+        "text": "Ryttmästaren satt ensam i rökrummet från 23.05. Han säger att han satt kvar till halv tolv, men dansade valsen 23.24. Östra trappan till biblioteket tar tre minuter – omvägen går ihop.",
         "fynd": [
           "f-ekwall-ljog",
           "f-ekwall-hinner",
@@ -2504,7 +2525,7 @@
         ]
       },
       {
-        "text": "Under skrivbordet låg en vit herrhandske – och kapten Ekwall dansade valsen utan handskar.",
+        "text": "Under skrivbordet låg en vit herrhandske – och ryttmästare Ekwall dansade valsen utan handskar.",
         "fynd": [
           "f-handsken",
           "f-balkortet"

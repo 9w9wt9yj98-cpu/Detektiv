@@ -54,7 +54,7 @@ export async function ratt(browser, mobil = true) {
     ['k-ekwall-pastar', 'ekwall'], ['k-ekwall-rok', 'ekwall'], ['k-ekwall-vals', 'ekwall']];
   for (const [k, pid] of plan) assert.match(await lagg(p, k, pid), /Lagt på/);
   const ekwall = await p.locator('[data-bana="ekwall"]').innerText();
-  assert.match(ekwall, /oförklarade/, 'kaptenens lucka syns inte: ' + ekwall);
+  assert.match(ekwall, /oförklarade/, 'ryttmästarens lucka syns inte: ' + ekwall);
   await p.locator('[data-invand="m-axel"]').click(); await vanta(250);
   assert.match(await besked(p), /Invändning!.*rökrummet/);
   await p.locator('[data-invand="m-ekwall"]').click(); await vanta(250);
@@ -72,7 +72,7 @@ export async function ratt(browser, mobil = true) {
   await p.locator('[data-bana="ekwall"]').scrollIntoViewIfNeeded();
   await bild(p, 'f8-tidslinje');
   await p.locator('[data-flik="slutsatser"]').click(); await vanta(200);
-  assert.equal(await besvaraSlutsatser(p, { provaFel: false }), 3);
+  assert.equal(await besvaraSlutsatser(p, { provaFel: false }), 4);
   await stangBok(p);
   await anklaga(p, 'lunde');
   assert.match(await p.locator('.reaktion').innerText(), /trädgårdsmästaren|fyrverkeriet/);
@@ -81,7 +81,7 @@ export async function ratt(browser, mobil = true) {
   const txt = await upplosning(p, 'f8-upplosning-ratt');
   assert.match(txt, /Fallet är löst/);
   await p.context().close();
-  console.log('Fall 8: sex rum, tidslinje (fel person → 14 kort, 2 motsägelser, 4 prövningar), 7 slutsatser, fel → rätt anklagelse ✓');
+  console.log('Fall 8: sex rum, tidslinje (fel person → 14 kort, 2 motsägelser, 4 prövningar), 8 slutsatser, fel → rätt anklagelse ✓');
 }
 
 export async function fel(browser) {
