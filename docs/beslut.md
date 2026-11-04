@@ -333,3 +333,23 @@ En ny blind agent fick bara spelarvyn och ledtrådarna (`verktyg/spelarvy.mjs --
 | 6 | Ledtråd 2 frågade ”med vilken penna?”, som ledde rakt till den enda reservoarpennan. Pennan kommer nu först i ledtråd 3. |
 
 **Kvar för Martin:** i alla sex fall beskriver ledtråd 3 den skyldige med något bara den personen har, så det sista steget blir att slå upp vem det är. Det är tänkt som ”Nästan svaret”, men nivån kan sänkas om ledtrådarna känns för givmilda.
+
+## Fall 7 – Sista akten (november 2026)
+
+Martin bad om en fortsättning: fall 7 först, sedan fall 8 och vidare. En extra agent byggde teaterföremålen medan fallet skrevs.
+
+**Fallet:** Teater Lyran i Göteborg, oktober 1952. Mitt i premiärens andra akt faller en sandsäck från lindraget och landar på kritkrysset en meter från stjärnan Viveka Sterner. Fyra rum – scenen, lindraget, undre maskineriet och logekorridoren – och förhör som kärnmekanik. Källa: `verktyg/fall/sista_akten.py`.
+
+| Dimension | Fall 7 | Variationsreglerna |
+|---|---|---|
+| Miljö / epok | Teater, 1950-tal | Ny miljö. Kapitel II har nu 1890-, 1930- och 1950-tal. |
+| Brott | Sabotage (mordförsök) | Ny brottstyp. Stöld och mord förekommer redan två gånger var bland de fem senaste. |
+| Kärnmekanik | Förhör och motsägelser | Fall 6 hade dokument; förhör användes senast i fall 2. |
+| Skyldig / motiv | Den mest sympatiska (sufflösen) / rädsla | Profilen och motivet är nya i rotationen. |
+| Twist | Ingen | Fall 6 hade en vändning. |
+
+**Lösningen i korthet:** linan har lyfts av nageln, så någon stod på lindraget kl. 21.32. Brandvakten såg att ingen gick uppför järnstegen; den andra vägen är spiraltrappan från undre maskineriet, dit man bara kommer med nyckel (Kalle och fru Wall) eller genom sufflörluckan. Kalle stod vid regnmaskinen under inspicientens ögon, Märta i kulissen bredvid brandvakten och Wern på rad 7 framför spelaren. Fru Wall säger att hon inte lämnade luckan – men när Ågren tappade repliken kl. 21.30 var den tom. Sandsäcken föll på kritkrysset, fru Sterners plats före generalrepetitionen som bara fru Wall missade, och hennes manus säger fortfarande ”V. vid krysset”.
+
+**Nya föremål** (`js/tre/foremal/teater.js`): ridå, sufflörlucka, nagelbänk, sandsäck, järnstege, golvmärke (kryss/tejp), sminkbord, kuliss, klädställning och strålkastare. Omslaget `bilder/fall7/teatern.jpg` är tills vidare en sepiatonad bild ur 3D-scenen – de andra omslagen är tecknade, och ett tecknat omslag får Martin ta ställning till.
+
+**Blindtest:** en blind agent löste fallet rätt (säkerhet 4/5) med bara spelarvyn. Rapport: `docs/blindtest/rapport-2026-11-04-fall7.md`. Rättat efter den: Märtas alibi gäller till ridån; scenen har två luckor och båda är fastskruvade; sufflörluckan sitter i rampljuset, så ingen kommer ner i den från scenen utan att publiken ser det; slutsatsfrågan om krysset frågar vem som fortfarande trodde att fru Sterner stod där (förut kunde ”hon ville bara skrämma” inte uteslutas); fru Sterner sa ut sitt krav i korridoren så att alla hörde; fru Wall har låga skor; ”belagd lina”.

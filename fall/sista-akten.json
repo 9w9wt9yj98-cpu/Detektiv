@@ -137,7 +137,7 @@
               "hojd": 5.0,
               "interaktiv": {
                 "namn": "Ridån",
-                "text": "Du kikar ut genom springan i ridån. Salongen är halvtom nu. Rad 7, plats 12 – regissör Werns plats, mitt framför din egen. Du minns hans nacke under hela andra akten. Han reste sig först när sandsäcken slog i golvet.",
+                "text": "Du kikar ut genom springan i ridån. Salongen är halvtom nu. Rad 7, plats 12 – regissör Werns plats, mitt framför din egen. Du minns hans nacke under hela andra akten. Han satt kvar ända tills sandsäcken slog i golvet – då reste han sig.",
                 "ger_fynd": "f-wern-alibi"
               }
             },
@@ -153,7 +153,7 @@
               "gar_till": "undre",
               "interaktiv": {
                 "namn": "Sufflörluckan",
-                "text": "Sufflörluckan i scenkanten. Härifrån följer sufflösen varje replik och viskar fram den som tappar texten. Inuti är det mörkt och trångt – en kort stege leder ner under scenen."
+                "text": "Sufflörluckan sitter mitt i scenkanten, i fullt rampljus framför publiken – ingen kan klättra ner i den från scenen under föreställningen utan att hela salongen ser det. Sufflösen kommer hit underifrån. Inuti är det mörkt och trångt – en kort stege leder ner under scenen."
               }
             },
             {
@@ -422,7 +422,7 @@
               "rot": -90,
               "interaktiv": {
                 "namn": "Inspicientens körbok",
-                "text": "Ruth Sandells körbok för kvällen, ifylld minut för minut: ”21.10 Ridå upp, akt II. 21.12 Fönsterduken ned – sista linkörningen till 21.45. 21.20 Regn klar. 21.30 Ågren tappar repliken i monologen – INGEN SUFFLERING! 21.31 Scen 2:3. 21.32 ’Nu eller aldrig, Henrik!’ – SANDSÄCK FALLER, lina 7. 21.33 Ridå.”",
+                "text": "Ruth Sandells körbok för kvällen, ifylld minut för minut: ”21.10 Ridå upp, akt II. 21.12 Fönsterduken ned – sista linkörningen till 21.45. 21.20 Regnmaskinen klar, Nilsson på plats. 21.30 Ågren tappar repliken i monologen – INGEN SUFFLERING! 21.31 Scen 2:3. 21.32 ’Nu eller aldrig, Henrik!’ – SANDSÄCK FALLER, lina 7. 21.33 Ridå.”",
                 "ger_fynd": "f-korbok"
               }
             },
@@ -634,7 +634,7 @@
               "hojd": 2.8,
               "interaktiv": {
                 "namn": "Nagelbänken",
-                "text": "Tio naglar. Nio linor sitter beslagna i prydliga åttor med ett låsslag överst. Nagel 7 är tom – lina 7 bar sandsäcken rakt ovanför scenens mitt, och den har rusat upp genom blocket i taket och ligger nu nere på scenen. Ingenting här är avbrutet eller skuret. Ett beslag på en nagel lossnar inte av sig självt: någon har lyft av linan.",
+                "text": "Tio naglar. Nio linor sitter belagda i prydliga åttor med ett låsslag överst. Nagel 7 är tom – lina 7 bar sandsäcken rakt ovanför scenens mitt, och den har rusat upp genom blocket i taket och ligger nu nere på scenen. Ingenting här är avbrutet eller skuret. En lina som är belagd på en nagel lossnar inte av sig själv: någon har lyft av den.",
                 "ger_fynd": "f-lina"
               }
             },
@@ -945,15 +945,15 @@
                 1.75,
                 -2.27
               ],
-              "text": "SCENLUCKA 2\nfastskruvad under föreställning",
+              "text": "SCENLUCKORNA 1 OCH 2\nfastskruvade under föreställning",
               "storlek": [
-                0.8,
+                0.9,
                 0.3
               ],
               "textstorlek": 30,
               "interaktiv": {
                 "namn": "Scenluckan",
-                "text": "Rakt ovanför sitter en av scenens luckor. Den är fastskruvad underifrån med fyra vingmuttrar, och dekorens bord står ovanpå. Ingen har öppnat den i kväll – muttrarna sitter hårt och är dammiga.",
+                "text": "Scenen har två luckor ner hit, och båda sitter rakt ovanför. De är fastskruvade underifrån med fyra vingmuttrar var, och dekorens bord och den ena fåtöljen står ovanpå. Ingen har öppnat dem i kväll – muttrarna sitter hårt och är dammiga.",
                 "ger_fynd": "f-scenlucka"
               }
             },
@@ -1216,7 +1216,7 @@
               "seed": 9,
               "interaktiv": {
                 "namn": "Fru Wall",
-                "text": "Agnes Wall sitter på en stol med en kopp te i händerna. Hon fingrar efter pennan bakom örat, men den är inte där.",
+                "text": "Agnes Wall sitter på en stol med en kopp te i händerna, i låga, nötta skor. Hon fingrar efter pennan bakom örat, men den är inte där.",
                 "ger_material": [
                   "u-wall-lucka",
                   "u-wall-genrep"
@@ -1385,7 +1385,7 @@
             "kraver": [
               "f-brevet"
             ],
-            "text": "Brevet? Ja, jag har sagt till chefen att jag vill ha en ny sufflös. Agnes mumlar. Men hon har bott i det där rummet uppe under taket i trettio år – vart skulle hon ta vägen? Det har jag inte tänkt på."
+            "text": "Brevet? Ja, jag har sagt till chefen att jag vill ha en ny sufflös. Agnes mumlar. Jag sa det rakt ut här i korridoren i förrgår – alla hörde det, Agnes också. Men hon har bott i det där rummet uppe under taket i över trettio år – vart skulle hon ta vägen? Det har jag inte tänkt på."
           },
           {
             "id": "u-agren",
@@ -1403,7 +1403,7 @@
             "id": "u-persson",
             "person": "persson",
             "titel": "Brandvakten om stegen",
-            "text": "Kalle kom ner för stegen tolv över nio, efter sista linkörningen. Efter det gick ingen upp eller ner – jag satt här vid foten hela tiden. Fröken Hallin stod bredvid mig i kulissen från tjugo över nio. Hon ska inte stå där, men jag sa inget."
+            "text": "Kalle kom ner för stegen tolv över nio, efter sista linkörningen. Efter det gick ingen upp eller ner – jag satt här vid foten hela tiden. Fröken Hallin stod bredvid mig i kulissen från tjugo över nio tills ridån gick ner. Hon ska inte stå där, men jag sa inget."
           },
           {
             "id": "u-wall-lucka",
@@ -1495,7 +1495,7 @@
               ]
             ],
             "ger_fynd": "f-marta-ljog",
-            "text": "Märta säger att hon satt i logen – men brandman Persson såg henne i kulissen från 21.20."
+            "text": "Märta säger att hon satt i logen – men brandman Persson såg henne i kulissen från 21.20 tills ridån gick ner."
           },
           {
             "id": "m-wern",
@@ -1556,7 +1556,7 @@
       "galler": [
         "marta"
       ],
-      "text": "Brandman Persson satt vid järnstegen hela kvällen. Kalle kom ner kl. 21.12; efter det gick ingen upp eller ner. Märta Hallin stod bredvid Persson i kulissen från 21.20."
+      "text": "Brandman Persson satt vid järnstegen hela kvällen. Kalle kom ner kl. 21.12; efter det gick ingen upp eller ner. Märta Hallin stod bredvid Persson i kulissen från 21.20 tills ridån gick ner."
     },
     {
       "id": "f-kalle-alibi",
@@ -1576,14 +1576,14 @@
       "galler": [
         "wern"
       ],
-      "text": "Regissör Wern satt på rad 7, mitt framför dig, hela andra akten. Han reste sig först när sandsäcken föll."
+      "text": "Regissör Wern satt på rad 7, mitt framför dig, hela andra akten. Han satt kvar ända tills sandsäcken föll."
     },
     {
       "id": "f-lina",
       "titel": "Lina 7",
       "ikon": "🪢",
       "typ": "nyckel",
-      "text": "Nagel 7 på nagelbänken är tom, och lina 7 ligger hel nere på scenen – varken skuren eller nött. Beslaget lossnar inte av sig självt: någon lyfte av linan från nageln när sandsäcken föll."
+      "text": "Nagel 7 på nagelbänken är tom, och lina 7 ligger hel nere på scenen – varken skuren eller nött. En belagd lina lossnar inte av sig själv: någon lyfte av den från nageln när sandsäcken föll."
     },
     {
       "id": "f-korschema",
@@ -1628,14 +1628,14 @@
       "galler": [
         "wall"
       ],
-      "text": "Från sufflörluckan leder en kort stege rakt ner i undre maskineriet – sufflösens egen väg."
+      "text": "Från sufflörluckan leder en kort stege rakt ner i undre maskineriet – sufflösens egen väg. Från scenen kommer ingen ner i luckan under föreställning utan att publiken ser det."
     },
     {
       "id": "f-scenlucka",
-      "titel": "Scenluckan",
+      "titel": "Scenluckorna",
       "ikon": "🔩",
       "typ": "stod",
-      "text": "Scenluckan är fastskruvad underifrån med dammiga vingmuttrar, och dekorens bord står ovanpå. Ingen har öppnat den i kväll."
+      "text": "Scenens två luckor är fastskruvade underifrån med dammiga vingmuttrar, och dekorens möbler står ovanpå. Ingen har öppnat dem i kväll."
     },
     {
       "id": "f-spar",
@@ -1663,7 +1663,7 @@
         "wall"
       ],
       "text": "Fru Sterner har skrivit till teaterchefen: fru Wall måste bort till nyår, annars spelar hon inte i vår.",
-      "forklaring": "Motivet: fru Wall skulle förlora både arbetet och rummet i teaterhuset där hon bott i trettio år."
+      "forklaring": "Motivet: fru Wall skulle förlora både arbetet och rummet i teaterhuset där hon bott i över trettio år."
     },
     {
       "id": "f-rollistan",
@@ -1705,7 +1705,7 @@
       "galler": [
         "marta"
       ],
-      "text": "Märta sa att hon satt i logen, men hon stod i kulissen bredvid brandvakten från 21.20.",
+      "text": "Märta sa att hon satt i logen, men hon stod i kulissen bredvid brandvakten från 21.20 tills ridån gick ner.",
       "forklaring": "Hon ljög för att ersättare inte får stå i kulisserna under föreställning – och hennes lögn ger henne i själva verket ett alibi."
     },
     {
@@ -1730,8 +1730,8 @@
       "fraga": "Kan sandsäcken ha fallit av sig själv?",
       "alternativ": [
         {
-          "text": "Ja – beslaget på nageln gav efter.",
-          "svar": "Kalle slog fast linan med åttor och ett låsslag. Det lossnar inte av sig självt – någon lyfte av den."
+          "text": "Ja – linan gled av nageln.",
+          "svar": "Kalle lade linan i åttor med ett låsslag. Den lossnar inte av sig själv – någon lyfte av den."
         },
         {
           "text": "Ja – linan var nött och brast.",
@@ -1784,15 +1784,15 @@
       "alternativ": [
         {
           "text": "Vem som helst bakom scenen.",
-          "svar": "Dörren från logekorridoren var låst och oskadad, och scenluckan var fastskruvad."
+          "svar": "Dörren från logekorridoren var låst och oskadad, och scenluckorna var fastskruvade."
         },
         {
           "text": "Den som hade nyckel till dörren – Kalle och fru Wall – eller den som satt i sufflörluckan.",
           "ratt": true
         },
         {
-          "text": "Bara den som öppnade scenluckan.",
-          "svar": "Scenluckan är fastskruvad underifrån, muttrarna är dammiga och bordet i dekoren står ovanpå."
+          "text": "Den som öppnade en scenlucka.",
+          "svar": "Båda scenluckorna är fastskruvade underifrån, muttrarna är dammiga och dekorens möbler står ovanpå."
         }
       ],
       "slutsats": "Under akten kom man bara in i undre maskineriet med nyckel – Kalles eller fru Walls – eller genom sufflörluckan, där fru Wall satt."
@@ -1844,24 +1844,25 @@
       "kraver": [
         "f-sandsack",
         "f-tejpen",
-        "f-genrep"
+        "f-genrep",
+        "f-exemplaret"
       ],
-      "fraga": "Av tio linor valdes lina 7, som hänger rakt över kritkrysset – inte över tejpen där fru Sterner stod. Vad säger det om den som släppte sandsäcken?",
+      "fraga": "Sandsäcken föll på kritkrysset – fru Sterners plats fram till i går. Vem trodde fortfarande att hon stod där?",
       "alternativ": [
         {
-          "text": "Ingenting – sandsäcken föll där den råkade hänga.",
-          "svar": "Den som stod vid nagelbänken valde själv vilken lina den lyfte av – och släppte den på repliken då fru Sterner skulle stå på sin plats."
+          "text": "Alla i ensemblen.",
+          "svar": "Alla i ensemblen var på generalrepetitionen när hon flyttades till tejpen."
         },
         {
-          "text": "Den trodde att fru Sterner stod vid krysset. Den visste inte om ändringen vid generalrepetitionen – och där var alla utom fru Wall.",
+          "text": "Regissören.",
+          "svar": "Det var Wern själv som flyttade henne."
+        },
+        {
+          "text": "Den som missade generalrepetitionen – vars manus fortfarande säger ”V. vid krysset”.",
           "ratt": true
-        },
-        {
-          "text": "Den ville bara skrämma henne och siktade bredvid.",
-          "svar": "Från lindraget ser man inte golvet för strålkastarna. Man släpper på repliken – och krysset var hennes plats fram till i går."
         }
       ],
-      "slutsats": "Den som släppte sandsäcken siktade på krysset och visste inte om ändringen från generalrepetitionen. Alla utom fru Wall var där."
+      "slutsats": "Bara den som missade generalrepetitionen kunde tro att fru Sterner stod vid krysset. Det var fru Wall – och hennes manus säger fortfarande ”V. vid krysset”."
     },
     {
       "id": "s-marta",
@@ -1983,11 +1984,11 @@
         "f-korbok",
         "f-exemplaret"
       ],
-      "text": "Scenmästaren syntes vid regnmaskinen hela tiden. Sandsäcken föll på det gamla kritkrysset – den som valde lina 7 visste inte att fru Sterner hade flyttats i går. Vem missade generalrepetitionen, och vad hände när Ågren tappade repliken kl. 21.30?"
+      "text": "Scenmästaren syntes vid regnmaskinen hela tiden. Sandsäcken föll på det gamla kritkrysset – vem trodde fortfarande att fru Sterner stod där? Och vad hände när Ågren tappade repliken kl. 21.30?"
     }
   ],
   "aterkoppling": {
-    "ratt": "Den som sitter i sufflörluckan ser allt och syns aldrig. Agnes Wall hade bott i sitt rum under taket i trettio år, och nu skulle fru Sterner få henne utkastad till nyår. Strax före halv tio smög hon ner ur luckan, genom undre maskineriet och uppför spiraltrappan. Hon lyfte av lina 7 på repliken hon kunde utantill – men hennes manus visste inte att fru Sterner hade flyttats en meter vid generalrepetitionen, den enda kväll hon saknats. Ågren tappade repliken, och ingen viskade den till honom.",
+    "ratt": "Den som sitter i sufflörluckan ser allt och syns aldrig. Agnes Wall hade bott i sitt rum under taket i över trettio år, och nu skulle fru Sterner få henne utkastad till nyår. Strax före halv tio smög hon ner ur luckan, genom undre maskineriet och uppför spiraltrappan. Hon lyfte av lina 7 på repliken hon kunde utantill – men hennes manus visste inte att fru Sterner hade flyttats en meter vid generalrepetitionen, den enda kväll hon saknats. Ågren tappade repliken, och ingen viskade den till honom.",
     "fel": {
       "marta": "Märta ljög om logen, men just därför har hon ett alibi: brandvakten såg henne i kulissen hela scenen. Och hon visste var fru Sterner skulle stå.",
       "wern": "Wern grälade med fru Sterner – men han satt framför dig på rad 7, och det var han som flyttade henne till tejpen.",
@@ -2010,7 +2011,7 @@
         ]
       },
       {
-        "text": "Dörren till undre maskineriet var låst, och scenluckan fastskruvad. In kom bara den som hade nyckel – Kalle eller fru Wall – eller den som satt i sufflörluckan.",
+        "text": "Dörren till undre maskineriet var låst, och scenluckorna fastskruvade. In kom bara den som hade nyckel – Kalle eller fru Wall – eller den som satt i sufflörluckan.",
         "fynd": [
           "f-maskindorr",
           "f-scenlucka",
@@ -2041,7 +2042,7 @@
         ]
       },
       {
-        "text": "Fru Wall är skyldig. Fru Sterner ville få henne avskedad till nyår – och med arbetet skulle hon förlora rummet där hon bott i trettio år.",
+        "text": "Fru Wall är skyldig. Fru Sterner ville få henne avskedad till nyår – och med arbetet skulle hon förlora rummet där hon bott i över trettio år.",
         "fynd": [
           "f-brevet",
           "f-penna"

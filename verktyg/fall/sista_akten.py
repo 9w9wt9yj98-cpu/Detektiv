@@ -50,9 +50,9 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
   "objekt": [
     # Ridån är nere mot salongen (söder). Bakom oss: dekoren ”Den gröna salongen”.
     obj("ridan", "rida", [0, 0, 3.05], rot=180, bredd=9.0, hojd=5.0, interaktiv=ia("Ridån",
-        "Du kikar ut genom springan i ridån. Salongen är halvtom nu. Rad 7, plats 12 – regissör Werns plats, mitt framför din egen. Du minns hans nacke under hela andra akten. Han reste sig först när sandsäcken slog i golvet.", "f-wern-alibi")),
+        "Du kikar ut genom springan i ridån. Salongen är halvtom nu. Rad 7, plats 12 – regissör Werns plats, mitt framför din egen. Du minns hans nacke under hela andra akten. Han satt kvar ända tills sandsäcken slog i golvet – då reste han sig.", "f-wern-alibi")),
     obj("luckan", "sufflorlucka", [0, 0, 2.55], rot=180, gar_till="undre", interaktiv=ia("Sufflörluckan",
-        "Sufflörluckan i scenkanten. Härifrån följer sufflösen varje replik och viskar fram den som tappar texten. Inuti är det mörkt och trångt – en kort stege leder ner under scenen.")),
+        "Sufflörluckan sitter mitt i scenkanten, i fullt rampljus framför publiken – ingen kan klättra ner i den från scenen under föreställningen utan att hela salongen ser det. Sufflösen kommer hit underifrån. Inuti är det mörkt och trångt – en kort stege leder ner under scenen.")),
     obj("fond", "kuliss", [0, 0, -3.1], storlek=[6.4, 4.2], farg="#3e5a3e", stotta=False),
     obj("kv1", "kuliss", [-3.3, 0, -1.2], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
     obj("kv2", "kuliss", [-3.3, 0, 0.9], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
@@ -78,7 +78,7 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
     # Höger kulisser: inspicientens pulpet med körboken och rapporten från generalrepetitionen
     obj("pulpet", "pulpet", [3.95, 0, 1.5], rot=-90),
     obj("korbok", "liggare", [3.9, 1.12, 1.5], rot=-90, interaktiv=ia("Inspicientens körbok",
-        "Ruth Sandells körbok för kvällen, ifylld minut för minut: ”21.10 Ridå upp, akt II. 21.12 Fönsterduken ned – sista linkörningen till 21.45. 21.20 Regn klar. 21.30 Ågren tappar repliken i monologen – INGEN SUFFLERING! 21.31 Scen 2:3. 21.32 ’Nu eller aldrig, Henrik!’ – SANDSÄCK FALLER, lina 7. 21.33 Ridå.”", "f-korbok")),
+        "Ruth Sandells körbok för kvällen, ifylld minut för minut: ”21.10 Ridå upp, akt II. 21.12 Fönsterduken ned – sista linkörningen till 21.45. 21.20 Regnmaskinen klar, Nilsson på plats. 21.30 Ågren tappar repliken i monologen – INGEN SUFFLERING! 21.31 Scen 2:3. 21.32 ’Nu eller aldrig, Henrik!’ – SANDSÄCK FALLER, lina 7. 21.33 Ridå.”", "f-korbok")),
     obj("rapporten", "papper", [4.05, 1.15, 1.8], antal=2, interaktiv=ia("Rapporten från generalrepetitionen",
         "Inspicientens rapport från generalrepetitionen i går kväll. ”Närvarande: hela ensemblen, fröken Hallin (ersättare), regissör Wern, scenmästare Nilsson och scenpersonalen. Frånvarande: fru Wall, sjuk – eleven Berit Lund sufflerade. Ändring: i scen 2:3 står fru Sterner vid den vita tejpen, en meter från kritkrysset. Krysset gäller inte längre.”", "f-genrep")),
     obj("ruth", "person", [3.7, 0, 0.7], rot=-110, kon="k", rock="#2a2a30", har="#3a2a1a", glasogon=True, seed=5,
@@ -105,7 +105,7 @@ lindrag = {"id": "lindraget", "namn": "Lindraget", "mekanik": "scen", "last_upp_
   "objekt": [
     obj("racket", "racke", [0.75, 0, 0], rot=90, langd=8.0),
     obj("nagelbanken", "nagelbank", [-1.3, 0, -0.6], rot=90, langd=3.0, antal=10, tom=[6], hojd=2.8, interaktiv=ia("Nagelbänken",
-        "Tio naglar. Nio linor sitter beslagna i prydliga åttor med ett låsslag överst. Nagel 7 är tom – lina 7 bar sandsäcken rakt ovanför scenens mitt, och den har rusat upp genom blocket i taket och ligger nu nere på scenen. Ingenting här är avbrutet eller skuret. Ett beslag på en nagel lossnar inte av sig självt: någon har lyft av linan.", "f-lina")),
+        "Tio naglar. Nio linor sitter belagda i prydliga åttor med ett låsslag överst. Nagel 7 är tom – lina 7 bar sandsäcken rakt ovanför scenens mitt, och den har rusat upp genom blocket i taket och ligger nu nere på scenen. Ingenting här är avbrutet eller skuret. En lina som är belagd på en nagel lossnar inte av sig själv: någon har lyft av den.", "f-lina")),
     obj("penna", "skrivdon", [-0.85, 0.0, 0.25], blackhorn=False, penna="blyerts", interaktiv=ia("En blyertspenna",
         "En kort gul blyertspenna ligger på golvet framför nagelbänken. Den är tuggad i änden.", "f-penna")),
     obj("schemat", "tavelkarta", [-1.285, 1.45, 2.0], rot=90, storlek=[0.6, 0.7], textstorlek=24,
@@ -140,8 +140,8 @@ undre = {"id": "undre", "namn": "Undre maskineriet", "mekanik": "scen", "last_up
     obj("trappan", "spiraltrappa", [-2.2, 0, -1.4], radie=0.75, hojd=2.3, gar_till="lindraget", interaktiv=ia("Spiraltrappan", "Spiraltrappan upp till lindraget.")),
     obj("maskindorren", "dorr", [2.99, 0, -0.6], rot=-90, interaktiv=ia("Dörren till logekorridoren",
         "Dörren mellan undre maskineriet och logekorridoren är låst. En emaljskylt: ”Obehöriga äga ej tillträde. Nycklar hos scenmästaren och sufflösen.” Låset är oskadat.", "f-maskindorr")),
-    obj("scenluckan", "skylt", [1.4, 1.75, -2.27], text="SCENLUCKA 2\nfastskruvad under föreställning", storlek=[0.8, 0.3], textstorlek=30, interaktiv=ia("Scenluckan",
-        "Rakt ovanför sitter en av scenens luckor. Den är fastskruvad underifrån med fyra vingmuttrar, och dekorens bord står ovanpå. Ingen har öppnat den i kväll – muttrarna sitter hårt och är dammiga.", "f-scenlucka")),
+    obj("scenluckan", "skylt", [1.4, 1.75, -2.27], text="SCENLUCKORNA 1 OCH 2\nfastskruvade under föreställning", storlek=[0.9, 0.3], textstorlek=30, interaktiv=ia("Scenluckan",
+        "Scenen har två luckor ner hit, och båda sitter rakt ovanför. De är fastskruvade underifrån med fyra vingmuttrar var, och dekorens bord och den ena fåtöljen står ovanpå. Ingen har öppnat dem i kväll – muttrarna sitter hårt och är dammiga.", "f-scenlucka")),
     obj("bank", "arbetsbank", [2.2, 0, 1.6], rot=-90),
     *[obj(f"sack{i}", "sandsack", [x, 0, -1.9], liggande=True) for i, x in enumerate([0.4, 0.9])],
     obj("bok", "anteckningsbok", [2.2, 0.9, 1.4], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
@@ -173,7 +173,7 @@ loger = {"id": "logerna", "namn": "Logekorridoren", "mekanik": "scen", "last_upp
     obj("kladstallning", "kladstallning", [1.05, 0, -1.4], rot=-90, langd=1.6, seed=3),
     obj("stol1", "stol", [-0.95, 0, 0.6], rot=90),
     obj("wall", "person", [-0.95, 0, 0.6], rot=90, pose="sitta", kon="k", rock="#4a4048", har="#b8b0a8", glasogon=True, hatt="sjalett", hattfarg="#5a4a5a", seed=9,
-        interaktiv=ia("Fru Wall", "Agnes Wall sitter på en stol med en kopp te i händerna. Hon fingrar efter pennan bakom örat, men den är inte där.", material=["u-wall-lucka", "u-wall-genrep"])),
+        interaktiv=ia("Fru Wall", "Agnes Wall sitter på en stol med en kopp te i händerna, i låga, nötta skor. Hon fingrar efter pennan bakom örat, men den är inte där.", material=["u-wall-lucka", "u-wall-genrep"])),
     obj("marta", "person", [0.75, 0, 0.2], rot=-120, kon="k", rock="#7a2e3a", har="#3a2418", seed=10,
         interaktiv=ia("Märta Hallin", "Märta Hallin står vid klädställningen, fortfarande sminkad, i höga klackar.", material=["u-marta-loge"])),
     obj("kalle", "person", [0.8, 0, 3.0], rot=-150, rock="#3a3a34", byxor="#2a2a26", hatt="mossa", hattfarg="#2a2a26", har="#5a4a3a", forklade=True, seed=11,
@@ -192,10 +192,10 @@ forhor = {"id": "forhoret", "namn": "Förhör", "mekanik": "forhor", "payload": 
   "instruktion": "Tryck på en utsaga och sedan på en annan utsaga – eller ett fynd – som den inte kan stämma med. Tryck sedan på Invänd! Fel invändningar kostar ingenting.",
   "utsagor": [
     {"id": "u-viv", "person": "viveka", "titel": "Fru Sterner om scenen", "text": "Gösta flyttade mig till tejpen i går, på generalrepetitionen. Jag stod där, precis som han sagt. Hade jag stått vid krysset som förut …"},
-    {"id": "u-viv-wall", "person": "viveka", "titel": "Fru Sterner om sufflösen", "kraver": ["f-brevet"], "text": "Brevet? Ja, jag har sagt till chefen att jag vill ha en ny sufflös. Agnes mumlar. Men hon har bott i det där rummet uppe under taket i trettio år – vart skulle hon ta vägen? Det har jag inte tänkt på."},
+    {"id": "u-viv-wall", "person": "viveka", "titel": "Fru Sterner om sufflösen", "kraver": ["f-brevet"], "text": "Brevet? Ja, jag har sagt till chefen att jag vill ha en ny sufflös. Agnes mumlar. Jag sa det rakt ut här i korridoren i förrgår – alla hörde det, Agnes också. Men hon har bott i det där rummet uppe under taket i över trettio år – vart skulle hon ta vägen? Det har jag inte tänkt på."},
     {"id": "u-agren", "person": "agren", "titel": "Ågren om monologen", "text": "Klockan halv tio tappade jag repliken mitt i monologen. Jag tittade ner mot luckan – den var mörk och tom. Ingen viskade något. Jag fick hitta på en mening tills jag kom på texten igen."},
     {"id": "u-ruth", "person": "ruth", "titel": "Inspicienten om Kalle", "text": "Kalle stod vid regnmaskinen bakom kulissen, en meter från min pulpet, från tjugo över nio tills ridån gick ner. Jag gav honom signalerna själv. Han rörde sig inte därifrån."},
-    {"id": "u-persson", "person": "persson", "titel": "Brandvakten om stegen", "text": "Kalle kom ner för stegen tolv över nio, efter sista linkörningen. Efter det gick ingen upp eller ner – jag satt här vid foten hela tiden. Fröken Hallin stod bredvid mig i kulissen från tjugo över nio. Hon ska inte stå där, men jag sa inget."},
+    {"id": "u-persson", "person": "persson", "titel": "Brandvakten om stegen", "text": "Kalle kom ner för stegen tolv över nio, efter sista linkörningen. Efter det gick ingen upp eller ner – jag satt här vid foten hela tiden. Fröken Hallin stod bredvid mig i kulissen från tjugo över nio tills ridån gick ner. Hon ska inte stå där, men jag sa inget."},
     {"id": "u-wall-lucka", "person": "wall", "titel": "Fru Wall om andra akten", "text": "Jag satt i min lucka hela andra akten, från ridå upp till ridå ner. Jag lämnade den inte en sekund. Det gör jag aldrig."},
     {"id": "u-wall-genrep", "person": "wall", "titel": "Fru Wall om generalrepetitionen", "text": "I går låg jag sjuk, ja, en elev fick suffla. Men jag har följt den här pjäsen i sex veckor. Jag vet var var och en står."},
     {"id": "u-marta-loge", "person": "marta", "titel": "Märta om andra akten", "text": "Jag satt i min loge och lyssnade i högtalaren hela andra akten. Jag var inte ens i närheten av scenen."},
@@ -208,7 +208,7 @@ forhor = {"id": "forhoret", "namn": "Förhör", "mekanik": "forhor", "payload": 
   ],
   "motsagelser": [
     {"id": "m-wall", "par": [["u-wall-lucka", "f-korbok"], ["u-wall-lucka", "u-agren"]], "ger_fynd": "f-wall-borta", "text": "Fru Wall säger att hon inte lämnade luckan en sekund – men när Ågren tappade repliken kl. 21.30 var luckan mörk och tom, och ingen sufflerade."},
-    {"id": "m-marta", "par": [["u-marta-loge", "u-persson"], ["u-marta-loge", "f-persson"]], "ger_fynd": "f-marta-ljog", "text": "Märta säger att hon satt i logen – men brandman Persson såg henne i kulissen från 21.20."},
+    {"id": "m-marta", "par": [["u-marta-loge", "u-persson"], ["u-marta-loge", "f-persson"]], "ger_fynd": "f-marta-ljog", "text": "Märta säger att hon satt i logen – men brandman Persson såg henne i kulissen från 21.20 tills ridån gick ner."},
     {"id": "m-wern", "par": [["u-wern-viveka", "f-lappen"]], "ger_fynd": "f-wern-ljog", "text": "Wern säger att de aldrig har haft ett ont ord – men hans egen lapp under hennes spegel säger: ”Gör som jag säger eller gå.”"}
   ],
   "fel_text": "Strand skakar på huvudet: ”De två kan mycket väl vara sanna samtidigt.” Ingen motsägelse – försök med något annat."
@@ -221,29 +221,29 @@ fall["fynd"] = [
   {"id": "f-tejpen", "titel": "Tejpen och krysset", "ikon": "✖️", "typ": "nyckel", "text": "Fru Sterner stod vid den vita tejpen, en meter från kritkrysset. Krysset var hennes gamla plats i scen 2:3."},
   {"id": "f-genrep", "titel": "Generalrepetitionen", "ikon": "📋", "typ": "nyckel", "galler": ["wall"], "text": "Vid generalrepetitionen i går flyttades fru Sterner i scen 2:3 från kritkrysset till den vita tejpen. Alla var där utom fru Wall, som låg sjuk."},
   {"id": "f-korbok", "titel": "Körboken", "ikon": "📖", "typ": "nyckel", "galler": ["wall"], "text": "Inspicientens körbok: 21.30 Ågren tappar repliken – ingen sufflering. 21.32 sandsäcken faller på repliken ”Nu eller aldrig, Henrik!”. 21.33 ridå."},
-  {"id": "f-persson", "titel": "Brandvakten vid stegen", "ikon": "🧯", "typ": "nyckel", "galler": ["marta"], "text": "Brandman Persson satt vid järnstegen hela kvällen. Kalle kom ner kl. 21.12; efter det gick ingen upp eller ner. Märta Hallin stod bredvid Persson i kulissen från 21.20."},
+  {"id": "f-persson", "titel": "Brandvakten vid stegen", "ikon": "🧯", "typ": "nyckel", "galler": ["marta"], "text": "Brandman Persson satt vid järnstegen hela kvällen. Kalle kom ner kl. 21.12; efter det gick ingen upp eller ner. Märta Hallin stod bredvid Persson i kulissen från 21.20 tills ridån gick ner."},
   {"id": "f-kalle-alibi", "titel": "Kalle vid regnmaskinen", "ikon": "🌧️", "typ": "nyckel", "galler": ["kalle"], "text": "Inspicienten: Kalle stod vid regnmaskinen, en meter från hennes pulpet, från 21.20 tills ridån gick ner. Hon gav honom signalerna själv."},
-  {"id": "f-wern-alibi", "titel": "Wern på rad 7", "ikon": "💺", "typ": "nyckel", "galler": ["wern"], "text": "Regissör Wern satt på rad 7, mitt framför dig, hela andra akten. Han reste sig först när sandsäcken föll."},
-  {"id": "f-lina", "titel": "Lina 7", "ikon": "🪢", "typ": "nyckel", "text": "Nagel 7 på nagelbänken är tom, och lina 7 ligger hel nere på scenen – varken skuren eller nött. Beslaget lossnar inte av sig självt: någon lyfte av linan från nageln när sandsäcken föll."},
+  {"id": "f-wern-alibi", "titel": "Wern på rad 7", "ikon": "💺", "typ": "nyckel", "galler": ["wern"], "text": "Regissör Wern satt på rad 7, mitt framför dig, hela andra akten. Han satt kvar ända tills sandsäcken föll."},
+  {"id": "f-lina", "titel": "Lina 7", "ikon": "🪢", "typ": "nyckel", "text": "Nagel 7 på nagelbänken är tom, och lina 7 ligger hel nere på scenen – varken skuren eller nött. En belagd lina lossnar inte av sig själv: någon lyfte av den från nageln när sandsäcken föll."},
   {"id": "f-korschema", "titel": "Körschemat", "ikon": "🗒️", "typ": "stod", "text": "Inga linkörningar mellan 21.12 och 21.45 – lindraget var tomt under scen 2:3. Körningarna görs på replik: man ser inte scengolvet därifrån, men hör varje ord."},
   {"id": "f-penna", "titel": "Blyertspennan", "ikon": "✏️", "typ": "stod", "galler": ["wall"], "text": "En kort gul blyertspenna, tuggad i änden, låg på golvet framför nagelbänken."},
   {"id": "f-trappa", "titel": "Spiraltrappan", "ikon": "🌀", "typ": "nyckel", "text": "Utom järnstegen från scenen leder bara spiraltrappan upp till lindraget – från undre maskineriet. I dammet på trappan syns färska spår."},
   {"id": "f-maskindorr", "titel": "Dörren till maskineriet", "ikon": "🔐", "typ": "nyckel", "galler": ["kalle", "wall"], "text": "Dörren mellan logekorridoren och undre maskineriet är låst och oskadad. Nycklar finns bara hos scenmästaren och sufflösen."},
-  {"id": "f-lucktrappa", "titel": "Stegen till luckan", "ikon": "🪜", "typ": "nyckel", "galler": ["wall"], "text": "Från sufflörluckan leder en kort stege rakt ner i undre maskineriet – sufflösens egen väg."},
-  {"id": "f-scenlucka", "titel": "Scenluckan", "ikon": "🔩", "typ": "stod", "text": "Scenluckan är fastskruvad underifrån med dammiga vingmuttrar, och dekorens bord står ovanpå. Ingen har öppnat den i kväll."},
+  {"id": "f-lucktrappa", "titel": "Stegen till luckan", "ikon": "🪜", "typ": "nyckel", "galler": ["wall"], "text": "Från sufflörluckan leder en kort stege rakt ner i undre maskineriet – sufflösens egen väg. Från scenen kommer ingen ner i luckan under föreställning utan att publiken ser det."},
+  {"id": "f-scenlucka", "titel": "Scenluckorna", "ikon": "🔩", "typ": "stod", "text": "Scenens två luckor är fastskruvade underifrån med dammiga vingmuttrar, och dekorens möbler står ovanpå. Ingen har öppnat dem i kväll."},
   {"id": "f-spar", "titel": "Spåren i dammet", "ikon": "👞", "typ": "stod", "text": "Färska spår i dammet går från stegen under sufflörluckan till spiraltrappan och tillbaka. Små skor med låg klack."},
   {"id": "f-exemplaret", "titel": "Sufflörsexemplaret", "ikon": "📕", "typ": "nyckel", "galler": ["wall"], "text": "Sufflösens manus låg tappat vid stegens fot. Där står vid repliken ”Nu eller aldrig, Henrik!”: ”V. vid krysset.” Ändringen från generalrepetitionen finns inte med."},
-  {"id": "f-brevet", "titel": "Brevutkastet", "ikon": "✉️", "typ": "stod", "galler": ["wall"], "text": "Fru Sterner har skrivit till teaterchefen: fru Wall måste bort till nyår, annars spelar hon inte i vår.", "forklaring": "Motivet: fru Wall skulle förlora både arbetet och rummet i teaterhuset där hon bott i trettio år."},
+  {"id": "f-brevet", "titel": "Brevutkastet", "ikon": "✉️", "typ": "stod", "galler": ["wall"], "text": "Fru Sterner har skrivit till teaterchefen: fru Wall måste bort till nyår, annars spelar hon inte i vår.", "forklaring": "Motivet: fru Wall skulle förlora både arbetet och rummet i teaterhuset där hon bott i över trettio år."},
   {"id": "f-rollistan", "titel": "Ersättaren", "ikon": "🎟️", "typ": "avledande", "galler": ["marta"], "text": "Märta Hallin är fru Sterners ersättare. Faller fru Sterner bort är det hon som spelar Laura.", "forklaring": "Ett motiv – men Märta stod bredvid brandvakten hela scenen, och hon visste om ändringen från generalrepetitionen."},
   {"id": "f-lappen", "titel": "Werns lapp", "ikon": "📝", "typ": "avledande", "galler": ["wern"], "text": "Under fru Sterners spegel: ”Ni spelar MIN pjäs, inte er egen. Gör som jag säger eller gå. /G. W.”", "forklaring": "Wern grälade med henne om scen 2:3 – det var därför han flyttade henne till tejpen. Han satt på rad 7 hela akten."},
   {"id": "f-wall-borta", "titel": "Luckan var tom", "ikon": "🕳️", "typ": "nyckel", "galler": ["wall"], "text": "Fru Wall säger att hon inte lämnade sufflörluckan en sekund – men kl. 21.30 var luckan mörk och tom, och ingen sufflerade när Ågren tappade repliken."},
-  {"id": "f-marta-ljog", "titel": "Märta i kulissen", "ikon": "🎭", "typ": "avledande", "galler": ["marta"], "text": "Märta sa att hon satt i logen, men hon stod i kulissen bredvid brandvakten från 21.20.", "forklaring": "Hon ljög för att ersättare inte får stå i kulisserna under föreställning – och hennes lögn ger henne i själva verket ett alibi."},
+  {"id": "f-marta-ljog", "titel": "Märta i kulissen", "ikon": "🎭", "typ": "avledande", "galler": ["marta"], "text": "Märta sa att hon satt i logen, men hon stod i kulissen bredvid brandvakten från 21.20 tills ridån gick ner.", "forklaring": "Hon ljög för att ersättare inte får stå i kulisserna under föreställning – och hennes lögn ger henne i själva verket ett alibi."},
   {"id": "f-wern-ljog", "titel": "Grälet", "ikon": "💢", "typ": "avledande", "galler": ["wern"], "text": "Wern sa att han och fru Sterner aldrig haft ett ont ord, men hans lapp under hennes spegel säger annat.", "forklaring": "Ett gräl om en scen är inget mordförsök. Wern satt på rad 7 hela akten – och han visste bättre än någon att hon inte längre stod vid krysset."}
 ]
 
 fall["slutsatser"] = [
   {"id": "s-olycka", "kraver": ["f-lina", "u-kalle-knut"], "fraga": "Kan sandsäcken ha fallit av sig själv?", "alternativ": [
-    {"text": "Ja – beslaget på nageln gav efter.", "svar": "Kalle slog fast linan med åttor och ett låsslag. Det lossnar inte av sig självt – någon lyfte av den."},
+    {"text": "Ja – linan gled av nageln.", "svar": "Kalle lade linan i åttor med ett låsslag. Den lossnar inte av sig själv – någon lyfte av den."},
     {"text": "Ja – linan var nött och brast.", "svar": "Linan ligger hel på scenen, varken skuren eller nött."},
     {"text": "Nej – någon lyfte av linan från nageln, uppe på lindraget, när sandsäcken föll kl. 21.32.", "ratt": True}],
    "slutsats": "Det var ingen olycka. Någon stod vid nagelbänken på lindraget kl. 21.32."},
@@ -253,9 +253,9 @@ fall["slutsatser"] = [
     {"text": "Uppför spiraltrappan från undre maskineriet.", "ratt": True}],
    "slutsats": "Ingen använde järnstegen. Vägen gick genom undre maskineriet och uppför spiraltrappan."},
   {"id": "s-undre", "kraver": ["f-maskindorr", "f-lucktrappa", "f-scenlucka"], "efter": ["s-vagen"], "fraga": "Vilka kunde ta sig in i undre maskineriet under andra akten?", "alternativ": [
-    {"text": "Vem som helst bakom scenen.", "svar": "Dörren från logekorridoren var låst och oskadad, och scenluckan var fastskruvad."},
+    {"text": "Vem som helst bakom scenen.", "svar": "Dörren från logekorridoren var låst och oskadad, och scenluckorna var fastskruvade."},
     {"text": "Den som hade nyckel till dörren – Kalle och fru Wall – eller den som satt i sufflörluckan.", "ratt": True},
-    {"text": "Bara den som öppnade scenluckan.", "svar": "Scenluckan är fastskruvad underifrån, muttrarna är dammiga och bordet i dekoren står ovanpå."}],
+    {"text": "Den som öppnade en scenlucka.", "svar": "Båda scenluckorna är fastskruvade underifrån, muttrarna är dammiga och dekorens möbler står ovanpå."}],
    "slutsats": "Under akten kom man bara in i undre maskineriet med nyckel – Kalles eller fru Walls – eller genom sufflörluckan, där fru Wall satt."},
   {"id": "s-kalle", "kraver": ["f-kalle-alibi"], "efter": ["s-undre"], "fraga": "Kalle har nyckel och kan linorna bättre än någon. Kan han ha gjort det?", "alternativ": [
     {"text": "Ja – han har nyckeln och slog själv knuten.", "svar": "Var befann han sig kl. 21.32?"},
@@ -265,11 +265,11 @@ fall["slutsatser"] = [
     {"text": "Ja – sufflösen sitter alltid i luckan.", "svar": "Vad hände när Ågren tappade repliken kl. 21.30?"},
     {"text": "Nej – kl. 21.30 var luckan mörk och tom, och ingen sufflerade när Ågren tappade repliken.", "ratt": True}],
    "slutsats": "Fru Wall lämnade luckan strax före 21.30 – just när någon gick genom undre maskineriet och uppför spiraltrappan."},
-  {"id": "s-krysset", "kraver": ["f-sandsack", "f-tejpen", "f-genrep"], "fraga": "Av tio linor valdes lina 7, som hänger rakt över kritkrysset – inte över tejpen där fru Sterner stod. Vad säger det om den som släppte sandsäcken?", "alternativ": [
-    {"text": "Ingenting – sandsäcken föll där den råkade hänga.", "svar": "Den som stod vid nagelbänken valde själv vilken lina den lyfte av – och släppte den på repliken då fru Sterner skulle stå på sin plats."},
-    {"text": "Den trodde att fru Sterner stod vid krysset. Den visste inte om ändringen vid generalrepetitionen – och där var alla utom fru Wall.", "ratt": True},
-    {"text": "Den ville bara skrämma henne och siktade bredvid.", "svar": "Från lindraget ser man inte golvet för strålkastarna. Man släpper på repliken – och krysset var hennes plats fram till i går."}],
-   "slutsats": "Den som släppte sandsäcken siktade på krysset och visste inte om ändringen från generalrepetitionen. Alla utom fru Wall var där."},
+  {"id": "s-krysset", "kraver": ["f-sandsack", "f-tejpen", "f-genrep", "f-exemplaret"], "fraga": "Sandsäcken föll på kritkrysset – fru Sterners plats fram till i går. Vem trodde fortfarande att hon stod där?", "alternativ": [
+    {"text": "Alla i ensemblen.", "svar": "Alla i ensemblen var på generalrepetitionen när hon flyttades till tejpen."},
+    {"text": "Regissören.", "svar": "Det var Wern själv som flyttade henne."},
+    {"text": "Den som missade generalrepetitionen – vars manus fortfarande säger ”V. vid krysset”.", "ratt": True}],
+   "slutsats": "Bara den som missade generalrepetitionen kunde tro att fru Sterner stod vid krysset. Det var fru Wall – och hennes manus säger fortfarande ”V. vid krysset”."},
   {"id": "s-marta", "kraver": ["f-marta-ljog", "f-rollistan"], "fraga": "Märta ljög om att hon satt i logen, och hon får rollen om fru Sterner faller bort. Kan hon ha gjort det?", "alternativ": [
     {"text": "Ja – hon hade motiv och ljög.", "svar": "Var stod hon när hon ljög om var hon var?"},
     {"text": "Nej – hon stod i kulissen bredvid brandman Persson från 21.20, och hon var på generalrepetitionen.", "ratt": True}],
@@ -291,9 +291,9 @@ fall["anklagelse"] = {"hur_fraga": "Hur kom gärningspersonen åt sandsäcken?",
 fall["ledtradar"] = [
   {"niva": 1, "kostnad": 10, "kraver": ["f-sandsack", "f-lina"], "text": "Börja med frågan om det var en olycka. Gå upp på lindraget och titta på linan och nageln som sandsäcken hängde i – och ta reda på vilka vägar som leder dit upp."},
   {"niva": 2, "kostnad": 25, "kraver": ["f-trappa", "f-persson", "f-maskindorr", "f-lucktrappa"], "text": "Om någon stod vid nagelbänken kl. 21.32: vilken väg tog den upp, och vilka kunde över huvud taget ta sig in i undre maskineriet under akten? Ta sedan reda på var var och en av dem befann sig."},
-  {"niva": 3, "kostnad": 50, "kraver": ["f-kalle-alibi", "f-genrep", "f-korbok", "f-exemplaret"], "text": "Scenmästaren syntes vid regnmaskinen hela tiden. Sandsäcken föll på det gamla kritkrysset – den som valde lina 7 visste inte att fru Sterner hade flyttats i går. Vem missade generalrepetitionen, och vad hände när Ågren tappade repliken kl. 21.30?"}]
+  {"niva": 3, "kostnad": 50, "kraver": ["f-kalle-alibi", "f-genrep", "f-korbok", "f-exemplaret"], "text": "Scenmästaren syntes vid regnmaskinen hela tiden. Sandsäcken föll på det gamla kritkrysset – vem trodde fortfarande att fru Sterner stod där? Och vad hände när Ågren tappade repliken kl. 21.30?"}]
 fall["aterkoppling"] = {
-  "ratt": "Den som sitter i sufflörluckan ser allt och syns aldrig. Agnes Wall hade bott i sitt rum under taket i trettio år, och nu skulle fru Sterner få henne utkastad till nyår. Strax före halv tio smög hon ner ur luckan, genom undre maskineriet och uppför spiraltrappan. Hon lyfte av lina 7 på repliken hon kunde utantill – men hennes manus visste inte att fru Sterner hade flyttats en meter vid generalrepetitionen, den enda kväll hon saknats. Ågren tappade repliken, och ingen viskade den till honom.",
+  "ratt": "Den som sitter i sufflörluckan ser allt och syns aldrig. Agnes Wall hade bott i sitt rum under taket i över trettio år, och nu skulle fru Sterner få henne utkastad till nyår. Strax före halv tio smög hon ner ur luckan, genom undre maskineriet och uppför spiraltrappan. Hon lyfte av lina 7 på repliken hon kunde utantill – men hennes manus visste inte att fru Sterner hade flyttats en meter vid generalrepetitionen, den enda kväll hon saknats. Ågren tappade repliken, och ingen viskade den till honom.",
   "fel": {
     "marta": "Märta ljög om logen, men just därför har hon ett alibi: brandvakten såg henne i kulissen hela scenen. Och hon visste var fru Sterner skulle stå.",
     "wern": "Wern grälade med fru Sterner – men han satt framför dig på rad 7, och det var han som flyttade henne till tejpen.",
@@ -302,11 +302,11 @@ fall["aterkoppling"] = {
   "forklaring_steg": [
     {"text": "Lina 7 är hel och har lyfts av nageln. Det var ingen olycka – någon stod på lindraget kl. 21.32.", "fynd": ["f-lina", "f-sandsack"]},
     {"text": "Brandvakten satt vid järnstegen, och efter 21.12 gick ingen upp. Den enda andra vägen är spiraltrappan från undre maskineriet.", "fynd": ["f-persson", "f-trappa"]},
-    {"text": "Dörren till undre maskineriet var låst, och scenluckan fastskruvad. In kom bara den som hade nyckel – Kalle eller fru Wall – eller den som satt i sufflörluckan.", "fynd": ["f-maskindorr", "f-scenlucka", "f-lucktrappa"]},
+    {"text": "Dörren till undre maskineriet var låst, och scenluckorna fastskruvade. In kom bara den som hade nyckel – Kalle eller fru Wall – eller den som satt i sufflörluckan.", "fynd": ["f-maskindorr", "f-scenlucka", "f-lucktrappa"]},
     {"text": "Kalle stod vid regnmaskinen under inspicientens ögon. Märta stod bredvid brandvakten, och Wern satt på rad 7.", "fynd": ["f-kalle-alibi", "f-marta-ljog", "f-wern-alibi"]},
     {"text": "Fru Wall säger att hon inte lämnade luckan – men kl. 21.30 var den tom, och ingen sufflerade Ågren.", "fynd": ["f-wall-borta", "f-korbok"]},
     {"text": "Sandsäcken föll på kritkrysset, inte på tejpen. Den som släppte den visste inte om ändringen vid generalrepetitionen, och fru Walls manus säger fortfarande ”V. vid krysset”.", "fynd": ["f-genrep", "f-exemplaret", "f-tejpen"]},
-    {"text": "Fru Wall är skyldig. Fru Sterner ville få henne avskedad till nyår – och med arbetet skulle hon förlora rummet där hon bott i trettio år.", "fynd": ["f-brevet", "f-penna"]}]}
+    {"text": "Fru Wall är skyldig. Fru Sterner ville få henne avskedad till nyår – och med arbetet skulle hon förlora rummet där hon bott i över trettio år.", "fynd": ["f-brevet", "f-penna"]}]}
 
 # Miljöljud per rum (se js/ljud.js)
 LJUD = {"undre": ["dropp"], "lindraget": [{"typ": "vind", "styrka": 0.2}]}
