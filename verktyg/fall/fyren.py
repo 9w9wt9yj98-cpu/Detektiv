@@ -1,6 +1,10 @@
 # Genererar fall/fyren-pa-graskar.json (källan för fallet – redigera här och kör om).
 import json, os
 T = True
+# 3D-modeller för förhandsgranskningen ?stil=verklig (se js/tre/modeller.js och modeller/KALLOR.md)
+BORD = {"fil": "modeller/wooden_table_02.glb", "passa": "box"}
+LAMPA = {"fil": "modeller/vintage_oil_lamp.glb", "passa": "skala", "skala": 0.7, "glas": ["vintage_oil_lamp_glass"]}
+KANNOR = {"delar": {"kanna": {"fil": "modeller/oil_tin.glb", "passa": "box"}}}
 def obj(id, typ, pos, **kw):
     d = {"id": id, "typ": typ, "pos": pos}; d.update(kw); return d
 def ia(namn, text, fynd=None, material=None):
@@ -27,7 +31,7 @@ fall = {"id": "fyren-pa-graskar", "version": 1,
 # ---------- Tornet ----------
 tornet = {"id": "tornet", "namn": "Tornets nedre avsats", "mekanik": "scen", "payload": {"visning": "3d", "rum": {
   "bredd": 4.4, "djup": 4.4, "hojd": 4.2, "miljo": "inomhus", "vagg": "sten", "panel": False, "bakgrund": "#0e1216", "dimma": [5, 13, "#12171c"],
-  "golv": {"typ": "sten"},
+  "golv": {"typ": "sten"}, "verklig_golv": "hallar",
   "ljus": {"omgivning": "#c8d0d8", "omgivning_styrka": 0.45, "bas": 0.25},
   "start": {"pos": [-0.5, 1.5], "titta": 10},
   "objekt": [
@@ -36,7 +40,7 @@ tornet = {"id": "tornet", "namn": "Tornets nedre avsats", "mekanik": "scen", "pa
         "Fyrmästaren ligger under en grå filt på nedre avsatsen, tvärs över trappans första steg. Nålad på filten sitter doktor Lagerkvists anteckning från fyndet. Du lyfter filten: blåmärken på båda överarmarna, som efter ett hårt grepp. I bröstfickan sitter blyertspennan kvar.", "f-blamarken", ["dok-fyndet"])),
     obj("elof", "person", [1.3, 0, 1.0], rot=-140, rock="#3a4a5a", byxor="#2a2a30", har="#c8a060", glasogon=True, seed=3,
         interaktiv=ia("Elof Granath", "Elof skakar hand med båda händerna. ”Tack för att ni kom! Papperen ligger där de hör hemma – loggboken och instruktionen uppe i lanternan, min dagbok i stugan, doktorns journal på stationen. Fråga mig vad som helst. Jag vill bara att det här ska bli utrett, för Signes skull.”", "f-elof-hjalp")),
-    obj("kannor", "fotogen", [-1.6, 0, 1.7], antal=3),
+    obj("kannor", "fotogen", [-1.6, 0, 1.7], antal=3, modell=KANNOR),
     obj("lampa1", "vagglampa", [-2.18, 2.0, 0.4], rot=90, styrka=1.2, flimrar=True, farg="#ffd08a"),
     obj("lampa2", "vagglampa", [2.18, 2.0, -0.2], rot=-90, styrka=1.0, flimrar=True, farg="#ffd08a"),
     obj("bok", "anteckningsbok", [-1.6, 0.45, 1.7], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
@@ -65,7 +69,7 @@ lanternan = {"id": "lanternan", "namn": "Lanternan", "mekanik": "scen", "last_up
     obj("instruktion", "tavelkarta", [-1.785, 1.6, -0.8], rot=90, storlek=[0.7, 0.9], textstorlek=20,
         text="KUNGL. LOTSVERKET\nFYRINSTRUKTION\nGråskär 1924\n\n§ 7. Urverket drages upp\nvarannan timme ...\n\n§ 9. Loggboken föres\nalltid med blyerts ...",
         interaktiv=ia("Fyrinstruktionen", "Den tryckta instruktionen hänger i ram på väggen. Du skriver av paragraferna om urverket och loggboken.", material=["dok-instruktion"])),
-    obj("bord", "bord", [-0.9, 0, 1.1], storlek=[0.9, 0.75, 0.6], farg="#5a4a3a"),
+    obj("bord", "bord", [-0.9, 0, 1.1], storlek=[0.9, 0.75, 0.6], farg="#5a4a3a", modell=BORD),
     obj("loggboken", "liggare", [-0.9, 0.75, 1.1], storlek=[0.46, 0.32], farg="#2a3a4a", interaktiv=ia("Loggboken", "Fyrens loggbok ligger uppslagen vid natten mellan den 13 och 14 oktober. En ny blyertspenna från förrådet ligger i falsen.", material=["dok-loggbok"])),
     obj("bok", "anteckningsbok", [-0.6, 0.75, 1.25], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("pulpet", "pulpet", [1.2, 0, 1.2], rot=-130, interaktiv=ia("Fyrmästarens pulpet", "I pulpetens lock ligger ett utkast i Holgers kantiga blyertsstil, adresserat till Kungl. Lotsverket. Han hann aldrig skicka det.", "f-anmalan", ["dok-anmalan"])),
@@ -85,12 +89,12 @@ koket = {"id": "koket", "namn": "Fyrmästarbostadens kök", "mekanik": "scen", "
         interaktiv=ia("Johan Sjöberg", "Fiskaren ligger på köksbänken med vänsterbenet spjälat mellan två brädor. Doktorn spjälade det kvällen före olyckan. Johan kan inte ens sätta ned foten.", ["f-johan-ben", "f-johan-koket"], ["dok-johan"])),
     obj("signe", "person", [-0.4, 0, -0.5], rot=25, kon="k", rock="#2a2a30", har="#8a6a4a", hatt="sjalett", hattfarg="#1a1a1e", seed=0,
         interaktiv=ia("Signe Wenngren", "Signe står vid spisen och vrider en handduk mellan händerna. Hon talar lågt och ser mot fönstret.", "f-duns-signe", ["dok-signe"])),
-    obj("byra", "byra", [-1.89, 0, 0.6], rot=90, storlek=[1.0, 0.85, 0.45]),
-    obj("klockan", "pendyl", [-1.89, 0.85, 0.3], rot=90),
-    obj("brevet", "papper", [-1.85, 0.85, 0.85], rot=90, interaktiv=ia("Ett brev i byrålådan", "Halvt undanstoppat i byrålådan ligger ett oavsänt brev i Signes handstil, adresserat till en man i Norrtälje.", "f-signe-brev", ["dok-brevet"])),
+    obj("byra", "byra", [-1.89, 0, 0.6], rot=90, storlek=[1.0, 0.85, 0.45], modell={"fil": "modeller/gothic_commode_01.glb", "passa": "box", "pos": [0, -0.015, 0]}),
+    obj("klockan", "pendyl", [-1.89, 0.85, 0.3], rot=90, tid=[7, 0], modell={"fil": "modeller/mantel_clock_01.glb", "passa": "skala", "urtavla": {"nod": "mantel_clock_01_glass", "tid": [7, 0]}}),
+    obj("brevet", "papper", [-1.85, 0.85, 0.85], rot=90, interaktiv=ia("Ett brev på byrån", "På byrån ligger ett oavsänt brev i Signes handstil, adresserat till en man i Norrtälje. Det har legat undanstoppat i byrålådan.", "f-signe-brev", ["dok-brevet"])),
     obj("fonster", "stormfonster", [0.3, 0, -1.89], bredd=0.9, hojd=1.0, y0=1.0, ram="#e8e2d2"),
-    obj("bord", "bord", [0.3, 0, 0.5], storlek=[1.0, 0.75, 0.7], farg="#8a6a44", duk=True),
-    obj("lampa", "oljelampa", [0.5, 0.75, 0.4], ljus=True, styrka=2.0),
+    obj("bord", "bord", [0.3, 0, 0.5], storlek=[1.0, 0.75, 0.7], farg="#8a6a44", duk=True, modell={"fil": "modeller/dining_table.glb", "passa": "box", "pos": [0, -0.008, 0], "behall": False}),
+    obj("lampa", "oljelampa", [0.5, 0.75, 0.4], ljus=True, styrka=2.0, modell=LAMPA),
     obj("bok", "anteckningsbok", [0.1, 0.75, 0.6], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr", "dorr", [0.9, 0, 1.89], rot=180, farg="#4a3a2a", gar_till="tornet", interaktiv=ia("Köksdörren", "Den enda dörren ut ur bostaden – genom köket. Tillbaka till tornet.")),
   ]}}}
@@ -103,11 +107,11 @@ stugan = {"id": "stugan", "namn": "Biträdesstugan", "mekanik": "scen", "payload
   "start": {"pos": [-0.6, 1.1], "titta": 10},
   "objekt": [
     obj("sang", "sang", [1.0, 0, -0.6]),
-    obj("bord", "bord", [-0.9, 0, -1.2], storlek=[0.9, 0.75, 0.6], farg="#6a4a2c"),
-    obj("dagboken", "liggare", [-1.05, 0.75, -1.2], storlek=[0.34, 0.24], farg="#5a2a1a", interaktiv=ia("Elofs dagbok", "En svart dagbok, prydligt förd med reservoarpenna. Ett bokmärke ligger vid natten mot den fjortonde.", material=["dok-dagbok"])),
+    obj("bord", "bord", [-0.9, 0, -1.2], storlek=[0.9, 0.75, 0.6], farg="#6a4a2c", modell=BORD),
+    obj("dagboken", "liggare", [-1.05, 0.75, -1.2], storlek=[0.34, 0.24], farg="#1e1a18", interaktiv=ia("Elofs dagbok", "En svart dagbok, prydligt förd med reservoarpenna. Ett bokmärke ligger vid natten mot den fjortonde.", material=["dok-dagbok"])),
     obj("pennan", "skrivdon", [-0.65, 0.75, -1.25], interaktiv=ia("Reservoarpennan", "En fin reservoarpenna med guldnäbb och ett bläckhorn med blåsvart bläck. På pennan är ingraverat: ”Till E.G. från redaktionen, 1928”.", "f-pennan")),
-    obj("lampa", "oljelampa", [-1.25, 0.75, -1.3], ljus=True, styrka=2.0),
-    obj("kannor", "fotogen", [1.0, 0, 1.2], antal=2, interaktiv=ia("Fotogenkannor", "Två fotogenkannor med Kungl. Lotsverkets stämpel står bakom dörren – i biträdets egen stuga, inte i fyrens förråd. Båda är tomma.", "f-fotogen-stuga")),
+    obj("lampa", "oljelampa", [-1.25, 0.75, -1.3], ljus=True, styrka=2.0, modell=LAMPA),
+    obj("kannor", "fotogen", [1.0, 0, 1.2], antal=2, modell=KANNOR, interaktiv=ia("Fotogenkannor", "Två fotogenkannor med Kungl. Lotsverkets stämpel står på golvet – i biträdets egen stuga, inte i fyrens förråd. Båda är tomma.", "f-fotogen-stuga")),
     obj("fonster", "stormfonster", [0.0, 0, -1.69], bredd=0.8, hojd=0.9, y0=1.0, ram="#d8ccb0"),
     obj("bok", "anteckningsbok", [-0.6, 0.75, -1.05], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr", "dorr", [-0.8, 0, 1.69], rot=180, farg="#4a3a2a", gar_till="tornet", interaktiv=ia("Ut", "Tillbaka till tornet.")),
@@ -120,13 +124,13 @@ stationen = {"id": "stationen", "namn": "Väderstationen", "mekanik": "scen", "p
   "ljus": {"omgivning": "#ffe2b8", "omgivning_styrka": 0.55, "bas": 0.3},
   "start": {"pos": [-0.4, 1.1], "titta": 0},
   "objekt": [
-    obj("bord", "bord", [0.0, 0, -1.2], storlek=[1.4, 0.78, 0.6], farg="#6a5a40"),
+    obj("bord", "bord", [0.0, 0, -1.2], storlek=[1.4, 0.78, 0.6], farg="#6a5a40", modell=BORD),
     obj("barografen", "barograf", [0.35, 0.78, -1.25], interaktiv=ia("Barografen", "Barografens trumma vrids av ett urverk. Rullen från natten mot den fjortonde sitter kvar. Vid varje observation har doktorn tryckt ned tidsmärkespaken, som slår ett litet hack i kurvan.", "f-barograf", ["dok-barograf"])),
     obj("journalen", "liggare", [-0.35, 0.78, -1.2], storlek=[0.42, 0.3], farg="#3a3a2a", interaktiv=ia("Väderjournalen", "Doktorns journal, förd med vetenskaplig noggrannhet.", "f-gangvag", ["dok-journal"])),
     obj("lagerkvist", "person", [1.0, 0, 0.1], rot=-120, rock="#4a4a3a", byxor="#2a2a24", har="#c8c4b8", glasogon=True, skagg=True, seed=2,
         interaktiv=ia("Dr. Lagerkvist", "Doktorn putsar sina glasögon. ”Ni har väl läst min anteckning vid kroppen? Jag skrev den klockan tio över sex. Och nej, jag lämnade inte stationen den natten – stormvarning betyder observation var femtonde minut, och det har jag gjort i tjugo år.”", ["f-duns-lagerkvist", "f-grall"], ["dok-lagerkvist"])),
     obj("barometer", "vaggur", [1.79, 1.1, -0.6], rot=-90, tid=[7, 5], farg="#5a3a1a"),
-    obj("lampa", "oljelampa", [-0.6, 0.78, -1.3], ljus=True, styrka=2.0),
+    obj("lampa", "oljelampa", [-0.6, 0.78, -1.3], ljus=True, styrka=2.0, modell=LAMPA),
     obj("fonster", "stormfonster", [-1.79, 0, -0.3], rot=90, bredd=0.8, hojd=0.9, y0=1.0, ram="#d8ccb0"),
     obj("bok", "anteckningsbok", [0.0, 0.78, -1.05], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr", "dorr", [-0.6, 0, 1.69], rot=180, farg="#4a3a2a", gar_till="tornet", interaktiv=ia("Ut i stormen", "Tio minuter tillbaka till tornet.")),

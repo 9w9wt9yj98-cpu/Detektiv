@@ -17,6 +17,7 @@
 //   delar   { namn: spec } – byter bara prefabens delar märkta userData.del = namn (t.ex. "stol" i långbordet);
 //           spec som ovan; "fil" på översta nivån kan då utelämnas så att resten av prefaben står kvar
 //   lyser   namn på noder eller material vars material byts mot ett glödande lyktglas
+//   behall  false: dölj även prefabens delar som annars står kvar (t.ex. när modellen har en egen duk)
 //   urtavla { nod, tid: [h, m] } – lägger en urtavla som visar rätt tid över modellens urtavla (noden med glaset)
 import * as THREE from '../../vendor/three/three.module.min.js';
 import { GLTFLoader } from '../../vendor/three/addons/loaders/GLTFLoader.js';
@@ -114,9 +115,9 @@ function lokalBox(del) {
   });
   return b;
 }
-function dolj(rot) {
+function dolj(rot, allt = false) {
   rot.traverse((o) => {
-    if (!o.isMesh || o.userData.behall) return;
+    if (!o.isMesh || (o.userData.behall && !allt)) return;
     o.visible = false; o.layers.set(31); // syns inte och träffas inte av strålar (layer 31 används inte)
   });
 }
@@ -142,7 +143,7 @@ export async function ersattMedModell(g, def, prefabBox, { arLampa = false } = {
     return m;
   };
   const jobb = [];
-  if (spec.fil) jobb.push(byggModell(spec, prefabBox).then((m) => { dolj(g); g.add(forbered(m)); }));
+  if (spec.fil) jobb.push(byggModell(spec, prefabBox).then((m) => { dolj(g, spec.behall === false); g.add(forbered(m)); }));
   for (const [namn, delspec] of Object.entries(spec.delar || {})) {
     const delar = [];
     g.traverse((o) => { if (o.userData.del === namn) delar.push(o); });

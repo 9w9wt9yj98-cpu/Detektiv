@@ -13,16 +13,16 @@ Utseendet i övrigt är oförändrat.
 | Fil | Modell | Upphovspersoner | Källa | Licens | Används i |
 |---|---|---|---|---|---|
 | `gothic_bed_01.glb` | Gothic Bed 01 | Kirill Sannikov | https://polyhaven.com/a/GothicBed_01 | CC0 1.0 | Fall 1, sovrummet: sängen |
-| `gothic_commode_01.glb` | Gothic Commode 01 | Kirill Sannikov | https://polyhaven.com/a/GothicCommode_01 | CC0 1.0 | Fall 1, sovrummet: byrån. Fall 5: butiksdisken |
+| `gothic_commode_01.glb` | Gothic Commode 01 | Kirill Sannikov | https://polyhaven.com/a/GothicCommode_01 | CC0 1.0 | Fall 1, sovrummet: byrån. Fall 5: butiksdisken. Fall 6, köket: byrån |
 | `classic_nightstand_01.glb` | Classic Nightstand 01 | Kirill Sannikov | https://polyhaven.com/a/ClassicNightstand_01 | CC0 1.0 | Fall 1, sovrummet: fönsterbordet; köksgången: lampbordet. Fall 2, kupé 3: bordet |
 | `arm_chair_01.glb` | Arm Chair 01 | Kirill Sannikov | https://polyhaven.com/a/ArmChair_01 | CC0 1.0 | Fall 1, sovrummet: fåtöljen |
 | `round_wooden_table_01.glb` | Round Wooden Table 01 | Ulan Cabanilla | https://polyhaven.com/a/round_wooden_table_01 | CC0 1.0 | Fall 1, sovrummet: sidobordet och bordet med anteckningsboken. Fall 3: bordet med anteckningsboken |
-| `mantel_clock_01.glb` | Mantel Clock 01 | Yann Kervran, Rico Cilliers | https://polyhaven.com/a/mantel_clock_01 | CC0 1.0 | Fall 1, sovrummet och matsalen: pendylen (urtavlan med rätt tid läggs på av spelet) |
-| `vintage_oil_lamp.glb` | Vintage Oil Lamp | Monsta3D | https://polyhaven.com/a/vintage_oil_lamp | CC0 1.0 | Fall 1, sovrummet och köksgången; fall 5, poliskammaren och hos Rapps: oljelampan |
+| `mantel_clock_01.glb` | Mantel Clock 01 | Yann Kervran, Rico Cilliers | https://polyhaven.com/a/mantel_clock_01 | CC0 1.0 | Fall 1, sovrummet och matsalen; fall 6, köket: pendylen (urtavlan med rätt tid läggs på av spelet) |
+| `vintage_oil_lamp.glb` | Vintage Oil Lamp | Monsta3D | https://polyhaven.com/a/vintage_oil_lamp | CC0 1.0 | Fall 1, sovrummet och köksgången; fall 5, poliskammaren och hos Rapps; fall 6, köket, biträdesstugan och väderstationen: oljelampan |
 | `antique_ceramic_vase_01.glb` | Antique Ceramic Vase 01 | James Ray Cock | https://polyhaven.com/a/antique_ceramic_vase_01 | CC0 1.0 | Fall 1, sovrummet: den vältade vasen |
 | `fancy_picture_frame_01.glb` | Fancy Picture Frame 01 | Rob Tuytel, Rico Cilliers | https://polyhaven.com/a/fancy_picture_frame_01 | CC0 1.0 | Fall 1, sovrummet; fall 4, salen: tavlan |
 | `classic_console_01.glb` | Classic Console 01 | Kirill Sannikov | https://polyhaven.com/a/ClassicConsole_01 | CC0 1.0 | Fall 1, matsalen: skänken |
-| `wooden_table_02.glb` | Wooden Table 02 | Serhii Khromov | https://polyhaven.com/a/wooden_table_02 | CC0 1.0 | Fall 1, matsalen: bordet med gästlistan. Fall 2, restaurangvagnen: borden. Fall 3: protokollbordet. Fall 4: skrivbordet. Fall 5: borden på poliskammaren och hos Rapps |
+| `wooden_table_02.glb` | Wooden Table 02 | Serhii Khromov | https://polyhaven.com/a/wooden_table_02 | CC0 1.0 | Fall 1, matsalen: bordet med gästlistan. Fall 2, restaurangvagnen: borden. Fall 3: protokollbordet. Fall 4: skrivbordet. Fall 5: borden på poliskammaren och hos Rapps. Fall 6: borden i lanternan, biträdesstugan och väderstationen |
 | `dining_chair_02.glb` | Dining Chair 02 | James Ray Cock | https://polyhaven.com/a/dining_chair_02 | CC0 1.0 | Fall 1, matsalen: stolarna runt långbordet |
 | `chandelier_03.glb` | Chandelier 03 | Kirill Sannikov | https://polyhaven.com/a/Chandelier_03 | CC0 1.0 | Fall 1, matsalen: ljuskronan |
 | `chandelier_01.glb` | Chandelier 01 | Kirill Sannikov | https://polyhaven.com/a/Chandelier_01 | CC0 1.0 | Fall 1, köksgången: taklampan. Fall 2, restaurangvagnen: ljuskronan |
@@ -32,5 +32,7 @@ Utseendet i övrigt är oförändrat.
 | `painted_wooden_table.glb` | Painted Wooden Table | Kirill Sannikov | https://polyhaven.com/a/painted_wooden_table | CC0 1.0 | Fall 3, verandan: middagsbordet (duken ligger kvar) |
 | `painted_wooden_chair_01.glb` | Painted Wooden Chair 01 | Kuutti Siitonen | https://polyhaven.com/a/painted_wooden_chair_01 | CC0 1.0 | Fall 3: stolarna (platsnumren ligger kvar); fall 4: stolarna runt långbordet |
 | `street_lamp_01.glb` | Street Lamp 01 | Josh Dean | https://polyhaven.com/a/street_lamp_01 | CC0 1.0 | Fall 5, gatan: gatlyktorna (glaset glöder som förut) |
+| `dining_table.glb` | Dining Table | Aron Łyczek | https://polyhaven.com/a/dining_table | CC0 1.0 | Fall 6, köket: köksbordet med rutig duk |
+| `oil_tin.glb` | Oil Tin | Niklas | https://polyhaven.com/a/oil_tin | CC0 1.0 | Fall 6, tornet och biträdesstugan: fotogenkannorna (en modell per kanna, `modell.delar`) |
 
 Licenstext: https://creativecommons.org/publicdomain/zero/1.0/ – Poly Havens licensvillkor: https://polyhaven.com/license

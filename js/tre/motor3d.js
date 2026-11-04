@@ -121,7 +121,7 @@ export class Rum3D {
     if (!ute) {
       const golv = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: gtex, glans: golvTyp === 'tra' ? 0.45 : 0.85, metall: golvTyp === 'jarn' ? 0.6 : 0 }));
       golv.rotation.x = -Math.PI / 2; scen.add(golv);
-      if (golvTyp === 'tra' || golvTyp === 'sten') { ytor.golv = golv; ytor.golvTyp = golvTyp; }
+      ytor.golv = golv; // tre/ytor.js väljer textur efter golvtypen
     }
 
     if (ute) this.byggUte(rum, W, D);
@@ -170,7 +170,7 @@ export class Rum3D {
       let prefabBox = null;
       if (VERKLIG && def.modell) {
         prefabBox = new THREE.Box3(); g.updateMatrixWorld(true);
-        g.traverse((o) => { if (o.isMesh && !o.userData.behall) prefabBox.expandByObject(o); });
+        g.traverse((o) => { if (o.isMesh && (def.modell.behall === false || !o.userData.behall)) prefabBox.expandByObject(o); });
         if (prefabBox.isEmpty()) prefabBox.setFromObject(g);
       }
       const [x, y, z] = def.pos || [0, 0, 0];
