@@ -17,7 +17,11 @@ export async function handledning(browser) {
   await startaFall(p, ID);
   await p.locator('.coach').waitFor();
   await bild(p, 'f1-guide-1-ga');
-  await dra(p, [90, 650], [90, 560], 900);
+  // Guiden går vidare efter 0,7 m. På en hårt belastad dator blir det få bilder per sekund, så dra igen vid behov.
+  for (let n = 0; n < 4; n++) {
+    await dra(p, [90, 650], [90, 560], 900);
+    if (await p.evaluate(() => /Se dig omkring/.test(document.querySelector('.coach-text')?.textContent || ''))) break;
+  }
   await p.waitForFunction(() => /Se dig omkring/.test(document.querySelector('.coach-text')?.textContent || ''));
   await bild(p, 'f1-guide-2-titta');
   await dra(p, [330, 500], [180, 500], 100);
