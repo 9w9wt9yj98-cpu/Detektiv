@@ -65,17 +65,42 @@ export function redoSlutsatser(fall, st) {
   return (fall.slutsatser || []).filter((s) => !st.slutsatser?.[s.id] && (s.kraver || []).every((id) => har(st, id)) && (s.efter || []).every((x) => st.slutsatser?.[x]));
 }
 
-/** En kort mening om vad spelaren kan göra härnäst (gratis, avslöjar inget). */
-export function nastaSteg(fall, st) {
+/**
+ * Det gratis tipset i lampan och under Platser: en mening om vad spelaren kan göra härnäst. Det bygger bara på
+ * spelarens läge – vad som är hittat, upplåst och besvarat – och avslöjar aldrig lösningen.
+ * `framsteg(m)` ger en mekaniks framsteg: { hittade, totalt, text } (se mekaniker/index.js).
+ */
+export function nastaSteg(fall, st, { framsteg } = {}) {
   const r = rakning(fall, st);
-  const oppnaRum = Object.values(r.perRum).filter((x) => x.upplast && x.hittat < x.total);
-  const last = Object.values(r.perRum).filter((x) => !x.upplast);
+  const kvar = (x) => x.total - x.hittat;
   const redo = redoSlutsatser(fall, st);
-  if (redo.length) return `En ny fråga väntar under Slutsatser i anteckningsboken.`;
-  if (oppnaRum.length) return `Det finns mer att hitta i ${oppnaRum.map((x) => x.namn).join(' och ')}.`;
-  if (last.length) return `Allt i de öppna rummen är undersökt. Något du har hittat leder vidare – läs dina fynd igen.`;
-  const ml = Object.values(materialMap(fall));
-  void ml;
-  if (r.hittat >= r.total) return 'Du har hittat allt som går att hitta. Gå igenom slutsatserna och anklaga när du är säker.';
-  return '';
+  if (redo.length) return redo.length === 1 ? 'En ny fråga väntar under Slutsatser i anteckningsboken.' : `${redo.length} nya frågor väntar under Slutsatser i anteckningsboken.`;
+  // 1. Fynd kvar i rummet man står i, sedan i andra öppna rum
+  const har_ = r.perRum[st.rum];
+  if (har_?.upplast && kvar(har_) > 0) return `Det finns mer att hitta här i ${har_.namn} – ${kvar(har_)} kvar. Gå nära allt som har ett ! ovanför.`;
+  const oppna = Object.values(r.perRum).filter((x) => x.upplast && kvar(x) > 0);
+  if (oppna.length) return `Det finns mer att hitta i ${oppna.map((x) => `${x.namn} (${kvar(x)} kvar)`).join(' och ')}.`;
+  // 2. Ett pussel i anteckningsboken som är öppet men inte klart
+  for (const m of fall.moment.filter((x) => x.mekanik !== 'scen' && arUpplast(x, st))) {
+    const p = framsteg?.(m);
+    if (p && p.hittade < p.totalt) return `Öppna anteckningsboken och arbeta vidare med ”${m.namn}”: ${p.text}`;
+  }
+  // 3. Något som är låst – visa vägen till det som låser upp det
+  for (const m of fall.moment.filter((x) => !arUpplast(x, st))) {
+    const nyckel = (m.last_upp_av || []).find((x) => !har(st, x));
+    const v = nyckel && vagTill(fall, st, nyckel);
+    if (v) return `${m.namn} är fortfarande låst. ${pekarText(v)}`;
+    if (m.last_text) return `${m.namn} är fortfarande låst: ${m.last_text}`;
+  }
+  // 4. Frågor under Slutsatser som väntar på mer underlag
+  const obesvarade = (fall.slutsatser || []).filter((x) => !st.slutsatser?.[x.id]);
+  for (const x of obesvarade) {
+    const saknas = (x.kraver || []).find((id) => !har(st, id));
+    const v = saknas && vagTill(fall, st, saknas);
+    if (v) return `Nästa fråga under Slutsatser behöver mer underlag. ${pekarText(v)}`;
+  }
+  // 5. Allt är gjort
+  const bevis = fall.anklagelse?.bevis_max ?? 3;
+  if (!obesvarade.length) return `Du har hittat allt och svarat på alla frågor. Dags att anklaga: välj den skyldige och upp till ${bevis} fynd som bevisar det.`;
+  return 'Gå igenom dina fynd och frågorna under Slutsatser igen, och anklaga när du är säker.';
 }

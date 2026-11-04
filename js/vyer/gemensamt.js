@@ -40,6 +40,10 @@ export function toast(text) {
   el.textContent = text; el.classList.add('synlig');
   clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('synlig'), 2600);
 }
+/** Döljer meddelandet direkt (t.ex. när det man uppmanades göra redan är gjort). */
+export function doljToast() {
+  clearTimeout(toastTimer); document.getElementById('toast')?.classList.remove('synlig');
+}
 
 /** Visar ett modalt kort i #lager. Returnerar { el, stang }. */
 export function modal(inner, { klass = '', onStang } = {}) {

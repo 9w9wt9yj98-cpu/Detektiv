@@ -6,7 +6,7 @@ import { bokMoment } from '../mekaniker/index.js';
 import { oppnaAnteckningsbok, oppnaLedtradar } from './anteckningsbok.js';
 import { oppnaAnklagelse, avslutaFall } from './anklagelse.js';
 import { startaHandledning } from './handledning.js';
-import { esc, modal, toast, lampa, bokIkon, hemIkon, $ } from './gemensamt.js';
+import { esc, modal, toast, doljToast, lampa, bokIkon, hemIkon, $ } from './gemensamt.js';
 import * as ljud from '../ljud.js';
 
 function webglFinns() {
@@ -41,7 +41,7 @@ export async function visaUtredning(app, id) {
       <a class="ikonknapp" href="#/fall/${id}" aria-label="Till fallets presentation">${hemIkon()}</a>
       <div class="hud-titel"><h1>${esc(fallTitel(f))}</h1><span class="rumnamn"></span></div>
       <button class="ikonknapp ljudknapp" data-ljud></button>
-      <button class="ikonknapp" data-ledtrad aria-label="Ledtrådar">${lampa()}<span class="bricka"></span></button>
+      <button class="ikonknapp" data-ledtrad aria-label="Hjälp: gratis tips och ledtrådar">${lampa()}<span class="bricka"></span></button>
       <button class="ikonknapp liten-bok" data-bok aria-label="Öppna anteckningsboken">${bokIkon()}<span class="bricka fyndantal"></span></button>
       <div class="hud-mal"><span class="mal">${esc(f.meta.mal || f.intro.uppdrag)}</span><button class="raknare" data-platser aria-label="Visa platser och fynd kvar"></button></div>
     </header>
@@ -215,6 +215,7 @@ export async function visaUtredning(app, id) {
   $('[data-bok]', app).onclick = () => oppnaBok();
   $('[data-platser]', app).onclick = () => oppnaBok('platser');
   $('[data-ledtrad]', app).onclick = () => {
+    lampKnapp.classList.remove('fastnat'); doljToast();
     pausa();
     const m = oppnaLedtradar(f, st, { onAndrat: uppdateraHud, onVisaLosning: visaLosning });
     const obs = new MutationObserver(() => { if (!m.el.isConnected) { obs.disconnect(); fortsatt(); } });
@@ -233,10 +234,29 @@ export async function visaUtredning(app, id) {
   if (!installningar().handledningKlar) startaGuide();
   else if (!st.tid) toast('Uppdrag: ' + (f.meta.mal || f.intro.uppdrag));
 
+  // Fastnat? Har spelaren inte kommit vidare på FASTNAT_SEK sekunder (aktiv tid, också i anteckningsboken) börjar
+  // lampan pulsera och ett meddelande pekar på det gratis tipset – när spelaren är tillbaka i rummet. En gång per
+  // gång man fastnar; nästa framsteg nollställer.
+  const FASTNAT_SEK = 240;
+  const lampKnapp = $('[data-ledtrad]', app);
+  const framstegsNyckel = () => [st.fynd.length, st.material.length, Object.keys(st.slutsatser || {}).length, st.ledtradar,
+    st.rutnatLost ? 1 : 0, JSON.stringify(st.mek || {}).length].join('|');
+  let senast = framstegsNyckel(), utanFramsteg = 0, signalerat = false;
+  function kollaFastnat() {
+    const n = framstegsNyckel();
+    if (n !== senast) { senast = n; utanFramsteg = 0; signalerat = false; lampKnapp.classList.remove('fastnat'); return; }
+    if (++utanFramsteg < (window.__detektiv?.fastnatEfter ?? FASTNAT_SEK) || signalerat || modalOppen) return;
+    signalerat = true;
+    lampKnapp.classList.add('fastnat');
+    toast('Fastnat? Tryck på lampan – första tipset är gratis.');
+  }
+
   // Tid och position sparas löpande
   let tick = 0;
   const timer = setInterval(() => {
-    if (document.hidden || !motor.kor) return;
+    if (document.hidden) return;
+    kollaFastnat();
+    if (!motor.kor) return;
     st.tid += 1000;
     if (++tick % 5 === 0) { st.position = motor.position(); spara(); }
   }, 1000);

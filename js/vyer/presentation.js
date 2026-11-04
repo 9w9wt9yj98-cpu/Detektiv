@@ -1,5 +1,6 @@
 import { laddaFall, fallTitel } from '../motor/fall.js';
-import { fallData, borjaOm, spara } from '../motor/lagring.js';
+import { fallData, borjaOm, spara, installningar } from '../motor/lagring.js';
+import { saLoserDuLista } from './salosdu.js';
 import { esc, stycken, medaljong, glasRad, bekrafta, $ } from './gemensamt.js';
 
 export async function visaPresentation(app, id) {
@@ -14,6 +15,7 @@ export async function visaPresentation(app, id) {
       <p class="rubrik-liten">${esc(f.intro.rubrik || '')}</p>
       ${stycken(f.intro.text)}
       <div class="uppdrag"><span>Uppdrag</span>${esc(f.intro.uppdrag)}</div>
+      <details class="sa-loser-du-ruta"${installningar().saLoserDuSett ? '' : ' open'}><summary>Så löser du ett fall</summary>${saLoserDuLista()}</details>
       <h2>Personer</h2>
       <ul class="personer">${f.personer.map((p) => `<li>${medaljong(p)}<div><strong>${esc(p.namn)}</strong> <em>${esc(p.roll)}</em><br><span>${esc(p.beskrivning || '')}</span></div></li>`).join('')}</ul>
       ${st.basta ? `<p class="basta">Ditt bästa resultat: ${glasRad(st.basta.glas, 3, 20)} (${st.basta.poang} poäng)</p>` : ''}
@@ -25,6 +27,7 @@ export async function visaPresentation(app, id) {
     </article>
   </div>`;
   $('#start', app).onclick = () => {
+    installningar().saLoserDuSett = true; // nästa gång visas rutan hopfälld
     if (klar) borjaOm(id);
     const s = fallData(id); s.status = 'pagaende'; spara();
     location.hash = `#/fall/${id}/utred`;

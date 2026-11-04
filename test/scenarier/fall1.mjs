@@ -55,8 +55,20 @@ export async function fel(browser) {
   await startaFall(p, ID);
   await bild(p, 'f1-start');
   assert.match(await raknare(p), /Fynd 0\/14/);
-  // Ledtråd 1 innan något är hittat → pekar på fönstret
+  // Fastnat: utan framsteg pulserar lampan och ett meddelande pekar på det gratis tipset (tiden förkortas här).
+  await p.evaluate(() => { window.__detektiv.fastnatEfter = 2; });
+  await p.waitForFunction(() => /Fastnat\?/.test(document.getElementById('toast')?.textContent || '') && document.querySelector('[data-ledtrad]').classList.contains('fastnat'));
+  // Hjälpen i lampan: först ett gratis tips om nästa steg, och kortet ”Så löser du ett fall”
   await p.locator('[data-ledtrad]').click();
+  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /Det finns mer att hitta här i Sovrummet/);
+  assert.equal(await p.locator('[data-ledtrad]').evaluate((b) => b.classList.contains('fastnat')), false, 'lampan ska sluta pulsera när hjälpen öppnas');
+  await p.locator('[data-saloserdu]').click();
+  await p.locator('.sa-loser-du').waitFor();
+  assert.match(await p.locator('.sa-loser-du').innerText(), /Undersök[\s\S]*Läs fynden[\s\S]*Tänk i boken[\s\S]*Anklaga/);
+  await bild(p, 'f1-sa-loser-du');
+  await p.locator('.sa-loser-du [data-stang]').click(); await vanta(300);
+  await p.evaluate(() => { window.__detektiv.fastnatEfter = 240; });
+  // Ledtråd 1 innan något är hittat → pekar på fönstret
   await p.locator('[data-ta]').click(); await p.locator('[data-ja]').click(); await vanta(300);
   const lt = await p.locator('.ledtradlista').innerText();
   assert.match(lt, /Sovrummet och undersök fönstret/, 'ledtråden pekar inte på fönstret: ' + lt);
@@ -64,6 +76,10 @@ export async function fel(browser) {
   await p.locator('.ledtradar [data-stang]').last().click(); await vanta(300);
   await hittaAllt(p);
   assert.match(await raknare(p), /Fynd 14\/14/);
+  // Allt i rummen är hittat: tipset pekar vidare (frågor under Slutsatser eller anklagelsen)
+  await p.locator('[data-ledtrad]').click();
+  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /Slutsatser|anklaga/);
+  await p.locator('.ledtradar [data-stang]').last().click(); await vanta(300);
   await oppnaBok(p, 'platser');
   assert.match(await p.locator('.platser').innerText(), /Allt hittat/);
   await bild(p, 'f1-platser');
