@@ -381,3 +381,21 @@ Martin har bestämt att Claude själv får slå ihop rena buggfixar – sådant 
 ### Buggfix: rummen i löptext (november 2026)
 
 Det gratis tipset, pekaren och slutsatsvyn skrev rummen med stor bokstav och alltid med ”i”: ”här i Scenen”, ”i Gården”, ”Gå till Sovrummet”. Varje rum har nu fältet `text_i` (”på scenen”, ”i sovrummet”, ”på Österlånggatan”), och texterna blir ”Det finns mer att hitta här på scenen” och ”Gå till sovrummet och undersök fönstret”. Gäller alla åtta fall.
+
+## Fall 9 – Fjällgården, 1968 (november 2026) – väntar på Martin
+
+Martin gav friare tyglar över natten och bad om fortsättning med fall 8, 9 och vidare. Fall 9 är spelets första **tidshopp** (twisttyp 7 i `docs/forslag-v1.md` 3.3: ”ett gammalt kallt fall utreds med bara dokument”). Ingen ny mekanik – kärnan är dokumentmekaniken från fall 6.
+
+**Fallet:** Oktober 2026. Fjällgården i Storlien renoveras, och bakom en panel i skidrummet hittar snickaren Birgit Hallströms skidor, pjäxor och packade resväska. Hon försvann i en snöstorm 1968, man trodde att hon gett sig ut på skidor, och fallet – Nils Strands sista – lades ned. Kriminalinspektör Maja Strand, hans barnbarns barn, läser den gamla akten igen. Tre rum: skidrummet, lobbyn och polisens arkiv i Östersund. Källa: `verktyg/fall/fjallgarden.py`. Ligger sist i kapitel II, som de andra twistfallen ligger sist i sina kapitel.
+
+| Dimension | Fall 9 | Variationsreglerna |
+|---|---|---|
+| Miljö / epok | Fjällhotell, nutid (fallet från 1968) | Kapitel II hade ingen nutid. |
+| Brott | Försvinnande | Ny brottstyp; mord finns två gånger bland de fem senaste. |
+| Kärnmekanik | Dokument | Fall 8 hade tidslinje; dokument senast i fall 6. |
+| Skyldig / motiv | Familj (ägarens son) / kärlek | Följer rotationen efter fall 8:s auktoritet och pengar. |
+| Twist | Tidshopp | Senaste vändningen var fall 6 (opålitlig berättare). |
+
+**Lösningen i korthet:** skidorna, pjäxorna och den röda anoraken låg bakom panelen, och Birgit hittades i tofflor – hon gick aldrig ut på skidor. Claes Rydén sa 1968 att han såg henne gå ut genom skiddörren 22.10 i röd anorak, men dörren låstes med kistlås 21.50 och nyckeln låg i portierns ficka. Direktören avfärdade portierns tider med att klockan gick fel – men hans egen signatur i klockboken säger att den gick rätt. Bara Claes gick ner i källaren efter Birgit, och han kom upp med snö i håret. Han lät spika igen panelen tre dagar senare. Hjort satt i baren, Holst talade i telefon och fru Rydén spelade bridge.
+
+**Nya föremål** (`js/tre/foremal/fjall.js`, byggda av en extra agent): skidor, pjäxor, uppbruten panel, arkivlåda, byggarbetslampa, byggplast och skidställ. Omslaget är som för fall 7 och 8 en sepiatonad bild ur 3D-scenen.
