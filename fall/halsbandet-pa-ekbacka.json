@@ -23,7 +23,7 @@
   },
   "intro": {
     "rubrik": "Ekbacka herrgård, Sörmland. November 1926.",
-    "text": "Regnet har just upphört över Ekbacka. I stora salen pågår middag för femton gäster när friherrinnan Ebba Wrede går upp till sitt sovrum strax efter klockan nio, med kammarjungfrun Elsa Lund tätt bakom sig – och finner sitt pärlhalsband borta.\n\nKl. 19.55 lade hon halsbandet i smyckeskrinet, medan Elsa höll ljuset, och låste dörren efter sig. Kl. 21.00 var dörren fortfarande låst. Skrinet var tomt och fönstret stod öppet.\n\nDen unge konstapel Strand har ringt efter dig. ”Det ser ut som en inbrottstjuv via fönstret”, säger han. ”Men friherrinnan insisterar på att någon i huset ligger bakom.”",
+    "text": "Regnet har just upphört över Ekbacka. I stora salen pågår middag för femton gäster när friherrinnan Ebba Wrede går upp till sitt sovrum klockan nio, med kammarjungfrun Elsa Lund tätt bakom sig – och finner sitt pärlhalsband borta.\n\nKl. 19.55 lade hon halsbandet i smyckeskrinet, medan Elsa höll ljuset, och låste dörren efter sig. Kl. 21.00 var dörren fortfarande låst. Skrinet var tomt och fönstret stod öppet.\n\nDen unge konstapel Strand har ringt efter dig. ”Det ser ut som en inbrottstjuv via fönstret”, säger han. ”Men friherrinnan insisterar på att någon i huset ligger bakom.”",
     "uppdrag": "Vem tog halsbandet?",
     "bild": "bilder/fall1/matsalen.jpg",
     "berattare": "Konstapel Nils Strand"
@@ -111,7 +111,7 @@
               "rot": 180,
               "interaktiv": {
                 "namn": "Dörren",
-                "text": "Den tunga ekdörren har ett gediget mässingslås. Inga repor, inga bändmärken – låset är helt oskadat. Dörren var låst när friherrinnan kom upp kl. 21.00.",
+                "text": "Den tunga ekdörren har ett gediget mässingslås. Inga repor, inga bändmärken – låset är helt oskadat. Dörren var låst när friherrinnan kom upp kl. 21.00. Den leder ut till övre hallen, dit både huvudtrappan och tjänstetrappan kommer upp.",
                 "ger_fynd": "f-dorr"
               },
               "gar_till": "koksgangen"
@@ -282,7 +282,7 @@
               "rot": 90,
               "interaktiv": {
                 "namn": "Pendylen",
-                "text": "Den förgyllda pendylen på spiselhyllan går rätt. Den visar 21.14."
+                "text": "Den förgyllda pendylen på spiselhyllan går rätt. Den visar 22.41."
               },
               "modell": {
                 "fil": "modeller/mantel_clock_01.glb",
@@ -290,14 +290,14 @@
                 "urtavla": {
                   "nod": "mantel_clock_01_glass",
                   "tid": [
-                    21,
-                    14
+                    22,
+                    41
                   ]
                 }
               },
               "tid": [
-                21,
-                14
+                22,
+                41
               ]
             },
             {
@@ -500,7 +500,7 @@
               "gar_till": "sovrummet",
               "interaktiv": {
                 "namn": "Tjänstetrappan",
-                "text": "Den smala tjänstetrappan leder upp till friherrinnans sovrum. Stengolvet framför den är nyss skurat och fortfarande blött."
+                "text": "Den smala tjänstetrappan leder upp till övre hallen utanför friherrinnans sovrum. Stengolvet framför den skurades vid åttatiden och är fortfarande blött."
               }
             },
             {
@@ -736,7 +736,7 @@
               ],
               "interaktiv": {
                 "namn": "Middagsbordet",
-                "text": "Långbordet med femton kuvert. Friherrinnans stol står vid kortänden, närmast brasan, med full uppsikt över salen."
+                "text": "Långbordet med sexton kuvert – femton gäster och friherrinnan. Hennes stol står vid kortänden, närmast brasan, med full uppsikt över salen."
               },
               "modell": {
                 "delar": {
@@ -746,6 +746,52 @@
                   }
                 }
               }
+            },
+            {
+              "id": "stol-friherrinnan",
+              "typ": "stol",
+              "pos": [
+                -2.5,
+                0,
+                0
+              ],
+              "rot": 90,
+              "modell": {
+                "fil": "modeller/dining_chair_02.glb",
+                "passa": "box"
+              }
+            },
+            {
+              "id": "tallrik-friherrinnan",
+              "typ": "tallrik",
+              "pos": [
+                -1.92,
+                0.772,
+                0
+              ]
+            },
+            {
+              "id": "stol-gustav",
+              "typ": "stol",
+              "pos": [
+                2.5,
+                0,
+                0
+              ],
+              "rot": -90,
+              "modell": {
+                "fil": "modeller/dining_chair_02.glb",
+                "passa": "box"
+              }
+            },
+            {
+              "id": "tallrik-gustav",
+              "typ": "tallrik",
+              "pos": [
+                1.92,
+                0.772,
+                0
+              ]
             },
             {
               "id": "skank",
@@ -819,7 +865,7 @@
               "antal": 3,
               "interaktiv": {
                 "namn": "Gästernas vittnesmål",
-                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen. Elsa Lund serverade soppan och sedan steken – kokerskan räckte in faten genom serveringsluckan – och lämnade inte salen förrän hon följde friherrinnan upp strax efter nio. Gustav Wrede satt mitt emot friherrinnan och lämnade aldrig bordet. Holm gick ut genom serveringsdörren 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
+                "text": "Konstapel Strand har tagit upp vittnesmål från gästerna. Samstämmigt: friherrinnan satt vid bordets ände hela middagen, från klockan åtta. Elsa Lund serverade förrätten, soppan och steken – kokerskan räckte in faten genom serveringsluckan – och lämnade inte salen förrän hon följde friherrinnan upp klockan nio. Gustav Wrede satt mitt emot friherrinnan och lämnade aldrig bordet. Holm gick ut genom serveringsdörren 20.30–20.40 – ”för att hämta 1919 års Bordeaux i källaren”, som han sa.",
                 "ger_fynd": [
                   "f-servering",
                   "f-holm-borta"
@@ -890,11 +936,11 @@
               "rot": 90,
               "interaktiv": {
                 "namn": "Pendylen",
-                "text": "Pendylen på spiselhyllan. Den slog halv nio när soppan bars in."
+                "text": "Pendylen på spiselhyllan. Den slog åtta när friherrinnan satte sig till bords och halv nio när soppan bars in."
               },
               "tid": [
-                21,
-                25
+                22,
+                55
               ],
               "modell": {
                 "fil": "modeller/mantel_clock_01.glb",
@@ -902,8 +948,8 @@
                 "urtavla": {
                   "nod": "mantel_clock_01_glass",
                   "tid": [
-                    21,
-                    25
+                    22,
+                    55
                   ]
                 }
               }
@@ -1168,7 +1214,7 @@
       ]
     },
     "uteslutningar_text": {
-      "friherrinnan": "Friherrinnan har nyckel, men satt vid bordets ände hela middagen inför femton gäster – och när hon gick upp strax efter nio var Elsa med henne.",
+      "friherrinnan": "Friherrinnan har nyckel, men satt vid bordets ände hela middagen inför femton gäster – och när hon gick upp klockan nio var Elsa med henne.",
       "elsa": "Elsa har nyckel, men femton gäster såg henne servera i salen hela middagen, och sedan gick hon upp tillsammans med friherrinnan.",
       "gustav": "Gustav har ingen nyckel, och fönstret – den enda andra vägen in – användes inte."
     }
@@ -1341,7 +1387,7 @@
       "efter": [
         "s-vilka"
       ],
-      "fraga": "Vem av de tre nyckelinnehavarna lämnade salen under middagen?",
+      "fraga": "Vem av de tre nyckelinnehavarna var borta från salen innan friherrinnan gick upp klockan nio?",
       "alternativ": [
         {
           "text": "Friherrinnan.",

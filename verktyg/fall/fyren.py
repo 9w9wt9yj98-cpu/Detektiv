@@ -18,10 +18,10 @@ fall = {"id": "fyren-pa-graskar", "version": 1,
    "uppskattad_tid_min": [20, 30], "svarighet": 4, "karnmekanik": "dokument", "bimekaniker": ["scen", "forhor", "tidslinje"], "twist": "opalitlig-berattare", "kraver_rang": 0,
    "accentfarg": "#3a4a52", "omslag": "bilder/fall6/fyren.jpg", "mal": "Ta reda på hur fyrmästare Wenngren dog – och vem som ljuger", "handledning_mal": "kroppen"},
  "intro": {"rubrik": "Gråskärs fyrplats, Stockholms ytterskärgård. Oktober 1931.",
-   "text": "Bäste detektiv,\n\nförlåt min darriga hand – stormen har inte bedarrat förrän i dag, och det är första gången på två dygn som en båt kan lägga till. Fyrmästare Holger Wenngren är död. Fru Signe fann honom klockan sex på morgonen den fjortonde, nedanför den smala spiraltrappan i tornet. Vi har låtit honom ligga, så som doktorn sade, och klivit över honom sedan dess. Gud förlåte oss. Vi är bara fyra kvar på ön: Signe, doktorn vid väderstationen, en skeppsbruten fiskare som flöt i land kvällen före – och jag.\n\nJag är bara fyrbiträde, men jag har varit tidningsman och vet hur viktigt det är med papper. Därför har jag samlat allt åt er: fyrinstruktionen, loggboken, doktorns anteckningar – och min egen dagbok, om den kan vara till någon hjälp. Allt ligger där ni hittar det.\n\nDet var nog en olyckshändelse. Trappan är brant, och Holger var inte så ung längre. Men ni ska få bedöma själv.\n\nEr tillgivne\nElof Granath, fyrbiträde",
+   "text": "Bäste detektiv,\n\nförlåt min darriga hand – stormen har mojnat så pass i dag att en båt kan lägga till, för första gången på två dygn. Fyrmästare Holger Wenngren är död. Fru Signe fann honom klockan sex på morgonen den fjortonde, nedanför den smala spiraltrappan i tornet. Vi har låtit honom ligga, så som doktorn sade, och klivit över honom sedan dess. Gud förlåte oss. Vi är bara fyra kvar på ön: Signe, doktorn vid väderstationen, en skeppsbruten fiskare som flöt i land kvällen före – och jag.\n\nJag är bara fyrbiträde, men jag har varit tidningsman och vet hur viktigt det är med papper. Därför har jag samlat allt åt er: fyrinstruktionen, loggboken, doktorns anteckningar – och min egen dagbok, om den kan vara till någon hjälp. Allt ligger där ni hittar det.\n\nDet var nog en olyckshändelse. Trappan är brant, och Holger var inte så ung längre. Men ni ska få bedöma själv.\n\nEr tillgivne\nElof Granath, fyrbiträde",
    "uppdrag": "Hur dog fyrmästaren – och vem ljuger?", "bild": "bilder/fall6/fyren.jpg", "berattare": "Elof Granath, fyrbiträde"},
  "personer": [
-   {"id": "elof", "namn": "Elof Granath", "roll": "Fyrbiträde", "misstankt": T, "beskrivning": "Vänlig och hjälpsam. Har samlat alla papper åt dig. Bor i biträdesstugan."},
+   {"id": "elof", "namn": "Elof Granath", "roll": "Fyrbiträde", "misstankt": T, "beskrivning": "Vänlig och hjälpsam. Har lagt fram alla papper åt dig. Bor i biträdesstugan."},
    {"id": "signe", "namn": "Signe Wenngren", "roll": "Fyrmästarens hustru", "misstankt": T, "beskrivning": "Blek och tystlåten. Bor i fyrmästarbostaden."},
    {"id": "lagerkvist", "namn": "Dr. Arvid Lagerkvist", "roll": "Läkare och meteorolog vid väderstationen", "misstankt": T, "beskrivning": "Har grälat med fyrmästaren om stationens placering."},
    {"id": "johan", "namn": "Johan Sjöberg", "roll": "Skeppsbruten fiskare", "misstankt": T, "beskrivning": "Flöt i land kvällen innan med ett brutet ben. Ligger på köksbänken."},
@@ -48,7 +48,7 @@ tornet = {"id": "tornet", "namn": "Tornets nedre avsats", "mekanik": "scen", "pa
     obj("skylt-upp", "skylt", [-1.3, 2.5, -2.185], text="LANTERNAN ↑", storlek=[0.8, 0.18], textstorlek=40),
     obj("dorr-koket", "dorr", [-2.19, 0, 0.6], rot=90, farg="#4a3a2a", gar_till="koket", interaktiv=ia("Till fyrmästarbostaden", "Över klippan, genom stormen, till fyrmästarbostadens kök.")),
     obj("dorr-stugan", "dorr", [2.19, 0, 1.0], rot=-90, farg="#4a3a2a", gar_till="stugan", interaktiv=ia("Till biträdesstugan", "Elofs stuga ligger i lä bakom tornet.")),
-    obj("dorr-station", "dorr", [0.4, 0, 2.19], rot=180, farg="#4a3a2a", gar_till="stationen", interaktiv=ia("Till väderstationen", "Väderstationen ligger på öns norra udde – tio minuters väg i storm, enligt doktorn.")),
+    obj("dorr-station", "dorr", [0.4, 0, 2.19], rot=180, farg="#4a3a2a", gar_till="stationen", interaktiv=ia("Till väderstationen", "Väderstationen ligger på öns södra udde – tio minuters väg i storm, enligt doktorn.")),
   ]}}}
 
 # ---------- Lanternan ----------
@@ -90,7 +90,7 @@ koket = {"id": "koket", "namn": "Fyrmästarbostadens kök", "mekanik": "scen", "
     obj("signe", "person", [-0.4, 0, -0.5], rot=25, kon="k", rock="#2a2a30", har="#8a6a4a", hatt="sjalett", hattfarg="#1a1a1e", seed=0,
         interaktiv=ia("Signe Wenngren", "Signe står vid spisen och vrider en handduk mellan händerna. Hon talar lågt och ser mot fönstret.", "f-duns-signe", ["dok-signe"])),
     obj("byra", "byra", [-1.89, 0, 0.6], rot=90, storlek=[1.0, 0.85, 0.45], modell={"fil": "modeller/gothic_commode_01.glb", "passa": "box", "pos": [0, -0.015, 0]}),
-    obj("klockan", "pendyl", [-1.89, 0.85, 0.3], rot=90, tid=[7, 0], modell={"fil": "modeller/mantel_clock_01.glb", "passa": "skala", "urtavla": {"nod": "mantel_clock_01_glass", "tid": [7, 0]}}),
+    obj("klockan", "pendyl", [-1.89, 0.85, 0.3], rot=90, tid=[6, 45], modell={"fil": "modeller/mantel_clock_01.glb", "passa": "skala", "urtavla": {"nod": "mantel_clock_01_glass", "tid": [6, 45]}}),
     obj("brevet", "papper", [-1.85, 0.85, 0.85], rot=90, interaktiv=ia("Ett brev på byrån", "På byrån ligger ett oavsänt brev i Signes handstil, adresserat till en man i Norrtälje. Det har legat undanstoppat i byrålådan.", "f-signe-brev", ["dok-brevet"])),
     obj("fonster", "stormfonster", [0.3, 0, -1.89], bredd=0.9, hojd=1.0, y0=1.0, ram="#e8e2d2"),
     obj("bord", "bord", [0.3, 0, 0.5], storlek=[1.0, 0.75, 0.7], farg="#8a6a44", duk=True, modell={"fil": "modeller/dining_table.glb", "passa": "box", "pos": [0, -0.008, 0], "behall": False}),
@@ -163,24 +163,24 @@ dokument = {"id": "dokumenten", "namn": "Dokumenten", "mekanik": "dokument", "pa
       S("Stackars Holger. Trappan är brant, och han var inte så ung längre.", "d-olycka")]},
     {"id": "dok-fyndet", "titel": "Dr. Lagerkvists anteckning vid fyndet", "underrubrik": "14 oktober, kl. 06.30", "ikon": "🩺", "stil": "hand", "stycken": [
       S("Kroppen låg tvärs över trappan på nedre avsatsen. Ingen kan passera upp till lanternan utan att kliva över honom.", "n-trappa"),
-      S("Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade några timmar före sex. Kläderna är torra: han har inte varit ute i stormen.", "n-grepp")]},
+      S("Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade några timmar före sex. Kläderna är torra – han kan inte ha varit ute i stormen de sista timmarna.", "n-grepp")]},
     {"id": "dok-journal", "titel": "Väderjournal, Gråskärs station", "underrubrik": "13–14 oktober 1931", "ikon": "📒", "stil": "logg", "stycken": [
       S("Stormvarning från kl. 21. Observation var 15:e minut enligt instruktion; varje avläsning märks med tidsmärke på barografens rulle.", "j-storm"),
       S("02.00–06.00: vid varje observation antecknat ”Fyren lyser normalt”.", "j-fyr"),
-      S("Gångväg stationen–fyrtornet i storm: 10 minuter (uppmätt i september).", "j-vag")]},
+      S("Gångväg stationen–fyrtornet i storm: 10 minuter runt viken (uppmätt i september). Fågelvägen knappt hundra meter.", "j-vag")]},
     {"id": "dok-barograf", "titel": "Barografens pappersrulle", "underrubrik": "Tidsmärken, natten mot den 14 oktober", "ikon": "📈", "stil": "maskin", "stycken": [
       S("Obrutna tidsmärken: 02.00 · 02.15 · 02.30 · 02.45 · 03.00 · 03.15 · 03.30 · 03.45 · 04.00 · 04.15 · 04.30 · 04.45 · 05.00 · 05.15 · 05.30 · 05.45 · 06.00", "b-marken"),
       S("Märkena slås för hand av observatören vid instrumentet.")]},
     {"id": "dok-signe", "titel": "Signe Wenngrens berättelse", "ikon": "🗣️", "stil": "hand", "stycken": [
       S("Holger gick upp i tornet vid tio. När det stormar vakar han där uppe hela natten och kommer inte ned förrän det ljusnar.", "s-vakar"),
       S("Jag vaknade av en duns och gick ut i köket. Klockan på byrån där visade tjugo över tre.", "s-duns"),
-      S("Jag tittade ut mot tornet genom fönstret men såg ingenting, så jag gick och lade mig igen. Holger ville aldrig bli störd när han vakade.", "s-koket")]},
+      S("Jag tittade ut mot tornet genom fönstret. Fyren blinkade som vanligt, så jag gick och lade mig igen. Holger ville aldrig bli störd när han vakade.", "s-koket")]},
     {"id": "dok-johan", "titel": "Johan Sjöbergs berättelse", "ikon": "🗣️", "stil": "hand", "stycken": [
       S("Jag låg vaken hela natten av smärta på köksbänken. Fyrmästaren gick ut till tornet vid tio, och efter det gick ingen ut genom köket förrän frun hittade honom vid sex.", "jo-vaken"),
       S("Det enda var frun, som kom ut efter dunsen, tittade genom fönstret och gick in igen.", "jo-frun"),
       S("(Köket är den enda vägen ut ur fyrmästarbostaden.)")]},
     {"id": "dok-lagerkvist", "titel": "Dr. Lagerkvists berättelse", "ikon": "🗣️", "stil": "hand", "stycken": [
-      S("Jag hörde en duns från tornet vid tjugo över tre, men trodde att det var stormen som slet i något.", "la-duns"),
+      S("Jag hörde en tung duns från tornet, tvärs över viken, vid tjugo över tre, men trodde att det var stormen som slet i något.", "la-duns"),
       S("Ja, vi grälade om stationen. Men man dödar inte en man för en mätplats.", "la-grall")]},
     {"id": "dok-brevet", "titel": "Signes brev (oavsänt)", "ikon": "✉️", "stil": "hand", "stycken": [
       S("Käre Anton, snart är jag fri. Holger vet ingenting ännu, och jag ska säga det själv när båten går.", "br-fri")]},
@@ -203,7 +203,7 @@ fall["moment"] = [tornet, lanternan, koket, stugan, stationen, dokument]
 
 fall["fynd"] = [
   {"id": "f-blamarken", "titel": "Blåmärken efter grepp", "ikon": "✋", "typ": "nyckel", "text": "Holger har blåmärken på båda överarmarna efter ett hårt grepp. Han föll inte av sig själv."},
-  {"id": "f-elof-hjalp", "titel": "Elof har samlat papperen", "ikon": "📦", "typ": "bakgrund", "galler": ["elof"], "text": "Elof har lagt fram alla papper åt dig – och sin egen dagbok."},
+  {"id": "f-elof-hjalp", "titel": "Elof har lagt fram papperen", "ikon": "📦", "typ": "bakgrund", "galler": ["elof"], "text": "Elof har lagt fram alla papper åt dig – och sin egen dagbok."},
   {"id": "f-anmalan", "titel": "Holgers anmälan", "ikon": "📝", "typ": "stod", "galler": ["elof"], "text": "Holger tänkte anmäla sitt biträde för att sextio liter fotogen saknades."},
   {"id": "f-johan-ben", "titel": "Johans brutna ben", "ikon": "🦴", "typ": "nyckel", "galler": ["johan"], "text": "Johan har ett spjälat, brutet ben. Han kan inte stödja på det – än mindre gå i en spiraltrappa."},
   {"id": "f-johan-koket", "titel": "Ingen gick genom köket", "ikon": "🚪", "typ": "nyckel", "galler": ["signe"], "text": "Johan låg vaken i köket, den enda vägen ut ur bostaden. Efter att Holger gått upp i tornet vid tio gick ingen ut förrän vid sex – Signe kom bara ut och tittade efter dunsen."},
@@ -224,7 +224,7 @@ fall["fynd"] = [
   {"id": "f-dagbok-logn", "titel": "Visslingen som aldrig hördes", "ikon": "📔", "typ": "nyckel", "galler": ["elof"], "text": "Elof skriver att Holger visslade i tornet vid fyra. Holger var död sedan 03.20."},
   {"id": "f-elof-ljuger", "titel": "”Holger lånade pennan”", "ikon": "🗣️", "typ": "stod", "galler": ["elof"], "text": "Elof påstår att Holger lånade hans penna. En död man lånar ingen penna."},
   {"id": "f-lagerkvist-alibi", "titel": "Doktorn kunde inte gå ifrån", "ikon": "⏱️", "typ": "nyckel", "galler": ["lagerkvist"], "text": "Märkena 03.15 och 03.30: fram och tillbaka till tornet tar 20 minuter. Doktorn kan inte ha varit i tornet 03.20."},
-  {"id": "f-signe-alibi", "titel": "Signe gick aldrig ut", "ikon": "🚪", "typ": "nyckel", "galler": ["signe"], "text": "Johan, en främling utan skäl att skydda henne, låg vaken i köket. Signe gick aldrig ut."},
+  {"id": "f-signe-alibi", "titel": "Signe gick inte ut i natt", "ikon": "🚪", "typ": "nyckel", "galler": ["signe"], "text": "Johan, en främling utan skäl att skydda henne, låg vaken i köket. Signe gick inte ut förrän vid sex."},
 ]
 
 fall["slutsatser"] = [
@@ -243,15 +243,15 @@ fall["slutsatser"] = [
    "slutsats": "Doktorn kan inte ha varit i tornet 03.20 – och inte heller vid fyra (märken 03.45, 04.00 och 04.15)."},
   {"id": "s-signe", "kraver": ["f-johan-koket", "f-signe-brev"], "ger_fynd": "f-signe-alibi", "fraga": "Signe ville bli fri. Kan hon ha gjort det?", "alternativ": [
     {"text": "Ja – brevet ger henne motiv.", "svar": "Motiv, ja. Men hur kom hon ut? Köket är enda vägen, och där låg Johan vaken."},
-    {"text": "Nej – Johan låg vaken i köket, den enda vägen ut, och hon gick aldrig ut.", "ratt": True}],
-   "slutsats": "Signe har motiv men gick aldrig ut. Johan är en främling utan skäl att ljuga för henne."},
+    {"text": "Nej – Johan låg vaken i köket, den enda vägen ut, och hon gick inte ut förrän vid sex.", "ratt": True}],
+   "slutsats": "Signe har motiv men gick inte ut förrän vid sex. Johan är en främling utan skäl att ljuga för henne."},
   {"id": "s-johan", "kraver": ["f-johan-ben"], "fraga": "Johan är en främling som flöt i land. Kan han ha gjort det?", "alternativ": [
     {"text": "Ja – ingen vet vem han egentligen är.", "svar": "Med ett spjälat ben tar man sig inte upp i en spiraltrappa."},
     {"text": "Nej – med ett brutet ben kommer han inte upp i trappan.", "ratt": True}],
    "slutsats": "Johan kan inte gå. Han kan uteslutas."},
   {"id": "s-vem", "kraver": ["f-uppdragen", "f-klev-over", "f-04-black", "f-elofs-penna", "f-dodstid"], "efter": ["s-dodstid"], "fraga": "Vem drog upp urverket vid fyra och skrev ”H.W.” i loggboken med bläck?", "alternativ": [
     {"text": "Holger själv.", "svar": "Holger låg död i trappan sedan 03.20."},
-    {"text": "Signe.", "svar": "Signe gick aldrig ut genom köket."},
+    {"text": "Signe.", "svar": "Signe gick inte ut genom köket förrän vid sex."},
     {"text": "Doktor Lagerkvist.", "svar": "Doktorn slog tidsmärken 03.45, 04.00 och 04.15. Han lämnade aldrig stationen."},
     {"text": "Elof – med sin egen reservoarpenna.", "ratt": True}],
    "slutsats": "Den som drog upp urverket vid fyra klev över Holger, slog inte larm och skrev hans signatur med den enda reservoarpennan på ön – Elofs."},
@@ -289,7 +289,7 @@ fall["aterkoppling"] = {
     {"citat": "Det var nog en olyckshändelse.", "kommentar": "Den enda meningen i brevet som var en ren lögn."}],
    "bekannelse": "När båten från Sandhamn lägger till sitter Elof redan på bryggan med mössan i händerna. ”Sextio liter fotogen, detektiven. Han skulle ha fått mig avskedad och utskämd för sextio liter. Jag ville bara att han skulle släppa mig – och sedan låg han där.” Han ser upp mot lanternan. ”Fyren slocknade i alla fall inte. Det såg jag till.”"},
   "fel": {
-    "signe": "Brevet ger ett motiv, men Johan låg vaken i köket hela natten. Signe gick aldrig ut.",
+    "signe": "Brevet ger ett motiv, men Johan låg vaken i köket hela natten. Signe gick inte ut förrän vid sex.",
     "johan": "Främlingen är alltid lätt att misstänka, men med ett spjälat ben kommer man inte upp i en spiraltrappa.",
     "lagerkvist": "Ett gräl är inget mord. Barografen fick ett tidsmärke var femtonde minut, och tornet ligger tio minuter bort.",
     "elof": ""},

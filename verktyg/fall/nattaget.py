@@ -73,7 +73,7 @@ korr = {"id": "korridoren", "namn": "Sovvagnskorridoren", "mekanik": "scen", "la
         text="NATTÅG 3  STOCKHOLM–NARVIK\n\nBollnäs     19.42\nÅnge        22.31\nBoden ank.  01.10\nBoden avg.  01.25\nGällivare   04.02\nKiruna      05.38",
         interaktiv=ia("Tidtabellen", "Tidtabellen i en mässingsram. Tåget stod i Boden från 01.10 till 01.25 – ett femton minuter långt stopp mitt i natten. Konduktören bekräftar att tåget höll tiden.", "f-tidtabell")),
     obj("d1", "kupedorr", [0.79, 0, -3.4], rot=-90, nummer=1),
-    obj("d2", "kupedorr", [0.79, 0, -1.7], rot=-90, nummer=2, interaktiv=ia("Dörren till kupé 2", "Fru Ahls kupé. Säkerhetskedjan är avhakad nu – enligt konduktören satt den på i natt.")),
+    obj("d2", "kupedorr", [0.79, 0, -1.7], rot=-90, nummer=2, interaktiv=ia("Dörren till kupé 2", "Fru Ahls kupé. Säkerhetskedjan är avhakad nu – enligt konduktören satt den på när han knackade kl. 06.15.")),
     obj("d3", "kupedorr", [0.79, 0, 0], rot=-90, nummer=3, kedja="avklippt", gar_till="kupe3", interaktiv=ia("Kupé 3", "Brottsplatsen. Kedjan hänger avklippt.")),
     obj("d4", "kupedorr", [0.79, 0, 1.7], rot=-90, nummer=4),
     obj("d5", "kupedorr", [0.79, 0, 3.4], rot=-90, nummer=5),

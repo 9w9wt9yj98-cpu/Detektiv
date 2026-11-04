@@ -212,18 +212,18 @@
               "id": "span",
               "typ": "span",
               "pos": [
-                -1.4,
+                -0.5,
                 0,
-                0.6
+                -0.4
               ],
               "yta": [
-                1.4,
-                1.8
+                2.6,
+                3.0
               ],
-              "antal": 90,
+              "antal": 150,
               "interaktiv": {
                 "namn": "Spånen på golvet",
-                "text": "Golvet runt arbetsbänken är strött med ljusa ekspån. Fältskog: ”Mot halkan, när kunderna drar in snö. Ek luktar gott och fastnar i allt – i sulor, i byxuppslag, i rockar.”",
+                "text": "Golvet är strött med ljusa ekspån, från arbetsbänken och fram till montern och fönstret. Fältskog: ”Mot halkan, när kunderna drar in snö. Ekspån luktar gott och fastnar i allt – i sulor, i byxuppslag, i rockar.”",
                 "ger_fynd": "f-ekspan-golv"
               }
             },
@@ -787,7 +787,7 @@
               "id": "biljetten",
               "typ": "papper",
               "pos": [
-                -0.7,
+                -0.45,
                 0.76,
                 -0.45
               ],
@@ -837,7 +837,7 @@
               "seed": 2,
               "interaktiv": {
                 "namn": "Fru Lindh",
-                "text": "Fru Lindh är upprörd. ”Jag har kommit för att hämta min handske, inget annat! Jag var hos Fältskog klockan fem med mitt armbandsur och måste ha tappat den då. I kväll var jag hos min syster vid Slussen och åkte spårvagn hem. Nyckel? Till en monter? Vad skulle jag med en sådan till?”",
+                "text": "Fru Lindh är upprörd. ”Er konstapel hämtade mig mitt i natten – för en handske! Ja, den är min. Jag var hos Fältskog klockan fem med mitt armbandsur och måste ha tappat den då. I kväll var jag hos min syster vid Slussen och åkte spårvagn hem. Nyckel? Till en monter? Vad skulle jag med en sådan till?”",
                 "ger_fynd": "f-lindh-utsaga"
               }
             },
@@ -1336,7 +1336,7 @@
             "till": "22.30",
             "ikon": "📜",
             "kalla": "protokollet",
-            "text": "Mötet avslutades 22.30; Rapp skrev under."
+            "text": "Mötet avslutades 22.30; Rapp står bland de närvarande."
           },
           {
             "id": "k-rapp-pastar",

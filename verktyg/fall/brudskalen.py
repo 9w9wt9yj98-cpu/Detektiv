@@ -22,7 +22,7 @@ fall = {"id": "brudskalen", "version": 1,
    {"id": "mikael", "namn": "Mikael Ström", "roll": "Antikhandlare, gäst", "misstankt": T, "beskrivning": "Kan silver. Gick tidigt från festen med en stor väska."},
    {"id": "olle", "namn": "Olle Sahlin", "roll": "Brorson, 19 år", "misstankt": T, "beskrivning": "Bar in tårtan. Stod länge vid skänken."},
    {"id": "karin", "namn": "Karin Berglund", "roll": "Granne och gäst", "misstankt": False, "beskrivning": "Fotograferar allt. Var först in i salen."},
-   {"id": "birgitta", "namn": "Birgitta Sahlin", "roll": "Lenas syster, stod för maten", "misstankt": False, "beskrivning": "Märkte först att skålen var borta."}
+   {"id": "birgitta", "namn": "Birgitta Nordin", "roll": "Lenas syster, stod för maten", "misstankt": False, "beskrivning": "Märkte först att skålen var borta."}
  ]}
 
 # ---------- Salen ----------
@@ -30,30 +30,30 @@ salen = {"id": "salen", "namn": "Salen", "mekanik": "scen", "payload": {"visning
   "bredd": 7.0, "djup": 6.0, "hojd": 2.8, "miljo": "inomhus", "bakgrund": "#e8e0cc", "dimma": [10, 24, "#e8e0cc"],
   "golv": "#b8946a", "tapet": {"grund": "#ece4d0", "monster": "#d6c8a8"}, "panel": "#cfc4a8",
   "ljus": {"omgivning": "#fff4dc", "omgivning_styrka": 0.95, "bas": 0.5},
-  "start": {"pos": [-1.1, 0.7], "titta": 8},
+  "start": {"pos": [-1.1, -0.7], "titta": 172},
   "objekt": [
-    obj("matta", "matta", [0.9, 0, 1.2], storlek=[2.6, 3.8], kollision=False),
-    obj("skank", "skank", [0, 0, -2.7], storlek=[1.8, 0.95, 0.5]),
-    obj("skanken", "skal", [0, 0.95, -2.7], tom=True, halostorlek=0.4, halo=[0, 1.15, -2.62], interaktiv=ia("Skänken",
+    obj("matta", "matta", [0.9, 0, -1.2], storlek=[2.6, 3.8], kollision=False),
+    obj("skank", "skank", [0, 0, 2.7], rot=180, storlek=[1.8, 0.95, 0.5]),
+    obj("skanken", "skal", [0, 0.95, 2.7], tom=True, halostorlek=0.4, halo=[0, 1.15, 2.62], interaktiv=ia("Skänken",
         "Platsen där brudskålen stod. I det tunna lagret damm på skänken syns en ljus ring efter skålens fot. Vasen och ljusstaken står kvar.", "f-tom-plats")),
-    obj("vas", "vas", [0.62, 0.95, -2.7]),
-    obj("ljusstake", "ljusstake", [-0.62, 0.95, -2.7], ljus=True, styrka=0.8),
-    obj("fonster", "dagfonster", [0, 0, -2.99], y0=1.15, hojd=1.15, bredd=1.0, gardin=True, dragen=True),
-    obj("fonster2", "dagfonster", [-3.49, 0, -0.6], rot=90, gardin=True),
-    obj("fonster3", "dagfonster", [-3.49, 0, 1.6], rot=90, gardin=True),
-    obj("langbord", "langbord", [1.1, 0, 1.3], rot=90, storlek=[1.1, 0.76, 3.0], kuvert=8, stolar=True, modell={"delar": {"stol": {"fil": "modeller/painted_wooden_chair_01.glb", "passa": "box"}}}),
-    obj("bok", "anteckningsbok", [0.2, 0.77, 1.5], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
-    obj("dalahast", "dalahast", [1.7, 0.77, 1.2]),
-    obj("blommor", "vas", [1.1, 0.77, 1.15]),
-    obj("tavla", "tavla", [-3.48, 1.55, 0.5], rot=90, storlek=[0.7, 0.5], seed=12, modell={"fil": "modeller/fancy_picture_frame_01.glb", "passa": "box"}),
-    obj("gunnar", "person", [-1.7, 0, -1.3], rot=40, rock="#e8e4d8", byxor="#3a4a5a", har="#9a9a96", glasogon=True, seed=2,
+    obj("vas", "vas", [-0.62, 0.95, 2.7]),
+    obj("ljusstake", "ljusstake", [0.62, 0.95, 2.7], ljus=True, styrka=0.8),
+    obj("fonster", "dagfonster", [0, 0, 2.99], rot=180, y0=1.15, hojd=1.15, bredd=1.0, gardin=True, dragen=True),
+    obj("fonster2", "dagfonster", [-3.49, 0, 0.6], rot=90, gardin=True),
+    obj("fonster3", "dagfonster", [-3.49, 0, -1.6], rot=90, gardin=True),
+    obj("langbord", "langbord", [1.1, 0, -1.3], rot=90, storlek=[1.1, 0.76, 3.0], kuvert=8, stolar=True, modell={"delar": {"stol": {"fil": "modeller/painted_wooden_chair_01.glb", "passa": "box"}}}),
+    obj("bok", "anteckningsbok", [0.2, 0.77, -1.5], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
+    obj("dalahast", "dalahast", [1.7, 0.77, -1.2]),
+    obj("blommor", "vas", [1.1, 0.77, -1.15]),
+    obj("tavla", "tavla", [-3.48, 1.55, -0.5], rot=90, storlek=[0.7, 0.5], seed=12, modell={"fil": "modeller/fancy_picture_frame_01.glb", "passa": "box"}),
+    obj("gunnar", "person", [-1.7, 0, 1.3], rot=140, rock="#e8e4d8", byxor="#3a4a5a", har="#9a9a96", glasogon=True, seed=2,
         interaktiv=ia("Gunnar Sahlin", "Gunnar är röd om kinderna. ”Jag såg den halv fem, med sin gamla buckla på kanten – den har haft den sedan farfars tid. Kvart i sex var den borta! Jag var ensam här på gården hela dagen och fixade inför festen, ända tills bussen kom – ingen kunde ha kommit åt den då.”", ["f-gunnar-anmalan", "f-gunnar-ensam"])),
-    obj("olle", "person", [2.3, 0, -1.2], rot=-60, rock="#2a3a5a", byxor="#3a3a40", har="#5a3a20", seed=4,
+    obj("olle", "person", [2.3, 0, 1.2], rot=-120, rock="#2a3a5a", byxor="#3a3a40", har="#5a3a20", seed=4,
         interaktiv=ia("Olle Sahlin", "Olle skruvar på sig. ”Jag bar in tårtan vid fem och ställde mig vid skänken för att ta en bild åt farbror Gunnar. Skålen stod där när jag gick ut igen, det syns ju på bilden.” Han visar sin mobil.", material=["bild-d"])),
-    obj("birgitta", "person", [-2.4, 0, 2.0], rot=200, kon="k", rock="#c8a0b0", har="#b89a6a", forklade=True, seed=1,
-        interaktiv=ia("Birgitta Sahlin", "Birgitta torkar händerna på förklädet. ”Jag tog en bild på dukningen tjugo över fem – och då var skålen redan borta. Jag trodde Gunnar hade ställt undan den.”", material=["bild-e"])),
+    obj("birgitta", "person", [-2.4, 0, -2.0], rot=-20, kon="k", rock="#c8a0b0", har="#b89a6a", forklade=True, seed=1,
+        interaktiv=ia("Birgitta Nordin", "Birgitta torkar händerna på förklädet. ”Jag tog en bild på dukningen tjugo över fem – och då var skålen redan borta. Jag trodde Gunnar hade ställt undan den.”", material=["bild-e"])),
     obj("dorr-ut", "dorr", [-1.6, 0, 2.99], rot=180, farg="#2e4a3a", gar_till="garden", interaktiv=ia("Ut på gården", "Farstudörren ut mot gården och midsommarstången.")),
-    obj("dorr-kontor", "dorr", [3.49, 0, -1.4], rot=-90, farg="#6a5a40", gar_till="kontoret", interaktiv=ia("Gunnars kontor", "Dörren till Gunnars lilla kontor.")),
+    obj("dorr-kontor", "dorr", [3.49, 0, 1.4], rot=-90, farg="#6a5a40", gar_till="kontoret", interaktiv=ia("Gunnars kontor", "Dörren till Gunnars lilla kontor.")),
   ]}}}
 
 # ---------- Gården ----------
@@ -78,11 +78,11 @@ garden = {"id": "garden", "namn": "Gården", "mekanik": "scen", "payload": {"vis
         "En röd Volvo. På instrumentbrädan ligger parkeringskvittot från Arlanda: infart 11.02, utfart 12.44.", "f-parkering")),
     obj("buss", "buss", [-1.5, 0, 5.4], rot=90, text="BERGSLAGSBUSS"),
     obj("korlogg", "parm", [3.9, 0.0, 4.0], farg="#3a3a3a", etikett="Körlogg", interaktiv=ia("Bussens körlogg",
-        "Chauffören har lagt körloggen på trappsteget: ”Midsommarbeställning Sahlin. Avg. Leksands station 14.50 – ank. gården 15.14. 25 resenärer, samt catering (B. Sahlin).” Alla gästerna kom med bussen – Olle, Mikael och Karin står på listan.", "f-buss")),
+        "Chauffören har lagt körloggen på trappsteget: ”Midsommarbeställning Sahlin. Avg. Leksands station 14.50 – ank. gården 15.14. 25 resenärer, samt catering (B. Nordin).” Alla gästerna kom med bussen – Olle, Mikael och Karin står på listan.", "f-buss")),
     obj("mikael", "person", [6.0, 0, 1.6], rot=-110, rock="#3a3a44", byxor="#2a2a30", har="#2a2018", skagg=True, seed=1,
         interaktiv=ia("Mikael Ström", "”Jag gick tio i fem för att hinna till en auktion i Rättvik. Gunnar ringde och bad mig komma tillbaka. Väskan? Titta själv.”", "f-mikael-gick")),
     obj("vaska", "resvaska", [6.5, 0, 2.2], rot=-20, interaktiv=ia("Mikaels väska",
-        "En stor läderväska. I den ligger en tom tårtbricka i silver som Mikael lånat ut till Birgitta – och en auktionskatalog. Ingen skål.", "f-mikael-vaska")),
+        "En stor läderväska. I den ligger ett tomt kakfat i silver som Mikael lånat ut till Birgitta till kaffet – och en auktionskatalog. Ingen skål.", "f-mikael-vaska")),
     obj("bok", "anteckningsbok", [-3.3, 0.74, -1.85], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     *[obj(f"bjork{i}", "bjork", p, seed=i, hojd=5 + (i % 3)) for i, p in enumerate([[-6.8, 0, -4.5], [-7.0, 0, 1.5], [6.9, 0, -5.8], [7.0, 0, 5.6], [-6.6, 0, 6.2]])],
     obj("gran1", "gran", [-9.5, 0, -2]), obj("gran2", "gran", [9.8, 0, 2]),
@@ -162,7 +162,7 @@ fall["fynd"] = [
   {"id": "f-lena-resa", "titel": "Lenas resa", "ikon": "✈️", "typ": "stod", "galler": ["lena"], "text": "Lena åkte hemifrån halv nio. Arlanda ligger två och en halv timme från gården."},
   {"id": "f-lena-ankomst", "titel": "Lenas bil kommer", "ikon": "🚗", "typ": "nyckel", "galler": ["lena"], "text": "På bilden kl. 15.16 kör Lenas bil just in på gården."},
   {"id": "f-mikael-gick", "titel": "Mikael gick tidigt", "ikon": "🚶", "typ": "avledande", "galler": ["mikael"], "text": "Mikael kom med bussen och gick 16.50 med en stor väska.", "forklaring": "Han gick före 17.05 – och då stod kopian fortfarande kvar på Olles bild."},
-  {"id": "f-mikael-vaska", "titel": "Mikaels väska", "ikon": "💼", "typ": "avledande", "galler": ["mikael"], "text": "I väskan: en tom tårtbricka i silver och en auktionskatalog.", "forklaring": "Väskan som såg misstänkt ut innehöll bara tårtbrickan."},
+  {"id": "f-mikael-vaska", "titel": "Mikaels väska", "ikon": "💼", "typ": "avledande", "galler": ["mikael"], "text": "I väskan: ett tomt kakfat i silver och en auktionskatalog.", "forklaring": "Väskan som såg misstänkt ut innehöll bara kakfatet."},
   {"id": "f-olle-skank", "titel": "Olle vid skänken", "ikon": "🎂", "typ": "avledande", "galler": ["olle"], "text": "Olle stod tätt intill skänken med tårtan kl. 17.05.", "forklaring": "Skålen stod kvar när Olle gick – och det var ändå bara kopian."}
 ]
 
@@ -186,12 +186,12 @@ fall["slutsatser"] = [
     {"text": "Ja – han känner väl sin egen skål.", "svar": "Det var just det han gjorde. Men kl. 16.30 stod kopian där – utan buckla."},
     {"text": "Nej. Kl. 16.30 stod kopian där, utan buckla. Han beskriver skålen han vet att den ska vara.", "ratt": True}],
    "slutsats": "Gunnar ljuger om bucklan. Han visste inte att bilderna skulle avslöja bytet."},
-  {"id": "s-stold", "kraver": ["f-borta"], "efter": ["s-kopia"], "fraga": "Kopian försvann mellan 17.05 och 17.20. Är det den som tog den som är tjuven?", "alternativ": [
-    {"text": "Ja – den som tog skålen från skänken är skyldig.", "svar": "Det som togs från skänken var bara kopian. Den äkta skålen var borta långt innan festen började."},
+  {"id": "s-stold", "kraver": ["f-borta"], "efter": ["s-kopia"], "fraga": "Kopian försvann mellan 17.05 och 17.20. Stals brudskålen då?", "alternativ": [
+    {"text": "Ja – den togs från skänken under festen.", "svar": "Det som togs från skänken var bara kopian. Den äkta skålen var borta långt innan festen började."},
     {"text": "Nej. Den ”stölden” var iscensatt – den äkta skålen var redan borta.", "ratt": True}],
    "slutsats": "Stölden under festen var ett skådespel med en kopia, inför tjugofem vittnen."},
   {"id": "s-motiv", "kraver": ["f-forsakring"], "efter": ["s-vem"], "fraga": "Varför skulle någon ”stjäla” sin egen skål?", "alternativ": [
-    {"text": "För att sälja den till Mikael.", "svar": "Mikaels väska innehöll bara tårtbrickan. Titta i Gunnars papper."},
+    {"text": "För att sälja den till Mikael.", "svar": "Mikaels väska innehöll bara kakfatet. Titta i Gunnars papper."},
     {"text": "För försäkringspengarna: värdet höjdes nyss från 180 000 till 650 000 kr.", "ratt": True}],
    "slutsats": "Motivet: försäkringen. Gunnar skulle få 650 000 kr för en skål han fortfarande hade kvar."}
 ]
@@ -201,7 +201,7 @@ fall["losning"] = {"skyldig": "gunnar", "hur": "byte", "hur_text": "Gunnar bytte
   "uteslutningar": {"lena": ["f-parkering", "f-lena-ankomst", "f-kopia"], "mikael": ["f-buss", "f-kopia"], "olle": ["f-buss", "f-kopia", "f-olle-skank"]},
   "uteslutningar_text": {
     "lena": "Lena stod på Arlanda 11.02–12.44, två och en halv timme bort, och körde in på gården kl. 15.16 – när kopian redan stod på skänken.",
-    "mikael": "Mikael kom med bussen 15.14, efter bytet. Väskan innehöll en tårtbricka.",
+    "mikael": "Mikael kom med bussen 15.14, efter bytet. Väskan innehöll ett kakfat.",
     "olle": "Olle kom med bussen 15.14. Skålen stod kvar när han gick från skänken – och det var bara kopian."}}
 fall["anklagelse"] = {"hur_fraga": "Hur försvann den äkta skålen?", "hur_alternativ": [
     {"id": "fest", "text": "Någon tog den från skänken mellan 17.05 och 17.20"},
@@ -216,7 +216,7 @@ fall["aterkoppling"] = {
   "ratt": "Den bästa stölden är den som aldrig händer. Gunnar bytte skålen i lugn och ro medan han var ensam på gården. Sedan lät han en kopia ”försvinna” inför tjugofem vittnen. Han glömde bara att han själv hade lagt ut beviset på Instagram.",
   "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian, skålen på bokhyllan i kontoret, hade han beställt av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
   "fel": {
-    "mikael": "En antikhandlare med väska ser misstänkt ut. Men han kom med bussen efter bytet, och väskan innehöll en tårtbricka.",
+    "mikael": "En antikhandlare med väska ser misstänkt ut. Men han kom med bussen efter bytet, och väskan innehöll ett kakfat.",
     "olle": "Olle stod vid skänken med tårtan, men skålen stod kvar när han gick – och det var dessutom bara kopian.",
     "lena": "Lena stod på Arlanda och körde in på gården kl. 15.16. Då stod kopian redan på skänken.",
     "gunnar": ""},
