@@ -1893,9 +1893,10 @@
       "kraver": [
         "f-vaktaren",
         "f-grannen",
-        "f-klockan"
+        "f-klockan",
+        "f-monter"
       ],
-      "text": "Fastställ först när inbrottet skedde. Tre oberoende källor pekar på samma tidpunkt."
+      "text": "Börja med två frågor: när skedde inbrottet, och hur öppnades montern? Tiden får du fram ur nattväktarens rundor, grannens skräll och den krossade klockan på golvet. Titta också noga på monterns lås."
     },
     {
       "niva": 2,
@@ -1903,19 +1904,22 @@
       "kraver": [
         "f-nyckelinnehavare",
         "f-monter",
-        "f-gangtider"
+        "f-gangtider",
+        "f-brottstid"
       ],
-      "text": "Montern öppnades med nyckel. Lägg nyckelinnehavarnas tidskort på tidslinjen och pröva var och en mot brottstiden."
+      "text": "Om montern öppnades med nyckel: vilka kan ha gjort det, och var befann de sig vid brottstiden? Lägg deras tidskort på tidslinjen och pröva var och en – heldragna kort väger tyngre än personens eget påstående."
     },
     {
       "niva": 3,
       "kostnad": 50,
       "kraver": [
+        "k-faltskog-grand",
         "k-karl-pant",
         "k-rapp-gillet",
-        "k-rapp-hem"
+        "k-rapp-hem",
+        "f-ekspan-rapp"
       ],
-      "text": "Karl ljuger – men var var han kl. 22.40? Räkna sedan på varje nyckelinnehavares raka väg hem och jämför med när de faktiskt kom hem. Var blir det minuter över?"
+      "text": "Två av nyckelinnehavarna har vittnen eller papper som håller dem borta vid brottstiden – också den som ljög om krogen. Den tredje säger att han gick raka vägen hem, men hustrun och köksuret säger något annat. Vad räcker de extra minuterna till – och vad sitter i rocken på kroken?"
     }
   ],
   "aterkoppling": {

@@ -1588,9 +1588,11 @@
       "kostnad": 10,
       "kraver": [
         "f-kedja",
-        "f-fonster-is"
+        "f-fonster-is",
+        "f-vagg4",
+        "f-mellandorr"
       ],
-      "text": "Hur kan någon lämna en kupé som är hakad inifrån och har ett fastfruset fönster?"
+      "text": "Börja med hur gärningspersonen kom ut ur kupé 3. Korridordörren var hakad inifrån – undersök de andra vägarna: fönstret, väggen mot kupé 4 och mellandörren."
     },
     {
       "niva": 2,
@@ -1599,16 +1601,18 @@
         "f-mellandorr",
         "f-ahl-kedja"
       ],
-      "text": "Det finns bara en väg kvar: mellandörren. Vart leder den – och kunde den som gick den vägen sedan ta sig vidare?"
+      "text": "Om mellandörren var den enda vägen ut, vart ledde den – och gick det att ta sig vidare därifrån? Ta reda på hur det såg ut i kupé 2 när konduktören knackade där kl. 06.15: dörren, fönstret och väggen mot kupé 1."
     },
     {
       "niva": 3,
       "kostnad": 50,
       "kraver": [
+        "f-tidtabell",
+        "f-ahl-kedja",
         "u-ahl-sov",
         "u-ahl-lykta"
       ],
-      "text": "Den som reste i kupé 2 säger att hon sov hela natten. Läs vad hon själv minns från stoppet i Boden – kan båda sakerna vara sanna?"
+      "text": "Även kupé 2 var stängd inifrån i morse: kedjan på, fönstret fastfruset och ingen dörr mot kupé 1. Den som gick genom mellandörren blev alltså kvar där. Vem påstår sig ha sovit hela natten men minns ändå stinsens lykta i Boden?"
     }
   ],
   "aterkoppling": {

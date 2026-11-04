@@ -2024,28 +2024,36 @@
       "kostnad": 10,
       "kraver": [
         "dok-instruktion",
-        "dok-loggbok"
+        "dok-loggbok",
+        "f-duns-signe",
+        "f-duns-lagerkvist"
       ],
-      "text": "Läs fyrinstruktionen. Vad säger den om urverket – och om hur loggboken förs?"
+      "text": "Läs fyrinstruktionen och loggboken uppe i lanternan: vad säger instruktionen om urverket och om hur loggboken ska föras? Ta också reda på när dunsen hördes – i fyrmästarbostaden och på väderstationen."
     },
     {
       "niva": 2,
       "kostnad": 25,
       "kraver": [
-        "f-uppdragen",
+        "dok-journal",
         "dok-fyndet",
-        "f-dodstid"
+        "f-duns-signe",
+        "f-duns-lagerkvist",
+        "f-dodstid",
+        "f-uppdragen"
       ],
-      "text": "Fyren lyste hela natten, så någon drog upp urverket kl. 04. Men kroppen låg i vägen redan från 03.20, och ingen kan ta sig upp utan att kliva över den. Vem skrev 04-anteckningen – och med vad?"
+      "text": "Hur länge går urverket – och slocknade fyren någon gång i natt? Den som drog upp det efter dunsen måste ha klivit över fyrmästaren i trappan. Vem skrev 04-raden i loggboken, och med vilken penna?"
     },
     {
       "niva": 3,
       "kostnad": 50,
       "kraver": [
-        "dok-dagbok",
-        "f-04-black"
+        "f-johan-ben",
+        "f-johan-koket",
+        "f-barograf",
+        "f-04-black",
+        "dok-dagbok"
       ],
-      "text": "Stäm av alla fyra mot 03.20. Vem saknar alibi? Läs sedan berättarens egen dagbok en gång till: hur kan han veta att Holger visslade kl. 04?"
+      "text": "Pröva alla fyra på ön mot 03.20. En kan inte gå, en slog tidsmärken på stationen var femtonde minut, och en kunde bara gå ut genom köket, där någon låg vaken. Den fjärde har den enda reservoarpennan på ön – och skriver själv att fyrmästaren visslade i tornet vid fyratiden."
     }
   ],
   "aterkoppling": {
