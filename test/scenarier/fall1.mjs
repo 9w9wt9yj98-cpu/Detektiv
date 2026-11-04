@@ -64,7 +64,7 @@ export async function fel(browser) {
   await p.waitForFunction(() => /Fastnat\?/.test(document.getElementById('toast')?.textContent || '') && document.querySelector('[data-ledtrad]').classList.contains('fastnat'));
   // Hjälpen i lampan: först ett gratis tips om nästa steg, och kortet ”Så löser du ett fall”
   await p.locator('[data-ledtrad]').click();
-  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /Det finns mer att hitta här i Sovrummet/);
+  assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /Det finns mer att hitta här i sovrummet/);
   assert.equal(await p.locator('[data-ledtrad]').evaluate((b) => b.classList.contains('fastnat')), false, 'lampan ska sluta pulsera när hjälpen öppnas');
   await p.locator('[data-saloserdu]').click();
   await p.locator('.sa-loser-du').waitFor();
@@ -75,7 +75,7 @@ export async function fel(browser) {
   // Ledtråd 1 innan något är hittat → pekar på fönstret
   await p.locator('[data-ta]').click(); await p.locator('[data-ja]').click(); await vanta(300);
   const lt = await p.locator('.ledtradlista').innerText();
-  assert.match(lt, /Sovrummet och undersök fönstret/, 'ledtråden pekar inte på fönstret: ' + lt);
+  assert.match(lt, /Gå till sovrummet och undersök fönstret/, 'ledtråden pekar inte på fönstret: ' + lt);
   await bild(p, 'f1-ledtrad-pekare');
   await p.locator('.ledtradar [data-stang]').last().click(); await vanta(300);
   await hittaAllt(p);

@@ -298,7 +298,8 @@
             "storm"
           ]
         }
-      }
+      },
+      "text_i": "på tornets nedre avsats"
     },
     {
       "id": "lanternan",
@@ -528,7 +529,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i lanternan"
     },
     {
       "id": "koket",
@@ -801,7 +803,8 @@
             "brasa"
           ]
         }
-      }
+      },
+      "text_i": "i fyrmästarbostadens kök"
     },
     {
       "id": "stugan",
@@ -992,7 +995,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i biträdesstugan"
     },
     {
       "id": "stationen",
@@ -1202,7 +1206,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "på väderstationen"
     },
     {
       "id": "dokumenten",

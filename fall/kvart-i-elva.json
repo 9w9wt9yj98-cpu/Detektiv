@@ -384,7 +384,8 @@
             "tick"
           ]
         }
-      }
+      },
+      "text_i": "i urmakeriet"
     },
     {
       "id": "gatan",
@@ -666,7 +667,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "på Österlånggatan"
     },
     {
       "id": "poliskammaren",
@@ -950,7 +952,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "på poliskammaren"
     },
     {
       "id": "rapps-hem",
@@ -1193,7 +1196,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i Rapps kök på Kungsholmen"
     },
     {
       "id": "tidslinjen",

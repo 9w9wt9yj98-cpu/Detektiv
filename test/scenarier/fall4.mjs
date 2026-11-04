@@ -86,7 +86,7 @@ export async function fel(browser) {
   await stangKort(p);
   await p.locator('[data-ledtrad]').click(); await p.locator('[data-ta]').click(); await p.locator('[data-ja]').click(); await vanta(300);
   const lt = await p.locator('.ledtradlista').innerText();
-  assert.match(lt, /Gunnars kontor|Gården|Gunnar Sahlin/, 'ledtråden pekar inte ut var bilderna finns: ' + lt);
+  assert.match(lt, /Gunnars kontor|gården|Gunnar Sahlin/, 'ledtråden pekar inte ut var bilderna finns: ' + lt);
   await bild(p, 'f4-ledtrad');
   await p.locator('[data-losning]').click(); await p.locator('[data-ja]').click();
   const txt = await upplosning(p, 'f4-visa-losningen');

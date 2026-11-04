@@ -18,7 +18,7 @@ export function renderaSlutsatser(sida, f, st, { geFynd, onAndrat } = {}) {
         if (foreLast) return '';
         foreLast = true;
         const v = saknas.length ? vagTill(f, st, saknas[0]) : null;
-        const var_ = v?.rumNamn ? ` Leta vidare i ${esc(v.rumNamn)}.` : v?.flik ? ` Arbeta vidare under ”${esc(v.flik)}”.` : '';
+        const var_ = v?.rumI ? ` Leta vidare ${esc(v.rumI)}.` : v?.flik ? ` Arbeta vidare under ”${esc(v.flik)}”.` : '';
         return `<li class="slutsats last"><span class="snr">${i + 1}</span><div><p class="sfraga">🔒 ${vantar && !saknas.length ? 'Besvara frågan ovanför först.' : `Nästa fråga kräver mer underlag – ${saknas.length} ${saknas.length === 1 ? 'fynd' : 'fynd'} till.${var_}`}</p></div></li>`;
       }
       return `<li class="slutsats redo" data-s="${s.id}"><span class="snr">${i + 1}</span><div><p class="sfraga">${esc(s.fraga)}</p>

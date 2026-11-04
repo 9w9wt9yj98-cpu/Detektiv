@@ -277,6 +277,11 @@ LJUD = {"urmakeriet": ["tick"], "gatan": [{"typ": "vind", "styrka": 0.8}], "poli
 for m in fall["moment"]:
   if m["id"] in LJUD: m["payload"]["rum"]["ljud"] = LJUD[m["id"]]
 
+# Hur rummen skrivs i löptext (”Det finns mer att hitta på scenen”, ”Gå till scenen”)
+TEXT_I = {"urmakeriet": "i urmakeriet", "gatan": "på Österlånggatan", "poliskammaren": "på poliskammaren", "rapps-hem": "i Rapps kök på Kungsholmen"}
+for m in fall["moment"]:
+  if m["id"] in TEXT_I: m["text_i"] = TEXT_I[m["id"]]
+
 ut = os.path.join(os.path.dirname(__file__), '..', '..', 'fall', 'kvart-i-elva.json')
 json.dump(fall, open(ut, 'w'), ensure_ascii=False, indent=2)
 print('skrev', os.path.normpath(ut))

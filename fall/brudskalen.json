@@ -399,7 +399,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i salen"
     },
     {
       "id": "garden",
@@ -784,7 +785,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "på gården"
     },
     {
       "id": "kontoret",
@@ -972,7 +974,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i Gunnars kontor"
     },
     {
       "id": "bilderna",

@@ -565,7 +565,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "på scenen"
     },
     {
       "id": "lindraget",
@@ -789,7 +790,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "på lindraget"
     },
     {
       "id": "undre",
@@ -1028,7 +1030,8 @@
             "dropp"
           ]
         }
-      }
+      },
+      "text_i": "i undre maskineriet"
     },
     {
       "id": "logerna",
@@ -1361,7 +1364,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i logekorridoren"
     },
     {
       "id": "forhoret",

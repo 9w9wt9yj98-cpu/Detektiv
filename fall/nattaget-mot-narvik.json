@@ -320,7 +320,8 @@
             "tag"
           ]
         }
-      }
+      },
+      "text_i": "i kupé 3"
     },
     {
       "id": "korridoren",
@@ -714,7 +715,8 @@
             }
           ]
         }
-      }
+      },
+      "text_i": "i sovvagnskorridoren"
     },
     {
       "id": "restaurangvagnen",
@@ -1110,7 +1112,8 @@
             "tag"
           ]
         }
-      }
+      },
+      "text_i": "i restaurangvagnen"
     },
     {
       "id": "forhoret",
