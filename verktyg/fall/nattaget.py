@@ -40,7 +40,7 @@ kupe3 = {"id": "kupe3", "namn": "Kupé 3", "mekanik": "scen", "payload": {"visni
         "Fönstret är fastfruset. Isen sitter obruten i alla fogar, och snön ligger orörd mot glaset. Det här fönstret har inte öppnats i natt – det går inte ens att rubba.", "f-fonster-is")),
     obj("koj", "koj", [0.82, 0, -0.35]),
     obj("kroppen", "taeckt", [0.82, 0.55, -0.35], interaktiv=ia("Grosshandlare Berg",
-        "Anton Berg ligger under en filt på kojen. Ett hårt slag mot vänster tinning. Doktor Wiklund, som reser i andra vagnen, har skrivit på en lapp: ”Döden inträffade mellan kl. 01.00 och 02.00. Slaget kommer från ett tungt föremål, inte från ett fall. Inga tecken på kamp.”", "f-dodstid")),
+        "Anton Berg ligger under en filt på kojen – Lind fann honom på golvet, och doktorn har lagt upp honom. Ett hårt slag mot vänster tinning. Doktor Wiklund, som reser i andra vagnen, har skrivit på en lapp: ”Döden inträffade mellan kl. 01.00 och 02.00. Slaget kommer från ett tungt föremål, inte från ett fall. Inga tecken på kamp.”", "f-dodstid")),
     obj("bord", "bord", [-0.62, 0, -1.3], storlek=[0.7, 0.7, 0.42], modell={"fil": "modeller/classic_nightstand_01.glb", "passa": "box"}),
     obj("planboken", "papper", [-0.78, 0.7, -1.32], antal=2, interaktiv=ia("Bergs plånbok",
         "Bergs plånbok ligger uppslagen på bordet. Bland sedlarna finns en skuldsedel: ”Skyldig A. Berg trehundra kronor. Stockholm den 14 februari. /E. Sundin”", "f-skuldsedel")),
@@ -52,7 +52,7 @@ kupe3 = {"id": "kupe3", "namn": "Kupé 3", "mekanik": "scen", "payload": {"visni
     obj("vagg4", "tavla", [1.29, 1.45, 1.05], rot=-90, storlek=[0.5, 0.36], seed=74, interaktiv=ia("Väggen mot kupé 4",
         "Väggen mot kupé 4 är en hel mahognypanel med en liten tavla. Ingen dörr, ingen lucka – tavlan sitter fastskruvad.", "f-vagg4")),
     obj("korridordorr", "kupedorr", [0.45, 0, 1.59], rot=180, nummer=3, kedja="avklippt", gar_till="korridoren", interaktiv=ia("Korridordörren",
-        "Säkerhetskedjan hänger avklippt. Konduktör Lind fick klippa av den kl. 06.10, eftersom den var hakad på inifrån. En sådan kedja kan bara hakas på från insidan av kupén.", "f-kedja")),
+        "Säkerhetskedjan hänger avklippt. Konduktör Lind fick klippa av den kl. 06.10, eftersom den var hakad på inifrån – fröken Nyqvist stod i korridoren och såg att den satt på. En sådan kedja kan bara hakas på från insidan av kupén.", "f-kedja")),
     obj("lampa", "vagglampa", [-1.27, 1.85, -0.6], rot=90, styrka=1.4),
     obj("lampa2", "vagglampa", [1.27, 1.95, 0.9], rot=-90, styrka=0.9),
     obj("hatthylla", "skylt", [0.45, 2.3, 1.585], rot=180, text="KUPÉ 3", storlek=[0.4, 0.12], textstorlek=60)
@@ -80,7 +80,7 @@ korr = {"id": "korridoren", "namn": "Sovvagnskorridoren", "mekanik": "scen", "la
     obj("ahl", "person", [0.3, 0, -1.55], rot=200, kon="k", rock="#1c1a1e", har="#6a5a4a", hatt="sjalett", hattfarg="#141216", seed=3,
         interaktiv=ia("Fru Ahl", "Fru Ahl står vid dörren till sin kupé med händerna knäppta. Hon talar lågt.", material=["u-ahl-sov", "u-ahl-regel"])),
     obj("nyqvist", "person", [-0.25, 0, 2.55], rot=160, kon="k", rock="#4a5a3a", har="#8a6a3a", glasogon=True, seed=1,
-        interaktiv=ia("Fröken Nyqvist", "Fröken Nyqvist har redan klätt sig och håller i sitt fickur.", "f-duns", ["u-nyq-duns", "u-nyq-korridor"])),
+        interaktiv=ia("Fröken Nyqvist", "Fröken Nyqvist har redan klätt sig och håller i sitt fickur. ”Jag stod här när konduktören klippte kedjan till kupé 3 klockan tio över sex. Den satt på – det såg jag själv.”", "f-duns", ["u-nyq-duns", "u-nyq-korridor"])),
     obj("fotspar", "fotspar", [0, 0, 0], kollision=False, punkter=[[0.15, 4.3], [0.1, 2.0], [0.35, 0.6], [0.5, 0.15]],
         interaktiv=ia("Våta fotspår", "Våta, snöiga fotspår går från vagnsdörren längst bak fram till kupé 3. Avtrycken är stora, med grova stövelklackar.", "f-fotspar")),
     obj("vagnsdorr", "kupedorr", [0.2, 0, 4.49], rot=180, interaktiv=ia("Vagnsdörren", "Dörren ut mot plattformen mellan vagnarna. Snö har yrt in över tröskeln.")),
@@ -140,7 +140,7 @@ forhor = {"id": "forhoret", "namn": "Förhör", "mekanik": "forhor", "payload": 
     {"id": "u-sun-kort", "person": "sundin", "titel": "Sundin om natten", "text": "Jag spelade kort med konduktören här i restaurangvagnen från halv ett till två. Hela tiden, utan uppehåll."},
     {"id": "u-sun-kande", "person": "sundin", "titel": "Sundin om Berg", "text": "Berg? Honom kände jag knappt. Vi hälsade på perrongen i Stockholm, det är allt."},
     {"id": "u-sun-erkann", "person": "sundin", "titel": "Sundin medger skulden", "kraver": ["f-sundin-motiv"], "text": "Nåja … jag förlorade trehundra kronor till honom på kortspel i Stockholm. Jag skäms. Men jag har inte rest mig från det här bordet i natt – fråga servitören!"},
-    {"id": "u-sun-patiens", "person": "sundin", "titel": "Sundin om stoppet", "kraver": ["f-sundin-patiens"], "text": "Konduktören gick ut i Boden en kvart, ja, det hade jag glömt. Jag lade patiens så länge. Olsson stod där bakom disken hela tiden."},
+    {"id": "u-sun-patiens", "person": "sundin", "titel": "Sundin om stoppet", "kraver": ["f-sundin-patiens"], "text": "Konduktören gick ut när vi stod i Boden, ja, det hade jag glömt. Jag lade patiens tills han kom tillbaka. Olsson stod där bakom disken hela tiden."},
     {"id": "u-ols", "person": "olsson", "titel": "Olsson om herr Sundin", "text": "Herr Sundin satt vid bord 4 hela natten. Han lämnade aldrig vagnen, inte ens när konduktören gick ut i Boden. Jag höll ögonen på honom – han hade tre obetalda notor."},
     {"id": "u-lind-perrong", "person": "lind", "titel": "Lind om stoppet", "text": "Jag var ute på perrongen i Boden från 01.10 till 01.25. Jag hoppade på i främsta vagnen när vi rullade och gick bakåt genom postvagnen. Strax efter halv två var jag tillbaka hos herr Sundin – genom sovvagnen gick jag inte."},
     {"id": "u-lind-kedja", "person": "lind", "titel": "Lind om morgonen", "text": "Strax efter sex skottade jag snö på plattformen bakom vagnen och gick sedan in genom bakdörren, raka vägen till kupé 3 – herr Berg hade bett att bli väckt i god tid före Narvik. Klockan 06.10 fick jag klippa kedjan till kupé 3. Fem minuter senare knackade jag på hos fru Ahl – och såg själv hur hon hakade av sin egen säkerhetskedja inifrån. Jag såg mig om där inne: fönstret var fastfruset som alla andra, och mot kupé 1 finns bara en hel vägg. Den kupén har stått tom och låst hela resan."}
@@ -156,7 +156,7 @@ forhor = {"id": "forhoret", "namn": "Förhör", "mekanik": "forhor", "payload": 
 fall["moment"] = [kupe3, korr, rest, forhor]
 
 fall["fynd"] = [
-  {"id": "f-kedja", "titel": "Kedjan inifrån", "ikon": "⛓️", "typ": "nyckel", "text": "Kupé 3:s korridordörr var hakad med säkerhetskedjan inifrån. Lind fick klippa av den kl. 06.10. Kedjan kan inte hakas på utifrån."},
+  {"id": "f-kedja", "titel": "Kedjan inifrån", "ikon": "⛓️", "typ": "nyckel", "text": "Kupé 3:s korridordörr var hakad med säkerhetskedjan inifrån. Lind fick klippa av den kl. 06.10, och fröken Nyqvist såg att den satt på. Kedjan kan inte hakas på utifrån."},
   {"id": "f-fonster-is", "titel": "Fastfruset fönster", "ikon": "❄️", "typ": "nyckel", "text": "Fönstret i kupé 3 är fastfruset. Isen i fogarna är obruten – det har inte öppnats i natt."},
   {"id": "f-mellandorr", "titel": "Mellandörren", "ikon": "🚪", "typ": "nyckel", "text": "Mellandörren mellan kupé 2 och 3 har en regel på var sida. Regeln på kupé 3:s sida är öppen; på kupé 2:s sida är den reglad."},
   {"id": "f-vagg4", "titel": "Ingen dörr till kupé 4", "ikon": "🧱", "typ": "stod", "text": "Väggen mellan kupé 3 och kupé 4 är en hel panel utan dörr eller lucka."},
@@ -169,7 +169,7 @@ fall["fynd"] = [
   {"id": "f-sundin-alibi", "titel": "Sundin satt kvar", "ikon": "🍽️", "typ": "nyckel", "galler": ["sundin"], "text": "Servitör Olsson: Sundin satt vid bord 4 i restaurangvagnen hela natten och lämnade den aldrig."},
   {"id": "f-notan", "titel": "Notorna vid bord 4", "ikon": "🧾", "typ": "stod", "galler": ["sundin"], "text": "Olssons notor: kaffe 00.40, konjak 01.15, kaffe och smörgås 01.50 vid bord 4 – kvitterade vid bordet."},
   {"id": "f-ahl-kedja", "titel": "Fru Ahls kedja", "ikon": "🔗", "typ": "nyckel", "galler": ["ahl"], "text": "Konduktör Lind såg kl. 06.15 hur fru Ahl själv hakade av säkerhetskedjan på kupé 2 – inifrån. Hennes dörr var hakad inifrån när han kom, fönstret är fastfruset och väggen mot den tomma kupé 1 saknar dörr."},
-  {"id": "f-ahl-vaken", "titel": "Fru Ahl var vaken", "ikon": "🏮", "typ": "nyckel", "galler": ["ahl"], "text": "Fru Ahl påstår att hon sov oavbrutet, men hon minns stinsens lykta under stoppet i Boden. Hon var vaken när dunsen hördes."},
+  {"id": "f-ahl-vaken", "titel": "Fru Ahl var vaken", "ikon": "🏮", "typ": "nyckel", "galler": ["ahl"], "text": "Fru Ahl påstår att hon sov oavbrutet, men hon minns stinsens lykta under stoppet i Boden. Hon var vaken under stoppet – och dunsen hördes när tåget lämnade Boden."},
   {"id": "f-sundin-motiv", "titel": "Sundin ljög om Berg", "ikon": "🃏", "typ": "avledande", "galler": ["sundin"], "text": "Sundin sa att han knappt kände Berg – men han var skyldig honom 300 kronor.", "forklaring": "Sundin ljög av skam, inte av skuld. Han lämnade aldrig restaurangvagnen."},
   {"id": "f-sundin-patiens", "titel": "Patiensen", "ikon": "🂡", "typ": "bakgrund", "galler": ["sundin"], "text": "Sundin spelade inte kort med konduktören hela natten – under stoppet i Boden lade han patiens, inför Olsson.", "forklaring": "En oskyldig felsägning: Sundin mindes fel, men Olsson såg honom hela tiden."}
 ]
@@ -188,8 +188,8 @@ fall["slutsatser"] = [
    "slutsats": "Den som gick genom mellandörren stannade i kupé 2. Där fanns bara fru Ahl."},
   {"id": "s-vaken", "kraver": ["f-ahl-vaken", "f-duns", "f-dodstid"], "efter": ["s-kupe2"], "fraga": "Fru Ahl säger att hon sov hela natten. Stämmer det?", "alternativ": [
     {"text": "Ja – ingen har sett henne vaken.", "svar": "Lyssna på vad hon själv berättar om stoppet i Boden."},
-    {"text": "Nej – hon minns lyktan i Boden, så hon var vaken när dunsen hördes kl. 01.25.", "ratt": True}],
-   "slutsats": "Fru Ahl ljuger om sömnen. Hon var vaken när dunsen hördes kl. 01.25, mitt i läkarens tidsfönster."},
+    {"text": "Nej – hon minns lyktan i Boden, så hon var vaken under stoppet, som slutade med dunsen kl. 01.25.", "ratt": True}],
+   "slutsats": "Fru Ahl ljuger om sömnen. Hon var vaken under stoppet i Boden, som slutade med dunsen kl. 01.25 – mitt i läkarens tidsfönster."},
   {"id": "s-sundin", "kraver": ["f-sundin-alibi"], "efter": ["s-utvag"], "fraga": "Sundin hade en skuld till Berg. Kan han vara gärningsmannen?", "alternativ": [
     {"text": "Ja – han hade motiv och ljög om att han knappt kände Berg.", "svar": "Ett motiv är inget bevis. Var befann han sig?"},
     {"text": "Nej – Olsson såg honom i restaurangvagnen hela natten.", "ratt": True}],

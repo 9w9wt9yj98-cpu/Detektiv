@@ -163,7 +163,7 @@ dokument = {"id": "dokumenten", "namn": "Dokumenten", "mekanik": "dokument", "pa
       S("Stackars Holger. Trappan är brant, och han var inte så ung längre.", "d-olycka")]},
     {"id": "dok-fyndet", "titel": "Dr. Lagerkvists anteckning vid fyndet", "underrubrik": "14 oktober, kl. 06.30", "ikon": "🩺", "stil": "hand", "stycken": [
       S("Kroppen låg tvärs över trappan på nedre avsatsen. Ingen kan passera upp till lanternan utan att kliva över honom.", "n-trappa"),
-      S("Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade flera timmar före sex. Kläderna är torra: han har inte varit ute i stormen.", "n-grepp")]},
+      S("Blåmärken på båda överarmarna efter ett hårt grepp. Nacken bruten. Kroppen kall – döden inträffade några timmar före sex. Kläderna är torra: han har inte varit ute i stormen.", "n-grepp")]},
     {"id": "dok-journal", "titel": "Väderjournal, Gråskärs station", "underrubrik": "13–14 oktober 1931", "ikon": "📒", "stil": "logg", "stycken": [
       S("Stormvarning från kl. 21. Observation var 15:e minut enligt instruktion; varje avläsning märks med tidsmärke på barografens rulle.", "j-storm"),
       S("02.00–06.00: vid varje observation antecknat ”Fyren lyser normalt”.", "j-fyr"),
@@ -235,7 +235,7 @@ fall["slutsatser"] = [
   {"id": "s-dodstid", "kraver": ["f-duns-signe", "f-duns-lagerkvist"], "ger_fynd": "f-dodstid", "fraga": "När föll Holger?", "alternativ": [
     {"text": "Kl. 03.20.", "ratt": True},
     {"text": "Efter 04.00 – loggboken visar ju att han drog upp urverket då.", "svar": "Loggboken är ett papper. Två människor i två olika hus hörde dunsen tjugo över tre."},
-    {"text": "Strax före sex, då Signe hittade honom.", "svar": "Doktorn skriver att kroppen var kall och att döden inträffat flera timmar före sex."}],
+    {"text": "Strax före sex, då Signe hittade honom.", "svar": "Doktorn skriver att kroppen var kall och att döden inträffat några timmar före sex."}],
    "slutsats": "Signe i bostaden och doktorn på stationen hörde dunsen, oberoende av varandra, 03.20. Då föll Holger."},
   {"id": "s-lagerkvist", "kraver": ["f-barograf", "f-gangvag"], "ger_fynd": "f-lagerkvist-alibi", "fraga": "Kan doktor Lagerkvist ha varit i tornet 03.20?", "alternativ": [
     {"text": "Ja – han hade ett motiv och hörde dunsen.", "svar": "Räkna: märken 03.15 och 03.30, tio minuter dit och tio tillbaka."},

@@ -919,6 +919,21 @@
               ]
             },
             {
+              "id": "kopian",
+              "typ": "skal",
+              "pos": [
+                1.66,
+                1.915,
+                0.2
+              ],
+              "rot": 90,
+              "interaktiv": {
+                "namn": "Silverskålen på bokhyllan",
+                "text": "Högst upp på bokhyllan, ovanför ögonhöjd, står en silverskål med två handtag. Kanten är slät och handtagen är släta – ingen buckla, inget S.",
+                "ger_fynd": "f-kopian-hittad"
+              }
+            },
+            {
               "id": "bok",
               "typ": "anteckningsbok",
               "pos": [
@@ -1279,6 +1294,16 @@
       "text": "Skålen på alla bilder från 15.16 och framåt saknar bucklan och S:et. Det är en kopia – den äkta skålen byttes ut före 15.16."
     },
     {
+      "id": "f-kopian-hittad",
+      "titel": "Skålen i kontoret",
+      "ikon": "🥈",
+      "typ": "nyckel",
+      "galler": [
+        "gunnar"
+      ],
+      "text": "Högst upp på bokhyllan i Gunnars kontor står en silverskål med slät kant och släta handtag – ingen buckla, inget S."
+    },
+    {
       "id": "f-borta",
       "titel": "Kopian försvinner",
       "ikon": "⌛",
@@ -1530,6 +1555,10 @@
         "f-kopia",
         "f-buss",
         "f-gunnar-ensam"
+      ],
+      [
+        "f-kopia",
+        "f-kopian-hittad"
       ]
     ],
     "uteslutningar": {
@@ -1609,7 +1638,7 @@
   ],
   "aterkoppling": {
     "ratt": "Den bästa stölden är den som aldrig händer. Gunnar bytte skålen i lugn och ro medan han var ensam på gården. Sedan lät han en kopia ”försvinna” inför tjugofem vittnen. Han glömde bara att han själv hade lagt ut beviset på Instagram.",
-    "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian låg i Gunnars bil. Han hade beställt den av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
+    "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian, skålen på bokhyllan i kontoret, hade han beställt av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
     "fel": {
       "mikael": "En antikhandlare med väska ser misstänkt ut. Men han kom med bussen efter bytet, och väskan innehöll en tårtbricka.",
       "olle": "Olle stod vid skänken med tårtan, men skålen stod kvar när han gick – och det var dessutom bara kopian.",
@@ -1647,9 +1676,10 @@
         ]
       },
       {
-        "text": "Kopian försvann 17.05–17.20 – stölden var iscensatt. Olle och Mikael är villospår: skålen stod kvar efter dem, och det var ändå bara kopian.",
+        "text": "Kopian försvann 17.05–17.20 och stod sedan högst upp på bokhyllan i Gunnars kontor – stölden var iscensatt. Olle och Mikael är villospår: skålen stod kvar efter dem, och det var ändå bara kopian.",
         "fynd": [
           "f-borta",
+          "f-kopian-hittad",
           "f-olle-skank",
           "f-mikael-vaska"
         ]

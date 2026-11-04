@@ -12,7 +12,7 @@ async function hittaAllt(p) {
   await gaTill(p, 'dorr-in', 'salen');
   await gaTill(p, 'dorr-kontor', 'kontoret');
   await bild(p, 'f4-kontoret');
-  for (const o of ['dator', 'parmen']) { await inspektera(p, o); await stangKort(p); }
+  for (const o of ['dator', 'parmen', 'kopian']) { await inspektera(p, o); await stangKort(p); }
 }
 
 async function valjPar(p, a, b) {

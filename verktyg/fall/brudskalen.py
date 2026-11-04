@@ -107,6 +107,8 @@ kontoret = {"id": "kontoret", "namn": "Gunnars kontor", "mekanik": "scen", "last
     obj("parmen", "parm", [0.6, 0.75, -1.2], etikett="Försäkring", interaktiv=ia("Pärmen ”Försäkring”",
         "Överst ligger ett brev från försäkringsbolaget, daterat i mars: ”Vi bekräftar att försäkringsvärdet för silverskål, 1760-tal, höjts från 180 000 kr till 650 000 kr.” Bakom brevet: försäkringsfotot av skålen från 2019.", "f-forsakring", ["bild-f"])),
     obj("hylla", "bokhylla", [1.79, 0, 0.2], rot=-90, storlek=[1.2, 2.0]),
+    obj("kopian", "skal", [1.66, 1.915, 0.2], rot=90, interaktiv=ia("Silverskålen på bokhyllan",
+        "Högst upp på bokhyllan, ovanför ögonhöjd, står en silverskål med två handtag. Kanten är slät och handtagen är släta – ingen buckla, inget S.", "f-kopian-hittad")),
     obj("bok", "anteckningsbok", [-0.3, 0.75, -1.1], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr", "dorr", [-1.79, 0, 0.6], rot=90, farg="#6a5a40", gar_till="salen", interaktiv=ia("Till salen", "Tillbaka ut i salen.")),
   ]}}}
@@ -153,6 +155,7 @@ fall["fynd"] = [
   {"id": "f-akta", "titel": "Morgonens skål är äkta", "ikon": "🏺", "typ": "nyckel", "text": "Skålen på Gunnars bild kl. 09.10 har samma buckla och samma S i handtaget som försäkringsfotot."},
   {"id": "f-bild-idag", "titel": "Dagens tidning", "ikon": "📰", "typ": "stod", "text": "På morgonbilden ligger dagens Dala-Demokraten bredvid skålen. Bilden togs i dag, kl. 09.10."},
   {"id": "f-kopia", "titel": "En annan skål", "ikon": "🔍", "typ": "nyckel", "text": "Skålen på alla bilder från 15.16 och framåt saknar bucklan och S:et. Det är en kopia – den äkta skålen byttes ut före 15.16."},
+  {"id": "f-kopian-hittad", "titel": "Skålen i kontoret", "ikon": "🥈", "typ": "nyckel", "galler": ["gunnar"], "text": "Högst upp på bokhyllan i Gunnars kontor står en silverskål med slät kant och släta handtag – ingen buckla, inget S."},
   {"id": "f-borta", "titel": "Kopian försvinner", "ikon": "⌛", "typ": "bakgrund", "text": "Skålen på skänken (kopian) försvann mellan 17.05 och 17.20."},
   {"id": "f-buss", "titel": "Bussen kom 15.14", "ikon": "🚌", "typ": "nyckel", "galler": ["mikael", "olle"], "text": "Alla gästerna, och maten, kom med samma buss. Den nådde gården kl. 15.14."},
   {"id": "f-parkering", "titel": "Parkeringskvittot", "ikon": "🅿️", "typ": "nyckel", "galler": ["lena"], "text": "Lenas bil stod på Arlanda 11.02–12.44."},
@@ -194,7 +197,7 @@ fall["slutsatser"] = [
 ]
 
 fall["losning"] = {"skyldig": "gunnar", "hur": "byte", "hur_text": "Gunnar bytte ut den äkta skålen mot en kopia under dagen, när han var ensam på gården. Under festen lät han kopian ”försvinna” och anmälde stölden för att få ut försäkringen.",
-  "bevisgrupper": [["f-kopia", "f-gunnar-ensam"], ["f-akta", "f-kopia", "f-gunnar-ensam"], ["f-kopia", "f-gunnar-anmalan"], ["f-forsakring", "f-kopia", "f-gunnar-ensam"], ["f-kopia", "f-buss", "f-gunnar-ensam"]],
+  "bevisgrupper": [["f-kopia", "f-gunnar-ensam"], ["f-akta", "f-kopia", "f-gunnar-ensam"], ["f-kopia", "f-gunnar-anmalan"], ["f-forsakring", "f-kopia", "f-gunnar-ensam"], ["f-kopia", "f-buss", "f-gunnar-ensam"], ["f-kopia", "f-kopian-hittad"]],
   "uteslutningar": {"lena": ["f-parkering", "f-lena-ankomst", "f-kopia"], "mikael": ["f-buss", "f-kopia"], "olle": ["f-buss", "f-kopia", "f-olle-skank"]},
   "uteslutningar_text": {
     "lena": "Lena stod på Arlanda 11.02–12.44, två och en halv timme bort, och körde in på gården kl. 15.16 – när kopian redan stod på skänken.",
@@ -211,7 +214,7 @@ fall["ledtradar"] = [
   {"niva": 3, "kostnad": 50, "kraver": ["f-gunnar-ensam", "f-gunnar-anmalan"], "text": "Mellan 09.10 och 15.14 var gården tom på alla utom en person. Och vem påstod att han såg bucklan kl. 16.30?"}]
 fall["aterkoppling"] = {
   "ratt": "Den bästa stölden är den som aldrig händer. Gunnar bytte skålen i lugn och ro medan han var ensam på gården. Sedan lät han en kopia ”försvinna” inför tjugofem vittnen. Han glömde bara att han själv hade lagt ut beviset på Instagram.",
-  "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian låg i Gunnars bil. Han hade beställt den av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
+  "efterord": "Offret var gärningsmannen. Den äkta brudskålen hittades samma kväll i båthuset, inlindad i en gammal sovsäck. Kopian, skålen på bokhyllan i kontoret, hade han beställt av en silversmed i Falun i maj – ”för att kunna visa skålen utan att vara rädd om den”, som han sa.",
   "fel": {
     "mikael": "En antikhandlare med väska ser misstänkt ut. Men han kom med bussen efter bytet, och väskan innehöll en tårtbricka.",
     "olle": "Olle stod vid skänken med tårtan, men skålen stod kvar när han gick – och det var dessutom bara kopian.",
@@ -223,7 +226,7 @@ fall["aterkoppling"] = {
     {"text": "Alla bilder från 15.16 och framåt visar en skål utan buckla och med släta handtag. Det är en kopia. Den äkta skålen byttes ut mellan 09.10 och 15.16.", "fynd": ["f-kopia"]},
     {"text": "Gästerna kom med bussen 15.14. Lena stod på Arlanda till 12.44 och körde in på gården 15.16. Bara Gunnar var på gården när bytet kan ha skett – det säger han själv.", "fynd": ["f-buss", "f-parkering", "f-lena-ankomst", "f-gunnar-ensam"]},
     {"text": "Gunnar säger att han såg skålen ”med sin gamla buckla” kl. 16.30. Men då stod kopian där. Han beskriver skålen han vet att den borde vara.", "fynd": ["f-gunnar-anmalan"]},
-    {"text": "Kopian försvann 17.05–17.20 – stölden var iscensatt. Olle och Mikael är villospår: skålen stod kvar efter dem, och det var ändå bara kopian.", "fynd": ["f-borta", "f-olle-skank", "f-mikael-vaska"]},
+    {"text": "Kopian försvann 17.05–17.20 och stod sedan högst upp på bokhyllan i Gunnars kontor – stölden var iscensatt. Olle och Mikael är villospår: skålen stod kvar efter dem, och det var ändå bara kopian.", "fynd": ["f-borta", "f-kopian-hittad", "f-olle-skank", "f-mikael-vaska"]},
     {"text": "Motivet: i mars höjde Gunnar försäkringsvärdet från 180 000 till 650 000 kr. Gunnar Sahlin, som anmälde stölden, är skyldig till försäkringsbedrägeri.", "fynd": ["f-forsakring"]}]}
 # Miljöljud per rum (se js/ljud.js)
 LJUD = {"salen": [{"typ": "faglar", "styrka": 0.4}], "garden": ["faglar", {"typ": "vind", "styrka": 0.4}], "kontoret": [{"typ": "faglar", "styrka": 0.25}]}

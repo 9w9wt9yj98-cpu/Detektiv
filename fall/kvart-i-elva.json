@@ -166,11 +166,10 @@
               "id": "vaggur",
               "typ": "vaggur",
               "pos": [
-                2.49,
+                -0.4,
                 0,
-                -1.2
+                -2.19
               ],
-              "rot": -90,
               "krossad": true,
               "tid": [
                 10,
@@ -178,7 +177,7 @@
               ],
               "interaktiv": {
                 "namn": "Den krossade väggklockan",
-                "text": "Väggklockan har slitits ned från sin krok på väggen och ligger krossad på golvet. Visarna har stannat på 22.47. Fältskog: ”Den gick på sekunden – jag ställde den efter Storkyrkan i förrgår.”",
+                "text": "Väggklockan har slitits ned från sin krok bredvid fönstret och ligger krossad på golvet. Visarna har stannat på 22.47. Fältskog: ”Den gick på sekunden – jag ställde den efter Storkyrkan i förrgår.”",
                 "ger_fynd": "f-klockan"
               }
             },
@@ -186,11 +185,10 @@
               "id": "krok",
               "typ": "skylt",
               "pos": [
-                2.485,
+                -0.4,
                 1.95,
-                -1.2
+                -2.185
               ],
-              "rot": -90,
               "text": "⌀",
               "storlek": [
                 0.08,
@@ -1047,8 +1045,8 @@
               ],
               "rot": -90,
               "tid": [
-                11,
-                52
+                0,
+                25
               ],
               "farg": "#6a4a2a",
               "interaktiv": {
@@ -1207,7 +1205,7 @@
       "last_text": "Utan gångtider går det inte att räkna. Strand har en karta på poliskammaren.",
       "payload": {
         "kort_instruktion": "Lägg tidskorten på rätt person och pröva var och en mot brottstiden.",
-        "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från oberoende källor, streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
+        "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från andra källor än personen själv – vittnen, papper och klockor –, streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
         "fran": "22.00",
         "till": "23.30",
         "lucka_min": 15,

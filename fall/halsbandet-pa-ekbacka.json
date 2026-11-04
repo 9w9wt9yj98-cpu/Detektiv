@@ -776,7 +776,7 @@
               ],
               "interaktiv": {
                 "namn": "Vinflaskan",
-                "text": "Bordeauxflaskan på serveringsbordet. Glaset är blankt och helt fritt från damm, och flaskan har samma temperatur som rummet.",
+                "text": "Bordeauxflaskan på serveringsbordet. Flaskan är blank och helt fri från damm, och den har samma temperatur som rummet.",
                 "ger_fynd": "f-vinflaskan"
               },
               "avstand": 2.6
@@ -849,7 +849,7 @@
               ],
               "interaktiv": {
                 "namn": "Källartrappan",
-                "text": "Dörren mot källartrappan står på glänt. En kall, fuktig luft stiger upp. Flaskor som hämtas härifrån brukar vara svala – och dammiga.",
+                "text": "Dörren mot källartrappan står på glänt – den ena av husets två källartrappor; den andra går ned från köket. En kall, fuktig luft stiger upp. Flaskor som hämtas härifrån brukar vara svala – och dammiga.",
                 "ger_fynd": "f-kallaren"
               }
             },
@@ -1341,7 +1341,7 @@
       "efter": [
         "s-vilka"
       ],
-      "fraga": "Vem av de tre nyckelinnehavarna lämnade salen mellan 19.55 och 21.00?",
+      "fraga": "Vem av de tre nyckelinnehavarna lämnade salen under middagen?",
       "alternativ": [
         {
           "text": "Friherrinnan.",
