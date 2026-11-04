@@ -648,7 +648,11 @@
                 0.85,
                 0.3
               ],
-              "rot": 90
+              "rot": 90,
+              "tid": [
+                7,
+                0
+              ]
             },
             {
               "id": "brevet",
@@ -660,8 +664,8 @@
               ],
               "rot": 90,
               "interaktiv": {
-                "namn": "Ett brev i byrålådan",
-                "text": "Halvt undanstoppat i byrålådan ligger ett oavsänt brev i Signes handstil, adresserat till en man i Norrtälje.",
+                "namn": "Ett brev på byrån",
+                "text": "På byrån ligger ett oavsänt brev i Signes handstil, adresserat till en man i Norrtälje. Det har legat undanstoppat i byrålådan.",
                 "ger_fynd": "f-signe-brev",
                 "ger_material": [
                   "dok-brevet"
@@ -818,7 +822,7 @@
                 0.34,
                 0.24
               ],
-              "farg": "#5a2a1a",
+              "farg": "#1e1a18",
               "interaktiv": {
                 "namn": "Elofs dagbok",
                 "text": "En svart dagbok, prydligt förd med reservoarpenna. Ett bokmärke ligger vid natten mot den fjortonde.",
@@ -863,7 +867,7 @@
               "antal": 2,
               "interaktiv": {
                 "namn": "Fotogenkannor",
-                "text": "Två fotogenkannor med Kungl. Lotsverkets stämpel står bakom dörren – i biträdets egen stuga, inte i fyrens förråd. Båda är tomma.",
+                "text": "Två fotogenkannor med Kungl. Lotsverkets stämpel står på golvet – i biträdets egen stuga, inte i fyrens förråd. Båda är tomma.",
                 "ger_fynd": "f-fotogen-stuga"
               }
             },
