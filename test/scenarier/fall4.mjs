@@ -68,7 +68,7 @@ export async function ratt(browser, mobil = true) {
   await bild(p, 'f4-slutsatser');
   await stangBok(p);
   await anklaga(p, 'mikael');
-  assert.match(await p.locator('.reaktion').innerText(), /tårtbricka/);
+  assert.match(await p.locator('.reaktion').innerText(), /kakfat/);
   await p.locator('[data-ok]').click(); await vanta(300);
   await anklaga(p, 'gunnar', { hur: 'byte', bevis: ['f-kopia', 'f-gunnar-ensam', 'f-akta'] });
   const txt = await upplosning(p, 'f4-upplosning-ratt');
