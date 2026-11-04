@@ -5,6 +5,7 @@ import * as T from './texturer.js';
 import { VERKLIG } from './stil.js';
 // Modell-laddaren (och GLTFLoader) hämtas bara i förhandsgranskningen 'verklig'. Går den inte att hämta
 // (t.ex. offline innan modellerna har cachats) står prefaberna kvar.
+const forbattraYtor = (...a) => import('./ytor.js').then((m) => m.forbattraYtor(...a)).catch((e) => { console.warn('Texturerna kunde inte laddas', e); return false; });
 const ersattMedModell = (...a) => import('./modeller.js').then((m) => m.ersattMedModell(...a)).catch((e) => { console.warn('3D-modellerna kunde inte laddas', e); return false; });
 import { Kontroller } from './kontroller.js';
 
@@ -112,13 +113,15 @@ export class Rum3D {
     this.sol = null; this.lampor = [];
     if (veranda || ute) { const sol = new THREE.DirectionalLight('#ffd49a', ljus.sol ?? 1.4); sol.position.set(4, 5, -8); scen.add(sol); this.sol = sol; }
 
-    // Golv och tak
+    // Golv och tak. I förhandsgranskningen 'verklig' får de riktiga texturer när de har laddats (tre/ytor.js).
+    const ytor = {};
     const golvTyp = typeof rum.golv === 'object' ? rum.golv.typ : 'tra';
     const golvFarg = typeof rum.golv === 'object' ? rum.golv.farg : rum.golv;
     const gtex = golvTyp === 'sten' ? T.sten([W / 1.2, D / 1.2]) : golvTyp === 'jarn' ? T.jarnplat([W / 1.2, D / 1.2]) : T.traGolv(golvFarg || '#6b4a2c', [W / 2.2, D / 2.2]);
     if (!ute) {
       const golv = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: gtex, glans: golvTyp === 'tra' ? 0.45 : 0.85, metall: golvTyp === 'jarn' ? 0.6 : 0 }));
       golv.rotation.x = -Math.PI / 2; scen.add(golv);
+      if (golvTyp === 'tra' || golvTyp === 'sten') { ytor.golv = golv; ytor.golvTyp = golvTyp; }
     }
 
     if (ute) this.byggUte(rum, W, D);
@@ -127,12 +130,15 @@ export class Rum3D {
       if (rum.tak !== false) {
         const tak = new THREE.Mesh(new THREE.PlaneGeometry(W, D), mat('#ffffff', { map: rum.vagg === 'sten' ? T.stenvagg() : rum.takfarg ? T.puts(rum.takfarg) : T.tak() }));
         tak.rotation.x = Math.PI / 2; tak.position.y = H; scen.add(tak);
+        if (rum.vagg !== 'sten') ytor.tak = tak;
       }
       const vtyp = rum.vagg || 'tapet';
       const vtex = vtyp === 'fasad' ? T.fasad(rum.fasadfarg) : vtyp === 'puts' ? T.puts(rum.putsfarg) : vtyp === 'sten' ? T.stenvagg() : vtyp === 'trapanel' ? T.trapanel(rum.panelfarg) : T.tapet(rum.tapet?.grund, rum.tapet?.monster);
       const vskala = vtyp === 'fasad' ? [1 / 7, 1 / H] : vtyp === 'sten' ? [1 / 2.2, 1 / 2.2] : [1 / 1.1, 1 / 1.1];
       const tapet = mat('#ffffff', { map: vtex, glans: 0.92 });
       const pan = mat('#ffffff', { map: T.panel(rum.panel || '#5a3b22'), glans: 0.55 });
+      if (vtyp === 'tapet' || vtyp === 'puts') ytor.vagg = tapet;
+      if (rum.panel !== false) ytor.panel = pan;
       const sidor = [
         [W, [0, -D / 2], 0], [W, [0, D / 2], Math.PI], [D, [-W / 2, 0], Math.PI / 2], [D, [W / 2, 0], -Math.PI / 2],
       ];
@@ -158,7 +164,7 @@ export class Rum3D {
       const fab = prefabs[def.typ];
       if (!fab) { console.warn('Okänd föremålstyp', def.typ); continue; }
       const res = fab(def, ctx);
-      const g = slaIhop(res.grupp); // färre ritanrop: en mesh per material och föremål
+      const g = slaIhop(res.grupp, { utomDelar: VERKLIG && !!def.modell?.delar }); // färre ritanrop: en mesh per material och föremål
       const prefabBox = VERKLIG && def.modell ? new THREE.Box3().setFromObject(g) : null; // i föremålets egna koordinater
       const [x, y, z] = def.pos || [0, 0, 0];
       g.position.set(x, y || 0, z);
@@ -209,7 +215,8 @@ export class Rum3D {
     this.flyttaTill(start.pos[0], start.pos[1], start.titta || 0);
     this.skuggor(rum, W, D, H, ute || veranda);
     this.anpassa();
-    // Modellerna laddas i bakgrunden; rummet går att använda med prefaberna under tiden.
+    // Modellerna och texturerna laddas i bakgrunden; rummet går att använda med prefaberna under tiden.
+    if (VERKLIG && !ute && !veranda) modeller.push(forbattraYtor(ytor, rum, W, D, golvFarg));
     this.modellerKlara = Promise.all(modeller).then(() => { if (this.scen === scen) this.renderer.shadowMap.needsUpdate = true; });
   }
 
