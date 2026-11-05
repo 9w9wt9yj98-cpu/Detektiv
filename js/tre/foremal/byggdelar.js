@@ -122,7 +122,8 @@ function korsfonster(g, { W, H, y0, utsikt, sken, ram, karm, sprojs }) {
 function dagfonster(d) {
   const g = new THREE.Group();
   const W = d.bredd || 1.0, H = d.hojd || 1.3, y0 = d.y0 ?? 0.9;
-  korsfonster(g, { W, H, y0, utsikt: T.dagsljus(), sken: '#3a3a30', ram: mat(d.ram || VIT), karm: 0.06, sprojs: 0.04 });
+  // natt: true – mörker utanför (t.ex. nyårsnatten i fall 8) i stället för dagsljus.
+  korsfonster(g, { W, H, y0, utsikt: d.natt ? T.natt() : T.dagsljus(), sken: d.natt ? '#0a0e12' : '#3a3a30', ram: mat(d.ram || VIT), karm: 0.06, sprojs: 0.04 });
   if (d.gardin) {
     const tyg = mat(d.gardin === true ? '#e6dcc2' : d.gardin);
     if (d.dragen) box(g, W + 0.2, H + 0.2, 0.03, tyg, 0, y0 + H / 2, 0.14);

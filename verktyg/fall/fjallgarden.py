@@ -8,6 +8,8 @@ def ia(namn, text, fynd=None, material=None):
     if fynd: d["ger_fynd"] = fynd
     if material: d["ger_material"] = material
     return d
+# 3D-modeller för förhandsgranskningen ?stil=verklig (se js/tre/modeller.js och modeller/KALLOR.md)
+VAGGLAMPA = {"fil": "modeller/industrial_wall_lamp.glb", "passa": "skala", "skala": 0.8, "pos": [0, -0.17, 0.056], "lyser": ["industrial_wall_lamp_glass"]}
 S = lambda text, id=None, stil=None: {k: v for k, v in {"id": id, "text": text, "stil": stil}.items() if v}
 
 # Tidslinje lördagen den 17 februari 1968 (kontrolleras mot alla texter):
@@ -44,7 +46,7 @@ KALLARE = {"omgivning": "#d8e0e8", "omgivning_styrka": 0.55, "bas": 0.3}
 # ---------- Rum 1: Skidrummet ----------
 skid = {"id": "skidrummet", "namn": "Skidrummet", "mekanik": "scen", "payload": {"visning": "3d", "rum": {
   "bredd": 6.0, "djup": 5.0, "hojd": 2.6, "miljo": "inomhus", "bakgrund": "#101418", "dimma": [6, 14, "#14181c"],
-  "golv": {"typ": "sten"}, "vagg": "puts", "putsfarg": "#c8c0b0", "panel": "#6a5a44",
+  "golv": {"typ": "sten"}, "verklig_golv": "hallar", "vagg": "puts", "putsfarg": "#c8c0b0", "panel": "#6a5a44",
   "ljus": KALLARE,
   "start": {"pos": [0.6, 1.4], "titta": 0},
   "objekt": [
@@ -110,7 +112,7 @@ arkiv = {"id": "arkivet", "namn": "Polisens arkiv i Östersund", "mekanik": "sce
   "objekt": [
     *[obj(f"hylla{i}", "hylla", [x, 0, -2.2], storlek=[1.6]) for i, x in enumerate([-2.0, 0.0, 2.0])],
     *[obj(f"lada{i}", "arkivlada", [x, 0, z], rot=r, antal=n, text="ÄRENDE\n1968") for i, (x, z, r, n) in enumerate([(-2.5, -1.3, 20, 3), (2.5, -1.3, -15, 2), (2.4, 1.6, -100, 3)])],
-    obj("bord", "bord", [0, 0, 0.2], storlek=[1.6, 0.76, 0.8], modell={"fil": "modeller/wooden_table_02.glb", "passa": "box"}),
+    obj("bord", "bord", [0, 0, 0.2], storlek=[1.6, 0.76, 0.8], modell={"fil": "modeller/metal_office_desk.glb", "passa": "box"}),
     obj("akten", "arkivlada", [-0.4, 0.77, 0.2], text="ÄRENDE 1968:47\nFJÄLLGÅRDEN", interaktiv=ia("Akten 1968:47",
         "Arkivkartongen med Nils Strands utredning. Förhörsprotokollen är maskinskrivna på tunt papper, med hans blyertsanteckningar i marginalen.", material=["dok-claes", "dok-sune68", "dok-holst", "dok-per", "dok-ester"])),
     obj("obduktionen", "parm", [0.35, 0.77, 0.25], interaktiv=ia("Obduktionsprotokollet",
@@ -126,8 +128,8 @@ arkiv = {"id": "arkivet", "namn": "Polisens arkiv i Östersund", "mekanik": "sce
     obj("dator", "dator", [1.2, 0, -0.9], rot=200),
     obj("dorr", "dorr", [0, 0, 2.49], rot=180, gar_till="lobbyn", interaktiv=ia("Tillbaka till Fjällgården", "Bilen tillbaka till Storlien.")),
     obj("bok", "anteckningsbok", [-0.7, 0.77, -0.1], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
-    obj("l1", "vagglampa", [-2.98, 2.0, 0.6], rot=90, styrka=1.0, rackvidd=5),
-    obj("l2", "vagglampa", [2.98, 2.0, 0.6], rot=-90, styrka=1.0, rackvidd=5),
+    obj("l1", "vagglampa", [-2.98, 2.0, 0.6], rot=90, styrka=1.0, rackvidd=5, modell=VAGGLAMPA),
+    obj("l2", "vagglampa", [2.98, 2.0, 0.6], rot=-90, styrka=1.0, rackvidd=5, modell=VAGGLAMPA),
   ]}}}
 
 dokument = {"id": "akten", "namn": "Akten 1968:47", "mekanik": "dokument", "last_upp_av": ["f-fyndet"],

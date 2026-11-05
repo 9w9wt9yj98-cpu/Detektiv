@@ -373,7 +373,11 @@
                 0,
                 -0.5
               ],
-              "rot": 90
+              "rot": 90,
+              "modell": {
+                "fil": "modeller/painted_wooden_chair_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "persson",
@@ -768,7 +772,20 @@
               ],
               "rot": 90,
               "styrka": 0.8,
-              "rackvidd": 4
+              "rackvidd": 4,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             },
             {
               "id": "l2",
@@ -780,7 +797,20 @@
               ],
               "rot": 90,
               "styrka": 0.7,
-              "rackvidd": 4
+              "rackvidd": 4,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             }
           ],
           "ljud": [
@@ -1011,7 +1041,20 @@
                 -2.27
               ],
               "styrka": 0.7,
-              "rackvidd": 4
+              "rackvidd": 4,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             },
             {
               "id": "l2",
@@ -1023,7 +1066,20 @@
               ],
               "rot": 90,
               "styrka": 0.6,
-              "rackvidd": 4
+              "rackvidd": 4,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             }
           ],
           "ljud": [
@@ -1198,7 +1254,11 @@
                 0,
                 0.6
               ],
-              "rot": 90
+              "rot": 90,
+              "modell": {
+                "fil": "modeller/painted_wooden_chair_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "wall",

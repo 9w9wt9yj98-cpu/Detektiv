@@ -47,6 +47,8 @@ fall = {
 }
 
 INNE = {"omgivning": "#ffdcae", "omgivning_styrka": 0.6, "bas": 0.32}
+STOL = {"fil": "modeller/dining_chair_02.glb", "passa": "box"}
+LYKTA = {"fil": "modeller/street_lamp_01.glb", "passa": "skala", "skala": 0.88, "lyser": ["street_lamp_01_glass"]}
 CHANDELIER = lambda id, pos, skala=0.9: obj(id, "ljuskrona", pos, styrka=1.4, modell={"fil": "modeller/chandelier_03.glb", "passa": "skala", "skala": skala, "hanger": True})
 
 # ---------- Rum 1: Biblioteket ----------
@@ -68,7 +70,7 @@ bibl = {"id": "biblioteket", "namn": "Biblioteket", "mekanik": "scen", "payload"
         "Godsets räkenskapsbok ligger uppslagen. I marginalen har greven skrivit med rödpenna vid flera rader: ”Lunde – förklara!” Det gäller virkesförsäljningen i höstas.", "f-rakenskap")),
     obj("handsken", "handske", [-0.6, 0.0, -1.6], farg="#f2efe6", interaktiv=ia("En vit handske",
         "Under skrivbordet ligger en vit glacéhandske i herrstorlek, av det slag som herrarna bär till dansen. Den är inte grevens – han bär båda sina.", "f-handsken")),
-    obj("fonstret", "dagfonster", [3.49, 0, -0.6], rot=-90, interaktiv=ia("Fönstret mot terrassen",
+    obj("fonstret", "dagfonster", [3.49, 0, -0.6], rot=-90, natt=True, interaktiv=ia("Fönstret mot terrassen",
         "Fönstret är stängt och haspat inifrån. Snön ligger orörd på det yttre blecket, och nedanför är det sex meter ner till terrassen. Ingen har kommit in den här vägen i kväll.", "f-fonstret")),
     obj("hylla1", "bokhylla", [-3.25, 0, 0.2], rot=90, storlek=[2.4, 2.6]),
     obj("hylla2", "bokhylla", [1.6, 0, -2.75], storlek=[2.4, 2.6]),
@@ -128,9 +130,9 @@ bal = {"id": "balsalen", "namn": "Balsalen", "mekanik": "scen", "last_upp_av": [
     obj("kakelugn", "kakelugn", [6.55, 0, -3.6], rot=-90, form="kantig", hojd=3.2),
     obj("rosen", "person", [-2.6, 0, -3.9], rot=10, rock="#141418", byxor="#141418", slips="#eeeeee", har="#3a3a3a", skagg=True, seed=25,
         interaktiv=ia("Kapellmästare Rosén", "Kapellmästare Rosén håller sin danslista. ”Vi spelar efter klockan, min herre. Polkan 23.08 till 23.14, kadriljen 23.14 till 23.22, valsen 23.24 till 23.30. Godsförvaltaren stod här vid orkestern från kvart i elva och ville veta exakt när vi slutar före tolvslaget, för fyrverkeriets skull. Strax före elva gick han ut på terrassen.”", "f-danslistan", ["k-lunde-bal"])),
-    obj("sofia", "person", [3.0, 0, -1.2], rot=-150, kon="k", rock="#3a1a2a", har="#9a8a7a", seed=26,
+    obj("sofia", "person", [3.0, 0, -1.2], rot=-150, pose="sitta", kon="k", rock="#3a1a2a", har="#9a8a7a", seed=26,
         interaktiv=ia("Grevinnan", "Grevinnan sitter rak på en stol med torra ögon. ”Fröken Sand satt hos mig här tills strax före elva, då gick hon upp med huvudvärk. Axel dansade kadriljen med mig – från början till slut. Han var korrekt som alltid, handskar och allt.”", material=["k-ingeborg-bal", "k-axel-kadrilj"])),
-    obj("sofiastol", "stol", [3.0, 0, -1.2], rot=-150),
+    obj("sofiastol", "stol", [3.0, 0, -1.2], rot=-150, modell=STOL),
     obj("axel", "person", [1.4, 0, 2.6], rot=170, rock="#141418", byxor="#141418", slips="#eeeeee", har="#c8a050", seed=27,
         interaktiv=ia("Axel Vinge", "Axel Vinge står vid fönstret med ett tomt glas. ”Jag har dansat här hela kvällen. Fråga vem ni vill.”", material=["k-axel-pastar"])),
     obj("linde", "person", [-1.4, 0, 1.6], rot=120, kon="k", rock="#e8d8e8", har="#3a2418", seed=28,
@@ -180,7 +182,7 @@ vaxel = {"id": "vaxeln", "namn": "Telefonväxeln", "mekanik": "scen", "last_upp_
   "start": {"pos": [0.8, 1.0], "titta": 0},
   "objekt": [
     obj("vaxelbordet", "telefonvaxel", [-0.6, 0, -1.8]),
-    obj("stol", "stol", [-0.6, 0, -0.75], rot=180),
+    obj("stol", "stol", [-0.6, 0, -0.75], rot=180, modell=STOL),
     obj("journalen", "liggare", [0.3, 0.75, -1.45], interaktiv=ia("Växeljournalen",
         "Fröken Noréns journal, rad för rad: ”23.12 Bibl. (anknytning 7) → rikssamtal Ystad 112, överste Rehnberg. Kopplat. 23.16 Klaffen fallen – samtalet brutet. Ringt upp bibl. 23.17, 23.25, 23.35 – inget svar. 23.40 Anmält till hovmästaren. 00.10 Kommissarie Strand → Ystad 112.”", "f-journalen")),
     obj("noren", "person", [0.9, 0, -0.9], rot=-150, kon="k", rock="#3a3a4a", har="#6a4a2a", seed=30,
@@ -196,7 +198,7 @@ terr = {"id": "terrassen", "namn": "Terrassen", "mekanik": "scen", "last_upp_av"
   "last_text": "Strand: ”Börja här, hos greven.”",
   "payload": {"visning": "3d", "rum": {
   "bredd": 18.0, "djup": 12.0, "hojd": 12.0, "miljo": "inomhus", "vagg": "fasad", "fasadfarg": "#c8a868", "tak": False, "panel": False, "sno": 900,
-  "bakgrund": "#0c111c", "dimma": [10, 32, "#141a26"], "golv": {"typ": "sten"},
+  "bakgrund": "#0c111c", "dimma": [10, 32, "#141a26"], "golv": {"typ": "sten"}, "verklig_golv": "hallar",
   "ljus": {"omgivning": "#9fb0d0", "omgivning_styrka": 0.6, "bas": 0.28},
   "start": {"pos": [0, 1.6], "titta": 0},
   "objekt": [
@@ -211,8 +213,8 @@ terr = {"id": "terrassen", "namn": "Terrassen", "mekanik": "scen", "last_upp_av"
     obj("dorr", "dorr", [-1.0, 0, -5.97], gar_till="balsalen", interaktiv=ia("In i balsalen", "Glasdörrarna in till balsalen.")),
     obj("bank", "bord", [-3.5, 0, 1.2], storlek=[1.0, 0.76, 0.6], modell={"fil": "modeller/wooden_table_02.glb", "passa": "box"}),
     obj("bok", "anteckningsbok", [-3.5, 0.77, 1.2], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
-    obj("lykta1", "gaslykta", [-6.0, 0, 2.6], styrka=1.4),
-    obj("lykta2", "gaslykta", [6.0, 0, 2.6], styrka=1.4),
+    obj("lykta1", "gaslykta", [-6.0, 0, 2.6], styrka=1.4, modell=LYKTA),
+    obj("lykta2", "gaslykta", [6.0, 0, 2.6], styrka=1.4, modell=LYKTA),
   ]}}}
 
 tidslinje = {"id": "tidslinjen", "namn": "Tidslinjen", "mekanik": "tidslinje", "last_upp_av": ["f-gangtider"],
