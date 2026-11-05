@@ -65,11 +65,11 @@ export function renderaRutnat(behallare, payload, st, { autofyll = true, onAndra
     const platser = bord.ordning.map((pid, i) => {
       const x = X0 + i * (B + 4), mx = x + B / 2;
       return `<g class="plats" data-plats="${pid}">
-        <rect x="${x}" y="8" width="${B}" height="62" rx="6" class="hytt"/>
-        <circle cx="${mx}" cy="22" r="10" class="stolsdyna"/>
-        <text x="${mx}" y="26" class="platsnr" text-anchor="middle">${i + 1}</text>
-        <text x="${mx}" y="46" text-anchor="middle" class="platsnamn liten" data-namn></text>
-        <text x="${mx}" y="61" text-anchor="middle" class="platsinfo liten" data-info></text>
+        <rect x="${x}" y="4" width="${B}" height="70" rx="6" class="hytt"/>
+        <circle cx="${mx}" cy="17" r="9" class="stolsdyna"/>
+        <text x="${mx}" y="21" class="platsnr" text-anchor="middle">${i + 1}</text>
+        <text x="${mx}" y="41" text-anchor="middle" class="platsnamn liten" data-namn></text>
+        <text x="${mx}" y="55" text-anchor="middle" class="platsinfo liten" data-info></text>
       </g>`;
     }).join('');
     const xh = X0 + n * (B + 4), bredd = xh + B + 4;
@@ -78,7 +78,7 @@ export function renderaRutnat(behallare, payload, st, { autofyll = true, onAndra
       <rect x="0" y="74" width="${bredd}" height="22" class="bordsskiva"/>
       <text x="6" y="108" class="platsinfo liten">korridoren</text>
       ${platser}
-      <rect x="${xh}" y="8" width="${B}" height="62" rx="6" class="hytt huvud"/>
+      <rect x="${xh}" y="4" width="${B}" height="70" rx="6" class="hytt huvud"/>
       <text x="${xh + B / 2}" y="34" text-anchor="middle" class="platsnr">${esc(String(n + 1))}</text>
       <text x="${xh + B / 2}" y="52" text-anchor="middle" class="platsinfo liten">${esc(bord.huvud || '')}</text>
       ${vakt !== null ? `<circle cx="${vakt}" cy="85" r="7" class="stolsdyna overste"/><text x="${vakt}" y="108" text-anchor="middle" class="platsinfo liten">${esc(bord.vakt || '')}</text>` : ''}
@@ -122,7 +122,12 @@ export function renderaRutnat(behallare, payload, st, { autofyll = true, onAndra
         if (v) info.push(v.namn.toLowerCase());
       }
       $('[data-namn]', g).textContent = pers ? pers.namn : '?';
-      $('[data-info]', g).textContent = info.join(', ');
+      const infoEl = $('[data-info]', g);
+      if (bord.typ === 'korridor') {
+        // Smala hytter: en uppgift per rad
+        const x = infoEl.getAttribute('x');
+        infoEl.innerHTML = info.map((t, i) => `<tspan x="${x}" dy="${i ? 10 : 0}">${esc(t)}</tspan>`).join('');
+      } else infoEl.textContent = info.join(', ');
       g.classList.toggle('satt', !!pers);
     }
   }
