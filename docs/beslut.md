@@ -382,6 +382,13 @@ Martin har bestämt att Claude själv får slå ihop rena buggfixar – sådant 
 
 Det gratis tipset, pekaren och slutsatsvyn skrev rummen med stor bokstav och alltid med ”i”: ”här i Scenen”, ”i Gården”, ”Gå till Sovrummet”. Varje rum har nu fältet `text_i` (”på scenen”, ”i sovrummet”, ”på Österlånggatan”), och texterna blir ”Det finns mer att hitta här på scenen” och ”Gå till sovrummet och undersök fönstret”. Gäller alla åtta fall.
 
+### Buggfix: fall 8 efter andra blindgranskningen (november 2026)
+
+En ny blind agent granskade fall 7 och 8 med nya ögon (rapport: `docs/blindtest/rapport-2026-11-05-fall7-8.md`). Fall 7 hade inga fel; sufflörluckan beskrivs nu som ”alldeles innanför ridån”. I fall 8 rättat:
+- **Vägen gick inte att bevisa.** Gärningsmannen hann lika gärna genom galleriet som uppför östra trappan. Nu stod hovmästaren i dörrarna mellan balsalen och galleriet från 23.10 (nytt fynd *Ingen genom galleriet*), och en ny slutsatsfråga leder till östra trappan.
+- **Telefonsamtalet höll inte ihop.** Telefonisten kunde inte både ”ligga kvar en stund” och höra dörren och dunsen fyra minuter senare. Nu lägger hon ifrån sig hörtelefonen som hon ska, ser klaffen falla 23.16 och skriver ner vad överste Rehnberg hörde när Strand ringer honom tio över tolv. Greven hann aldrig säga namnet.
+- Greven ligger under väggtelefonen bakom skrivbordet (förut tre meter bort), handsken ligger under skrivbordet, kammarjungfrun ser på korridorsklockan (ett tornur slår inte ”tio över”), trädgårdsmästaren motsäger inte sig själv, hovmästaren går upp tjugo i tolv och finner greven kvart i tolv, gångtiderna gäller ”även med brådska”, och den brända växeln är från Ystads Sparbank i stället för den påhittade ”Skånska Banken”.
+
 ## Fall 9 – Fjällgården, 1968 (november 2026) – väntar på Martin
 
 Martin gav friare tyglar över natten och bad om fortsättning med fall 8, 9 och vidare. Fall 9 är spelets första **tidshopp** (twisttyp 7 i `docs/forslag-v1.md` 3.3: ”ett gammalt kallt fall utreds med bara dokument”). Ingen ny mekanik – kärnan är dokumentmekaniken från fall 6.
@@ -401,9 +408,3 @@ Martin gav friare tyglar över natten och bad om fortsättning med fall 8, 9 och
 **Nya föremål** (`js/tre/foremal/fjall.js`, byggda av en extra agent): skidor, pjäxor, uppbruten panel, arkivlåda, byggarbetslampa, byggplast och skidställ. Omslaget är som för fall 7 och 8 en sepiatonad bild ur 3D-scenen.
 
 **Blindtest:** en blind agent löste fallet rätt (säkerhet 5/5) med bara spelarvyn. Rapport: `docs/blindtest/rapport-2026-11-05-fall9.md`. Rättat efter den: biljetten gäller söndag 18 februari (förut ”lördag–söndag”) och är oklippt; Sune bommade varuintaget vid nio och det går inte att öppna utifrån (förut var det inte stängt som väg in); det finns bara en nyckel till skiddörren; ån forsar hundra meter bort och fryser inte vid forsen; Birgit tänkte ställa väskan vid skiddörren för att gå direkt till stationen i gryningen; Sune nämner att han själv gick ner och låste; panelens ålder bevisas av snickarboken, inte av trådspiken; ledtråd 3 frågar hur Claes kom ut med snö i håret; en slutsatsfrågas felsvar gäller nu både direktören och fru Rydén.
-### Buggfix: fall 8 efter andra blindgranskningen (november 2026)
-
-En ny blind agent granskade fall 7 och 8 med nya ögon (rapport: `docs/blindtest/rapport-2026-11-05-fall7-8.md`). Fall 7 hade inga fel; sufflörluckan beskrivs nu som ”alldeles innanför ridån”. I fall 8 rättat:
-- **Vägen gick inte att bevisa.** Gärningsmannen hann lika gärna genom galleriet som uppför östra trappan. Nu stod hovmästaren i dörrarna mellan balsalen och galleriet från 23.10 (nytt fynd *Ingen genom galleriet*), och en ny slutsatsfråga leder till östra trappan.
-- **Telefonsamtalet höll inte ihop.** Telefonisten kunde inte både ”ligga kvar en stund” och höra dörren och dunsen fyra minuter senare. Nu lägger hon ifrån sig hörtelefonen som hon ska, ser klaffen falla 23.16 och skriver ner vad överste Rehnberg hörde när Strand ringer honom tio över tolv. Greven hann aldrig säga namnet.
-- Greven ligger under väggtelefonen bakom skrivbordet (förut tre meter bort), handsken ligger under skrivbordet, kammarjungfrun ser på korridorsklockan (ett tornur slår inte ”tio över”), trädgårdsmästaren motsäger inte sig själv, hovmästaren går upp tjugo i tolv och finner greven kvart i tolv, gångtiderna gäller ”även med brådska”, och den brända växeln är från Ystads Sparbank i stället för den påhittade ”Skånska Banken”.
