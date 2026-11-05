@@ -4,7 +4,7 @@ import { assert, vanta, nySida, bild, undersok, inspektera, stangKort, gaTill, s
 const ID = 'nyarsnatten-pa-vitanas';
 
 async function hittaAllt(p) {
-  await undersok(p, 'greven', 0.9, 0.9); await bild(p, 'f8-greven'); await stangKort(p);
+  await undersok(p, 'greven', -1.9, -0.2); await bild(p, 'f8-greven'); await stangKort(p);
   for (const o of ['blocket', 'rakenskap', 'handsken', 'fonstret', 'sjostedt']) { await inspektera(p, o); await stangKort(p); }
   await gaTill(p, 'dorr', 'galleriet');
   await bild(p, 'f8-galleriet');
@@ -61,7 +61,7 @@ export async function ratt(browser, mobil = true) {
   assert.match(await besked(p), /valsen/);
   // Brottstiden fastställs i slutsatserna
   await p.locator('[data-flik="slutsatser"]').click(); await vanta(200);
-  assert.equal(await besvaraSlutsatser(p), 4);
+  assert.equal(await besvaraSlutsatser(p), 5);
   await p.locator('[data-flik="mek:tidslinjen"]').click(); await vanta(250);
   assert.match(await p.locator('.tl-brottrad').innerText(), /23\.16/);
   for (const [pid, re] of [['axel', /kadriljen/], ['ingeborg', /tidigast 23\.18/], ['lunde', /fyrverkeriet/], ['ekwall', /går ihop/]]) {
@@ -81,7 +81,7 @@ export async function ratt(browser, mobil = true) {
   const txt = await upplosning(p, 'f8-upplosning-ratt');
   assert.match(txt, /Fallet är löst/);
   await p.context().close();
-  console.log('Fall 8: sex rum, tidslinje (fel person → 14 kort, 2 motsägelser, 4 prövningar), 8 slutsatser, fel → rätt anklagelse ✓');
+  console.log('Fall 8: sex rum, tidslinje (fel person → 14 kort, 2 motsägelser, 4 prövningar), 9 slutsatser, fel → rätt anklagelse ✓');
 }
 
 export async function fel(browser) {

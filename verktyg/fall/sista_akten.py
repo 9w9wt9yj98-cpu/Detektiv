@@ -52,7 +52,7 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
     obj("ridan", "rida", [0, 0, 3.05], rot=180, bredd=9.0, hojd=5.0, interaktiv=ia("Ridån",
         "Du kikar ut genom springan i ridån. Salongen är halvtom nu. Rad 7, plats 12 – regissör Werns plats, mitt framför din egen. Du minns hans nacke under hela andra akten. Han satt kvar ända tills sandsäcken slog i golvet – då reste han sig.", "f-wern-alibi")),
     obj("luckan", "sufflorlucka", [0, 0, 2.55], rot=180, gar_till="undre", interaktiv=ia("Sufflörluckan",
-        "Sufflörluckan sitter mitt i scenkanten, i fullt rampljus framför publiken – ingen kan klättra ner i den från scenen under föreställningen utan att hela salongen ser det. Sufflösen kommer hit underifrån. Inuti är det mörkt och trångt – en kort stege leder ner under scenen.")),
+        "Sufflörluckan sitter mitt i scenkanten, alldeles innanför ridån – när ridån är uppe ligger den i fullt rampljus framför publiken – ingen kan klättra ner i den från scenen under föreställningen utan att hela salongen ser det. Sufflösen kommer hit underifrån. Inuti är det mörkt och trångt – en kort stege leder ner under scenen.")),
     obj("fond", "kuliss", [0, 0, -3.1], storlek=[6.4, 4.2], farg="#3e5a3e", stotta=False),
     obj("kv1", "kuliss", [-3.3, 0, -1.2], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
     obj("kv2", "kuliss", [-3.3, 0, 0.9], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
