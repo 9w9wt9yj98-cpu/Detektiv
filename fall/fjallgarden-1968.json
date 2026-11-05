@@ -135,7 +135,7 @@
               ],
               "interaktiv": {
                 "namn": "Den uppbrutna panelen",
-                "text": "Snickaren har brutit loss tre brädor i den gamla pärlsponten. Bakom dem finns ett hålrum, och där låg skidorna, pjäxorna och resväskan. Panelen var spikad med samma sorts trådspik som resten av rummet – den sattes upp under säsongen 1968, inte senare.",
+                "text": "Snickaren har brutit loss tre brädor i den gamla pärlsponten. Bakom dem finns ett hålrum, och där låg skidorna, pjäxorna och resväskan. Brädorna är lika gamla och gulnade som resten av rummets panel.",
                 "ger_fynd": "f-fyndet"
               }
             },
@@ -216,7 +216,7 @@
               "farg": "#4a4a4a",
               "interaktiv": {
                 "namn": "Varuintaget",
-                "text": "En smal dörr till varuintaget och ut mot ån, som flyter tre hundra meter nedanför hotellet. Insidan har järnkrampor för en bom. Den bommas inifrån – den som går ut den vägen kan inte bomma igen efter sig.",
+                "text": "En smal dörr till varuintaget och ut mot Storån, som forsar hundra meter nedanför hotellet och aldrig fryser vid forsen. Insidan har järnkrampor för en bom. Den bommas inifrån varje kväll – utifrån går den inte att öppna, och den som går ut den vägen kan inte bomma igen efter sig.",
                 "ger_fynd": "f-varuintaget"
               }
             },
@@ -479,7 +479,7 @@
               "seed": 42,
               "interaktiv": {
                 "namn": "Sune Lindberg",
-                "text": "Sune Lindberg, 74 år, sitter i en av de gamla fåtöljerna med käppen över knäna. ”Jag satt bakom den där disken hela natten. Från halv tio till sju gick ingen ner i källaren utom hon – fem i tio, med resväskan – och strax efter henne unge herr Claes. Han kom upp tjugo över tio, andfådd, med snö i håret.”",
+                "text": "Sune Lindberg, 74 år, sitter i en av de gamla fåtöljerna med käppen över knäna. ”Jag satt bakom den där disken hela natten. Från halv tio till sju gick ingen ner i källaren – utom jag själv när jag låste skiddörren tio i tio, och sedan hon, fem i tio, med resväskan, och strax efter henne unge herr Claes. Han kom upp tjugo över tio, andfådd, med snö i håret.”",
                 "ger_fynd": "f-bara-claes",
                 "ger_material": [
                   "dok-sune26"
@@ -937,7 +937,7 @@
               },
               {
                 "id": "fr-biljett",
-                "text": "En tågbiljett Storlien–Stockholm, lördag–söndag 18 februari 1968, tåg 07.12. Ostämplad."
+                "text": "En tågbiljett Storlien–Stockholm, söndag 18 februari 1968, tåg 07.12. Oklippt."
               },
               {
                 "id": "fr-brev",
@@ -979,11 +979,15 @@
             "stycken": [
               {
                 "id": "s-last",
-                "text": "Jag tog över receptionen halv tio. Tio i tio gick jag ner och låste skiddörren, som man ska när det stormar, och sedan hade jag nyckeln i fickan till klockan sju."
+                "text": "Jag tog över receptionen halv tio. Tio i tio gick jag ner och låste skiddörren, som man ska när det stormar. Det finns bara en nyckel till den, och den hade jag i fickan till klockan sju."
+              },
+              {
+                "id": "s-bom",
+                "text": "Varuintaget bommade jag vid nio, som varje kväll. Då var bommen på."
               },
               {
                 "id": "s-ner",
-                "text": "Fem minuter senare gick fröken Hallström ner i källaren med sin resväska. Hon sa god natt."
+                "text": "Fem minuter senare gick fröken Hallström ner i källaren med sin resväska. Hon sa att hon skulle ställa den vid skiddörren, så att hon kunde gå direkt till stationen i gryningen. Hon sa god natt."
               },
               {
                 "id": "s-upp",
@@ -1265,7 +1269,7 @@
       "titel": "Fyndet bakom panelen",
       "ikon": "🎿",
       "typ": "nyckel",
-      "text": "Bakom en panel i skidrummet låg Birgit Hallströms skidor, pjäxor och packade resväska. Panelen sattes upp under säsongen 1968."
+      "text": "Bakom en panel i skidrummet låg Birgit Hallströms skidor, pjäxor och packade resväska – i femtioåtta år."
     },
     {
       "id": "f-kistlas",
@@ -1279,7 +1283,7 @@
       "titel": "Varuintaget",
       "ikon": "🚪",
       "typ": "stod",
-      "text": "Varuintaget bommas inifrån och leder ut mot ån, tre hundra meter bort. Den som går ut kan inte bomma igen efter sig."
+      "text": "Varuintaget bommas inifrån varje kväll och leder ut mot forsen i Storån, hundra meter bort. Utifrån går det inte att öppna, och den som går ut kan inte bomma igen efter sig."
     },
     {
       "id": "f-trappan",
@@ -1319,7 +1323,7 @@
         "holst",
         "ester"
       ],
-      "text": "Sune satt bakom disken hela natten. Efter Birgit 21.55 gick bara Claes ner i källaren. Han kom upp 22.20, andfådd och med snö i håret."
+      "text": "Sune satt bakom disken hela natten. Efter Birgit 21.55 gick bara Claes ner i källaren. Han kom upp 22.20, andfådd och med snö i håret – fast skiddörren var låst och varuintaget bommat inifrån."
     },
     {
       "id": "f-per-alibi",
@@ -1492,7 +1496,7 @@
         },
         {
           "text": "Någon som kom in utifrån genom varuintaget.",
-          "svar": "Varuintaget bommas inifrån. Det öppnas inte utifrån."
+          "svar": "Sune bommade varuintaget vid nio, och utifrån går det inte att öppna."
         }
       ],
       "slutsats": "Bara Claes Rydén var i källaren med Birgit. Snön i hans hår kom inte från skiddörren – den var låst. Han hade varit ute genom varuintaget, vars bom var avlyft på morgonen."
@@ -1531,8 +1535,8 @@
       "fraga": "Direktören och fru Rydén försvarade Claes 1968. Kan någon av dem ha gjort det?",
       "alternativ": [
         {
-          "text": "Ja – direktören ljög om klockan.",
-          "svar": "Han ljög för att skydda ägarens son – men han satt i telefon med Göteborg 21.50–22.25."
+          "text": "Ja – de ljög båda för att skydda Claes.",
+          "svar": "Att skydda någon är inte att ha gjort det. Var var de när Birgit och Claes var i källaren?"
         },
         {
           "text": "Nej – direktören talade i telefon 21.50–22.25 och fru Rydén spelade bridge 21.30–23.15. Ingen av dem gick ner i källaren.",
@@ -1564,7 +1568,7 @@
   "losning": {
     "skyldig": "claes",
     "hur": "panelen",
-    "hur_text": "Birgit gick aldrig ut. Claes följde efter henne ner i källaren, där hon tänkte gå till morgontåget med sin väska och sitt brev. Han slog henne, bar ut henne genom varuintaget till Storån och gömde hennes skidor, pjäxor och väska bakom en lös panel i skidrummet, som han lät spika igen tre dagar senare. Sedan påstod han att han sett henne ge sig ut på skidor.",
+    "hur_text": "Birgit gick aldrig ut. Claes följde efter henne ner i källaren, där hon tänkte gå till morgontåget med sin väska och sitt brev. Han slog henne, bar ut henne genom varuintaget till forsen i Storån och gömde hennes skidor, pjäxor och väska bakom en lös panel i skidrummet, som han lät spika igen tre dagar senare. Sedan påstod han att han sett henne ge sig ut på skidor.",
     "bevisgrupper": [
       [
         "f-dorren",
@@ -1668,7 +1672,7 @@
         "f-holst-alibi",
         "f-ester-alibi"
       ],
-      "text": "Tre av de misstänkta har bridgeprotokoll, notor och en telefonlista som håller dem borta från källaren. Den fjärde gick ner efter henne och kom upp med snö i håret – och vem beställde att panelen skulle spikas igen?"
+      "text": "Tre av de misstänkta har bridgeprotokoll, notor och en telefonlista som håller dem borta från källaren. Den fjärde gick ner efter henne och kom upp med snö i håret, fast skiddörren var låst – vilken väg tog han ut? Och vem beställde att panelen skulle spikas igen?"
     }
   ],
   "aterkoppling": {

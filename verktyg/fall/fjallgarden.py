@@ -14,7 +14,7 @@ S = lambda text, id=None, stil=None: {k: v for k, v in {"id": id, "text": text, 
 # 20.00 storm · 21.00 gräl i baren (Per Hjort och Birgit) · 21.30 Sune tar över receptionen, fru Rydén börjar bridge (–23.15)
 # 21.45 Per Hjort sätter sig i baren (–23.30) · 21.50 Sune låser skiddörren (kistlås), nyckeln i fickan till 07.00
 # 21.50–22.25 direktör Holst i telefon med sin bror i Göteborg · 21.55 Birgit går ner i källaren med sin resväska
-# ca 21.57 Claes går ner efter henne · ca 22.05 slaget · varuintagets bom lyfts av, kroppen bärs till Storån (300 m)
+# ca 21.57 Claes går ner efter henne · ca 22.05 slaget · varuintagets bom lyfts av, kroppen bärs till forsen i Storån (100 m)
 # 22.20 Claes kommer upp, andfådd, med snö i håret · 20/2 panelen i skidrummet spikas på Claes beställning
 # 12/5 kroppen hittas i Storån, 2 km nedströms · oktober 2026 hittar snickaren skidor, pjäxor och resväska bakom panelen
 
@@ -49,7 +49,7 @@ skid = {"id": "skidrummet", "namn": "Skidrummet", "mekanik": "scen", "payload": 
   "start": {"pos": [0.6, 1.4], "titta": 0},
   "objekt": [
     obj("panelen", "panelhal", [-0.6, 0, -2.5], interaktiv=ia("Den uppbrutna panelen",
-        "Snickaren har brutit loss tre brädor i den gamla pärlsponten. Bakom dem finns ett hålrum, och där låg skidorna, pjäxorna och resväskan. Panelen var spikad med samma sorts trådspik som resten av rummet – den sattes upp under säsongen 1968, inte senare.", "f-fyndet")),
+        "Snickaren har brutit loss tre brädor i den gamla pärlsponten. Bakom dem finns ett hålrum, och där låg skidorna, pjäxorna och resväskan. Brädorna är lika gamla och gulnade som resten av rummets panel.", "f-fyndet")),
     obj("skidorna", "skidor", [1.0, 0, -2.5], lutad=True),
     obj("pjaxorna", "pjaxor", [0.9, 0, -1.9], rot=-20),
     obj("vaskan", "resvaska", [-2.1, 0, -1.4], rot=20, interaktiv=ia("Resväskan",
@@ -58,7 +58,7 @@ skid = {"id": "skidrummet", "namn": "Skidrummet", "mekanik": "scen", "payload": 
     obj("skiddorren", "dorr", [2.99, 0, 1.4], rot=-90, farg="#5a4a3a", interaktiv=ia("Skiddörren",
         "Den tunga dörren ut mot backen har kvar sitt gamla kistlås. Ett kistlås öppnas med nyckel – från båda sidor. Utan nyckel kommer man varken in eller ut.", "f-kistlas")),
     obj("varuintaget", "dorr", [-2.99, 0, 0.4], rot=90, farg="#4a4a4a", interaktiv=ia("Varuintaget",
-        "En smal dörr till varuintaget och ut mot ån, som flyter tre hundra meter nedanför hotellet. Insidan har järnkrampor för en bom. Den bommas inifrån – den som går ut den vägen kan inte bomma igen efter sig.", "f-varuintaget")),
+        "En smal dörr till varuintaget och ut mot Storån, som forsar hundra meter nedanför hotellet och aldrig fryser vid forsen. Insidan har järnkrampor för en bom. Den bommas inifrån varje kväll – utifrån går den inte att öppna, och den som går ut den vägen kan inte bomma igen efter sig.", "f-varuintaget")),
     obj("jonas", "person", [1.6, 0, 0.0], rot=-130, rock="#3a4a5a", byxor="#2a2a2a", hatt="mossa", hattfarg="#c87a2a", har="#6a5a4a", seed=40,
         interaktiv=ia("Snickaren Jonas Ahlqvist", "”Panelen satt löst i ena hörnet, så jag bröt loss den för att se om det fanns mögel bakom. Och så låg de där. Det kändes som att öppna en grav.”")),
     obj("lampa", "arbetslampa", [1.9, 0, -1.4], rot=140, lyser=True),
@@ -89,7 +89,7 @@ lobby = {"id": "lobbyn", "namn": "Lobbyn", "mekanik": "scen", "last_upp_av": ["f
         "Ett inramat fotografi: Fjällgårdens personal, julen 1967. Längst fram står Birgit Hallström i röd anorak, och bredvid henne Claes Rydén med armen om hennes axlar. Fru Rydén, i mitten, ser åt ett annat håll.", "f-fotot")),
     obj("fatolj1", "fatolj", [-2.4, 0, -1.6], rot=40, modell={"fil": "modeller/arm_chair_01.glb", "passa": "box"}),
     obj("sune", "person", [-2.4, 0, -1.6], rot=40, pose="sitta", rock="#5a5a52", byxor="#3a3a36", har="#d8d8d8", glasogon=True, seed=42,
-        interaktiv=ia("Sune Lindberg", "Sune Lindberg, 74 år, sitter i en av de gamla fåtöljerna med käppen över knäna. ”Jag satt bakom den där disken hela natten. Från halv tio till sju gick ingen ner i källaren utom hon – fem i tio, med resväskan – och strax efter henne unge herr Claes. Han kom upp tjugo över tio, andfådd, med snö i håret.”", "f-bara-claes", ["dok-sune26"])),
+        interaktiv=ia("Sune Lindberg", "Sune Lindberg, 74 år, sitter i en av de gamla fåtöljerna med käppen över knäna. ”Jag satt bakom den där disken hela natten. Från halv tio till sju gick ingen ner i källaren – utom jag själv när jag låste skiddörren tio i tio, och sedan hon, fem i tio, med resväskan, och strax efter henne unge herr Claes. Han kom upp tjugo över tio, andfådd, med snö i håret.”", "f-bara-claes", ["dok-sune26"])),
     obj("linnea", "person", [0.2, 0, -0.8], rot=170, kon="k", rock="#2a3a4a", byxor="#2a2a2a", har="#8a5a3a", seed=43,
         interaktiv=ia("Linnea Rydén", "Linnea Rydén håller armarna i kors. ”Farfar har alltid sagt att hon gav sig ut på skidor. Det var det alla sa. Jag har aldrig hört något annat.”")),
     obj("plast", "byggplast", [-3.97, 0, 1.8], rot=90, bredd=2.0, hojd=2.6),
@@ -142,7 +142,7 @@ dokument = {"id": "akten", "namn": "Akten 1968:47", "mekanik": "dokument", "last
       S("Ett par träskidor med kabelbindningar, märkta B.H. med vit färg. Två bambustavar.", "fr-skidor"),
       S("Ett par läderpjäxor för dam, storlek 37.", "fr-pjaxor"),
       S("En resväska med kläder för en längre resa. Överst, vikt: en röd anorak.", "fr-anorak"),
-      S("En tågbiljett Storlien–Stockholm, lördag–söndag 18 februari 1968, tåg 07.12. Ostämplad.", "fr-biljett"),
+      S("En tågbiljett Storlien–Stockholm, söndag 18 februari 1968, tåg 07.12. Oklippt.", "fr-biljett"),
       S("Ett brev i ett oklistrat kuvert: ”Claes – jag åker med morgontåget. Jag kan inte gifta mig med dig när din mor ser på mig som hon gör. Förlåt mig. /Birgit”", "fr-brev")]},
     {"id": "dok-claes", "titel": "Förhör med Claes Rydén", "underrubrik": "Fjällgården, 18 februari 1968. Förhörsledare: N. Strand", "ikon": "📄", "stil": "maskin", "stycken": [
       S("Jag gick ner i källaren strax efter tio för att lägga fram mina pjäxor till morgondagen.", "c-kallare"),
@@ -150,8 +150,9 @@ dokument = {"id": "akten", "namn": "Akten 1968:47", "mekanik": "dokument", "last
       S("Jag öppnade dörren och ropade efter henne, men hon hörde inte i stormen. Sedan gick jag upp och sa till portierpojken.", "c-ropade"),
       S("Fröken Hallström och jag var goda vänner, ingenting mer.", "c-vanner")]},
     {"id": "dok-sune68", "titel": "Förhör med Sune Lindberg, 16 år, nattportier", "underrubrik": "Fjällgården, 18 februari 1968. Förhörsledare: N. Strand", "ikon": "📄", "stil": "maskin", "stycken": [
-      S("Jag tog över receptionen halv tio. Tio i tio gick jag ner och låste skiddörren, som man ska när det stormar, och sedan hade jag nyckeln i fickan till klockan sju.", "s-last"),
-      S("Fem minuter senare gick fröken Hallström ner i källaren med sin resväska. Hon sa god natt.", "s-ner"),
+      S("Jag tog över receptionen halv tio. Tio i tio gick jag ner och låste skiddörren, som man ska när det stormar. Det finns bara en nyckel till den, och den hade jag i fickan till klockan sju.", "s-last"),
+      S("Varuintaget bommade jag vid nio, som varje kväll. Då var bommen på.", "s-bom"),
+      S("Fem minuter senare gick fröken Hallström ner i källaren med sin resväska. Hon sa att hon skulle ställa den vid skiddörren, så att hon kunde gå direkt till stationen i gryningen. Hon sa god natt.", "s-ner"),
       S("Strax efter gick herr Claes ner samma väg. Han kom upp tjugo över tio. Han var andfådd och hade snö i håret och sa att fröken Hallström gett sig ut på skidor.", "s-upp"),
       S("Ingen annan gick ner eller upp i källartrappan i natt. Den går rakt bakom disken.", "s-ingen")]},
     {"id": "dok-holst", "titel": "Förhör med direktör Ragnar Holst", "underrubrik": "Fjällgården, 18 februari 1968", "ikon": "📄", "stil": "maskin", "stycken": [
@@ -196,13 +197,13 @@ dokument = {"id": "akten", "namn": "Akten 1968:47", "mekanik": "dokument", "last
 fall["moment"] = [skid, lobby, arkiv, dokument]
 
 fall["fynd"] = [
-  {"id": "f-fyndet", "titel": "Fyndet bakom panelen", "ikon": "🎿", "typ": "nyckel", "text": "Bakom en panel i skidrummet låg Birgit Hallströms skidor, pjäxor och packade resväska. Panelen sattes upp under säsongen 1968."},
+  {"id": "f-fyndet", "titel": "Fyndet bakom panelen", "ikon": "🎿", "typ": "nyckel", "text": "Bakom en panel i skidrummet låg Birgit Hallströms skidor, pjäxor och packade resväska – i femtioåtta år."},
   {"id": "f-kistlas", "titel": "Kistlåset", "ikon": "🔑", "typ": "nyckel", "text": "Skiddörren har ett kistlås som kräver nyckel från båda sidor. Utan nyckel kommer man varken in eller ut."},
-  {"id": "f-varuintaget", "titel": "Varuintaget", "ikon": "🚪", "typ": "stod", "text": "Varuintaget bommas inifrån och leder ut mot ån, tre hundra meter bort. Den som går ut kan inte bomma igen efter sig."},
+  {"id": "f-varuintaget", "titel": "Varuintaget", "ikon": "🚪", "typ": "stod", "text": "Varuintaget bommas inifrån varje kväll och leder ut mot forsen i Storån, hundra meter bort. Utifrån går det inte att öppna, och den som går ut kan inte bomma igen efter sig."},
   {"id": "f-trappan", "titel": "Källartrappan", "ikon": "🪜", "typ": "nyckel", "text": "1968 gick den enda trappan ner till källaren rakt bakom receptionsdisken, där nattportiern satt."},
   {"id": "f-snickarbok", "titel": "Snickarboken", "ikon": "🔨", "typ": "nyckel", "galler": ["claes"], "text": "Den 20 februari 1968, tre dagar efter försvinnandet, spikades den lösa panelen i skidrummet – beställt av herr Claes."},
   {"id": "f-fotot", "titel": "Personalfotot", "ikon": "🖼️", "typ": "stod", "galler": ["claes"], "text": "På personalfotot från julen 1967 står Claes Rydén med armen om Birgit Hallström, som har sin röda anorak på sig."},
-  {"id": "f-bara-claes", "titel": "Bara Claes gick ner", "ikon": "🛎️", "typ": "nyckel", "galler": ["claes", "per", "holst", "ester"], "text": "Sune satt bakom disken hela natten. Efter Birgit 21.55 gick bara Claes ner i källaren. Han kom upp 22.20, andfådd och med snö i håret."},
+  {"id": "f-bara-claes", "titel": "Bara Claes gick ner", "ikon": "🛎️", "typ": "nyckel", "galler": ["claes", "per", "holst", "ester"], "text": "Sune satt bakom disken hela natten. Efter Birgit 21.55 gick bara Claes ner i källaren. Han kom upp 22.20, andfådd och med snö i håret – fast skiddörren var låst och varuintaget bommat inifrån."},
   {"id": "f-per-alibi", "titel": "Hjort i baren", "ikon": "🍺", "typ": "nyckel", "galler": ["per"], "text": "Per Hjort satt vid bardisken 21.45–23.30. Hans notor är kvitterade 21.50, 22.15 och 22.50."},
   {"id": "f-ester-alibi", "titel": "Fru Rydéns bridge", "ikon": "🃏", "typ": "nyckel", "galler": ["ester"], "text": "Fru Rydén spelade bridge med tre gäster 21.30–23.15. Protokollet är signerat av alla fyra."},
   {"id": "f-holst-alibi", "titel": "Direktörens telefonsamtal", "ikon": "☎️", "typ": "nyckel", "galler": ["holst"], "text": "Direktör Holst talade i telefon med Göteborg 21.50–22.25. Telefonisten i Storlien kopplade samtalet och minns att det var han."},
@@ -231,14 +232,14 @@ fall["slutsatser"] = [
   {"id": "s-kallaren", "kraver": ["f-bara-claes", "f-trappan"], "efter": ["s-gickut"], "fraga": "Birgit gick ner i källaren 21.55 och kom aldrig ut på skidor. Vem kan ha varit där nere med henne?", "alternativ": [
     {"text": "Vem som helst på hotellet.", "svar": "Källartrappan gick rakt bakom receptionen, och skiddörren var låst."},
     {"text": "Bara Claes Rydén – han gick ner strax efter henne och kom upp 22.20 med snö i håret.", "ratt": True},
-    {"text": "Någon som kom in utifrån genom varuintaget.", "svar": "Varuintaget bommas inifrån. Det öppnas inte utifrån."}],
+    {"text": "Någon som kom in utifrån genom varuintaget.", "svar": "Sune bommade varuintaget vid nio, och utifrån går det inte att öppna."}],
    "slutsats": "Bara Claes Rydén var i källaren med Birgit. Snön i hans hår kom inte från skiddörren – den var låst. Han hade varit ute genom varuintaget, vars bom var avlyft på morgonen."},
   {"id": "s-per", "kraver": ["f-per-ljog", "f-per-alibi"], "efter": ["s-kallaren"], "fraga": "Per Hjort ljög om grälet. Kan han ha något med försvinnandet att göra?", "alternativ": [
     {"text": "Ja – han grälade med henne och ljög om det.", "svar": "Grälet var klockan nio. Var satt han efter kvart i tio?"},
     {"text": "Nej – han satt i baren 21.45–23.30, och han gick aldrig ner i källaren.", "ratt": True}],
    "slutsats": "Hjort ljög om grälet av skam. Han satt vid bardisken hela kvällen."},
   {"id": "s-ovriga", "kraver": ["f-holst-alibi", "f-ester-alibi"], "efter": ["s-kallaren"], "fraga": "Direktören och fru Rydén försvarade Claes 1968. Kan någon av dem ha gjort det?", "alternativ": [
-    {"text": "Ja – direktören ljög om klockan.", "svar": "Han ljög för att skydda ägarens son – men han satt i telefon med Göteborg 21.50–22.25."},
+    {"text": "Ja – de ljög båda för att skydda Claes.", "svar": "Att skydda någon är inte att ha gjort det. Var var de när Birgit och Claes var i källaren?"},
     {"text": "Nej – direktören talade i telefon 21.50–22.25 och fru Rydén spelade bridge 21.30–23.15. Ingen av dem gick ner i källaren.", "ratt": True}],
    "slutsats": "Holst och fru Rydén skyddade Claes, men ingen av dem var i källaren."},
   {"id": "s-panelen", "kraver": ["f-snickarbok", "f-fyndet"], "fraga": "Vem lät spika igen panelen som skidorna låg bakom?", "alternativ": [
@@ -248,7 +249,7 @@ fall["slutsatser"] = [
 ]
 
 fall["losning"] = {"skyldig": "claes", "hur": "panelen",
-  "hur_text": "Birgit gick aldrig ut. Claes följde efter henne ner i källaren, där hon tänkte gå till morgontåget med sin väska och sitt brev. Han slog henne, bar ut henne genom varuintaget till Storån och gömde hennes skidor, pjäxor och väska bakom en lös panel i skidrummet, som han lät spika igen tre dagar senare. Sedan påstod han att han sett henne ge sig ut på skidor.",
+  "hur_text": "Birgit gick aldrig ut. Claes följde efter henne ner i källaren, där hon tänkte gå till morgontåget med sin väska och sitt brev. Han slog henne, bar ut henne genom varuintaget till forsen i Storån och gömde hennes skidor, pjäxor och väska bakom en lös panel i skidrummet, som han lät spika igen tre dagar senare. Sedan påstod han att han sett henne ge sig ut på skidor.",
   "bevisgrupper": [["f-dorren", "f-bara-claes"], ["f-anoraken", "f-bara-claes"], ["f-dorren", "f-anoraken"], ["f-snickarbok", "f-skidorna"], ["f-bara-claes", "f-skidorna", "f-snickarbok"], ["f-dorren", "f-snickarbok"]],
   "uteslutningar": {"per": ["f-per-alibi", "f-bara-claes"], "holst": ["f-holst-alibi", "f-bara-claes"], "ester": ["f-ester-alibi", "f-bara-claes"]},
   "uteslutningar_text": {
@@ -263,7 +264,7 @@ fall["anklagelse"] = {"hur_fraga": "Vad hände Birgit Hallström?", "hur_alterna
 fall["ledtradar"] = [
   {"niva": 1, "kostnad": 10, "kraver": ["f-fyndet", "dok-fyndrapport", "dok-claes", "dok-obduktion"], "text": "Börja med att jämföra fyndet bakom panelen med det som sades 1968. Hur skulle Birgit ha gett sig ut i stormen – och i vad? Läs förteckningen, förhören och obduktionen bredvid varandra."},
   {"niva": 2, "kostnad": 25, "kraver": ["dok-sune68", "dok-sune26", "dok-holst", "dok-klockbok"], "text": "Om hon aldrig gick ut på skidor: vem påstod 1968 att han såg henne gå, och kunde det stämma med skiddörren? Varför trodde ingen på portierpojkens tider – och höll invändningen?"},
-  {"niva": 3, "kostnad": 50, "kraver": ["f-bara-claes", "f-snickarbok", "f-per-alibi", "f-holst-alibi", "f-ester-alibi"], "text": "Tre av de misstänkta har bridgeprotokoll, notor och en telefonlista som håller dem borta från källaren. Den fjärde gick ner efter henne och kom upp med snö i håret – och vem beställde att panelen skulle spikas igen?"}]
+  {"niva": 3, "kostnad": 50, "kraver": ["f-bara-claes", "f-snickarbok", "f-per-alibi", "f-holst-alibi", "f-ester-alibi"], "text": "Tre av de misstänkta har bridgeprotokoll, notor och en telefonlista som håller dem borta från källaren. Den fjärde gick ner efter henne och kom upp med snö i håret, fast skiddörren var låst – vilken väg tog han ut? Och vem beställde att panelen skulle spikas igen?"}]
 fall["aterkoppling"] = {
   "ratt": "Det tog femtioåtta år och en lös panel. Birgit gick aldrig ut i stormen: hennes skidor, pjäxor och röda anorak låg kvar bakom brädorna i skidrummet. Skiddörren var låst, receptionsklockan gick rätt, och den enda som gick ner i källaren efter henne var Claes Rydén – som hon tänkte lämna med morgontåget. Nils Strand hade rätt om tofflorna. Han fick bara aldrig se vad som låg bakom panelen.",
   "efterord": "Det här fallet utreddes två gånger. 1968 hade Nils Strand nästan allt – utom det som låg bakom panelen, och en åklagare som hellre trodde ägarfamiljen än en sextonårig portier. 2026 avgjordes det av samma papper, lästa med nya ögon. Claes Rydén, 82 år, erkände när Maja Strand lade fram förteckningen och Birgits brev. Brottet är preskriberat sedan länge, men Birgits syster fick till slut veta sanningen.",
