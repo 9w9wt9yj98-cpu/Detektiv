@@ -39,7 +39,7 @@ export async function visaMeny(app) {
       const st = data.fall[f.id];
       if (!oppet && !paborjat(f.id)) {
         kort.push(`<div class="fallkort last" style="--accent:${f.meta.accentfarg || '#7a2e1f'}" aria-disabled="true">
-          <div class="fallkort-bild" style="background-image:url('${esc(f.meta.omslag)}')"></div>
+          <div class="fallkort-bild" data-omslag="${esc(f.meta.omslag)}"></div>
           <div class="fallkort-nr">${f.nummer}</div>
           <div class="fallkort-text"><h3>${esc(f.meta.titel)}</h3><p class="meta">${esc(f.meta.miljo)} · ${esc(f.meta.epok)}</p>
           <div class="fallkort-status"><span class="status">🔒 Låst</span></div></div></div>`);
@@ -50,7 +50,7 @@ export async function visaMeny(app) {
       else if (st?.status === 'misslyckad') status = '<span class="status">Olöst</span>';
       if (st?.status === 'pagaende') status += ' <span class="status pagar">Pågår</span>';
       kort.push(`<a class="fallkort" href="#/fall/${f.id}" style="--accent:${f.meta.accentfarg || '#7a2e1f'}">
-        <div class="fallkort-bild" style="background-image:url('${esc(f.meta.omslag)}')"></div>
+        <div class="fallkort-bild" data-omslag="${esc(f.meta.omslag)}"></div>
         <div class="fallkort-nr">${f.nummer}</div>
         <div class="fallkort-text">
           <h3>${esc(f.meta.titel)}</h3>
@@ -75,6 +75,35 @@ export async function visaMeny(app) {
       <p class="version">Version ${VERSION}</p>
     </footer>
   </div>`;
+  visaOmslag(app);
   $('#nollstall', app).onclick = async () => { if (await bekrafta('Radera alla sparade fall och poäng?', { ja: 'Radera' })) { nollstallAllt(); visaMeny(app); } };
   return null;
+}
+
+/**
+ * Visar omslagen först när bilden är helt nedladdad. Annars kan mobilen visa en halvt nedladdad bild
+ * (översta raderna och grått under) om nätet hackar, till exempel medan en ny version cachas.
+ * En JPEG räknas som hel när den slutar med slutmarkören FF D9. Misslyckas det görs två nya försök.
+ * De färdiga bilderna sparas, så att menyn inte laddar om dem varje gång den visas.
+ */
+const omslagKlara = new Map();
+async function hamtaOmslag(url) {
+  const svar = await fetch(url);
+  if (!svar.ok) throw new Error(`HTTP ${svar.status}`);
+  const blob = await svar.blob();
+  if (/\.jpe?g$/i.test(url)) {
+    const slut = new Uint8Array(await blob.slice(-2).arrayBuffer());
+    if (slut[0] !== 0xff || slut[1] !== 0xd9) throw new Error('ofullständig bild');
+  }
+  return URL.createObjectURL(blob);
+}
+function visaOmslag(rot) {
+  for (const el of rot.querySelectorAll('.fallkort-bild[data-omslag]')) {
+    const url = el.dataset.omslag;
+    const visa = (src) => { el.style.backgroundImage = `url('${src}')`; el.classList.add('laddad'); };
+    if (omslagKlara.has(url)) { visa(omslagKlara.get(url)); continue; }
+    const forsok = (n) => hamtaOmslag(url).then((src) => { omslagKlara.set(url, src); visa(src); },
+      () => { if (n < 2) setTimeout(() => forsok(n + 1), 1500 * (n + 1)); });
+    forsok(0);
+  }
 }
