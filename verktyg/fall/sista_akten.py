@@ -8,6 +8,9 @@ def ia(namn, text, fynd=None, material=None):
     if fynd: d["ger_fynd"] = fynd
     if material: d["ger_material"] = material
     return d
+# 3D-modeller för förhandsgranskningen ?stil=verklig (se js/tre/modeller.js och modeller/KALLOR.md)
+STOL = {"fil": "modeller/painted_wooden_chair_01.glb", "passa": "box"}
+VAGGLAMPA = {"fil": "modeller/industrial_wall_lamp.glb", "passa": "skala", "skala": 0.8, "pos": [0, -0.17, 0.056], "lyser": ["industrial_wall_lamp_glass"]}
 
 # Tidslinje (kontrolleras mot alla texter):
 # 19.30 ridå upp, akt 1 · 20.50–21.10 paus · 21.10 akt 2 · 21.12 sista linkörningen, Kalle går ner för järnstegen (Persson ser honom)
@@ -72,7 +75,7 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
     # Vänster kulisser: brandvakten och järnstegen upp till lindraget
     obj("stegen", "stege", [-4.5, 0, -1.4], rot=90, hojd=5.0, gar_till="lindraget", interaktiv=ia("Järnstegen",
         "En järnstege längs väggen bakom vänstra kulissen, upp till lindraget åtta meter ovanför scenen. Brandmannens stol står vid foten.")),
-    obj("brandstol", "stol", [-3.9, 0, -0.5], rot=90),
+    obj("brandstol", "stol", [-3.9, 0, -0.5], rot=90, modell=STOL),
     obj("persson", "person", [-3.9, 0, -0.5], rot=90, pose="sitta", rock="#1e2433", byxor="#1e2433", hatt="mossa", hattfarg="#1e2433", har="#6a6a6a", skagg=True, seed=4,
         interaktiv=ia("Brandman Persson", "Brandman Persson sitter kvar på sin stol vid järnstegen, med hjälmen i knät.", "f-persson", ["u-persson"])),
     # Höger kulisser: inspicientens pulpet med körboken och rapporten från generalrepetitionen
@@ -117,8 +120,8 @@ lindrag = {"id": "lindraget", "namn": "Lindraget", "mekanik": "scen", "last_upp_
     obj("stegtopp", "stege", [-1.3, 0, 3.6], rot=90, hojd=1.2, gar_till="scenen", interaktiv=ia("Järnstegen ner",
         "Järnstegen ner till scenen. Längst ner sitter brandman Persson på sin stol – han ser rakt upp längs stegen.")),
     obj("bok", "anteckningsbok", [-0.9, 0.0, 1.4], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
-    obj("l1", "vagglampa", [-1.28, 2.1, -1.8], rot=90, styrka=0.8, rackvidd=4),
-    obj("l2", "vagglampa", [-1.28, 2.1, 2.8], rot=90, styrka=0.7, rackvidd=4)
+    obj("l1", "vagglampa", [-1.28, 2.1, -1.8], rot=90, styrka=0.8, rackvidd=4, modell=VAGGLAMPA),
+    obj("l2", "vagglampa", [-1.28, 2.1, 2.8], rot=90, styrka=0.7, rackvidd=4, modell=VAGGLAMPA)
   ]}}}
 
 # ---------- Rum 3: Undre maskineriet ----------
@@ -145,8 +148,8 @@ undre = {"id": "undre", "namn": "Undre maskineriet", "mekanik": "scen", "last_up
     obj("bank", "arbetsbank", [2.2, 0, 1.6], rot=-90),
     *[obj(f"sack{i}", "sandsack", [x, 0, -1.9], liggande=True) for i, x in enumerate([0.4, 0.9])],
     obj("bok", "anteckningsbok", [2.2, 0.9, 1.4], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
-    obj("l1", "vagglampa", [0.6, 1.9, -2.27], styrka=0.7, rackvidd=4),
-    obj("l2", "vagglampa", [-2.98, 1.9, 0.8], rot=90, styrka=0.6, rackvidd=4)
+    obj("l1", "vagglampa", [0.6, 1.9, -2.27], styrka=0.7, rackvidd=4, modell=VAGGLAMPA),
+    obj("l2", "vagglampa", [-2.98, 1.9, 0.8], rot=90, styrka=0.6, rackvidd=4, modell=VAGGLAMPA)
   ]}}}
 
 # ---------- Rum 4: Logekorridoren ----------
@@ -171,7 +174,7 @@ loger = {"id": "logerna", "namn": "Logekorridoren", "mekanik": "scen", "last_upp
         text="DEN GRÖNA SALONGEN\nRollista\n\nLaura ........ V. Sterner\nHenrik ....... S. Ågren\n\nErsättare för\nfru Sterner:\nM. Hallin",
         interaktiv=ia("Anslagstavlan", "Rollistan sitter på anslagstavlan. Fröken Märta Hallin är fru Sterners ersättare – faller fru Sterner bort är det hon som spelar Laura.", "f-rollistan")),
     obj("kladstallning", "kladstallning", [1.05, 0, -1.4], rot=-90, langd=1.6, seed=3),
-    obj("stol1", "stol", [-0.95, 0, 0.6], rot=90),
+    obj("stol1", "stol", [-0.95, 0, 0.6], rot=90, modell=STOL),
     obj("wall", "person", [-0.95, 0, 0.6], rot=90, pose="sitta", kon="k", rock="#4a4048", har="#b8b0a8", glasogon=True, hatt="sjalett", hattfarg="#5a4a5a", seed=9,
         interaktiv=ia("Fru Wall", "Agnes Wall sitter på en stol med en kopp te i händerna, i låga, nötta skor. Hon fingrar efter pennan bakom örat, men den är inte där.", material=["u-wall-lucka", "u-wall-genrep"])),
     obj("marta", "person", [0.75, 0, 0.2], rot=-120, kon="k", rock="#7a2e3a", har="#3a2418", seed=10,

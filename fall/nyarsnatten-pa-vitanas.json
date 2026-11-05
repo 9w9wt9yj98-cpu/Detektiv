@@ -274,6 +274,7 @@
                 -0.6
               ],
               "rot": -90,
+              "natt": true,
               "interaktiv": {
                 "namn": "Fönstret mot terrassen",
                 "text": "Fönstret är stängt och haspat inifrån. Snön ligger orörd på det yttre blecket, och nedanför är det sex meter ner till terrassen. Ingen har kommit in den här vägen i kväll.",
@@ -942,6 +943,7 @@
                 -1.2
               ],
               "rot": -150,
+              "pose": "sitta",
               "kon": "k",
               "rock": "#3a1a2a",
               "har": "#9a8a7a",
@@ -963,7 +965,11 @@
                 0,
                 -1.2
               ],
-              "rot": -150
+              "rot": -150,
+              "modell": {
+                "fil": "modeller/dining_chair_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "axel",
@@ -1380,7 +1386,11 @@
                 0,
                 -0.75
               ],
-              "rot": 180
+              "rot": 180,
+              "modell": {
+                "fil": "modeller/dining_chair_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "journalen",
@@ -1501,6 +1511,7 @@
           "golv": {
             "typ": "sten"
           },
+          "verklig_golv": "hallar",
           "ljus": {
             "omgivning": "#9fb0d0",
             "omgivning_styrka": 0.6,
@@ -1660,7 +1671,15 @@
                 0,
                 2.6
               ],
-              "styrka": 1.4
+              "styrka": 1.4,
+              "modell": {
+                "fil": "modeller/street_lamp_01.glb",
+                "passa": "skala",
+                "skala": 0.88,
+                "lyser": [
+                  "street_lamp_01_glass"
+                ]
+              }
             },
             {
               "id": "lykta2",
@@ -1670,7 +1689,15 @@
                 0,
                 2.6
               ],
-              "styrka": 1.4
+              "styrka": 1.4,
+              "modell": {
+                "fil": "modeller/street_lamp_01.glb",
+                "passa": "skala",
+                "skala": 0.88,
+                "lyser": [
+                  "street_lamp_01_glass"
+                ]
+              }
             }
           ],
           "ljud": [

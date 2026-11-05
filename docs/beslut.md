@@ -266,6 +266,16 @@ Förhandsgranskningen i samma stil som fall 1 och 2 (`?stil=verklig`; vanlig sti
 
 Före- och efterbilder: `docs/bilder/modeller-fall6/`.
 
+## Verklig grafik: fall 7–9 (november 2026) – godkänt av Martin 5 november (#21)
+
+Martins beslut: fall 7 (Sista akten), 8 (Nyårsnatten på Vitanäs) och 9 (Fjällgården, 1968) får modeller i förhandsgranskningen `?stil=verklig`, som fall 1–6. Vanlig stil är oförändrad utom småfelen nedan.
+
+- **Återanvända modeller:** fåtöljerna, borden, krukväxten och ljuskronorna hade redan modeller. Nu också vita allmogestolar för brandmannens stol på scenen och stolen i logerna (fall 7), läderstolar för grevinnans stol i balsalen och stolen i telefonväxeln (fall 8) och gatlyktorna från fall 5 som gaslyktor på terrassen (fall 8, glaset glöder).
+- **Nya modeller (2, 0,6 MB):** burlampor (*Industrial Wall Lamp*) som vägglampor i lindraget och undre maskineriet (fall 7) och i polisens arkiv (fall 9), och ett skrivbord i stål (*Metal Office Desk*) som bordet med akten i arkivet. Källor i `modeller/KALLOR.md`.
+- **Golv:** terrassen på Vitanäs och skidrummet i källaren på Fjällgården har grova stenhällar (`verklig_golv: "hallar"`) i stället för schackrutiga kalkstensplattor.
+- **Kvar som prefaber:** flygeln, biljardbordet, kakelugnarna (Poly Havens enda kakelugn är en grå plåtkamin som inte passar på ett slott), bokhyllorna, eldstaden, rustningarna, gobelängen, porträtten, kandelabrarna, väggklockorna, telefonväxeln, sminkbordet, klädställningen, pulpeten, strålkastarna, nagelbanken, spiraltrappan, bardisken, nyckelskåpet, skidorna, panelen, resväskan och arkivhyllorna. Poly Haven har inga flyglar eller biljardbord, och det mesta i teatern och på fjällgården är spelets egna föremål som texterna hänger på.
+- **Småfel i fall 8 (rättade i `verktyg/fall/vitanas.py`):** fönstret i biblioteket visade en grön sommardag, fast det är nyårsnatt och snön ligger på blecket. `dagfonster` har fått ett fält `natt`, och fönstret visar nu mörkret utanför. Grevinnan ”sitter rak på en stol” enligt texten men stod upp inne i stolen; nu sitter hon.
+
 ## Blindtest 2 av alla fall (november 2026)
 
 Efter grafikarbetet bad Martin om en blind agent som speltestar logiken och kontrollerar att allt går att lösa. Agenten fick bara spelarvyn, som skrivs av det nya verktyget `verktyg/spelarvy.mjs`: allt spelaren kan se, men ingen lösning, inga rätta svar, motsägelser, prövningar, ledtrådar, villospårsmärkning eller fynd som man bara får genom att lösa något. Först löste den varje fall, och först därefter fick den slutsatsfrågorna (`--slutsatser`). Hela rapporten: `docs/blindtest/rapport-2026-11-04.md`.

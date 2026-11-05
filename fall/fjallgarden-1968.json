@@ -109,6 +109,7 @@
           "golv": {
             "typ": "sten"
           },
+          "verklig_golv": "hallar",
           "vagg": "puts",
           "putsfarg": "#c8c0b0",
           "panel": "#6a5a44",
@@ -709,7 +710,7 @@
                 0.8
               ],
               "modell": {
-                "fil": "modeller/wooden_table_02.glb",
+                "fil": "modeller/metal_office_desk.glb",
                 "passa": "box"
               }
             },
@@ -865,7 +866,20 @@
               ],
               "rot": 90,
               "styrka": 1.0,
-              "rackvidd": 5
+              "rackvidd": 5,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             },
             {
               "id": "l2",
@@ -877,7 +891,20 @@
               ],
               "rot": -90,
               "styrka": 1.0,
-              "rackvidd": 5
+              "rackvidd": 5,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             }
           ],
           "ljud": [
