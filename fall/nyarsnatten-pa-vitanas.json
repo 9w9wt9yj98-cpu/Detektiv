@@ -197,14 +197,14 @@
               "id": "greven",
               "typ": "taeckt",
               "pos": [
-                -0.4,
+                -2.0,
                 0,
-                -0.5
+                -2.35
               ],
-              "rot": 80,
+              "rot": 90,
               "interaktiv": {
                 "namn": "Greve Vinge",
-                "text": "Greven ligger på mattan framför skrivbordet, under en filt som doktor Sjöstedt har lagt över honom. Han har ett hårt slag i bakhuvudet. Bredvid ligger mässingsbrevpressen från skrivbordet – ett lejon på en marmorfot – med blod på foten.",
+                "text": "Greven ligger på golvet bakom skrivbordet, rakt under väggtelefonen, under en filt som doktor Sjöstedt har lagt över honom. Han har ett hårt slag i bakhuvudet. Bredvid ligger mässingsbrevpressen från skrivbordet – ett lejon på en marmorfot – med blod på foten.",
                 "ger_fynd": "f-slaget"
               }
             },
@@ -254,9 +254,9 @@
               "id": "handsken",
               "typ": "handske",
               "pos": [
-                -0.3,
+                -0.6,
                 0.0,
-                -2.1
+                -1.6
               ],
               "farg": "#f2efe6",
               "interaktiv": {
@@ -337,9 +337,9 @@
               "id": "kandelaber",
               "typ": "kandelaber",
               "pos": [
-                -2.6,
+                -2.9,
                 0,
-                -1.9
+                2.6
               ],
               "lyser": true
             },
@@ -620,7 +620,7 @@
               "antal": 2,
               "interaktiv": {
                 "namn": "Strands skiss över slottet",
-                "text": "Strand har ritat en skiss över slottet och gått sträckorna med hovmästaren, med fickur, i rask takt. Balsalen–rökrummet 1 minut, rökrummet–biblioteket uppför östra trappan 3, balsalen–biblioteket uppför stora trappan och genom galleriet 4, balsalen–terrassen 1, terrassen–biblioteket 5, terrassen–rökrummet 2, balsalen–gästflygeln 4, gästflygeln–rökrummet 5 och gästflygeln–biblioteket 8. Snabbare än så går ingen i balklänning eller uniform.",
+                "text": "Strand har ritat en skiss över slottet och gått sträckorna med hovmästaren, med fickur, i rask takt. Balsalen–rökrummet 1 minut, rökrummet–biblioteket uppför östra trappan 3, balsalen–biblioteket uppför stora trappan och genom galleriet 4, balsalen–terrassen 1, terrassen–biblioteket 5, terrassen–rökrummet 2, balsalen–gästflygeln 4, gästflygeln–rökrummet 5 och gästflygeln–biblioteket 8. Snabbare än så går ingen, inte ens med brådska.",
                 "ger_fynd": "f-gangtider"
               }
             },
@@ -653,8 +653,11 @@
               "seed": 22,
               "interaktiv": {
                 "namn": "Hovmästare Ståhl",
-                "text": "Hovmästare Ståhl står rak i ryggen, men händerna darrar. ”Jag bar in konjak till rökrummet fem i elva. Ryttmästaren och unge greven satt där. När jag kom tillbaka med vatten fem över gick unge greven just ut mot balsalen. Ryttmästaren satt kvar med tidningen. Tjugo i tolv sa fröken Norén att biblioteket inte svarade. Jag trodde att greven ville vara ifred, men kvart i tolv gick jag upp ändå för att påminna om talet – och fann honom.”",
-                "ger_fynd": "f-hovmastaren",
+                "text": "Hovmästare Ståhl står rak i ryggen, men händerna darrar. ”Jag bar in konjak till rökrummet fem i elva. Ryttmästaren och unge greven satt där. När jag kom tillbaka med vatten fem över gick unge greven just ut mot balsalen. Ryttmästaren satt kvar med tidningen. Från tio över elva stod jag själv i dörrarna mellan balsalen och galleriet med champagnen till tolvslaget – ingen gick in i galleriet förrän jag själv gick upp. Tjugo i tolv sa fröken Norén att biblioteket inte svarade. Jag gick upp genom galleriet för att påminna om talet – och fann honom kvart i tolv.”",
+                "ger_fynd": [
+                  "f-hovmastaren",
+                  "f-galleriet"
+                ],
                 "ger_material": [
                   "k-axel-rok",
                   "k-ekwall-rok"
@@ -700,7 +703,7 @@
               "seed": 24,
               "interaktiv": {
                 "namn": "Kammarjungfrun Hulda",
-                "text": "Hulda niger. ”Jag bar upp ett huvudvärkspulver till fröken Sand tio över elva, och tjugofem över tittade jag in igen med ett glas vatten. Båda gångerna låg hon i sängen. Det slog tio över på tornuret när jag gick upp första gången.”",
+                "text": "Hulda niger. ”Jag bar upp ett huvudvärkspulver till fröken Sand tio över elva, och tjugofem över tittade jag in igen med ett glas vatten. Båda gångerna låg hon i sängen. Klockan i gästflygelns korridor visade tio över när jag gick upp första gången.”",
                 "ger_material": [
                   "k-ingeborg-hulda1",
                   "k-ingeborg-hulda2"
@@ -1147,7 +1150,7 @@
               "rot": -90,
               "interaktiv": {
                 "namn": "Den öppna spisen",
-                "text": "Elden har nästan brunnit ner. Längst in i askan ligger förkolnade rester av ett tjockt papper med en blå stämpel: ”…ÅNSKA BANKEN … VÄXEL … 20 000 …” och en bit av en namnteckning: ”…d Vinge”. Någon har bränt det i kväll – det har inte hunnit falla sönder.",
+                "text": "Elden har nästan brunnit ner. Längst in i askan ligger förkolnade rester av ett tjockt papper med en blå stämpel: ”…STADS SPARBANK … VÄXEL … 20 000 …” och en bit av en namnteckning: ”…d Vinge”. Någon har bränt det i kväll – det har inte hunnit falla sönder.",
                 "ger_fynd": "f-branda"
               }
             },
@@ -1389,7 +1392,7 @@
               ],
               "interaktiv": {
                 "namn": "Växeljournalen",
-                "text": "Fröken Noréns journal, rad för rad: ”23.12 Bibl. (anknytning 7) → rikssamtal Ystad 112, överste Rehnberg. Kopplat. 23.16 Samtalet brutet. Ringt upp bibl. 23.17, 23.25, 23.35 – inget svar. 23.40 Anmält till hovmästaren.”",
+                "text": "Fröken Noréns journal, rad för rad: ”23.12 Bibl. (anknytning 7) → rikssamtal Ystad 112, överste Rehnberg. Kopplat. 23.16 Klaffen fallen – samtalet brutet. Ringt upp bibl. 23.17, 23.25, 23.35 – inget svar. 23.40 Anmält till hovmästaren. 00.10 Kommissarie Strand → Ystad 112.”",
                 "ger_fynd": "f-journalen"
               }
             },
@@ -1408,7 +1411,7 @@
               "seed": 30,
               "interaktiv": {
                 "namn": "Fröken Norén",
-                "text": "Elin Norén har fortfarande hörtelefonen om halsen. ”Jag kopplade greven till Ystad 23.12 och låg kvar på linjen en stund för att höra att det gick fram. Greven sa: ’Rehnberg, det gäller en av dina officerare.’ Sedan hörde jag en dörr, och greven sa skarpt: ’Vad vill du? Jag talar i telefon!’ Så en duns, och sedan ingenting. Klockan på växeln visade 23.16. Jag får inte lämna växeln, så jag ringde upp igen och igen.”",
+                "text": "Elin Norén har fortfarande hörtelefonen om halsen. ”Jag kopplade greven till Ystad 23.12 och lade ifrån mig hörtelefonen – man lyssnar inte på grevens samtal. 23.16 föll klaffen: samtalet var brutet. Jag får inte lämna växeln, så jag ringde upp biblioteket igen och igen. Tio över tolv bad kommissarien mig koppla överste Rehnberg, och jag skrev ner vad översten sa, ord för ord: ’Edvard sa: Rehnberg, det gäller en av dina officerare – han har skrivit mitt namn på en växel. Sedan hörde jag en dörr, och Edvard sa skarpt: Vad vill du? Jag talar i telefon! Så en duns. Han hann aldrig säga namnet. Klockan på mitt skrivbord visade sexton över elva.’”",
                 "ger_fynd": "f-noren"
               }
             },
@@ -1598,7 +1601,7 @@
               "seed": 32,
               "interaktiv": {
                 "namn": "Trädgårdsmästare Holgersson",
-                "text": "Holgersson stampar av sig snön. ”Förvaltaren kom ut ett par minuter före elva, och vi stod här tillsammans vid lådorna till halv tolv, då gick han in en sväng och kom tillbaka. Han gick inte någonstans, vi skulle ju ha allt klart till tolv.”",
+                "text": "Holgersson stampar av sig snön. ”Förvaltaren kom ut ett par minuter före elva, och vi stod här tillsammans vid lådorna till halv tolv. Före dess gick han inte någonstans – vi skulle ju ha allt klart till tolv. Halv tolv gick han in en sväng och kom tillbaka.”",
                 "ger_material": [
                   "k-lunde-holgersson"
                 ]
@@ -1835,7 +1838,7 @@
             "titel": "Huvudvärkspulvret",
             "typ": "fakta",
             "ikon": "💊",
-            "kalla": "kammarjungfrun och tornuret",
+            "kalla": "kammarjungfrun och korridorsklockan",
             "text": "Hulda bar upp pulver 23.10."
           },
           {
@@ -2026,10 +2029,10 @@
     },
     {
       "id": "f-noren",
-      "titel": "Det telefonisten hörde",
+      "titel": "Samtalet till Ystad",
       "ikon": "🎧",
       "typ": "nyckel",
-      "text": "Fröken Norén hörde greven säga ”det gäller en av dina officerare”, sedan en dörr, ”Vad vill du?”, en duns – och tystnad. Växelns klocka visade 23.16."
+      "text": "Klaffen föll 23.16. Överste Rehnberg hörde greven säga ”det gäller en av dina officerare – han har skrivit mitt namn på en växel”, sedan en dörr, ”Vad vill du? Jag talar i telefon!” och en duns. Greven hann aldrig säga namnet."
     },
     {
       "id": "f-blocket",
@@ -2086,6 +2089,13 @@
       "text": "Hovmästaren serverade ryttmästaren och Axel i rökrummet 22.55. Axel gick 23.05; ryttmästaren satt kvar ensam med tidningen."
     },
     {
+      "id": "f-galleriet",
+      "titel": "Ingen genom galleriet",
+      "ikon": "🍾",
+      "typ": "nyckel",
+      "text": "Från 23.10 stod hovmästaren i dörrarna mellan balsalen och galleriet. Ingen gick in i galleriet förrän han själv gick upp 23.40."
+    },
+    {
       "id": "f-danslistan",
       "titel": "Danslistan",
       "ikon": "🎼",
@@ -2127,7 +2137,7 @@
       "titel": "Brottstiden 23.16",
       "ikon": "⏱️",
       "typ": "nyckel",
-      "text": "Växeljournalen, telefonisten och läkaren pekar på samma tid: greven dödades 23.16 i biblioteket."
+      "text": "Växeljournalen, översten och läkaren pekar på samma tid: greven dödades 23.16 i biblioteket."
     },
     {
       "id": "f-axel-ljog",
@@ -2242,6 +2252,32 @@
       "slutsats": "Gärningspersonen kom inifrån slottet, genom galleriet eller östra trappan."
     },
     {
+      "id": "s-vagen",
+      "kraver": [
+        "f-galleriet",
+        "f-gangtider"
+      ],
+      "efter": [
+        "s-utifran"
+      ],
+      "fraga": "Vilken väg tog gärningspersonen till biblioteket?",
+      "alternativ": [
+        {
+          "text": "Från balsalen genom porträttgalleriet.",
+          "svar": "Hovmästaren stod i dörrarna till galleriet från 23.10. Ingen gick in där förrän han själv gick upp."
+        },
+        {
+          "text": "Utifrån, genom fönstret.",
+          "svar": "Fönstret var haspat inifrån och snön utanför orörd."
+        },
+        {
+          "text": "Uppför östra trappan från rökrummet.",
+          "ratt": true
+        }
+      ],
+      "slutsats": "Den enda vägen till biblioteket som ingen bevakade var östra trappan – från rökrummet."
+    },
+    {
       "id": "s-motiv",
       "kraver": [
         "f-blocket",
@@ -2252,7 +2288,7 @@
       "alternativ": [
         {
           "text": "Att godsförvaltaren fifflat med virket.",
-          "svar": "Det gäller räkenskapsboken, inte översten. Greven sa ”en av dina officerare”."
+          "svar": "Det gäller räkenskapsboken, inte översten. Greven sa ”en av dina officerare” till översten."
         },
         {
           "text": "Att en av överstens officerare hade förfalskat hans namn på en växel på 20 000 kr.",
@@ -2493,7 +2529,7 @@
     "fel_allman": "Kommissarie Strand stryker sig över mustaschen och skakar på huvudet …",
     "forklaring_steg": [
       {
-        "text": "Växeljournalen och telefonisten: samtalet bröts 23.16, efter en dörr, en röst och en duns. Läkaren: ett slag bakifrån, ingen olycka.",
+        "text": "Växeljournalen och översten: samtalet bröts 23.16, efter en dörr, en röst och en duns. Läkaren: ett slag bakifrån, ingen olycka.",
         "fynd": [
           "f-journalen",
           "f-noren",

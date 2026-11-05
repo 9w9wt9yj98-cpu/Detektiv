@@ -381,3 +381,10 @@ Martin har bestämt att Claude själv får slå ihop rena buggfixar – sådant 
 ### Buggfix: rummen i löptext (november 2026)
 
 Det gratis tipset, pekaren och slutsatsvyn skrev rummen med stor bokstav och alltid med ”i”: ”här i Scenen”, ”i Gården”, ”Gå till Sovrummet”. Varje rum har nu fältet `text_i` (”på scenen”, ”i sovrummet”, ”på Österlånggatan”), och texterna blir ”Det finns mer att hitta här på scenen” och ”Gå till sovrummet och undersök fönstret”. Gäller alla åtta fall.
+
+### Buggfix: fall 8 efter andra blindgranskningen (november 2026)
+
+En ny blind agent granskade fall 7 och 8 med nya ögon (rapport: `docs/blindtest/rapport-2026-11-05-fall7-8.md`). Fall 7 hade inga fel; sufflörluckan beskrivs nu som ”alldeles innanför ridån”. I fall 8 rättat:
+- **Vägen gick inte att bevisa.** Gärningsmannen hann lika gärna genom galleriet som uppför östra trappan. Nu stod hovmästaren i dörrarna mellan balsalen och galleriet från 23.10 (nytt fynd *Ingen genom galleriet*), och en ny slutsatsfråga leder till östra trappan.
+- **Telefonsamtalet höll inte ihop.** Telefonisten kunde inte både ”ligga kvar en stund” och höra dörren och dunsen fyra minuter senare. Nu lägger hon ifrån sig hörtelefonen som hon ska, ser klaffen falla 23.16 och skriver ner vad överste Rehnberg hörde när Strand ringer honom tio över tolv. Greven hann aldrig säga namnet.
+- Greven ligger under väggtelefonen bakom skrivbordet (förut tre meter bort), handsken ligger under skrivbordet, kammarjungfrun ser på korridorsklockan (ett tornur slår inte ”tio över”), trädgårdsmästaren motsäger inte sig själv, hovmästaren går upp tjugo i tolv och finner greven kvart i tolv, gångtiderna gäller ”även med brådska”, och den brända växeln är från Ystads Sparbank i stället för den påhittade ”Skånska Banken”.
