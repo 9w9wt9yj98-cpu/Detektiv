@@ -389,7 +389,7 @@ En ny blind agent granskade fall 7 och 8 med nya ögon (rapport: `docs/blindtest
 - **Telefonsamtalet höll inte ihop.** Telefonisten kunde inte både ”ligga kvar en stund” och höra dörren och dunsen fyra minuter senare. Nu lägger hon ifrån sig hörtelefonen som hon ska, ser klaffen falla 23.16 och skriver ner vad överste Rehnberg hörde när Strand ringer honom tio över tolv. Greven hann aldrig säga namnet.
 - Greven ligger under väggtelefonen bakom skrivbordet (förut tre meter bort), handsken ligger under skrivbordet, kammarjungfrun ser på korridorsklockan (ett tornur slår inte ”tio över”), trädgårdsmästaren motsäger inte sig själv, hovmästaren går upp tjugo i tolv och finner greven kvart i tolv, gångtiderna gäller ”även med brådska”, och den brända växeln är från Ystads Sparbank i stället för den påhittade ”Skånska Banken”.
 
-## Fall 9 – Fjällgården, 1968 (november 2026) – väntar på Martin
+## Fall 9 – Fjällgården, 1968 (november 2026) – ihopslaget 5 november på Martins begäran efter blindtest
 
 Martin gav friare tyglar över natten och bad om fortsättning med fall 8, 9 och vidare. Fall 9 är spelets första **tidshopp** (twisttyp 7 i `docs/forslag-v1.md` 3.3: ”ett gammalt kallt fall utreds med bara dokument”). Ingen ny mekanik – kärnan är dokumentmekaniken från fall 6.
 
@@ -417,7 +417,7 @@ Martin gav friare tyglar över natten och bad om fortsättning med fall 8, 9 och
 - **Kapitel III** börjar med fall 10 (`fall/index.json`, låses upp när kapitel II är avslutat eller vid rangen Kriminalassistent).
 - **Riktiga 3D-modeller** (verklig grafik) ska läggas in även i fall 7–9 – det görs på en egen gren av en extra agent.
 
-## Fall 10 – Grönt bläck (november 2026) – väntar på Martin
+## Fall 10 – Grönt bläck (november 2026) – ihopslaget 5 november på Martins begäran efter blindtest
 
 **Fallet:** S/S Vätterstjärnan på Göta kanal, juli 1925. Under natten har någon skjutit in ett utpressningsbrev i grönt bläck under konsul Wahlgrens hyttdörr. Konstapel Nils Strand är på semester ombord. Tre rum – hyttkorridoren, salongen och promenaddäcket – och logikrutnät som kärnmekanik: purserns hyttlista är bortriven, och spelaren pusslar ihop vem som bor i vilken hytt, vilket yrke var och en har och vad var och en skriver med. Källa: `verktyg/fall/gront_black.py`. Första fallet i kapitel III.
 
