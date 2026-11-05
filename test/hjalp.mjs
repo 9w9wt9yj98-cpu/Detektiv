@@ -35,8 +35,15 @@ export async function undersok(p, id, x, z, { viaKnapp = false } = {}) {
     await p.locator('[data-fokus]:not([hidden])').waitFor({ timeout: 3000 * TID });
     await p.locator('[data-fokus]').click();
   } else {
-    const pos = await p.evaluate((id) => window.__detektiv.motor.projicera(id), id);
+    // Kameran uppdateras först i nästa bildruta – under hög belastning kan det dröja, så vänta tills föremålet syns.
+    let pos = null;
+    for (let i = 0; i < 20 * TID && !pos?.synlig; i++) {
+      if (i) await vanta(150);
+      pos = await p.evaluate((id) => window.__detektiv.motor.projicera(id), id);
+    }
     assert.ok(pos?.synlig, `${id} syns inte`);
+    await vanta(150);
+    pos = await p.evaluate((id) => window.__detektiv.motor.projicera(id), id);
     const r = await p.locator('.rum3d-canvas').boundingBox();
     const px = r.x + pos.x * r.width, py = r.y + pos.y * r.height;
     if (p.mobil) await p.touchscreen.tap(px, py); else await p.mouse.click(px, py);
