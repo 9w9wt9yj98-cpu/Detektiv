@@ -388,3 +388,23 @@ En ny blind agent granskade fall 7 och 8 med nya ögon (rapport: `docs/blindtest
 - **Vägen gick inte att bevisa.** Gärningsmannen hann lika gärna genom galleriet som uppför östra trappan. Nu stod hovmästaren i dörrarna mellan balsalen och galleriet från 23.10 (nytt fynd *Ingen genom galleriet*), och en ny slutsatsfråga leder till östra trappan.
 - **Telefonsamtalet höll inte ihop.** Telefonisten kunde inte både ”ligga kvar en stund” och höra dörren och dunsen fyra minuter senare. Nu lägger hon ifrån sig hörtelefonen som hon ska, ser klaffen falla 23.16 och skriver ner vad överste Rehnberg hörde när Strand ringer honom tio över tolv. Greven hann aldrig säga namnet.
 - Greven ligger under väggtelefonen bakom skrivbordet (förut tre meter bort), handsken ligger under skrivbordet, kammarjungfrun ser på korridorsklockan (ett tornur slår inte ”tio över”), trädgårdsmästaren motsäger inte sig själv, hovmästaren går upp tjugo i tolv och finner greven kvart i tolv, gångtiderna gäller ”även med brådska”, och den brända växeln är från Ystads Sparbank i stället för den påhittade ”Skånska Banken”.
+
+## Fall 9 – Fjällgården, 1968 (november 2026) – väntar på Martin
+
+Martin gav friare tyglar över natten och bad om fortsättning med fall 8, 9 och vidare. Fall 9 är spelets första **tidshopp** (twisttyp 7 i `docs/forslag-v1.md` 3.3: ”ett gammalt kallt fall utreds med bara dokument”). Ingen ny mekanik – kärnan är dokumentmekaniken från fall 6.
+
+**Fallet:** Oktober 2026. Fjällgården i Storlien renoveras, och bakom en panel i skidrummet hittar snickaren Birgit Hallströms skidor, pjäxor och packade resväska. Hon försvann i en snöstorm 1968, man trodde att hon gett sig ut på skidor, och fallet – Nils Strands sista – lades ned. Kriminalinspektör Maja Strand, hans barnbarns barn, läser den gamla akten igen. Tre rum: skidrummet, lobbyn och polisens arkiv i Östersund. Källa: `verktyg/fall/fjallgarden.py`. Ligger sist i kapitel II, som de andra twistfallen ligger sist i sina kapitel.
+
+| Dimension | Fall 9 | Variationsreglerna |
+|---|---|---|
+| Miljö / epok | Fjällhotell, nutid (fallet från 1968) | Kapitel II hade ingen nutid. |
+| Brott | Försvinnande | Ny brottstyp; mord finns två gånger bland de fem senaste. |
+| Kärnmekanik | Dokument | Fall 8 hade tidslinje; dokument senast i fall 6. |
+| Skyldig / motiv | Familj (ägarens son) / kärlek | Följer rotationen efter fall 8:s auktoritet och pengar. |
+| Twist | Tidshopp | Senaste vändningen var fall 6 (opålitlig berättare). |
+
+**Lösningen i korthet:** skidorna, pjäxorna och den röda anoraken låg bakom panelen, och Birgit hittades i tofflor – hon gick aldrig ut på skidor. Claes Rydén sa 1968 att han såg henne gå ut genom skiddörren 22.10 i röd anorak, men dörren låstes med kistlås 21.50 och nyckeln låg i portierns ficka. Direktören avfärdade portierns tider med att klockan gick fel – men hans egen signatur i klockboken säger att den gick rätt. Bara Claes gick ner i källaren efter Birgit, och han kom upp med snö i håret. Han lät spika igen panelen tre dagar senare. Hjort satt i baren, Holst talade i telefon och fru Rydén spelade bridge.
+
+**Nya föremål** (`js/tre/foremal/fjall.js`, byggda av en extra agent): skidor, pjäxor, uppbruten panel, arkivlåda, byggarbetslampa, byggplast och skidställ. Omslaget är som för fall 7 och 8 en sepiatonad bild ur 3D-scenen.
+
+**Blindtest:** en blind agent löste fallet rätt (säkerhet 5/5) med bara spelarvyn. Rapport: `docs/blindtest/rapport-2026-11-05-fall9.md`. Rättat efter den: biljetten gäller söndag 18 februari (förut ”lördag–söndag”) och är oklippt; Sune bommade varuintaget vid nio och det går inte att öppna utifrån (förut var det inte stängt som väg in); det finns bara en nyckel till skiddörren; ån forsar hundra meter bort och fryser inte vid forsen; Birgit tänkte ställa väskan vid skiddörren för att gå direkt till stationen i gryningen; Sune nämner att han själv gick ner och låste; panelens ålder bevisas av snickarboken, inte av trådspiken; ledtråd 3 frågar hur Claes kom ut med snö i håret; en slutsatsfrågas felsvar gäller nu både direktören och fru Rydén.

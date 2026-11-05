@@ -10,6 +10,7 @@ import * as fall5 from './scenarier/fall5.mjs';
 import * as fall6 from './scenarier/fall6.mjs';
 import * as fall7 from './scenarier/fall7.mjs';
 import * as fall8 from './scenarier/fall8.mjs';
+import * as fall9 from './scenarier/fall9.mjs';
 
 const SCENARIER = {
   fall1: [fall1.handledning, fall1.fel, fall1.ratt],
@@ -20,6 +21,7 @@ const SCENARIER = {
   fall6: [fall6.ratt, fall6.fel],
   fall7: [fall7.ratt, fall7.fel],
   fall8: [fall8.ratt, fall8.fel],
+  fall9: [fall9.ratt, fall9.fel],
 };
 const valda = process.argv.slice(2).filter((x) => SCENARIER[x]);
 const stoppaServer = await sakerstallServer(BAS);

@@ -51,6 +51,11 @@
           "nummer": 8,
           "id": "nyarsnatten-pa-vitanas",
           "fil": "nyarsnatten-pa-vitanas.json"
+        },
+        {
+          "nummer": 9,
+          "id": "fjallgarden-1968",
+          "fil": "fjallgarden-1968.json"
         }
       ]
     }
