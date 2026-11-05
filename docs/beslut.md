@@ -266,7 +266,7 @@ Förhandsgranskningen i samma stil som fall 1 och 2 (`?stil=verklig`; vanlig sti
 
 Före- och efterbilder: `docs/bilder/modeller-fall6/`.
 
-## Verklig grafik: fall 7–9 (november 2026)
+## Verklig grafik: fall 7–9 (november 2026) – godkänt av Martin 5 november (#21)
 
 Martins beslut: fall 7 (Sista akten), 8 (Nyårsnatten på Vitanäs) och 9 (Fjällgården, 1968) får modeller i förhandsgranskningen `?stil=verklig`, som fall 1–6. Vanlig stil är oförändrad utom småfelen nedan.
 
