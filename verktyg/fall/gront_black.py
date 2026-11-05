@@ -21,7 +21,7 @@ fall = {
    "uppskattad_tid_min": [12, 20], "svarighet": 3, "karnmekanik": "logikrutnat", "bimekaniker": ["scen"], "twist": None, "kraver_rang": 0,
    "accentfarg": "#2a5a5a", "omslag": "bilder/fall10/vatterstjarnan.jpg", "mal": "Ta reda på vem som skrev utpressningsbrevet", "handledning_mal": "konsuln"},
  "intro": {"rubrik": "S/S Vätterstjärnan, Göta kanal. Juli 1925.",
-   "text": "Ångaren har legat förtöjd vid Borensberg över natten. Du reser till Göteborg tillsammans med konstapel Nils Strand, som har fått sin första semester – och just när frukostklockan ringer bultar konsul Fredrik Wahlgren på er hytt uppe på övre däck, röd i ansiktet, med ett papper i handen.\n\nNågon har i natt skjutit in ett brev under dörren till hans hytt. Det är skrivet med grönt bläck, i stora tryckbokstäver, och kräver tre tusen kronor före Motala.\n\n”Fyra passagerare bor i hyttkorridoren utom jag”, säger konsuln. ”En av dem skrev det här.” Strand stoppar pipan i fickan. ”Då tar vi reda på vem – innan vi är framme vid Motala.”",
+   "text": "Ångaren har legat förtöjd vid Borensberg över natten. Du reser till Göteborg tillsammans med konstapel Nils Strand, som har fått sin första ledighet – och just när frukostklockan ringer bultar konsul Fredrik Wahlgren på er hytt uppe på övre däck, röd i ansiktet, med ett papper i handen.\n\nNågon har i natt skjutit in ett brev under dörren till hans hytt. Det är skrivet med grönt bläck, i stora tryckbokstäver, och kräver tre tusen kronor före Motala.\n\n”Fyra passagerare bor i hyttkorridoren utom mig”, säger konsuln. ”En av dem skrev det här.” Strand stoppar pipan i fickan. ”Då tar vi reda på vem – innan vi är framme vid Motala.”",
    "uppdrag": "Vem skrev utpressningsbrevet till konsul Wahlgren?", "bild": "bilder/fall10/vatterstjarnan.jpg", "berattare": "Konstapel Nils Strand"},
  "personer": [
    {"id": "konsuln", "namn": "Fredrik Wahlgren", "roll": "Konsul, sågverksägare", "misstankt": False, "beskrivning": "Äger sågverket i Lövsund. Van att bli åtlydd."},
@@ -57,9 +57,9 @@ korr = {"id": "korridoren", "namn": "Hyttkorridoren", "mekanik": "scen", "payloa
         "Den smala trappan upp till salongen och däck. Den mynnar i korridoren mitt emellan hytt 2 och hytt 3 – den enda vägen ner hit, utom akterdörren.")),
     obj("stol", "stol", [-0.6, 0, 0.1], rot=90),
     obj("pettersson", "person", [-0.6, 0, 0.1], rot=90, pose="sitta", rock="#e8e2d2", byxor="#1a1a20", slips="#1a1a20", har="#5a4a3a", seed=50,
-        interaktiv=ia("Nattstewarden Pettersson", "Pettersson reser sig när du kommer. ”Jag satt här på stolen vid trappan från halv ett till sju, herr konstapel. Ingen kom ned för trappan, och ingen gick förbi mig i korridoren – åt något håll. Men akter om mig kan man gå mellan hytt 3, 4 och 5 utan att passera. Det är ju bara ett par steg.”", "f-stewarden")),
+        interaktiv=ia("Nattstewarden Pettersson", "Pettersson reser sig när du kommer. ”Jag satt här på stolen vid trappan från halv ett till sju, min herre. När jag satte mig var korridoren tom och alla dörrar stängda. Ingen kom ned för trappan, och ingen gick förbi mig i korridoren – åt något håll. Men akter om mig kan man gå mellan hytt 3, 4 och 5 utan att passera. Det är ju bara ett par steg.”", "f-stewarden")),
     obj("konsuln", "person", [0.35, 0, -3.3], rot=-160, rock="#2a2a30", byxor="#2a2a30", slips="#6a1a2a", har="#9a9a9a", skagg=True, seed=51,
-        interaktiv=ia("Konsul Wahlgren", "Konsuln håller fram brevet. Grönt bläck, stora tryckbokstäver, på ett blad rutat papper med en sliten kant upptill: ”LÄGG 3 000 KRONOR I LIVBÅT 2 FÖRE MOTALA. ANNARS FÅR TIDNINGARNA VETA VAD SOM HÄNDE PÅ SÅGEN I LÖVSUND.” Konsuln sänker rösten. ”En olycka för två år sedan. En arbetare dog. Jag betalade änkan. Det är ingenting att skriva om.”", "f-brevet")),
+        interaktiv=ia("Konsul Wahlgren", "Konsuln håller fram brevet. Grönt bläck, stora tryckbokstäver, på ett blad rutat papper med en sliten kant upptill: ”LÄGG 3 000 KRONOR I LIVBÅT 2 FÖRE MOTALA. ANNARS FÅR TIDNINGARNA VETA VAD SOM HÄNDE PÅ SÅGEN I LÖVSUND.” ”Jag vaknade halv sju, och då låg det på mattan innanför dörren.” Konsuln sänker rösten. ”En olycka för två år sedan. En arbetare dog. Jag betalade änkan. Det är ingenting att skriva om.”", "f-brevet")),
     obj("skylt", "skylt", [0, 2.05, 5.48], rot=180, text="HYTTER 1–5", storlek=[0.6, 0.16], textstorlek=48),
     obj("hylla", "hylla", [-1.05, 1.1, -3.0], rot=90, storlek=[0.8]),
     obj("bok", "anteckningsbok", [-0.95, 1.12, -3.0], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
@@ -90,10 +90,10 @@ salong = {"id": "salongen", "namn": "Salongen", "mekanik": "scen", "last_upp_av"
         interaktiv=ia("Oskar Ring", "Oskar Ring rör om i kaffet och ser ut genom fönstret. ”Jag sov. Jag vet ingenting om något brev.” Mer säger han inte.")),
     obj("purser", "pulpet", [2.4, 0, 2.0], rot=-130),
     obj("passagerarboken", "liggare", [2.35, 1.12, 1.95], rot=-130, interaktiv=ia("Purserns passagerarbok",
-        "Purserns bok ligger på pulpeten. Bladet med hyttlistan är bortrivet – bara en rad pappersflagor sitter kvar vid ryggen. Pursern själv steg av i Borensberg i går kväll och kommer ombord först i Motala. Stewarden kan hyttnumren, men inte namnen. Ni får pussla ihop vem som bor var av det passagerarna och stewarden säger.", "f-sidan")),
+        "Purserns bok ligger på pulpeten. Bladet med hyttlistan är bortrivet – bara en rad pappersflagor sitter kvar vid ryggen. Pursern själv steg av i Borensberg i går kväll och kommer ombord igen först i Motala. Stewarden kan hyttnumren, men inte namnen. Ni får pussla ihop vem som bor var av det passagerarna och stewarden säger.", "f-sidan")),
     obj("skrivbordet", "bord", [-2.3, 0, 1.8], storlek=[0.9, 0.74, 0.5], modell={"fil": "modeller/side_table_tall_01.glb", "passa": "box"}),
     obj("skrivdon", "skrivdon", [-2.3, 0.75, 1.8], interaktiv=ia("Salongens skrivbord",
-        "Ångarens brevpapper med tryckt vinjett och ett bläckhorn med svart bläck. Stewarden säger att det är det enda bläcket ombord, utom det passagerarna har med sig själva – och grönt bläck har bara en av dem. ”Flaskan står i hytten, jag har sett den när jag bäddat.”", "f-ett-gront")),
+        "Ångarens brevpapper med tryckt vinjett och ett bläckhorn med svart bläck. Stewarden säger att det är det enda bläcket ombord, utom det passagerarna har med sig själva – och grönt bläck har bara en av dem. ”Flaskan står på hyllan i hytt 4. Jag såg den när jag bäddade klockan elva i går kväll och igen i morse. Hytterna är låsta när passagerarna inte är i dem – nycklarna har de själva och jag.”", "f-ett-gront")),
     obj("ljuskrona", "ljuskrona", [0, 2.5, -0.6], styrka=1.0, modell={"fil": "modeller/chandelier_01.glb", "passa": "skala", "skala": 0.5, "hanger": True}),
     obj("trappan", "dorr", [0.8, 0, 2.59], rot=180, gar_till="korridoren", interaktiv=ia("Trappan ner", "Ner till hyttkorridoren.")),
     obj("dackdorr", "dorr", [-2.99, 0, 1.8], rot=90, gar_till="dacket", interaktiv=ia("Ut på promenaddäcket", "Ut på det överbyggda promenaddäcket.")),
@@ -142,7 +142,7 @@ rutnat = {"id": "hyttlistan", "namn": "Hyttlistan", "mekanik": "logikrutnat", "l
     {"id": "L2", "text": "Ingenjören bor i hytt 4.", "regler": [{"typ": "samma", "a": "ingenjor", "b": "h4"}]},
     {"id": "L3", "text": "Gerda Lilja bor bredvid den som skriver på maskin – hon hörde skrivmaskinen genom väggen hela kvällen.", "regler": [{"typ": "bredvid", "a": "gerda", "b": "maskin"}]},
     {"id": "L4", "text": "Den som skriver med svart bläck bor i en hytt med udda nummer.", "regler": [{"typ": "en_av", "a": "svart", "b": ["h1", "h3"]}]},
-    {"id": "L5", "text": "Gerda Lilja bor direkt mellan kyrkoherden och Rut Malm.", "regler": [{"typ": "mellan", "a": "gerda", "b": "kyrkoherde", "c": "rut"}]},
+    {"id": "L5", "text": "Gerda Lilja har kyrkoherden på ena sidan och Rut Malm på den andra.", "regler": [{"typ": "mellan", "a": "gerda", "b": "kyrkoherde", "c": "rut"}]},
     {"id": "L6", "text": "Oskar Ring bor inte bredvid sjuksköterskan.", "regler": [{"typ": "inte_bredvid", "a": "oskar", "b": "sjukskoterska"}]},
     {"id": "L7", "text": "Den som skriver med grönt bläck bor inte bredvid kyrkoherden.", "regler": [{"typ": "inte_bredvid", "a": "gront", "b": "kyrkoherde"}]},
   ],
@@ -157,7 +157,7 @@ fall["fynd"] = [
   {"id": "f-akterdorr", "titel": "Akterdörren låst", "ikon": "🔒", "typ": "stod", "text": "Akterdörren låstes av kaptenen klockan tolv och var låst hela natten. Låset är oskadat."},
   {"id": "f-stewarden", "titel": "Stewarden vid trappan", "ikon": "🪑", "typ": "nyckel", "text": "Nattstewarden satt vid trappan mellan hytt 2 och 3 från 00.30 till 07.00. Ingen kom ned för trappan och ingen passerade honom i korridoren. Akter om honom ligger hytt 3, 4 och 5."},
   {"id": "f-sidan", "titel": "Hyttlistan bortriven", "ikon": "📕", "typ": "bakgrund", "text": "Bladet med hyttlistan är bortrivet ur purserns bok, och pursern är i land till Motala. Vem som bor var får pusslas ihop av vad passagerarna och stewarden säger."},
-  {"id": "f-ett-gront", "titel": "En enda flaska grönt bläck", "ikon": "🧪", "typ": "nyckel", "text": "Ombord finns bara svart bläck och det passagerarna har med sig. Grönt bläck har bara en av dem – flaskan står i hans eller hennes hytt."},
+  {"id": "f-ett-gront", "titel": "En enda flaska grönt bläck", "ikon": "🧪", "typ": "nyckel", "text": "Ombord finns bara svart bläck och det passagerarna har med sig. Den enda flaskan grönt bläck står på hyllan i hytt 4, som är låst när passageraren inte är där."},
   {"id": "f-ritblocket", "titel": "Ritblocket", "ikon": "📐", "typ": "nyckel", "galler": ["oskar"], "text": "Ett ritblock med rutat papper av det slag ingenjörer använder ligger på en däcksstol. Ett blad är utrivet, och kanten passar mot brevets."},
   {"id": "f-livbaten", "titel": "Livbåt 2", "ikon": "🛶", "typ": "bakgrund", "text": "Livbåt 2, där pengarna ska läggas, syns hela tiden från salongens fönster. Ännu ligger ingenting i den."},
   {"id": "f-manuset", "titel": "Rut Malms artikel", "ikon": "📰", "typ": "avledande", "galler": ["rut"], "text": "Maskinskrivna sidor om olyckan i Lövsund: ”vad konsul Wahlgren aldrig berättade”.", "forklaring": "Rut Malm vet om olyckan och skriver om den – öppet, under eget namn och på maskin. Ett motiv att granska konsuln, inte att pressa honom på pengar."},
@@ -172,9 +172,9 @@ fall["slutsatser"] = [
     {"text": "Från hytt 3 eller 4 – akter om stewarden.", "ratt": True}],
    "slutsats": "Brevskrivaren bor i hytt 3 eller 4. Bara därifrån når man konsulns dörr utan att passera stewarden."},
   {"id": "s-blacket", "kraver": ["f-brevet", "f-ett-gront"], "fraga": "Brevet är skrivet med grönt bläck. Vad betyder det?", "alternativ": [
-    {"text": "Ingenting – vem som helst kan ha lånat bläck.", "svar": "Det finns bara en flaska grönt bläck ombord, och den står i en passagerares hytt."},
-    {"text": "Att den som skriver med grönt bläck skrev brevet.", "ratt": True}],
-   "slutsats": "Brevet skrevs av den passagerare som har det gröna bläcket i sin hytt."},
+    {"text": "Ingenting – vem som helst kan ha lånat bläck.", "svar": "Den enda flaskan står i hytt 4, och hytten är låst när passageraren inte är där."},
+    {"text": "Att brevet skrevs i hytt 4, där den enda flaskan grönt bläck står.", "ratt": True}],
+   "slutsats": "Brevet skrevs av den som bor i hytt 4 – där står det gröna bläcket."},
   {"id": "s-papperet", "kraver": ["f-brevet", "f-ritblocket"], "fraga": "Varifrån kommer papperet brevet är skrivet på?", "alternativ": [
     {"text": "Från salongens skrivbord.", "svar": "Ångarens brevpapper har tryckt vinjett. Brevet är skrivet på rutat ritpapper."},
     {"text": "Ur ritblocket på däcket – rutat ritpapper av det slag ingenjörer använder.", "ratt": True}],
@@ -186,7 +186,7 @@ fall["slutsatser"] = [
    "slutsats": "Oskar Ring, ingenjör i hytt 4, skriver med grönt bläck – och kan nå konsulns dörr utan att passera stewarden."},
   {"id": "s-rut", "kraver": ["f-manuset", "f-hyttlistan"], "efter": ["s-vagen"], "fraga": "Rut Malm bor i hytt 3 och skriver om olyckan i Lövsund. Kan hon ha skrivit brevet?", "alternativ": [
     {"text": "Ja – hon bor akter om stewarden och har motiv.", "svar": "Var finns det gröna bläcket – och vad skriver hon själv med?"},
-    {"text": "Nej – hon skriver allt på maskin, och det gröna bläcket finns i en annan hytt.", "ratt": True}],
+    {"text": "Nej – hon har inget grönt bläck. Den enda flaskan står i den låsta hytt 4.", "ratt": True}],
    "slutsats": "Rut Malm granskar konsuln öppet. Hon skriver på maskin och har inget grönt bläck."},
 ]
 
@@ -206,13 +206,13 @@ fall["anklagelse"] = {"hur_fraga": "Hur kom brevet under konsulns dörr?", "hur_
 fall["ledtradar"] = [
   {"niva": 1, "kostnad": 10, "kraver": ["f-brevet", "f-stewarden", "f-akterdorr"], "text": "Börja med vägen till konsulns dörr: var satt stewarden, och vilka hytter når man utan att gå förbi honom? Titta sedan noga på brevet – vad är det skrivet med, och på?"},
   {"niva": 2, "kostnad": 25, "kraver": ["f-ett-gront", "f-sidan", "f-ritblocket"], "text": "Brevskrivaren bor akter om stewarden och har det gröna bläcket. Lös hyttlistan i anteckningsboken: vem bor i hytt 3 och 4, och vem skriver med vad? Vems är ritblocket på däcket?"},
-  {"niva": 3, "kostnad": 50, "kraver": ["f-hyttlistan"], "text": "Journalisten i hytt 3 skriver allt på maskin. Den som skriver med grönt bläck bor i hytt 4, två steg från konsulns dörr – och har rutat ritpapper av ingenjörsslaget."}]
+  {"niva": 3, "kostnad": 50, "kraver": ["f-sidan", "f-ett-gront", "f-ritblocket"], "text": "Börja rutnätet med Gerda Lilja: hon har grannar på båda sidor, så hon bor i hytt 2 eller 3 – och ingenjören bor i hytt 4. Det gröna bläcket står i hytt 4, två steg från konsulns dörr. Vem bor där – och vem använder rutat ritpapper?"}]
 fall["aterkoppling"] = {
   "ratt": "En korridor, en stol och en flaska bläck. Stewarden vid trappan stängde vägen för hytt 1 och 2, och av de två som bodde akter om honom skrev den ena allt på maskin. Den andra hade det gröna bläcket – och ett ritblock med ett blad för lite. Oskar Rings bror var arbetaren som dog i Lövsund. Pengarna skulle gå till änkan, sa han till Strand; konsulns ”ersättning” hade räckt till begravningen och inte mer.",
   "fel": {
     "teodor": "Kyrkoherden bor i hytt 1 och skriver med svart bläck. Han hade måst gå förbi stewarden.",
     "gerda": "Sjuksköterskan bor i hytt 2, förut om stewarden, och skriver med blyerts.",
-    "rut": "Rut Malm bor akter om stewarden och vet om Lövsund – men hon skriver allt på maskin, och det gröna bläcket står i hytt 4."},
+    "rut": "Rut Malm bor akter om stewarden och vet om Lövsund – men det gröna bläcket står i den låsta hytt 4."},
   "fel_allman": "Konstapel Strand tänder pipan och skakar på huvudet …",
   "forklaring_steg": [
     {"text": "Stewarden satt vid trappan mellan hytt 2 och 3 hela natten, och akterdörren var låst. Brevskrivaren bor i hytt 3 eller 4.", "fynd": ["f-stewarden", "f-akterdorr", "f-dorren"]},

@@ -25,7 +25,7 @@
   },
   "intro": {
     "rubrik": "S/S Vätterstjärnan, Göta kanal. Juli 1925.",
-    "text": "Ångaren har legat förtöjd vid Borensberg över natten. Du reser till Göteborg tillsammans med konstapel Nils Strand, som har fått sin första semester – och just när frukostklockan ringer bultar konsul Fredrik Wahlgren på er hytt uppe på övre däck, röd i ansiktet, med ett papper i handen.\n\nNågon har i natt skjutit in ett brev under dörren till hans hytt. Det är skrivet med grönt bläck, i stora tryckbokstäver, och kräver tre tusen kronor före Motala.\n\n”Fyra passagerare bor i hyttkorridoren utom jag”, säger konsuln. ”En av dem skrev det här.” Strand stoppar pipan i fickan. ”Då tar vi reda på vem – innan vi är framme vid Motala.”",
+    "text": "Ångaren har legat förtöjd vid Borensberg över natten. Du reser till Göteborg tillsammans med konstapel Nils Strand, som har fått sin första ledighet – och just när frukostklockan ringer bultar konsul Fredrik Wahlgren på er hytt uppe på övre däck, röd i ansiktet, med ett papper i handen.\n\nNågon har i natt skjutit in ett brev under dörren till hans hytt. Det är skrivet med grönt bläck, i stora tryckbokstäver, och kräver tre tusen kronor före Motala.\n\n”Fyra passagerare bor i hyttkorridoren utom mig”, säger konsuln. ”En av dem skrev det här.” Strand stoppar pipan i fickan. ”Då tar vi reda på vem – innan vi är framme vid Motala.”",
     "uppdrag": "Vem skrev utpressningsbrevet till konsul Wahlgren?",
     "bild": "bilder/fall10/vatterstjarnan.jpg",
     "berattare": "Konstapel Nils Strand"
@@ -257,7 +257,7 @@
               "seed": 50,
               "interaktiv": {
                 "namn": "Nattstewarden Pettersson",
-                "text": "Pettersson reser sig när du kommer. ”Jag satt här på stolen vid trappan från halv ett till sju, herr konstapel. Ingen kom ned för trappan, och ingen gick förbi mig i korridoren – åt något håll. Men akter om mig kan man gå mellan hytt 3, 4 och 5 utan att passera. Det är ju bara ett par steg.”",
+                "text": "Pettersson reser sig när du kommer. ”Jag satt här på stolen vid trappan från halv ett till sju, min herre. När jag satte mig var korridoren tom och alla dörrar stängda. Ingen kom ned för trappan, och ingen gick förbi mig i korridoren – åt något håll. Men akter om mig kan man gå mellan hytt 3, 4 och 5 utan att passera. Det är ju bara ett par steg.”",
                 "ger_fynd": "f-stewarden"
               }
             },
@@ -278,7 +278,7 @@
               "seed": 51,
               "interaktiv": {
                 "namn": "Konsul Wahlgren",
-                "text": "Konsuln håller fram brevet. Grönt bläck, stora tryckbokstäver, på ett blad rutat papper med en sliten kant upptill: ”LÄGG 3 000 KRONOR I LIVBÅT 2 FÖRE MOTALA. ANNARS FÅR TIDNINGARNA VETA VAD SOM HÄNDE PÅ SÅGEN I LÖVSUND.” Konsuln sänker rösten. ”En olycka för två år sedan. En arbetare dog. Jag betalade änkan. Det är ingenting att skriva om.”",
+                "text": "Konsuln håller fram brevet. Grönt bläck, stora tryckbokstäver, på ett blad rutat papper med en sliten kant upptill: ”LÄGG 3 000 KRONOR I LIVBÅT 2 FÖRE MOTALA. ANNARS FÅR TIDNINGARNA VETA VAD SOM HÄNDE PÅ SÅGEN I LÖVSUND.” ”Jag vaknade halv sju, och då låg det på mattan innanför dörren.” Konsuln sänker rösten. ”En olycka för två år sedan. En arbetare dog. Jag betalade änkan. Det är ingenting att skriva om.”",
                 "ger_fynd": "f-brevet"
               }
             },
@@ -569,7 +569,7 @@
               "rot": -130,
               "interaktiv": {
                 "namn": "Purserns passagerarbok",
-                "text": "Purserns bok ligger på pulpeten. Bladet med hyttlistan är bortrivet – bara en rad pappersflagor sitter kvar vid ryggen. Pursern själv steg av i Borensberg i går kväll och kommer ombord först i Motala. Stewarden kan hyttnumren, men inte namnen. Ni får pussla ihop vem som bor var av det passagerarna och stewarden säger.",
+                "text": "Purserns bok ligger på pulpeten. Bladet med hyttlistan är bortrivet – bara en rad pappersflagor sitter kvar vid ryggen. Pursern själv steg av i Borensberg i går kväll och kommer ombord igen först i Motala. Stewarden kan hyttnumren, men inte namnen. Ni får pussla ihop vem som bor var av det passagerarna och stewarden säger.",
                 "ger_fynd": "f-sidan"
               }
             },
@@ -601,7 +601,7 @@
               ],
               "interaktiv": {
                 "namn": "Salongens skrivbord",
-                "text": "Ångarens brevpapper med tryckt vinjett och ett bläckhorn med svart bläck. Stewarden säger att det är det enda bläcket ombord, utom det passagerarna har med sig själva – och grönt bläck har bara en av dem. ”Flaskan står i hytten, jag har sett den när jag bäddat.”",
+                "text": "Ångarens brevpapper med tryckt vinjett och ett bläckhorn med svart bläck. Stewarden säger att det är det enda bläcket ombord, utom det passagerarna har med sig själva – och grönt bläck har bara en av dem. ”Flaskan står på hyllan i hytt 4. Jag såg den när jag bäddade klockan elva i går kväll och igen i morse. Hytterna är låsta när passagerarna inte är i dem – nycklarna har de själva och jag.”",
                 "ger_fynd": "f-ett-gront"
               }
             },
@@ -1007,7 +1007,7 @@
           },
           {
             "id": "L5",
-            "text": "Gerda Lilja bor direkt mellan kyrkoherden och Rut Malm.",
+            "text": "Gerda Lilja har kyrkoherden på ena sidan och Rut Malm på den andra.",
             "regler": [
               {
                 "typ": "mellan",
@@ -1107,7 +1107,7 @@
       "titel": "En enda flaska grönt bläck",
       "ikon": "🧪",
       "typ": "nyckel",
-      "text": "Ombord finns bara svart bläck och det passagerarna har med sig. Grönt bläck har bara en av dem – flaskan står i hans eller hennes hytt."
+      "text": "Ombord finns bara svart bläck och det passagerarna har med sig. Den enda flaskan grönt bläck står på hyllan i hytt 4, som är låst när passageraren inte är där."
     },
     {
       "id": "f-ritblocket",
@@ -1190,14 +1190,14 @@
       "alternativ": [
         {
           "text": "Ingenting – vem som helst kan ha lånat bläck.",
-          "svar": "Det finns bara en flaska grönt bläck ombord, och den står i en passagerares hytt."
+          "svar": "Den enda flaskan står i hytt 4, och hytten är låst när passageraren inte är där."
         },
         {
-          "text": "Att den som skriver med grönt bläck skrev brevet.",
+          "text": "Att brevet skrevs i hytt 4, där den enda flaskan grönt bläck står.",
           "ratt": true
         }
       ],
-      "slutsats": "Brevet skrevs av den passagerare som har det gröna bläcket i sin hytt."
+      "slutsats": "Brevet skrevs av den som bor i hytt 4 – där står det gröna bläcket."
     },
     {
       "id": "s-papperet",
@@ -1260,7 +1260,7 @@
           "svar": "Var finns det gröna bläcket – och vad skriver hon själv med?"
         },
         {
-          "text": "Nej – hon skriver allt på maskin, och det gröna bläcket finns i en annan hytt.",
+          "text": "Nej – hon har inget grönt bläck. Den enda flaskan står i den låsta hytt 4.",
           "ratt": true
         }
       ],
@@ -1359,9 +1359,11 @@
       "niva": 3,
       "kostnad": 50,
       "kraver": [
-        "f-hyttlistan"
+        "f-sidan",
+        "f-ett-gront",
+        "f-ritblocket"
       ],
-      "text": "Journalisten i hytt 3 skriver allt på maskin. Den som skriver med grönt bläck bor i hytt 4, två steg från konsulns dörr – och har rutat ritpapper av ingenjörsslaget."
+      "text": "Börja rutnätet med Gerda Lilja: hon har grannar på båda sidor, så hon bor i hytt 2 eller 3 – och ingenjören bor i hytt 4. Det gröna bläcket står i hytt 4, två steg från konsulns dörr. Vem bor där – och vem använder rutat ritpapper?"
     }
   ],
   "aterkoppling": {
@@ -1369,7 +1371,7 @@
     "fel": {
       "teodor": "Kyrkoherden bor i hytt 1 och skriver med svart bläck. Han hade måst gå förbi stewarden.",
       "gerda": "Sjuksköterskan bor i hytt 2, förut om stewarden, och skriver med blyerts.",
-      "rut": "Rut Malm bor akter om stewarden och vet om Lövsund – men hon skriver allt på maskin, och det gröna bläcket står i hytt 4."
+      "rut": "Rut Malm bor akter om stewarden och vet om Lövsund – men det gröna bläcket står i den låsta hytt 4."
     },
     "fel_allman": "Konstapel Strand tänder pipan och skakar på huvudet …",
     "forklaring_steg": [

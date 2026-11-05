@@ -51,7 +51,7 @@ export async function ratt(browser, mobil = true) {
   assert.equal(await besvaraSlutsatser(p, { provaFel: false }), 2);
   await stangBok(p);
   await anklaga(p, 'rut');
-  assert.match(await p.locator('.reaktion').innerText(), /maskin/);
+  assert.match(await p.locator('.reaktion').innerText(), /gröna bläcket/);
   await p.locator('[data-ok]').click(); await vanta(300);
   await anklaga(p, 'oskar', { hur: 'hytt4', bevis: ['f-hyttlistan', 'f-stewarden', 'f-ett-gront'] });
   const txt = await upplosning(p, 'f10-upplosning-ratt');
