@@ -408,3 +408,27 @@ Martin gav friare tyglar över natten och bad om fortsättning med fall 8, 9 och
 **Nya föremål** (`js/tre/foremal/fjall.js`, byggda av en extra agent): skidor, pjäxor, uppbruten panel, arkivlåda, byggarbetslampa, byggplast och skidställ. Omslaget är som för fall 7 och 8 en sepiatonad bild ur 3D-scenen.
 
 **Blindtest:** en blind agent löste fallet rätt (säkerhet 5/5) med bara spelarvyn. Rapport: `docs/blindtest/rapport-2026-11-05-fall9.md`. Rättat efter den: biljetten gäller söndag 18 februari (förut ”lördag–söndag”) och är oklippt; Sune bommade varuintaget vid nio och det går inte att öppna utifrån (förut var det inte stängt som väg in); det finns bara en nyckel till skiddörren; ån forsar hundra meter bort och fryser inte vid forsen; Birgit tänkte ställa väskan vid skiddörren för att gå direkt till stationen i gryningen; Sune nämner att han själv gick ner och låste; panelens ålder bevisas av snickarboken, inte av trådspiken; ledtråd 3 frågar hur Claes kom ut med snö i håret; en slutsatsfrågas felsvar gäller nu både direktören och fru Rydén.
+
+## Martins beslut 5 november 2026
+
+- **Rangkraven** höjs inte.
+- **Ledtråd 3** behåller sin nivå (”Nästan svaret”) så länge fallen inte blir för svåra.
+- **Omslagen** till fall 7 och framåt får vara sepiatonade bilder ur 3D-scenerna – ”gammaldags är okej”.
+- **Kapitel III** börjar med fall 10 (`fall/index.json`, låses upp när kapitel II är avslutat eller vid rangen Kriminalassistent).
+- **Riktiga 3D-modeller** (verklig grafik) ska läggas in även i fall 7–9 – det görs på en egen gren av en extra agent.
+
+## Fall 10 – Grönt bläck (november 2026) – väntar på Martin
+
+**Fallet:** S/S Vätterstjärnan på Göta kanal, juli 1925. Under natten har någon skjutit in ett utpressningsbrev i grönt bläck under konsul Wahlgrens hyttdörr. Konstapel Nils Strand är på semester ombord. Tre rum – hyttkorridoren, salongen och promenaddäcket – och logikrutnät som kärnmekanik: purserns hyttlista är bortriven, och spelaren pusslar ihop vem som bor i vilken hytt, vilket yrke var och en har och vad var och en skriver med. Källa: `verktyg/fall/gront_black.py`. Första fallet i kapitel III.
+
+| Dimension | Fall 10 | Variationsreglerna |
+|---|---|---|
+| Miljö / epok | Kanalångare, 1920-tal | Ny miljö; kapitel III börjar i 1920-talet. |
+| Brott | Utpressning | Ny brottstyp; mord finns två gånger bland de fem senaste. |
+| Kärnmekanik | Logikrutnät | Fall 9 hade dokument; rutnätet användes senast i fall 3. |
+| Skyldig / motiv | Främling (en tystlåten medpassagerare) / hämnd för en dödsolycka | Följer rotationen efter fall 9:s familj och kärlek. |
+| Twist | Ingen | Fall 9 hade tidshopp. |
+
+**Lösningen i korthet:** stewarden satt vid trappan mellan hytt 2 och 3 hela natten och akterdörren var låst, så brevet kom från hytt 3 eller 4. Brevet är skrivet med grönt bläck – det finns bara en flaska ombord – på ett blad ur ritblocket på däcket. Rutnätet (sju uppgifter, exakt en lösning, ingen överflödig) ger hytt 3: journalisten Rut Malm, som skriver allt på maskin, och hytt 4: ingenjören Oskar Ring med det gröna bläcket.
+
+**Kodändringar (små, för att rutnätet ska kunna gälla något annat än ett middagsbord):** `js/mekaniker/logikrutnat.js` kan rita en korridor med hytter i rad (`bord.typ: 'korridor'`, med vakt och sista hytt), och rubriken över uppgifterna (`ledtrad_rubrik`) och texten när rutnätet är löst (`lost_text`) kan sättas per fall. Fall 3 ser ut och fungerar som förut. Ny föremålsfil `js/tre/foremal/skepp.js` med en livbåt. Omslaget är en sepiatonad bild ur 3D-scenen.

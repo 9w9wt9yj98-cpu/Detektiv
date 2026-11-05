@@ -9,3 +9,4 @@ import './ute.js';
 import './teater.js';
 import './slott.js';
 import './fjall.js';
+import './skepp.js';

@@ -42,7 +42,7 @@ export function renderaRutnat(behallare, payload, st, { autofyll = true, onAndra
 
   const bord = payload.bord;
   const el = html(`<div class="rutnat-vy">
-    <div class="bordsvy" aria-label="Bordsplaceringen så som du har markerat den">${bordSvg()}</div>
+    <div class="bordsvy" aria-label="${esc(bord.aria || 'Bordsplaceringen så som du har markerat den')}">${bord.typ === 'korridor' ? korridorSvg() : bordSvg()}</div>
     <p class="instruktion">${esc(payload.instruktion || '')}</p>
     <div class="rutnat-skal"><table class="rutnat"><thead>${thead}</thead><tbody>${tbody}</tbody></table></div>
     <div class="rutnat-verktyg">
@@ -51,12 +51,39 @@ export function renderaRutnat(behallare, payload, st, { autofyll = true, onAndra
       <button class="knapp liten sekundar" data-rensa>Rensa</button>
     </div>
     <p class="rutnat-status" role="status"></p>
-    <h3 class="ledtrad-rubrik">Ur förhören</h3>
+    <h3 class="ledtrad-rubrik">${esc(payload.ledtrad_rubrik || 'Ur förhören')}</h3>
     <ul class="ledtradskort">${payload.ledtradar.map((l) => `<li data-l="${l.id}"><span class="lid">${esc(l.id)}</span> ${esc(l.text)}</li>`).join('')}</ul>
     <p class="hjalptext">Tryck på en uppgift för att bocka av den när du har använt den.</p>
   </div>`);
   behallare.innerHTML = '';
   behallare.appendChild(el);
+
+  /** Hytter i rad längs en korridor (t.ex. på en ångare): bord.ordning är hytterna, bord.huvud den sista hytten,
+   *  bord.vakt_efter numret på hytten efter vilken en vakt sitter i korridoren (bord.vakt är dess namn). */
+  function korridorSvg() {
+    const n = bord.ordning.length, B = 70, X0 = 4;
+    const platser = bord.ordning.map((pid, i) => {
+      const x = X0 + i * (B + 4), mx = x + B / 2;
+      return `<g class="plats" data-plats="${pid}">
+        <rect x="${x}" y="8" width="${B}" height="62" rx="6" class="hytt"/>
+        <circle cx="${mx}" cy="22" r="10" class="stolsdyna"/>
+        <text x="${mx}" y="26" class="platsnr" text-anchor="middle">${i + 1}</text>
+        <text x="${mx}" y="46" text-anchor="middle" class="platsnamn liten" data-namn></text>
+        <text x="${mx}" y="61" text-anchor="middle" class="platsinfo liten" data-info></text>
+      </g>`;
+    }).join('');
+    const xh = X0 + n * (B + 4), bredd = xh + B + 4;
+    const vakt = bord.vakt_efter ? X0 + bord.vakt_efter * (B + 4) - 2 : null;
+    return `<svg viewBox="0 0 ${bredd} 112" role="img">
+      <rect x="0" y="74" width="${bredd}" height="22" class="bordsskiva"/>
+      <text x="6" y="108" class="platsinfo liten">korridoren</text>
+      ${platser}
+      <rect x="${xh}" y="8" width="${B}" height="62" rx="6" class="hytt huvud"/>
+      <text x="${xh + B / 2}" y="34" text-anchor="middle" class="platsnr">${esc(String(n + 1))}</text>
+      <text x="${xh + B / 2}" y="52" text-anchor="middle" class="platsinfo liten">${esc(bord.huvud || '')}</text>
+      ${vakt !== null ? `<circle cx="${vakt}" cy="85" r="7" class="stolsdyna overste"/><text x="${vakt}" y="108" text-anchor="middle" class="platsinfo liten">${esc(bord.vakt || '')}</text>` : ''}
+    </svg>`;
+  }
 
   function bordSvg() {
     const pos = [[78, 52, 'end'], [78, 118, 'end'], [222, 118, 'start'], [222, 52, 'start']];
@@ -139,7 +166,7 @@ export function renderaRutnat(behallare, payload, st, { autofyll = true, onAndra
         t[p.id][c.id] = v[0].id;
       }
     }
-    if (st.rutnatLost) { status.textContent = '✓ Bordsplaceringen är rekonstruerad och stämmer med alla uppgifter.'; status.classList.add('lost'); return; }
+    if (st.rutnatLost) { status.textContent = `✓ ${payload.lost_text || 'Bordsplaceringen är rekonstruerad och stämmer med alla uppgifter.'}`; status.classList.add('lost'); return; }
     if (!komplett) { status.textContent = ''; return; }
     for (const c of kat.slice(1)) {
       const anv = new Set(Object.values(t).map((r) => r[c.id]));
@@ -147,7 +174,7 @@ export function renderaRutnat(behallare, payload, st, { autofyll = true, onAndra
     }
     if (sammaTilldelning(t, payload.losning)) {
       st.rutnatLost = true;
-      status.textContent = '✓ Bordsplaceringen är rekonstruerad och stämmer med alla uppgifter.';
+      status.textContent = `✓ ${payload.lost_text || 'Bordsplaceringen är rekonstruerad och stämmer med alla uppgifter.'}`;
       status.classList.add('lost');
       onLost?.();
       return;

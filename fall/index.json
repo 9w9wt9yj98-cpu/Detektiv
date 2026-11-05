@@ -58,6 +58,18 @@
           "fil": "fjallgarden-1968.json"
         }
       ]
+    },
+    {
+      "id": "kapitel-3",
+      "titel": "Kapitel III – Kriminalassistent",
+      "lases_upp_av_rang": "Kriminalassistent",
+      "fall": [
+        {
+          "nummer": 10,
+          "id": "gront-black",
+          "fil": "gront-black.json"
+        }
+      ]
     }
   ]
 }
