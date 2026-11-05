@@ -448,3 +448,7 @@ Martin gav friare tyglar över natten och bad om fortsättning med fall 8, 9 och
 ## Buggfix: halvladdade omslag i menyn (november 2026)
 
 Martin såg i mobilen att omslagen till fall 5 och 6 bara visade de översta raderna och grått under. Bildfilerna är hela; det var så iOS visar en JPEG som bara hunnit laddas ner delvis, troligen medan den nya versionen cachades. Menyn hämtar nu omslagen själv och visar dem först när filen är hel (en JPEG ska sluta med slutmarkören FF D9). Fattas något görs två nya försök; under tiden syns en mörk ruta i stället för en halv bild. Färdiga omslag sparas i minnet så att menyn inte laddar om dem. Ändrat: `js/vyer/meny.js`, `css/stil.css`. Slogs ihop som buggfix enligt regeln ovan.
+
+## Buggfix: den första bilden i bildjämförelsen syntes inte (november 2026)
+
+I fall 4 säger Olle ”det syns ju på bilden” och visar sin mobil, och anteckningsboken säger ”Nytt: Bild: Olle med tårtan” – men fliken Bilderna visade bara en knapp och texten ”Du behöver minst två bilder”, så bilden gick inte att se förrän man hade hittat en till. Nu visas den enda bilden direkt, med texten ”Du behöver en bild till för att kunna jämföra”. Att trycka i den gör ingenting förrän det finns två. Ändrat: `js/mekaniker/bildjamforelse.js`. Slogs ihop som buggfix.
