@@ -403,8 +403,10 @@ legend small { font-weight: 400; color: var(--brun3); }
 .stil-hand .stycke, .stil-hand .dok-text { font-family: var(--hand); font-size: 19px; }
 .stil-tryck { font-family: var(--serif); }
 .stil-logg { background: repeating-linear-gradient(transparent 0 30px, rgba(90,110,140,.25) 30px 31px), #f8f4ea; }
-.stil-logg .stycke, .stil-logg .dok-text { font-family: "Courier New", monospace; font-size: 15px; }
-.st-blyerts { color: #555; } .st-blacke { color: #1d2a5a; font-weight: 600; }
+/* Loggböcker förs för hand: blyerts som standard, bläck avviker i färg – och lutar åt andra hållet. */
+.stil-logg .stycke, .stil-logg .dok-text { font-family: var(--hand); font-size: 17px; line-height: 1.35; color: #4a4a4a; }
+.stil-logg .st-blyerts { color: #5a5a5a; }
+.stil-logg .st-blacke { color: #16224e; transform: skewX(22deg); }
 .stil-maskin .stycke, .stil-maskin .dok-text { font-family: "Courier New", monospace; font-size: 14px; }
 
 /* Bildjämförelse */

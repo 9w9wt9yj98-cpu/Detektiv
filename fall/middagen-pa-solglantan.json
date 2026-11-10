@@ -34,7 +34,7 @@
       "namn": "Carl Rehnskiöld",
       "roll": "Överste, offret",
       "misstankt": false,
-      "beskrivning": "Satt vid bordets kortände. Hans vänstra sida är plats 4."
+      "beskrivning": "Satt vid bordets kortände. Vänsterhänt – glaset skulle alltid stå till vänster om tallriken. Hans vänstra sida är plats 4."
     },
     {
       "id": "astrid",
@@ -259,7 +259,7 @@
               ],
               "interaktiv": {
                 "namn": "Överstens glas",
-                "text": "Överstens vinglas ligger vält. Glaset stod till vänster om hans tallrik, och på duken till vänster om glaset syns ett fint vitt pulverspill – digitalis, enligt kriminalteknikern.",
+                "text": "Överstens vinglas ligger vält. Glaset stod till vänster om hans tallrik – översten var vänsterhänt och ville alltid ha det så – och på duken till vänster om glaset syns ett fint vitt pulverspill – digitalis, enligt kriminalteknikern.",
                 "ger_fynd": "f-spill"
               }
             },
@@ -352,7 +352,7 @@
               "antal": 4,
               "interaktiv": {
                 "namn": "Förhörsprotokollen",
-                "text": "Kommissarie Strand har förhört alla fyra gästerna. Protokollen är eniga på en punkt: ingen reste sig under förrätten. I övrigt innehåller de nio uppgifter om vem som satt var, vad de arbetar med och vad de drack – men inte i ett sammanhang. Uppgifterna förs in i din anteckningsbok.",
+                "text": "Kommissarie Strand har förhört alla fyra gästerna. Protokollen är eniga på en punkt: ingen reste sig under förrätten. Flera hörde också översten säga, när han satte sig till bords, att han hade ”en tråkig sak om pengar” att ta upp efter kaffet – med vem sa han inte. I övrigt innehåller de nio uppgifter om vem som satt var, vad de arbetar med och vad de drack – men inte i ett sammanhang. Uppgifterna förs in i din anteckningsbok.",
                 "ger_fynd": [
                   "f-forhor",
                   "f-ingen-reste"
@@ -895,7 +895,7 @@
     }
   ],
   "aterkoppling": {
-    "ratt": "Giftet sitter inte i flaskan, det sitter i placeringen. Läkaren hade kunskapen, men det var pastorn som hade armbågen närmast glaset. Översten tänkte avslöja att Bertil förskingrat församlingens fond.",
+    "ratt": "Giftet sitter inte i flaskan, det sitter i placeringen. Läkaren hade kunskapen, men det var pastorn som hade armbågen närmast glaset. Den tråkiga saken om pengar som översten ville ta upp efter kaffet gällde honom: Bertil hade förskingrat församlingens fond.",
     "fel": {
       "david": "Doktorn hade digitalis i väskan, men han satt två stolar bort och reste sig aldrig.",
       "astrid": "Astrid höjer sitt champagneglas mot dig. ”Jag satt inte ens bredvid honom.”",

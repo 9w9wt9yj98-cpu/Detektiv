@@ -9,7 +9,7 @@ const morkare = (farg, f) => '#' + new THREE.Color(farg).multiplyScalar(f).getHe
 /**
  * En person. Framsidan pekar mot +z och fötterna står på y = 0.
  * d: kon ('k' = kvinna), pose (sta | sitta | ligga), hud, rock, byxor, skjorta, slips, forklade,
- *    har, skagg, hatt (mossa | hatt | sjalett), hattfarg, glasogon, lagHojd, seed.
+ *    har, skagg, hatt (mossa | hatt | sjalett), hattfarg, glasogon, lagHojd, spjalk ('v' | 'h': spjälat ben), seed.
  */
 function person(d) {
   const ytter = new THREE.Group();
@@ -39,6 +39,12 @@ function person(d) {
       kapsel(g, 0.058, 0.32, byxa, x, 0.27, 0); // underben
       sph(g, 0.06, sko, x, 0.035, 0.045, 10).scale.set(1, 0.55, 1.9);
     }
+  }
+  // Spjälat ben (spjalk: 'v' eller 'h'): två brädor längs benet, hopbundna med linneremsor
+  if (d.spjalk && !kvinna && !sitter) {
+    const x = (d.spjalk === 'h' ? -1 : 1) * 0.09, brada = mat('#b89868'), linne = mat('#e8e0cc');
+    for (const s of [-1, 1]) box(g, 0.02, 0.64, 0.075, brada, x + s * 0.078, 0.43, 0);
+    for (const y of [0.17, 0.33, 0.5, 0.67]) cyl(g, 0.086, 0.086, 0.05, linne, x, y, 0, 10);
   }
   if (kvinna && !sitter) {
     // Kjol som vidgar sig nedåt, med fåll

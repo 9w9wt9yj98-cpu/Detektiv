@@ -33,10 +33,10 @@ tornet = {"id": "tornet", "namn": "Tornets nedre avsats", "mekanik": "scen", "pa
   "bredd": 4.4, "djup": 4.4, "hojd": 4.2, "miljo": "inomhus", "vagg": "sten", "panel": False, "bakgrund": "#0e1216", "dimma": [5, 13, "#12171c"],
   "golv": {"typ": "sten"}, "verklig_golv": "hallar",
   "ljus": {"omgivning": "#c8d0d8", "omgivning_styrka": 0.45, "bas": 0.25},
-  "start": {"pos": [-0.5, 1.5], "titta": 10},
+  "start": {"pos": [-0.6, 1.5], "titta": -42},
   "objekt": [
     obj("trappan", "spiraltrappa", [0.7, 0, -1.0], radie=1.1, hojd=4.2, steg=18, varv=1.0),
-    obj("kroppen", "taeckt", [-0.55, 0, -0.75], rot=75, farg="#5a5448", interaktiv=ia("Holger Wenngren",
+    obj("kroppen", "taeckt", [1.2, 0, -0.5], rot=95, farg="#5a5448", interaktiv=ia("Holger Wenngren",
         "Fyrmästaren ligger under en grå filt på nedre avsatsen, tvärs över trappans första steg. Nålad på filten sitter doktor Lagerkvists anteckning från fyndet. Du lyfter filten: blåmärken på båda överarmarna, som efter ett hårt grepp. I bröstfickan sitter blyertspennan kvar.", "f-blamarken", ["dok-fyndet"])),
     obj("elof", "person", [1.3, 0, 1.0], rot=-140, rock="#3a4a5a", byxor="#2a2a30", har="#c8a060", glasogon=True, seed=3,
         interaktiv=ia("Elof Granath", "Elof tar din hand i båda sina. ”Tack för att ni kom! Papperen ligger där de hör hemma – loggboken och instruktionen uppe i lanternan, min dagbok i stugan, doktorns journal på stationen. Fråga mig vad som helst. Jag vill bara att det här ska bli utrett, för Signes skull.”", "f-elof-hjalp")),
@@ -85,7 +85,7 @@ koket = {"id": "koket", "namn": "Fyrmästarbostadens kök", "mekanik": "scen", "
   "objekt": [
     obj("spis", "vedspis", [-1.5, 0, -1.55], styrka=1.6),
     obj("bank", "koj", [1.65, 0, -0.5], bredd=0.8, langd=1.9, overkoj=False, tyg="#6a5a4a"),
-    obj("johan", "person", [1.65, 0, -0.4], pose="ligga", lagHojd=0.62, rock="#3a4a6a", byxor="#4a4a50", har="#4a3a2a", skagg=True, seed=1,
+    obj("johan", "person", [1.65, 0, -0.4], pose="ligga", lagHojd=0.62, spjalk="v", rock="#3a4a6a", byxor="#4a4a50", har="#4a3a2a", skagg=True, seed=1,
         interaktiv=ia("Johan Sjöberg", "Fiskaren ligger på köksbänken med vänsterbenet spjälat mellan två brädor. Doktorn spjälade det kvällen före olyckan. Johan kan inte ens sätta ned foten.", ["f-johan-ben", "f-johan-koket"], ["dok-johan"])),
     obj("signe", "person", [-0.4, 0, -0.5], rot=25, kon="k", rock="#2a2a30", har="#8a6a4a", hatt="sjalett", hattfarg="#1a1a1e", seed=0,
         interaktiv=ia("Signe Wenngren", "Signe står vid spisen och vrider en handduk mellan händerna. Hon talar lågt och ser mot fönstret.", "f-duns-signe", ["dok-signe"])),
