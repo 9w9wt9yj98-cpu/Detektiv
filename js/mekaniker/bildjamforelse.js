@@ -26,7 +26,7 @@ function skalSvg(cx, cy, s, v, buckla) {
   const fot = `<ellipse cx="${cx}" cy="${cy + 92 * s}" rx="${40 * s}" ry="${9 * s}" fill="#a9a79c"/><rect x="${cx - 18 * s}" y="${cy + 70 * s}" width="${36 * s}" height="${22 * s}" fill="#bdbbb0"/>`;
   const handtag = [-1, 1].map((sx) => `<path d="M${cx + sx * rx},${cy + 4 * s} c${sx * 26 * s},${-4 * s} ${sx * 30 * s},${30 * s} ${sx * 2 * s},${34 * s}" fill="none" stroke="#9c9a90" stroke-width="${7 * s}" stroke-linecap="round"/>
     <path d="M${cx + sx * rx},${cy + 4 * s} c${sx * 26 * s},${-4 * s} ${sx * 30 * s},${30 * s} ${sx * 2 * s},${34 * s}" fill="none" stroke="#e6e4da" stroke-width="${3 * s}" stroke-linecap="round"/>`).join('');
-  const S = v.handtag === 'S' ? `<text x="${cx - rx - 17 * s}" y="${cy + 26 * s}" font-size="${16 * s}" font-style="italic" font-family="Georgia,serif" fill="#4a4840" font-weight="700">S</text>` : '';
+  const S = v.handtag === 'S' ? `<text x="${cx - rx - 17 * s}" y="${cy + 26 * s}" font-size="${16 * s}" font-style="italic" font-family="Georgia,serif" fill="#4a4840" stroke="#e8e6dc" stroke-width="${2.5 * s}" paint-order="stroke" font-weight="700">S</text>` : '';
   const buck = buckla ? `<path d="M${cx + 48 * s},${cy + 17 * s} q${10 * s},${12 * s} ${24 * s},${-2 * s}" fill="none" stroke="#5a584e" stroke-width="${3.5 * s}"/><path d="M${cx + 50 * s},${cy + 15 * s} q${10 * s},${8 * s} ${20 * s},${-3 * s}" fill="none" stroke="#f6f4ea" stroke-width="${1.5 * s}"/>` : '';
   return `<g data-r="skal">${fot}<path d="${kropp}" fill="url(#silver)" stroke="#8a887e" stroke-width="${1.5 * s}"/>
       <path d="M${cx - rx * 0.6},${cy + 20 * s} Q${cx - rx * 0.2},${cy + 70 * s} ${cx + rx * 0.1},${cy + 66 * s}" fill="none" stroke="#fffef6" stroke-width="${4 * s}" opacity=".6"/></g>
@@ -57,12 +57,16 @@ function skank(v) {
   const gardin = v.gardin === 'dragen'
     ? `<g data-r="gardin"><rect x="132" y="12" width="136" height="104" fill="#e6dcc2"/>${[146, 162, 178, 194, 210, 226, 242, 258].map((x) => `<path d="M${x},12 v104" stroke="#c9bc9c" stroke-width="2"/>`).join('')}</g>`
     : `<g data-r="gardin"><rect x="122" y="12" width="22" height="108" fill="#e6dcc2"/><rect x="256" y="12" width="22" height="108" fill="#e6dcc2"/><path d="M128,12 v108 M136,12 v108 M262,12 v108 M270,12 v108" stroke="#c9bc9c" stroke-width="2"/></g>`;
-  const vas = `<g data-r="vas"><path d="M${vasX - 12},182 q-6,-22 4,-34 h16 q10,12 4,34 z" fill="#3a6a8a"/><path d="M${vasX - 6},150 q6,-6 12,0" stroke="#2a4a6a" stroke-width="3" fill="none"/>
-     ${[[-14, -18, '#e8d64a'], [0, -26, '#f2ece0'], [12, -16, '#a34a8a'], [-4, -14, '#c23a2a'], [8, -28, '#e8d64a']].map(([dx, dy, f]) => `<line x1="${vasX}" y1="150" x2="${vasX + dx}" y2="${150 + dy}" stroke="#4c6a2a" stroke-width="2"/><circle cx="${vasX + dx}" cy="${150 + dy}" r="6" fill="${f}"/>`).join('')}
+  // Vasen och ljusstaken ser ut som i 3D-salen: ljus porslinsvas med röda blommor, trearmad ljusstake i mässing.
+  const vas = `<g data-r="vas"><path d="M${vasX - 12},182 q-6,-22 4,-34 h16 q10,12 4,34 z" fill="#e4dccb" stroke="#a89c84" stroke-width="1.5"/><path d="M${vasX - 6},150 q6,-6 12,0" stroke="#a89c84" stroke-width="3" fill="none"/>
+     ${[[-14, -18, '#a33b2a'], [0, -26, '#c23a2a'], [12, -16, '#8e2f22'], [-4, -14, '#b8402e'], [8, -28, '#a33b2a']].map(([dx, dy, f]) => `<line x1="${vasX}" y1="150" x2="${vasX + dx}" y2="${150 + dy}" stroke="#4c6a2a" stroke-width="2"/><circle cx="${vasX + dx}" cy="${150 + dy}" r="6" fill="${f}"/>`).join('')}
      <circle cx="${vasX}" cy="160" r="30" fill="transparent"/></g>`;
-  const ljus = `<g data-r="ljus"><rect x="${ljusX - 3}" y="152" width="6" height="30" fill="#b8893a"/><ellipse cx="${ljusX}" cy="182" rx="12" ry="4" fill="#b8893a"/><rect x="${ljusX - 3}" y="122" width="6" height="30" fill="#f2ead8"/>
-     ${v.ljus === 'tand' ? `<ellipse cx="${ljusX}" cy="114" rx="4" ry="8" fill="#ffc24a"/><circle cx="${ljusX}" cy="116" r="14" fill="#ffd27a" opacity=".3"/>` : `<line x1="${ljusX}" y1="122" x2="${ljusX}" y2="116" stroke="#333" stroke-width="1.5"/>`}
-     <rect x="${ljusX - 22}" y="104" width="44" height="82" fill="transparent"/></g>`;
+  const ljusen = [[-15, 126], [0, 120], [15, 126]]; // [dx, överkant] för de tre ljusen
+  const ljus = `<g data-r="ljus"><rect x="${ljusX - 3}" y="150" width="6" height="32" fill="#b8893a"/><ellipse cx="${ljusX}" cy="182" rx="12" ry="4" fill="#b8893a"/><rect x="${ljusX - 18}" y="147" width="36" height="4" fill="#b8893a"/>
+     ${ljusen.map(([dx, y]) => `<rect x="${ljusX + dx - 3}" y="${y}" width="6" height="${147 - y}" fill="#f2ead8"/>${v.ljus === 'tand'
+       ? `<ellipse cx="${ljusX + dx}" cy="${y - 7}" rx="3.5" ry="7" fill="#ffc24a"/><circle cx="${ljusX + dx}" cy="${y - 5}" r="11" fill="#ffd27a" opacity=".3"/>`
+       : `<line x1="${ljusX + dx}" y1="${y}" x2="${ljusX + dx}" y2="${y - 6}" stroke="#333" stroke-width="1.5"/>`}`).join('')}
+     <rect x="${ljusX - 24}" y="100" width="48" height="86" fill="transparent"/></g>`;
   const skalet = v.skal === 'borta'
     ? `<g data-r="skal"><ellipse cx="200" cy="184" rx="22" ry="5" fill="#c9b89a" opacity=".8"/><rect x="160" y="140" width="80" height="48" fill="transparent"/></g>`
     : skalSvg(200, 160, 0.36, v, v.kant === 'buckla');

@@ -395,14 +395,14 @@
               "id": "vaskan",
               "typ": "vaska",
               "pos": [
-                2.9,
+                1.2,
                 0,
-                -2.3
+                2.5
               ],
-              "rot": -30,
+              "rot": 20,
               "interaktiv": {
                 "namn": "Läkarväskan",
-                "text": "En svart läkarväska står öppen, lutad mot räcket vid trappan upp till verandan – alla gick förbi den på väg till bordet. Den tillhör en av gästerna, läkaren. Överst ligger en burk digitalis – och läkaren medgav genast: ”Jag visste precis vad det var när översten föll ihop.”",
+                "text": "En svart läkarväska står öppen på golvet bredvid verandadörren – alla gick förbi den på väg till bordet. Den tillhör en av gästerna, läkaren. Överst ligger en burk digitalis – och läkaren medgav genast: ”Jag visste precis vad det var när översten föll ihop.”",
                 "ger_fynd": "f-digitalis"
               }
             },
@@ -898,7 +898,7 @@
     "ratt": "Giftet sitter inte i flaskan, det sitter i placeringen. Läkaren hade kunskapen, men det var pastorn som hade armbågen närmast glaset. Översten tänkte avslöja att Bertil förskingrat församlingens fond.",
     "fel": {
       "david": "Doktorn hade digitalis i väskan, men han satt två stolar bort och reste sig aldrig.",
-      "astrid": "Astrid höjer sitt champagneglas mot dig. ”Jag satt inte ens bredvid honom, kommissarien.”",
+      "astrid": "Astrid höjer sitt champagneglas mot dig. ”Jag satt inte ens bredvid honom.”",
       "cecilia": "Cecilia rättar dig kyligt: ”Jag satt på hans högra sida. Glaset stod till vänster.”"
     },
     "fel_allman": "Kommissarie Strand höjer ett ögonbryn …",

@@ -154,7 +154,7 @@
               "seed": 3,
               "interaktiv": {
                 "namn": "Elof Granath",
-                "text": "Elof skakar hand med båda händerna. ”Tack för att ni kom! Papperen ligger där de hör hemma – loggboken och instruktionen uppe i lanternan, min dagbok i stugan, doktorns journal på stationen. Fråga mig vad som helst. Jag vill bara att det här ska bli utrett, för Signes skull.”",
+                "text": "Elof tar din hand i båda sina. ”Tack för att ni kom! Papperen ligger där de hör hemma – loggboken och instruktionen uppe i lanternan, min dagbok i stugan, doktorns journal på stationen. Fråga mig vad som helst. Jag vill bara att det här ska bli utrett, för Signes skull.”",
                 "ger_fynd": "f-elof-hjalp"
               }
             },
@@ -182,7 +182,7 @@
               "pos": [
                 -2.18,
                 2.0,
-                0.4
+                -0.9
               ],
               "rot": 90,
               "styrka": 1.2,
@@ -1995,7 +1995,7 @@
       ]
     },
     "uteslutningar_text": {
-      "signe": "Motiv i brevet – men Johan låg vaken i köket, den enda vägen ut, och hon gick aldrig förbi honom.",
+      "signe": "Motiv i brevet – men Johan låg vaken i köket, den enda vägen ut, och hon gick inte förbi honom förrän vid sex.",
       "johan": "Ett spjälat, brutet ben. Ingen tar sig upp i en spiraltrappa så.",
       "lagerkvist": "Tidsmärken 03.15 och 03.30, och tjugo minuter fram och tillbaka till tornet. Han var vid barografen hela natten."
     }
@@ -2062,7 +2062,7 @@
     }
   ],
   "aterkoppling": {
-    "ratt": "Ni lät er inte förföras av en vänlig röst. Den som berättar en historia väljer vad som utelämnas. Elof glömde bara att hans egen penna skrev i bläck – och att en fyr med ett lik i trappan inte drar upp sig själv.",
+    "ratt": "Du lät dig inte förföras av en vänlig röst. Den som berättar en historia väljer vad som utelämnas. Elof glömde bara att hans egen penna skrev i bläck – och att en fyr med ett lik i trappan inte drar upp sig själv.",
     "efterord": "Det här fallet berättades av gärningsmannen. Brevet du fick, papperen som låg så prydligt framlagda, dagboken med visslingen vid fyra – allt var Elofs. Läs hans brev en gång till. Allt stod där.",
     "vandning": {
       "rubrik": "Elofs brev, läst en gång till",
@@ -2135,7 +2135,7 @@
         ]
       },
       {
-        "text": "Johan kan inte gå. Doktorn slog tidsmärken var femtonde minut. Signe gick aldrig förbi Johan i köket. Kvar blir Elof.",
+        "text": "Johan kan inte gå. Doktorn slog tidsmärken var femtonde minut. Signe gick inte förbi Johan i köket förrän vid sex. Kvar blir Elof.",
         "fynd": [
           "f-johan-ben",
           "f-lagerkvist-alibi",
@@ -2143,7 +2143,7 @@
         ]
       },
       {
-        "text": "Motivet: Holger tänkte anmäla Elof för att han sålt fyrens fotogen. Kannorna står i hans stuga.",
+        "text": "Motivet: Holger tänkte anmäla Elof för de sextio liter fotogen som försvunnit ur förrådet. De tomma kannorna står i hans stuga.",
         "fynd": [
           "f-anmalan",
           "f-fotogen-stuga"

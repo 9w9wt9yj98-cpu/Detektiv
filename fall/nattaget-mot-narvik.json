@@ -25,7 +25,7 @@
   },
   "intro": {
     "rubrik": "Nattåget Stockholm–Narvik. Februari 1934.",
-    "text": "Snöstormen har vräkt över Norrbotten hela natten. Du reser norrut med nattåget, och strax efter sex på morgonen bultar konduktör Lind på din dörr.\n\nGrosshandlare Anton Berg ligger död i kupé 3, med ett slag mot tinningen. Dörren mot korridoren var hakad med säkerhetskedjan inifrån – Lind fick klippa av kedjan för att komma in. Läkaren ombord bedömer att döden inträffade mellan klockan ett och två i natt.\n\nKriminalkonstapel Nils Strand, på väg till ett uppdrag i Kiruna, står redan i kupédörren. ”Ett låst rum på ett tåg i full fart”, säger han. ”Någon här ombord vet mer än den säger. Prata med dem – och lyssna efter det som inte går ihop.”",
+    "text": "Snöstormen har vräkt över Norrbotten hela natten. Du reser norrut med nattåget, och strax efter sex på morgonen bultar konduktör Lind på din dörr.\n\nGrosshandlare Anton Berg ligger död i kupé 3, med ett slag mot tinningen. Dörren mot korridoren var hakad med säkerhetskedjan inifrån – Lind fick klippa av kedjan för att komma in. Läkaren ombord bedömer att döden inträffade mellan klockan ett och två i natt.\n\nKriminalkonstapel Nils Strand, på väg till ett uppdrag i Narvik, står redan i kupédörren. ”Ett låst rum på ett tåg i full fart”, säger han. ”Någon här ombord vet mer än vad som har sagts hittills. Prata med dem – och lyssna efter det som inte går ihop.”",
     "uppdrag": "Vem dödade grosshandlare Berg – och hur kom gärningspersonen ut ur kupén?",
     "bild": "bilder/fall2/sovvagnen.jpg",
     "berattare": "Kriminalkonstapel Nils Strand"
@@ -443,7 +443,7 @@
                 0.62
               ],
               "textstorlek": 26,
-              "text": "NATTÅG 3  STOCKHOLM–NARVIK\n\nBollnäs     19.42\nÅnge        22.31\nBoden ank.  01.10\nBoden avg.  01.25\nGällivare   04.02\nKiruna      05.38",
+              "text": "NATTÅG 3  STOCKHOLM–NARVIK\n\nVännäs      20.38\nBastuträsk  22.14\nBoden ank.  01.10\nBoden avg.  01.25\nGällivare   04.02\nKiruna      05.38",
               "interaktiv": {
                 "namn": "Tidtabellen",
                 "text": "Tidtabellen i en mässingsram. Tåget stod i Boden från 01.10 till 01.25 – ett femton minuter långt stopp mitt i natten. Konduktören bekräftar att tåget höll tiden.",

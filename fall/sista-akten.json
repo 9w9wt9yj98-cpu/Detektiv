@@ -25,7 +25,7 @@
   },
   "intro": {
     "rubrik": "Teater Lyran, Göteborg. Oktober 1952.",
-    "text": "Premiärkväll på Teater Lyran. Du sitter på rad 8 bredvid kommissarie Nils Strand, som har fått biljetterna av teaterchefen. Andra akten av ”Den gröna salongen” har just nått sin stora scen när något rasar ned ur mörkret ovanför scenen.\n\nEn sandsäck på fyrtio kilo slår i scengolvet en meter från stjärnan, Viveka Sterner. Hon står kvar, vit i ansiktet. Ridån går ner, och salongen fylls av sorl.\n\nNär ni kommer upp på scenen har Strand redan bett alla i ensemblen och personalen att stanna. ”En sandsäck faller inte av sig själv”, säger han. ”Någon i det här huset vill fru Sterner illa. Ta reda på vem – och hur den kom upp dit.”",
+    "text": "Premiärkväll på Teater Lyran. Du sitter på rad 8 bredvid kommissarie Nils Strand, som har fått biljetterna av teaterchefen. Andra akten av ”Den gröna salongen” har just nått sin stora scen när något rasar ned ur mörkret ovanför scenen.\n\nEn sandsäck på fyrtio kilo slår i scengolvet en meter från stjärnan, Viveka Sterner. Hon står kvar, vit i ansiktet. Ridån går ner, och salongen fylls av sorl.\n\nNär ni kommer upp på scenen ber Strand alla i ensemblen och personalen att stanna kvar. ”En sandsäck faller inte av sig själv”, säger han. ”Någon i det här huset vill fru Sterner illa. Ta reda på vem – och hur den kom upp dit.”",
     "uppdrag": "Vem släppte sandsäcken – och hur kom gärningspersonen upp på lindraget?",
     "bild": "bilder/fall7/teatern.jpg",
     "berattare": "Kommissarie Nils Strand"
@@ -153,7 +153,7 @@
               "gar_till": "undre",
               "interaktiv": {
                 "namn": "Sufflörluckan",
-                "text": "Sufflörluckan sitter mitt i scenkanten, alldeles innanför ridån – när ridån är uppe ligger den i fullt rampljus framför publiken – ingen kan klättra ner i den från scenen under föreställningen utan att hela salongen ser det. Sufflösen kommer hit underifrån. Inuti är det mörkt och trångt – en kort stege leder ner under scenen."
+                "text": "Sufflörluckan sitter mitt i scenkanten, alldeles innanför ridån. När ridån är uppe ligger den i fullt rampljus framför publiken, så ingen kan klättra ner i den från scenen under föreställningen utan att hela salongen ser det. Sufflösen kommer hit underifrån. Inuti är det mörkt och trångt – en kort stege leder ner under scenen."
               }
             },
             {
@@ -398,7 +398,7 @@
               "seed": 4,
               "interaktiv": {
                 "namn": "Brandman Persson",
-                "text": "Brandman Persson sitter kvar på sin stol vid järnstegen, med hjälmen i knät.",
+                "text": "Brandman Persson sitter kvar på sin stol vid järnstegen, med händerna knäppta i knät.",
                 "ger_fynd": "f-persson",
                 "ger_material": [
                   "u-persson"
@@ -1449,7 +1449,7 @@
             "kraver": [
               "f-brevet"
             ],
-            "text": "Brevet? Ja, jag har sagt till chefen att jag vill ha en ny sufflös. Agnes mumlar. Jag sa det rakt ut här i korridoren i förrgår – alla hörde det, Agnes också. Men hon har bott i det där rummet uppe under taket i över trettio år – vart skulle hon ta vägen? Det har jag inte tänkt på."
+            "text": "Brevet? Ja, jag har sagt till chefen att jag vill ha en ny sufflös. Agnes mumlar. Jag sa det rakt ut i logekorridoren i förrgår – alla hörde det, Agnes också. Men hon har bott i det där rummet uppe under taket i över trettio år – vart skulle hon ta vägen? Det har jag inte tänkt på."
           },
           {
             "id": "u-agren",

@@ -332,7 +332,7 @@
               "seed": 0,
               "interaktiv": {
                 "namn": "Urmakare Fältskog",
-                "text": "Fältskog står i frack och ser grå ut. ”Tre nycklar finns till montern: min egen, min gesäll Karl Eks – och Rapps. Rapp var min kompanjon till -91, och låset byttes aldrig. Jag har ångrat det i sex år.\n\nSjälv satt jag på Grand Hôtel på min dotters bröllopsmiddag från sju tills konstapeln hämtade mig vid halv tolv. Fyrtio gäster och hovmästaren har redan intygat det för konstapeln.”",
+                "text": "Fältskog står i frack och ser grå ut. ”Tre nycklar finns till montern: min egen, min gesäll Karl Eks – och Rapps. Rapp var min kompanjon till -91, och låset byttes aldrig. Jag har ångrat det i sex år.\n\n”Själv satt jag på Grand Hôtel på min dotters bröllopsmiddag från sju tills konstapeln hämtade mig vid halv tolv. Fyrtio gäster och hovmästaren har redan intygat det för konstapeln.”",
                 "ger_fynd": "f-nyckelinnehavare",
                 "ger_material": [
                   "k-faltskog-grand"
@@ -495,23 +495,6 @@
               "textstorlek": 40,
               "grund": "#2a1a0e",
               "farg": "#e8c878"
-            },
-            {
-              "id": "luckan-ute",
-              "typ": "skylt",
-              "pos": [
-                -2.085,
-                1.5,
-                2.4
-              ],
-              "rot": 90,
-              "text": "",
-              "storlek": [
-                0.9,
-                1.1
-              ],
-              "grund": "#4a3a2a",
-              "ram": false
             },
             {
               "id": "vaktaren",
@@ -818,7 +801,7 @@
               "text": "GÅNGTIDER (minuter)  –  uppmätta av polisen\n\nGillets hus – urmakeriet ........ 6\nGillets hus – Rapps hem ......... 15\nUrmakeriet – Rapps hem .......... 18\nFreden – urmakeriet .............. 4\nFreden – pantlånekontoret ........ 16\nPantlånekontoret – urmakeriet ... 20\nGrand Hôtel – urmakeriet ......... 12\nSlussen – urmakeriet .............. 5",
               "interaktiv": {
                 "namn": "Kartan med gångtider",
-                "text": "Strand har nålat upp en karta över Stadsholmen, Södermalm och Kungsholmen. ”Jag har låtit en konstapel gå sträckorna i kväll, i snön, i rask takt”, säger han. ”Tiderna stämmer – snabbare än så går ingen.” Nu kan du lägga upp tidslinjen i anteckningsboken.",
+                "text": "Strand har nålat upp en karta över Stockholm. ”Jag har låtit konstaplarna gå sträckorna i natt, i snön, i rask takt”, säger han. ”Tiderna stämmer – snabbare än så går ingen.” Nu kan du lägga upp tidslinjen i anteckningsboken.",
                 "ger_fynd": "f-gangtider"
               }
             },
@@ -914,7 +897,8 @@
                 0,
                 0.9
               ],
-              "rot": -90
+              "rot": -90,
+              "lov": false
             },
             {
               "id": "bok",
@@ -957,12 +941,12 @@
     },
     {
       "id": "rapps-hem",
-      "namn": "Rapps kök på Kungsholmen",
+      "namn": "Rapps kök",
       "mekanik": "scen",
       "last_upp_av": [
         "f-nyckelinnehavare"
       ],
-      "last_text": "Kusken skakar på huvudet. ”Vart ska herrn? Fråga urmakarn först vem ni ska besöka.”",
+      "last_text": "Kusken skakar på huvudet. ”Vart ska vi köra? Fråga urmakarn först vem ni ska besöka.”",
       "payload": {
         "visning": "3d",
         "rum": {
@@ -1091,7 +1075,7 @@
               "seed": 1,
               "interaktiv": {
                 "namn": "Anders Rapp",
-                "text": "Rapp sitter kvar vid bordet med kaffekoppen. ”Gillesmötet slutade halv elva och jag gick raka vägen hem, som alltid. Jag var hemma kvart i elva. Fältskogs butik? Där har jag inte satt min fot på sex år. Han stal Polaris från mig en gång – nu har någon stulit den från honom. Det kallar jag rättvisa.”",
+                "text": "Rapp står vid köksbordet. ”Gillesmötet slutade halv elva och jag gick raka vägen hem, som alltid. Jag var hemma kvart i elva. Fältskogs butik? Där har jag inte satt min fot på sex år. Han stal Polaris från mig en gång – nu har någon stulit den från honom. Det kallar jag rättvisa.”",
                 "ger_fynd": "f-rapp-ej-butik",
                 "ger_material": [
                   "k-rapp-pastar"
@@ -1156,7 +1140,8 @@
                 0.2,
                 0,
                 -1.79
-              ]
+              ],
+              "lov": false
             },
             {
               "id": "bok",
@@ -1209,7 +1194,7 @@
       "last_text": "Utan gångtider går det inte att räkna. Strand har en karta på poliskammaren.",
       "payload": {
         "kort_instruktion": "Lägg tidskorten på rätt person och pröva var och en mot brottstiden.",
-        "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från andra källor än personen själv – vittnen, papper och klockor –, streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
+        "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från andra källor än personen själv (vittnen, papper och klockor); streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
         "fran": "22.00",
         "till": "23.30",
         "lucka_min": 15,

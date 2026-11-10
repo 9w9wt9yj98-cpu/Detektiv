@@ -123,7 +123,8 @@ export function rendera(sida, m, ctx) {
     }).join('');
     let provKnapp = '';
     if (prov && p.brott) {
-      if (provat) provKnapp = `<p class="tl-prov ${provat === 'mojlig' ? 'mojlig' : 'omojlig'}">${provat === 'mojlig' ? '✓ Det går ihop: personen kan ha varit vid montern.' : '✗ Omöjligt: personen kan inte ha varit vid montern.'}</p>`;
+      const dar = esc(p.brott.fraga || 'på brottsplatsen'); // t.ex. ”i biblioteket”
+      if (provat) provKnapp = `<p class="tl-prov ${provat === 'mojlig' ? 'mojlig' : 'omojlig'}">${provat === 'mojlig' ? `✓ Det går ihop: personen kan ha varit ${dar}.` : `✗ Omöjligt: personen kan inte ha varit ${dar}.`}</p>`;
       else if (!brottKant()) provKnapp = `<p class="jf-okand">Fastställ brottstiden först (fliken Slutsatser), sedan kan du pröva varje person mot den.</p>`;
       else provKnapp = `<button class="knapp liten sekundar tl-provknapp" data-prova="${pid}">Pröva: ${esc(p.brott.fraga || 'vid brottsplatsen')} ${esc(p.brott.fran)}–${esc(p.brott.till)}?</button>`;
     }

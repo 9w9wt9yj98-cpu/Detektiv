@@ -452,3 +452,29 @@ Martin såg i mobilen att omslagen till fall 5 och 6 bara visade de översta rad
 ## Buggfix: den första bilden i bildjämförelsen syntes inte (november 2026)
 
 I fall 4 säger Olle ”det syns ju på bilden” och visar sin mobil, och anteckningsboken säger ”Nytt: Bild: Olle med tårtan” – men fliken Bilderna visade bara en knapp och texten ”Du behöver minst två bilder”, så bilden gick inte att se förrän man hade hittat en till. Nu visas den enda bilden direkt, med texten ”Du behöver en bild till för att kunna jämföra”. Att trycka i den gör ingenting förrän det finns två. Ändrat: `js/mekaniker/bildjamforelse.js`. Slogs ihop som buggfix.
+
+## Buggfix: granskning av fall 1–10 (november 2026)
+
+På Martins begäran gick två granskare igenom alla tio fall: text, logik och hur rummen ser ut i båda stilarna. Lösningarna, de skyldiga, mekanikerna och svårigheten är oförändrade. Varje fall går fortfarande att lösa med logik, med exakt en bevisbar skyldig. Det som rättades var motsägelser mellan text och 3D, språk och några fel i rummen. Rapporterna med före/efter per fall finns i `docs/granskning/2026-11-fall1-5.md` och `docs/granskning/2026-11-fall6-10.md`.
+
+Rättelser i urval:
+- **Fall 1:** fönstret är öppet överallt (inte ”på glänt” på ett ställe), och förklaringen av kulissen är rättad.
+- **Fall 2:** Strand reser till Narvik i stället för Kiruna. Tåget hade redan passerat Kiruna när han står i kupédörren. Tidtabellen före Boden är nu realistisk (Vännäs, Bastuträsk). Tiderna i Boden är oförändrade.
+- **Fall 3:** läkarväskan står vid verandadörren, eftersom det inte finns någon trappa. Utsikten tar inte längre slut i en rak kant.
+- **Fall 4:** gästernas bilder visar samma vas och ljusstake som salen. S:et på försäkringsfotot syns.
+- **Fall 5:** den hela fönsterluckan mot gatan är borttagen. Höstlöven på fönsterblecken är borta, eftersom det är december. Kusken tilltalar inte längre spelaren som ”herrn”.
+- **Fall 6:** tilltalet i upplösningen är enhetligt, och motivet påstår inte längre något spelaren aldrig ser.
+- **Fall 7:** repliker som angav fel plats är rättade.
+- **Fall 8:** journalen och anteckningsboken svävade inte längre. De står på ett sidobord. Galleriets tavlor är porträtt. Dörrarna kallas inte längre glasdörrar.
+- **Fall 9:** datorn i arkivet står på bordet och visar ärendet. Personalfotot är ett foto.
+- **Fall 10:** skrivbordet blockerade inte längre dörren till däcket.
+- **Tidslinjen:** prövningen skrev ”vid montern” i alla fall. Nu används fallets egen plats, till exempel ”i biblioteket”.
+
+Små kodändringar, alla bakåtkompatibla:
+- `tavla` har fått fältet `motiv` (`portratt`/`foto`).
+- `fonster` har fått fältet `lov: false`.
+- Verandans panorama i `motor3d.js` går nu tre kvarts varv runt.
+- S:et på försäkringsfotot har fått kontur i `bildjamforelse.js`.
+- Prövningstexten i `tidslinje.js` hämtar fallets plats.
+
+Förslag som kräver Martins beslut (snö på terrassen och i urmakeriet, nytt omslag till fall 3, motivet i fall 3, rummens lägen i fall 7 med mera) står sist i respektive rapport.
