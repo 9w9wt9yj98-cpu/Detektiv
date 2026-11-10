@@ -478,3 +478,44 @@ Små kodändringar, alla bakåtkompatibla:
 - Prövningstexten i `tidslinje.js` hämtar fallets plats.
 
 Förslag som kräver Martins beslut (snö på terrassen och i urmakeriet, nytt omslag till fall 3, motivet i fall 3, rummens lägen i fall 7 med mera) står sist i respektive rapport.
+
+## ”Rätta till allt”: förslagen från granskningen genomförda (november 2026)
+
+Efter överblicken och granskningen bad Martin den 10 november att allt på listorna skulle rättas. Lösningarna, de skyldiga, mekanikerna och svårigheten är oförändrade.
+
+**Startvyer och sidhuvud**
+- **Fall 8:** biblioteket var nästan svart i startvyn. Det har fått en fotogenlampa på skrivbordet och en vägglampa.
+- **Fall 7:** startvyn visar nu sandsäcken, inte en skådespelare på en halvmeters håll.
+- **Fall 6:** startvyn visar kroppen vid trappans fot.
+- **Rumsnamnet i sidhuvudet** bryts aldrig på flera rader. Ett långt namn kortas med … och räknaren (”3 kvar här”) syns alltid.
+
+**Snö**
+- Ny golvtyp `golv.typ: "sno"` och två föremål, `trampad_sno` och `snodriva`.
+- **Fall 8:** terrassen är snötäckt. Snön är nertrampad runt fyrverkerilådorna och i en stig från dörren, och orörd i övrigt, som texterna säger.
+- **Fall 5:** Österlånggatan är snötäckt, och innanför den uppbrutna luckan ligger en liten driva av insnöad snö. Gatan har inga fotspår, så att ingen tror att de är ett bevis.
+
+**Fall 3**
+- Översten är vänsterhänt och ville alltid ha glaset till vänster. Det står i personbeskrivningen och vid glaset.
+- Motivet antyds nu i spelet: enligt protokollen hade översten ”en tråkig sak om pengar” att ta upp efter kaffet. Upplösningen knyter an till det.
+- **Inte gjort:** nytt omslag. Bilden visar ett runt bord, men pusslet har ett avlångt. Omslagen i kapitel I är tecknade, och en ny tecknad bild kan inte göras här. Alternativet är en sepiabild ur 3D-scenen, som i fall 7–10. Martin får välja.
+
+**Fall 6**
+- Kroppen ligger nu tvärs över trappans första steg, som texten säger.
+- Johans spjälkade ben syns (nytt tillval `spjalk` på personer).
+- Loggboken och väderjournalen visas som handskrivna. 04-raden, som är skriven med bläck, lutar åt andra hållet.
+
+**Fall 7**
+- Rummen har samma väderstreck och hänger ihop. Järnstegen kommer upp i lindraget på samma ställe som den står på scenen, genom en lucka i golvet.
+- Spiraltrappan går i ett eget trapphus bakom fondväggen, utan dörr mot scenen. Därför kan brandvakten inte se den, vilket lösningen förutsätter. Texterna säger det nu.
+- Undre maskineriet är hela utrymmet under scenen: stegen står under sufflörluckan i scenkanten och spiraltrappan i trapphuset. Skylten om scenluckorna sitter på en stolpe under luckorna.
+- Regnmaskinen som Kalles alibi bygger på står nu bakom högra kulissen, en meter från inspicientens pulpet.
+- Dörren till undre maskineriet i logekorridoren sitter intill scendörren.
+
+**Fall 8–10**
+- **Fall 8:** dörren till östra trappan sitter på bibliotekets östra vägg.
+- **Fall 9:** texten om den uppbrutna panelen stämmer med hur den ser ut (furupanel, inte ”pärlspont … som resten av rummets panel”).
+- **Fall 10:** kaffekanna, koppar och Teodors tidning står på salongens bord, och däcket har riktiga däcksstolar.
+
+**Fall 2:** Strand reser till Narvik, som granskningen ändrade till. Kiruna-alternativet valdes bort.
+
+Nya föremål och fält står i `README.md`.
