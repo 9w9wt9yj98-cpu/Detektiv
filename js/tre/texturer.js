@@ -95,6 +95,47 @@ export function sten(upprepa = [2, 4]) {
   }, { upprepa });
 }
 
+/** Snötäckt mark i nattljus: blåvit, mjukt ojämn, med svaga svackor. */
+export function sno(upprepa = [2, 2]) {
+  return skapa('sno', 256, 256, (g, w, h) => {
+    const r = rng(77);
+    g.fillStyle = '#d9e0ea'; g.fillRect(0, 0, w, h);
+    // Mjuka drivor: ljusare och blåare fläckar som går ihop över kanterna
+    for (let i = 0; i < 70; i++) {
+      const x = r() * w, y = r() * h, R = 18 + r() * 46, ljus = r() < 0.55;
+      for (const [dx, dy] of [[0, 0], [w, 0], [-w, 0], [0, h], [0, -h]]) {
+        const gr = g.createRadialGradient(x + dx, y + dy, 0, x + dx, y + dy, R);
+        gr.addColorStop(0, ljus ? 'rgba(250,252,255,0.5)' : 'rgba(150,168,196,0.32)'); gr.addColorStop(1, ljus ? 'rgba(250,252,255,0)' : 'rgba(150,168,196,0)');
+        g.fillStyle = gr; g.fillRect(x + dx - R, y + dy - R, R * 2, R * 2);
+      }
+    }
+    // Fint korn
+    for (let i = 0; i < 2600; i++) { g.fillStyle = r() < 0.5 ? `rgba(255,255,255,${0.25 * r()})` : `rgba(120,140,170,${0.2 * r()})`; g.fillRect(r() * w, r() * h, 1 + r(), 1 + r()); }
+  }, { upprepa });
+}
+
+/** Nertrampad snö: mörkare, packad fläck med stövelavtryck, genomskinlig i kanten. Läggs på snötäckt mark. */
+export function trampadSno(seed = 3) {
+  return skapa('trampadsno' + seed, 256, 256, (g, w, h) => {
+    const r = rng(seed * 13 + 5);
+    // Packad snö: något mörkare och blåare än den orörda, tonar ut helt en bit innanför kanten
+    const gr = g.createRadialGradient(w / 2, h / 2, w * 0.08, w / 2, h / 2, w * 0.44);
+    gr.addColorStop(0, 'rgba(126,140,164,0.6)'); gr.addColorStop(0.65, 'rgba(126,140,164,0.38)'); gr.addColorStop(1, 'rgba(126,140,164,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    // Stövelavtryck i par, som steg åt olika håll
+    for (let i = 0; i < 20; i++) {
+      const a = r() * Math.PI * 2, d = Math.sqrt(r()) * w * 0.34, x = w / 2 + Math.cos(a) * d, y = h / 2 + Math.sin(a) * d;
+      g.save(); g.translate(x, y); g.rotate(r() * Math.PI * 2);
+      for (const [dx, dy] of [[-6, -9], [6, 9]]) {
+        g.fillStyle = `rgba(62,74,98,${0.45 + r() * 0.25})`;
+        g.beginPath(); g.ellipse(dx, dy - 4, 3.6, 6.2, 0, 0, Math.PI * 2); g.fill(); // sula
+        g.beginPath(); g.ellipse(dx, dy + 5.5, 3.1, 3.1, 0, 0, Math.PI * 2); g.fill(); // klack
+      }
+      g.restore();
+    }
+  });
+}
+
 /** Räfflad järnplåt (lanternans golv). */
 export function jarnplat(upprepa = [2, 2]) {
   return skapa('jarnplat', 256, 256, (g, w, h) => {
@@ -253,6 +294,19 @@ export function papper(rader = true) {
     if (rader) { g.strokeStyle = 'rgba(60,40,20,0.55)'; g.lineWidth = 1.2; const r = rng(81);
       for (let y = 18; y < h - 10; y += 10) { g.beginPath(); g.moveTo(12, y); g.lineTo(12 + r() * (w - 30) + 10, y); g.stroke(); } }
     gravyr(g, w, h, 0.08, 83);
+  });
+}
+
+/** Dagstidning, hopvikt: tidningshuvud, rubrik och spalter. */
+export function tidning() {
+  return skapa('tidning', 160, 224, (g, w, h) => {
+    g.fillStyle = '#e6dcc2'; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#2a2018'; g.font = 'bold 20px Georgia, serif'; g.textAlign = 'center'; g.fillText('ÖSTGÖTA-POSTEN', w / 2, 24);
+    g.fillRect(8, 31, w - 16, 2); g.fillRect(8, 36, w - 16, 1);
+    g.font = 'bold 13px Georgia, serif'; g.fillText('Kanaltrafiken ökar', w / 2, 54);
+    const r = rng(41); g.strokeStyle = 'rgba(40,30,20,0.6)'; g.lineWidth = 1;
+    for (let k = 0; k < 3; k++) for (let y = 66; y < h - 8; y += 5) { const x0 = 8 + k * 50; g.beginPath(); g.moveTo(x0, y); g.lineTo(x0 + 34 + r() * 10, y); g.stroke(); }
+    gravyr(g, w, h, 0.07, 43);
   });
 }
 

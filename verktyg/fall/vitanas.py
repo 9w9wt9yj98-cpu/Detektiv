@@ -77,10 +77,12 @@ bibl = {"id": "biblioteket", "namn": "Biblioteket", "mekanik": "scen", "payload"
     obj("kakelugn", "kakelugn", [2.9, 0, 2.2], rot=-90, form="rund", hojd=2.8),
     obj("fatolj", "fatolj", [1.4, 0, 0.4], rot=-120, modell={"fil": "modeller/arm_chair_01.glb", "passa": "box"}),
     obj("kandelaber", "kandelaber", [-2.9, 0, 2.6], lyser=True),
+    obj("lampa", "oljelampa", [0.5, 0.77, -1.8], ljus=True, styrka=2.6),
+    obj("l1", "vagglampa", [1.5, 2.1, 2.98], rot=180, styrka=1.0, rackvidd=5),
     obj("sjostedt", "person", [-2.0, 0, 0.8], rot=150, rock="#1a1a1e", byxor="#1a1a1e", slips="#eeeeee", har="#8a8a8a", glasogon=True, skagg=True, seed=21,
         interaktiv=ia("Doktor Sjöstedt", "Doktor Sjöstedt torkar sina glasögon. ”Ett enda kraftigt slag bakifrån, med brevpressen. Han föll framåt och dog nästan genast. Ingen olycka – ett fall framåt ger inte ett sådant sår i bakhuvudet. Döden inträffade mellan elva och tjugo i tolv; närmare än så kan jag inte säga.”", "f-lakaren")),
     obj("dorr", "dorr", [0, 0, 2.99], rot=180, gar_till="galleriet", interaktiv=ia("Till galleriet", "Dörren ut till porträttgalleriet, som leder till balsalen.")),
-    obj("trappdorr", "dorr", [-3.49, 0, 2.0], rot=90, interaktiv=ia("Östra trappan",
+    obj("trappdorr", "dorr", [3.49, 0, 0.75], rot=-90, interaktiv=ia("Östra trappan",
         "En smal dörr till östra trappan, som går ner till rökrummet. Strand har ställt en betjänt vid foten av den, så den är stängd för dig nu – men i kväll var den öppen.")),
     obj("bok", "anteckningsbok", [1.0, 0.0, 2.2], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
   ]}}}
@@ -199,12 +201,15 @@ terr = {"id": "terrassen", "namn": "Terrassen", "mekanik": "scen", "last_upp_av"
   "last_text": "Strand: ”Börja här, hos greven.”",
   "payload": {"visning": "3d", "rum": {
   "bredd": 18.0, "djup": 12.0, "hojd": 12.0, "miljo": "inomhus", "vagg": "fasad", "fasadfarg": "#c8a868", "tak": False, "panel": False, "sno": 900,
-  "bakgrund": "#0c111c", "dimma": [10, 32, "#141a26"], "golv": {"typ": "sten"}, "verklig_golv": "hallar",
+  "bakgrund": "#0c111c", "dimma": [10, 32, "#141a26"], "golv": {"typ": "sno"},
   "ljus": {"omgivning": "#9fb0d0", "omgivning_styrka": 0.6, "bas": 0.28},
   "start": {"pos": [0, 1.6], "titta": 0},
   "objekt": [
     obj("fasaden", "slottsfasad", [-1.0, 0, -6.0], bredd=16, hojd=12, upplysta=[1, 2, 3, 5, 9, 10], kollision=False),
     obj("balustrad", "balustrad", [0, 0, 3.0], langd=12, sno=True),
+    # Snön: nertrampad runt lådorna och i en stig från dörren, orörd i övrigt (också under bibliotekets fönster)
+    obj("trampat", "trampad_sno", [2.6, 0, 1.5], storlek=3.4, seed=3),
+    *[obj(f"stig{i}", "trampad_sno", [x, 0, z], storlek=1.5, seed=5 + i) for i, (x, z) in enumerate([(-0.8, -5.0), (-0.3, -3.7), (0.4, -2.4), (1.1, -1.1), (1.8, 0.1)])],
     obj("fyrverkeri", "fyrverkeri", [2.6, 0, 1.6], rot=-20, interaktiv=ia("Fyrverkeriet",
         "Lådorna med raketer står färdiga för tolvslaget. Snön på locken är bortborstad, och runt dem är snön nertrampad av två par stövlar.", "f-fyrverkeri")),
     obj("lunde", "person", [3.6, 0, 0.8], rot=-120, rock="#3a3226", byxor="#2a2a26", hatt="hatt", hattfarg="#2a2420", har="#6a5a4a", skagg=True, seed=31,

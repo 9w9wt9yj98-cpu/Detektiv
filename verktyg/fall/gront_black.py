@@ -98,6 +98,12 @@ salong = {"id": "salongen", "namn": "Salongen", "mekanik": "scen", "last_upp_av"
     obj("trappan", "dorr", [0.8, 0, 2.59], rot=180, gar_till="korridoren", interaktiv=ia("Trappan ner", "Ner till hyttkorridoren.")),
     obj("dackdorr", "dorr", [-2.99, 0, 1.8], rot=90, gar_till="dacket", interaktiv=ia("Ut på promenaddäcket", "Ut på det överbyggda promenaddäcket.")),
     obj("bok", "anteckningsbok", [-1.4, 0.75, -0.4], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
+    # Morgonkaffet: kannan hos Gerda, Teodors tidning, koppar åt Oskar och Rut
+    obj("kannan", "kaffekanna", [-1.85, 0.745, -0.45], rot=30),
+    obj("kopp1", "kaffekopp", [-1.72, 0.745, -0.82], rot=140),
+    obj("tidningen", "tidning", [-1.05, 0.745, -0.72], rot=25),
+    obj("kopp2", "kaffekopp", [0.62, 0.745, -1.12], rot=-60),
+    obj("kopp3", "kaffekopp", [1.36, 0.745, -0.72], rot=100),
   ]}}}
 
 # ---------- Rum 3: Promenaddäcket ----------
@@ -110,11 +116,11 @@ dack = {"id": "dacket", "namn": "Promenaddäcket", "mekanik": "scen", "last_upp_
   "objekt": [
     obj("livbaten", "livbat", [1.4, 0, -1.2], langd=4.0, nummer=2, interaktiv=ia("Livbåt 2",
         "Livbåt 2 står på sina klossar vid relingen. Det är hit pengarna ska läggas ”före Motala”. Ännu ligger ingenting i den – och från salongens fönster syns båten hela tiden.", "f-livbaten")),
-    obj("dackstol1", "stol", [-2.4, 0, -1.6], rot=20),
-    obj("ritblocket", "papper", [-2.4, 0.46, -1.6], antal=3, interaktiv=ia("Ett ritblock på en däcksstol",
+    obj("dackstol1", "dacksstol", [-2.4, 0, -1.6], rot=20),
+    obj("ritblocket", "papper", [-2.36, 0.35, -1.5], antal=3, interaktiv=ia("Ett ritblock på en däcksstol",
         "Ett ritblock med rutat papper ligger kvar på en däcksstol – av det slag ingenjörer och ritare använder. Översta bladet är tomt. Ett blad är utrivet, och den slitna kanten passar precis mot brevets. Inget namn på pärmen.", "f-ritblocket")),
-    obj("dackstol2", "stol", [-0.6, 0, 1.6], rot=160),
-    obj("manuset", "papper", [-0.6, 0.46, 1.6], interaktiv=ia("Maskinskrivna sidor",
+    obj("dackstol2", "dacksstol", [-0.6, 0, 1.6], rot=160, farg="#7a3a2e"),
+    obj("manuset", "papper", [-0.57, 0.35, 1.5], interaktiv=ia("Maskinskrivna sidor",
         "Några maskinskrivna sidor ligger hopvikta på en däcksstol: ”Olyckan i Lövsund – vad konsul Wahlgren aldrig berättade.” Rent maskinskrivet, utan en enda handskriven rad.", "f-manuset")),
     obj("bord", "bord", [2.6, 0, 1.6], storlek=[0.7, 0.72, 0.6], modell={"fil": "modeller/round_wooden_table_01.glb", "passa": "box"}),
     obj("bok", "anteckningsbok", [2.6, 0.73, 1.6], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),

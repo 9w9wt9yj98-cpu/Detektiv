@@ -385,4 +385,37 @@ function parm(d) {
   return { grupp: g, kollision: false };
 }
 
+/** Kaffekopp på fat, vitt porslin med guldkant. full (true): kaffe i koppen. Ingen kollision. */
+function kaffekopp(d) {
+  const g = new THREE.Group();
+  const vit = mat('#f3eee2', { glans: 0.3 });
+  cyl(g, 0.07, 0.05, 0.012, vit, 0, 0.006, 0, 16);
+  cyl(g, 0.041, 0.028, 0.055, vit, 0, 0.04, 0, 14);
+  cyl(g, 0.042, 0.042, 0.004, mat('#b8963a', { glans: 0.3, metall: 0.6 }), 0, 0.068, 0, 14);
+  if (d.full !== false) cyl(g, 0.036, 0.036, 0.003, mat('#2a1608', { glans: 0.2 }), 0, 0.064, 0, 14);
+  const ora = new THREE.Mesh(new THREE.TorusGeometry(0.017, 0.005, 5, 10), vit); ora.position.set(0.047, 0.04, 0); g.add(ora);
+  return { grupp: g, kollision: false };
+}
+
+/** Kaffekanna i nysilver med pip, handtag och lock. Ca 0,22 m hög. Ingen kollision. */
+function kaffekanna() {
+  const g = new THREE.Group();
+  const silver = mat('#c8c8c0', { glans: 0.22, metall: 0.85 }), svart = mat('#1a1410');
+  cyl(g, 0.05, 0.07, 0.16, silver, 0, 0.08, 0, 16);
+  cyl(g, 0.035, 0.05, 0.03, silver, 0, 0.175, 0, 16);
+  sph(g, 0.012, svart, 0, 0.2, 0, 8);
+  const pip = cyl(g, 0.01, 0.016, 0.11, silver, -0.08, 0.11, 0, 8); pip.rotation.z = 0.7;
+  const hand = new THREE.Mesh(new THREE.TorusGeometry(0.04, 0.007, 5, 12, Math.PI), svart); hand.position.set(0.062, 0.1, 0); hand.rotation.z = -Math.PI / 2; g.add(hand);
+  return { grupp: g, kollision: false };
+}
+
+/** Hopvikt dagstidning som ligger plant, ca 0,28 × 0,4 m. Ingen kollision. */
+function tidning() {
+  const g = new THREE.Group();
+  box(g, 0.28, 0.012, 0.4, mat('#e0d6bc'), 0, 0.006, 0);
+  const p = plan(g, 0.28, 0.4, mat('#ffffff', { map: T.tidning() }), 0, 0.0125, 0); p.rotation.x = -Math.PI / 2;
+  return { grupp: g, kollision: false };
+}
+
+Object.assign(prefabs, { kaffekopp, kaffekanna, tidning });
 Object.assign(prefabs, { vas, skrin, pendyl, vaggur, tavla, tavelkarta, askkopp, anteckningsbok, flaska, karaff, papper, vinglas, tallrik, placeringskort, vaska, krukvaxt, resvaska, kortlek, liggare, skrivdon, fotogen, handske, span, rock, livre, fotspar, taeckt, urverk, barograf, skal, dator, mobil, tarta, dalahast, parm });

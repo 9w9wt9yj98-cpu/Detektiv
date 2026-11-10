@@ -100,10 +100,10 @@
           },
           "start": {
             "pos": [
-              -0.5,
+              -0.6,
               1.5
             ],
-            "titta": 10
+            "titta": -42
           },
           "objekt": [
             {
@@ -123,11 +123,11 @@
               "id": "kroppen",
               "typ": "taeckt",
               "pos": [
-                -0.55,
+                1.2,
                 0,
-                -0.75
+                -0.5
               ],
-              "rot": 75,
+              "rot": 95,
               "farg": "#5a5448",
               "interaktiv": {
                 "namn": "Holger Wenngren",
@@ -599,6 +599,7 @@
               ],
               "pose": "ligga",
               "lagHojd": 0.62,
+              "spjalk": "v",
               "rock": "#3a4a6a",
               "byxor": "#4a4a50",
               "har": "#4a3a2a",

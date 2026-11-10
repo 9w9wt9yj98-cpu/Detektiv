@@ -149,6 +149,20 @@
               }
             },
             {
+              "id": "insno",
+              "typ": "snodriva",
+              "pos": [
+                -1.2,
+                0,
+                -1.9
+              ],
+              "storlek": [
+                0.8,
+                0.42
+              ],
+              "hojd": 0.03
+            },
+            {
               "id": "lucka",
               "typ": "lucka",
               "pos": [
@@ -410,9 +424,8 @@
             "#141a26"
           ],
           "golv": {
-            "typ": "sten"
+            "typ": "sno"
           },
-          "verklig_golv": "kullersten",
           "ljus": {
             "omgivning": "#9fb0d0",
             "omgivning_styrka": 0.55,

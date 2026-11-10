@@ -66,7 +66,8 @@ export async function visaUtredning(app, id) {
     rk.textContent = `Fynd ${r.hittat}/${r.total}`;
     rk.classList.toggle('klar', r.hittat >= r.total);
     const x = r.perRum[aktuelltRum?.id];
-    $('.rumnamn', app).textContent = x ? `${x.namn} · ${x.hittat >= x.total ? 'allt hittat här ✓' : `${x.total - x.hittat} kvar här`}` : '';
+    // Namnet kortas med … om det inte får plats; räknaren syns alltid och raden bryts aldrig.
+    $('.rumnamn', app).innerHTML = x ? `<span class="rn-namn">${esc(x.namn)}</span><span class="rn-kvar"> · ${x.hittat >= x.total ? 'allt hittat här ✓' : `${x.total - x.hittat} kvar här`}</span>` : '';
     const kvar = MAX_FEL - st.fel.length;
     $('.anklaga-knapp small', app).textContent = `${kvar} försök`;
   };

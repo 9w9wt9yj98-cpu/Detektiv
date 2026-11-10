@@ -36,6 +36,7 @@ urmakeriet = {"id": "urmakeriet", "namn": "Urmakeriet", "mekanik": "scen", "payl
     obj("matta", "matta", [0.6, 0, 0.8], storlek=[1.6, 2.2], kollision=False),
     obj("monter", "monter", [0.3, 0, -0.5], tom=True, interaktiv=ia("Glasmontern",
         "Glaset är helt. Låset i mässing är öppnat och står uppvridet – du ser inte en enda repa, inget märke efter dyrk. Det här låset har öppnats med nyckel. På sammetsbädden står Polaris stativ tomt.", "f-monter")),
+    obj("insno", "snodriva", [-1.2, 0, -1.9], storlek=[0.8, 0.42], hojd=0.03),
     obj("lucka", "lucka", [-1.2, 0, -2.19], interaktiv=ia("Fönsterluckan",
         "Luckan mot gränden är uppbruten utifrån med ett järn – träet är splittrat kring regeln, och snö har blåst in över golvet. Den som kom in här klättrade över fönsterbänken.", "f-luckan")),
     obj("vaggur", "vaggur", [-0.4, 0, -2.19], krossad=True, tid=[10, 47], interaktiv=ia("Den krossade väggklockan",
@@ -62,7 +63,7 @@ urmakeriet = {"id": "urmakeriet", "namn": "Urmakeriet", "mekanik": "scen", "payl
 # ---------- Gatan ----------
 gatan = {"id": "gatan", "namn": "Österlånggatan", "mekanik": "scen", "payload": {"visning": "3d", "rum": {
   "bredd": 4.2, "djup": 12.0, "hojd": 8.0, "miljo": "inomhus", "vagg": "fasad", "fasadfarg": "#b8925a", "tak": False, "panel": False, "sno": 900,
-  "bakgrund": "#0c111c", "dimma": [5, 16, "#141a26"], "golv": {"typ": "sten"}, "verklig_golv": "kullersten",
+  "bakgrund": "#0c111c", "dimma": [5, 16, "#141a26"], "golv": {"typ": "sno"},
   "ljus": {"omgivning": "#9fb0d0", "omgivning_styrka": 0.55, "bas": 0.22},
   "start": {"pos": [0.2, 4.6], "titta": 0},
   "objekt": [

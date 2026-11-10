@@ -105,4 +105,29 @@ function gardesgard(d) {
   return { grupp: g, kollision: true };
 }
 
-Object.assign(prefabs, { hus, bil, buss, bjork, gran, midsommarstang, gardesgard });
+/**
+ * Snödriva: en låg, mjuk hög av snö, t.ex. innanför ett uppbrutet fönster eller mot en vägg.
+ * storlek [bredd längs x, djup längs z] (0,9 × 0,5), hojd (0,06). Ingen kollision.
+ */
+function snodriva(d) {
+  const g = new THREE.Group();
+  const [w, dj] = d.storlek || [0.9, 0.5], h = d.hojd || 0.06;
+  const sno = mat('#e6ebf2', { glans: 1 });
+  const klump = (x, z, rx, rz, ry) => { const m = sph(g, 1, sno, x, 0, z, 20); m.scale.set(rx, ry, rz); };
+  klump(0, 0, w / 2, dj / 2, h);
+  klump(-w * 0.28, dj * 0.12, w * 0.24, dj * 0.3, h * 0.7);
+  klump(w * 0.3, -dj * 0.08, w * 0.22, dj * 0.34, h * 0.8);
+  klump(w * 0.05, dj * 0.3, w * 0.3, dj * 0.2, h * 0.5);
+  return { grupp: g, kollision: false };
+}
+
+/** Nertrampad snö med stövelavtryck: en platt fläck på snötäckt mark. storlek (2,4 m i diameter), seed. Ingen kollision. */
+function trampad_sno(d) {
+  const g = new THREE.Group();
+  const s = d.storlek || 2.4;
+  const p = plan(g, s, s, mat('#ffffff', { map: T.trampadSno(d.seed || 3), transparent: true, glans: 1 }), 0, 0.012, 0);
+  p.rotation.x = -Math.PI / 2; p.renderOrder = 1; p.material.depthWrite = false;
+  return { grupp: g, kollision: false };
+}
+
+Object.assign(prefabs, { hus, bil, buss, bjork, gran, midsommarstang, gardesgard, snodriva, trampad_sno });

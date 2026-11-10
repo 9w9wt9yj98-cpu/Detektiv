@@ -159,7 +159,7 @@ function sandsack(d) {
   return { grupp: g };
 }
 
-/** Järnstege fäst mot väggen. Väggföremål. hojd (3), bredd (0,5). */
+/** Järnstege fäst mot väggen. Väggföremål. hojd (3), bredd (0,5), topp (false: se nedan). */
 function stege(d) {
   const g = new THREE.Group();
   const H = d.hojd || 3, B = d.bredd || 0.5, z = 0.16;
@@ -174,6 +174,45 @@ function stege(d) {
     }
   }
   for (let y = 0.28; y < H - 0.05; y += 0.28) liggande(g, 0.013, B, j, 0, y, z, 'x', 8);
+  // topp: stegens övre ände, där den kommer upp genom en lucka i golvet – ett mörkt hål med järnkarm framför stegen
+  if (d.topp) {
+    const hal = plan(g, B + 0.3, 0.7, mat('#050505'), 0, 0.006, z + 0.36, -Math.PI / 2); hal.renderOrder = 1;
+    for (const sx of [-1, 1]) box(g, 0.03, 0.02, 0.74, j, sx * (B / 2 + 0.16), 0.01, z + 0.36);
+    box(g, B + 0.35, 0.02, 0.03, j, 0, 0.01, z + 0.72);
+  }
+  return { grupp: g };
+}
+
+/**
+ * Regnmaskin: en trätrumma med torkade ärter på en bock, som vevas runt för hand. Står på golvet, ca 1,1 m hög.
+ * Veven sitter på +x-sidan.
+ */
+function regnmaskin() {
+  const g = new THREE.Group();
+  const tra = mat('#7a5a3a'), mork = mat(MORKTRA), j = mat(JARN, { glans: 0.5, metall: 0.6 });
+  // Bock: två A-formade gavlar och en tvärslå
+  for (const sx of [-1, 1]) {
+    for (const sz of [-1, 1]) { const b = box(g, 0.05, 0.95, 0.05, mork, sx * 0.42, 0.46, sz * 0.14); b.rotation.x = -sz * 0.3; }
+    box(g, 0.05, 0.05, 0.6, mork, sx * 0.42, 0.03, 0);
+  }
+  box(g, 0.84, 0.04, 0.05, mork, 0, 0.18, 0);
+  // Trumman: liggande cylinder av ribbor med järnband
+  liggande(g, 0.3, 0.7, tra, 0, 0.82, 0, 'x', 14);
+  for (const x of [-0.25, 0, 0.25]) liggande(g, 0.305, 0.03, j, x, 0.82, 0, 'x', 14);
+  for (const sx of [-1, 1]) liggande(g, 0.31, 0.02, mork, sx * 0.355, 0.82, 0, 'x', 14);
+  // Axel och vev
+  liggande(g, 0.015, 1.0, j, 0.04, 0.82, 0, 'x', 6);
+  box(g, 0.015, 0.2, 0.02, j, 0.53, 0.72, 0);
+  liggande(g, 0.02, 0.12, tra, 0.6, 0.62, 0, 'x', 8);
+  return { grupp: g };
+}
+
+/** Stolpe av grovt trä som bär upp ett bjälklag, t.ex. under en scen. hojd (2,3), tjocklek (0,14). */
+function stolpe(d) {
+  const g = new THREE.Group();
+  const H = d.hojd || 2.3, t = d.tjocklek || 0.14, m = mat(d.farg || '#4a3626');
+  box(g, t, H, t, m, 0, H / 2, 0);
+  box(g, t * 2.6, t * 0.7, t * 1.1, m, 0, H - t * 0.35, 0); // sadel under bjälken
   return { grupp: g };
 }
 
@@ -367,4 +406,4 @@ function stralkastare(d) {
   return { grupp: g, fotavtryck: hang ? undefined : 0.6, kollision: hang ? false : undefined };
 }
 
-Object.assign(prefabs, { rida, sufflorlucka, nagelbank, sandsack, stege, golvmarke, sminkbord, kuliss, kladstallning, stralkastare });
+Object.assign(prefabs, { rida, sufflorlucka, nagelbank, sandsack, stege, golvmarke, sminkbord, kuliss, kladstallning, stralkastare, regnmaskin, stolpe });

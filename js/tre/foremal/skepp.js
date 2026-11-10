@@ -1,6 +1,7 @@
 // Ombord på en ångare: livbåt på klossar med presenning.
 // Konventioner: se foremal/grund.js. Framsidan (fören) pekar mot +x vid rot 0; båten står på däck med kölen i y ≈ 0,3.
 import * as THREE from '../../../vendor/three/three.module.min.js';
+import * as T from '../texturer.js';
 import { mat, box, cyl, prefabs } from './grund.js';
 
 /**
@@ -46,4 +47,29 @@ function livbat(d) {
   return { grupp: g };
 }
 
-Object.assign(prefabs, { livbat });
+/**
+ * Däcksstol: fällstol av trä med randig segelduk, låg och bakåtlutad. Sitsen ligger ca 0,33 m över däck;
+ * ryggen lutar bakåt mot -z. farg (randens färg, '#3a5a7a'). Kollision för hela stolen.
+ */
+function dacksstol(d) {
+  const g = new THREE.Group();
+  const tra = mat('#a8824e'), duk = mat('#ffffff', { map: T.rander('#ece6d6', d.farg || '#3a5a7a', 8), side: THREE.DoubleSide });
+  const B = 0.56;
+  // Sits: från framkanten ner mot ryggens fäste
+  const sits = box(g, B - 0.06, 0.012, 0.62, duk, 0, 0.33, 0.14); sits.rotation.x = 0.1;
+  // Rygg: lutar bakåt
+  const rygg = box(g, B - 0.06, 0.012, 0.78, duk, 0, 0.62, -0.4); rygg.rotation.x = -1.0;
+  for (const sx of [-1, 1]) {
+    const x = sx * B / 2;
+    const s1 = box(g, 0.035, 0.03, 0.66, tra, x, 0.33, 0.14); s1.rotation.x = 0.1;      // sitsens sidoslå
+    const r1 = box(g, 0.035, 0.03, 0.86, tra, x, 0.62, -0.4); r1.rotation.x = -1.0;     // ryggens sidoslå
+    const b1 = box(g, 0.03, 0.03, 0.62, tra, x, 0.17, 0.2); b1.rotation.x = 0.95;       // främre ben
+    const b2 = box(g, 0.03, 0.03, 0.6, tra, x, 0.17, -0.22); b2.rotation.x = -0.9;      // bakre ben
+    box(g, 0.05, 0.02, 0.46, tra, x, 0.5, 0.02);                                         // armstöd
+    box(g, 0.03, 0.2, 0.03, tra, x, 0.4, 0.22);
+  }
+  box(g, B, 0.03, 0.03, tra, 0, 0.36, 0.45); box(g, B, 0.03, 0.03, tra, 0, 0.95, -0.66);
+  return { grupp: g };
+}
+
+Object.assign(prefabs, { livbat, dacksstol });
