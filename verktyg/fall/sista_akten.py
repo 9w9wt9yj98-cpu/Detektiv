@@ -25,7 +25,7 @@ fall = {
    "uppskattad_tid_min": [12, 18], "svarighet": 3, "karnmekanik": "forhor", "bimekaniker": ["scen"], "twist": None, "kraver_rang": 0,
    "accentfarg": "#5a1a22", "omslag": "bilder/fall7/teatern.jpg", "mal": "Ta reda på vem som släppte sandsäcken", "handledning_mal": "sandsacken"},
  "intro": {"rubrik": "Teater Lyran, Göteborg. Oktober 1952.",
-   "text": "Premiärkväll på Teater Lyran. Du sitter på rad 8 bredvid kommissarie Nils Strand, som har fått biljetterna av teaterchefen. Andra akten av ”Den gröna salongen” har just nått sin stora scen när något rasar ned ur mörkret ovanför scenen.\n\nEn sandsäck på fyrtio kilo slår i scengolvet en meter från stjärnan, Viveka Sterner. Hon står kvar, vit i ansiktet. Ridån går ner, och salongen fylls av sorl.\n\nNär ni kommer upp på scenen har Strand redan bett alla i ensemblen och personalen att stanna. ”En sandsäck faller inte av sig själv”, säger han. ”Någon i det här huset vill fru Sterner illa. Ta reda på vem – och hur den kom upp dit.”",
+   "text": "Premiärkväll på Teater Lyran. Du sitter på rad 8 bredvid kommissarie Nils Strand, som har fått biljetterna av teaterchefen. Andra akten av ”Den gröna salongen” har just nått sin stora scen när något rasar ned ur mörkret ovanför scenen.\n\nEn sandsäck på fyrtio kilo slår i scengolvet en meter från stjärnan, Viveka Sterner. Hon står kvar, vit i ansiktet. Ridån går ner, och salongen fylls av sorl.\n\nNär ni kommer upp på scenen ber Strand alla i ensemblen och personalen att stanna kvar. ”En sandsäck faller inte av sig själv”, säger han. ”Någon i det här huset vill fru Sterner illa. Ta reda på vem – och hur den kom upp dit.”",
    "uppdrag": "Vem släppte sandsäcken – och hur kom gärningspersonen upp på lindraget?", "bild": "bilder/fall7/teatern.jpg", "berattare": "Kommissarie Nils Strand"},
  "personer": [
    {"id": "viveka", "namn": "Viveka Sterner", "roll": "Skådespelerska, premiärens stjärna", "misstankt": False, "beskrivning": "Göteborgs mest omtalade aktris. Kräver mycket, av sig själv och av alla andra."},
@@ -55,7 +55,7 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
     obj("ridan", "rida", [0, 0, 3.05], rot=180, bredd=9.0, hojd=5.0, interaktiv=ia("Ridån",
         "Du kikar ut genom springan i ridån. Salongen är halvtom nu. Rad 7, plats 12 – regissör Werns plats, mitt framför din egen. Du minns hans nacke under hela andra akten. Han satt kvar ända tills sandsäcken slog i golvet – då reste han sig.", "f-wern-alibi")),
     obj("luckan", "sufflorlucka", [0, 0, 2.55], rot=180, gar_till="undre", interaktiv=ia("Sufflörluckan",
-        "Sufflörluckan sitter mitt i scenkanten, alldeles innanför ridån – när ridån är uppe ligger den i fullt rampljus framför publiken – ingen kan klättra ner i den från scenen under föreställningen utan att hela salongen ser det. Sufflösen kommer hit underifrån. Inuti är det mörkt och trångt – en kort stege leder ner under scenen.")),
+        "Sufflörluckan sitter mitt i scenkanten, alldeles innanför ridån. När ridån är uppe ligger den i fullt rampljus framför publiken, så ingen kan klättra ner i den från scenen under föreställningen utan att hela salongen ser det. Sufflösen kommer hit underifrån. Inuti är det mörkt och trångt – en kort stege leder ner under scenen.")),
     obj("fond", "kuliss", [0, 0, -3.1], storlek=[6.4, 4.2], farg="#3e5a3e", stotta=False),
     obj("kv1", "kuliss", [-3.3, 0, -1.2], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
     obj("kv2", "kuliss", [-3.3, 0, 0.9], rot=90, storlek=[1.4, 3.6], farg="#3e5a3e", stotta=False),
@@ -77,7 +77,7 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
         "En järnstege längs väggen bakom vänstra kulissen, upp till lindraget åtta meter ovanför scenen. Brandmannens stol står vid foten.")),
     obj("brandstol", "stol", [-3.9, 0, -0.5], rot=90, modell=STOL),
     obj("persson", "person", [-3.9, 0, -0.5], rot=90, pose="sitta", rock="#1e2433", byxor="#1e2433", hatt="mossa", hattfarg="#1e2433", har="#6a6a6a", skagg=True, seed=4,
-        interaktiv=ia("Brandman Persson", "Brandman Persson sitter kvar på sin stol vid järnstegen, med hjälmen i knät.", "f-persson", ["u-persson"])),
+        interaktiv=ia("Brandman Persson", "Brandman Persson sitter kvar på sin stol vid järnstegen, med händerna knäppta i knät.", "f-persson", ["u-persson"])),
     # Höger kulisser: inspicientens pulpet med körboken och rapporten från generalrepetitionen
     obj("pulpet", "pulpet", [3.95, 0, 1.5], rot=-90),
     obj("korbok", "liggare", [3.9, 1.12, 1.5], rot=-90, interaktiv=ia("Inspicientens körbok",
@@ -195,7 +195,7 @@ forhor = {"id": "forhoret", "namn": "Förhör", "mekanik": "forhor", "payload": 
   "instruktion": "Tryck på en utsaga och sedan på en annan utsaga – eller ett fynd – som den inte kan stämma med. Tryck sedan på Invänd! Fel invändningar kostar ingenting.",
   "utsagor": [
     {"id": "u-viv", "person": "viveka", "titel": "Fru Sterner om scenen", "text": "Gösta flyttade mig till tejpen i går, på generalrepetitionen. Jag stod där, precis som han sagt. Hade jag stått vid krysset som förut …"},
-    {"id": "u-viv-wall", "person": "viveka", "titel": "Fru Sterner om sufflösen", "kraver": ["f-brevet"], "text": "Brevet? Ja, jag har sagt till chefen att jag vill ha en ny sufflös. Agnes mumlar. Jag sa det rakt ut här i korridoren i förrgår – alla hörde det, Agnes också. Men hon har bott i det där rummet uppe under taket i över trettio år – vart skulle hon ta vägen? Det har jag inte tänkt på."},
+    {"id": "u-viv-wall", "person": "viveka", "titel": "Fru Sterner om sufflösen", "kraver": ["f-brevet"], "text": "Brevet? Ja, jag har sagt till chefen att jag vill ha en ny sufflös. Agnes mumlar. Jag sa det rakt ut i logekorridoren i förrgår – alla hörde det, Agnes också. Men hon har bott i det där rummet uppe under taket i över trettio år – vart skulle hon ta vägen? Det har jag inte tänkt på."},
     {"id": "u-agren", "person": "agren", "titel": "Ågren om monologen", "text": "Klockan halv tio tappade jag repliken mitt i monologen. Jag tittade ner mot luckan – den var mörk och tom. Ingen viskade något. Jag fick hitta på en mening tills jag kom på texten igen."},
     {"id": "u-ruth", "person": "ruth", "titel": "Inspicienten om Kalle", "text": "Kalle stod vid regnmaskinen bakom kulissen, en meter från min pulpet, från tjugo över nio tills ridån gick ner. Jag gav honom signalerna själv. Han rörde sig inte därifrån."},
     {"id": "u-persson", "person": "persson", "titel": "Brandvakten om stegen", "text": "Kalle kom ner för stegen tolv över nio, efter sista linkörningen. Efter det gick ingen upp eller ner – jag satt här vid foten hela tiden. Fröken Hallin stod bredvid mig i kulissen från tjugo över nio tills ridån gick ner. Hon ska inte stå där, men jag sa inget."},

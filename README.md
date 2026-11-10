@@ -44,6 +44,7 @@ Utöver fälten i [designförslaget](docs/forslag-v1.md#13-dataformat-för-fall-
 
 - `moment[].payload.visning: "3d"` och `rum` med `bredd`, `djup`, `hojd`, `miljo` (`inomhus`/`veranda`), `golv`, `tapet`, `panel`, `ljus`, `start` (`pos: [x, z]`, `titta` i grader, 0 = norr) och `objekt`.
 - Varje objekt har `typ` (se `js/tre/foremal/`: bl.a. `dorr`, `fonster`, `byra`, `skrin`, `eldstad`, `bokhylla`, `stol`, `langbord`, `vinglas`, `anteckningsbok`), `pos: [x, y, z]`, `rot`, samt valfritt `interaktiv: { namn, text, ger_fynd }`, `gar_till` (dörr till ett annat moment) och `funktion: "anteckningsbok"`.
+- En `tavla` visar en målning; med `motiv: "portratt"` ett oljeporträtt och med `motiv: "foto"` ett inramat gruppfotografi.
 - Rummet kan också ha `miljo: "ute"` (gård med gräs och himmel), `vagg` (`tapet`, `puts`, `sten`, `trapanel`, `fasad`), `tak: false`, `panel: false` och `sno` (snöfall).
 - `rum.ljud`: miljöljud, t.ex. `["tag", {"typ": "vind", "styrka": 0.6}]`. Typer: `vind`, `storm`, `tag`, `tick`, `brasa`, `dropp`, `hav`, `faglar`, `syrsor` (se `js/ljud.js`; validatorn kontrollerar namnen).
 - `objekt.modell` (valfritt, bara i förhandsgranskningen `?stil=verklig`): en 3D-modell som ersätter prefabens utseende, t.ex. `{ "fil": "modeller/gothic_bed_01.glb", "passa": "golv" }`. Se `js/tre/modeller.js`.

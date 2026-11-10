@@ -68,7 +68,9 @@ function tavla(d) {
   const g = new THREE.Group();
   const [w, h] = d.storlek || [1, 0.7];
   const ram = massing();
-  plan(g, w, h, mat('#ffffff', { map: T.malning(d.seed || 71) }), 0, 0, 0.03);
+  // motiv: 'portratt' (oljeporträtt), 'foto' (gruppfotografi) eller en målning (standard)
+  const bild = d.motiv === 'portratt' ? T.portratt(d.seed || 71) : d.motiv === 'foto' ? T.fotografi(d.seed || 71) : T.malning(d.seed || 71);
+  plan(g, w, h, mat('#ffffff', { map: bild }), 0, 0, 0.03);
   box(g, w + 0.12, 0.07, 0.05, ram, 0, h / 2 + 0.03, 0.03); box(g, w + 0.12, 0.07, 0.05, ram, 0, -h / 2 - 0.03, 0.03);
   box(g, 0.07, h, 0.05, ram, -w / 2 - 0.03, 0, 0.03); box(g, 0.07, h, 0.05, ram, w / 2 + 0.03, 0, 0.03);
   return { grupp: g, kollision: false };

@@ -577,9 +577,9 @@
               "id": "skrivbordet",
               "typ": "bord",
               "pos": [
-                -2.3,
+                -1.6,
                 0,
-                1.8
+                2.3
               ],
               "storlek": [
                 0.9,
@@ -595,10 +595,11 @@
               "id": "skrivdon",
               "typ": "skrivdon",
               "pos": [
-                -2.3,
+                -1.6,
                 0.75,
-                1.8
+                2.3
               ],
+              "rot": 180,
               "interaktiv": {
                 "namn": "Salongens skrivbord",
                 "text": "Ångarens brevpapper med tryckt vinjett och ett bläckhorn med svart bläck. Stewarden säger att det är det enda bläcket ombord, utom det passagerarna har med sig själva – och grönt bläck har bara en av dem. ”Flaskan står på hyllan i hytt 4. Jag såg den när jag bäddade klockan elva i går kväll och igen i morse. Hytterna är låsta när passagerarna inte är i dem – nycklarna har de själva och jag.”",
@@ -766,7 +767,7 @@
               ],
               "interaktiv": {
                 "namn": "Maskinskrivna sidor",
-                "text": "Några maskinskrivna sidor under en sten för att inte blåsa bort: ”Olyckan i Lövsund – vad konsul Wahlgren aldrig berättade.” Rent maskinskrivet, utan en enda handskriven rad.",
+                "text": "Några maskinskrivna sidor ligger hopvikta på en däcksstol: ”Olyckan i Lövsund – vad konsul Wahlgren aldrig berättade.” Rent maskinskrivet, utan en enda handskriven rad.",
                 "ger_fynd": "f-manuset"
               }
             },
@@ -1100,7 +1101,7 @@
       "titel": "Hyttlistan bortriven",
       "ikon": "📕",
       "typ": "bakgrund",
-      "text": "Bladet med hyttlistan är bortrivet ur purserns bok, och pursern är i land till Motala. Vem som bor var får pusslas ihop av vad passagerarna och stewarden säger."
+      "text": "Bladet med hyttlistan är bortrivet ur purserns bok, och pursern är i land och kommer ombord igen först i Motala. Vem som bor var får pusslas ihop av vad passagerarna och stewarden säger."
     },
     {
       "id": "f-ett-gront",

@@ -39,9 +39,9 @@ tornet = {"id": "tornet", "namn": "Tornets nedre avsats", "mekanik": "scen", "pa
     obj("kroppen", "taeckt", [-0.55, 0, -0.75], rot=75, farg="#5a5448", interaktiv=ia("Holger Wenngren",
         "Fyrmästaren ligger under en grå filt på nedre avsatsen, tvärs över trappans första steg. Nålad på filten sitter doktor Lagerkvists anteckning från fyndet. Du lyfter filten: blåmärken på båda överarmarna, som efter ett hårt grepp. I bröstfickan sitter blyertspennan kvar.", "f-blamarken", ["dok-fyndet"])),
     obj("elof", "person", [1.3, 0, 1.0], rot=-140, rock="#3a4a5a", byxor="#2a2a30", har="#c8a060", glasogon=True, seed=3,
-        interaktiv=ia("Elof Granath", "Elof skakar hand med båda händerna. ”Tack för att ni kom! Papperen ligger där de hör hemma – loggboken och instruktionen uppe i lanternan, min dagbok i stugan, doktorns journal på stationen. Fråga mig vad som helst. Jag vill bara att det här ska bli utrett, för Signes skull.”", "f-elof-hjalp")),
+        interaktiv=ia("Elof Granath", "Elof tar din hand i båda sina. ”Tack för att ni kom! Papperen ligger där de hör hemma – loggboken och instruktionen uppe i lanternan, min dagbok i stugan, doktorns journal på stationen. Fråga mig vad som helst. Jag vill bara att det här ska bli utrett, för Signes skull.”", "f-elof-hjalp")),
     obj("kannor", "fotogen", [-1.6, 0, 1.7], antal=3, modell=KANNOR),
-    obj("lampa1", "vagglampa", [-2.18, 2.0, 0.4], rot=90, styrka=1.2, flimrar=True, farg="#ffd08a"),
+    obj("lampa1", "vagglampa", [-2.18, 2.0, -0.9], rot=90, styrka=1.2, flimrar=True, farg="#ffd08a"),
     obj("lampa2", "vagglampa", [2.18, 2.0, -0.2], rot=-90, styrka=1.0, flimrar=True, farg="#ffd08a"),
     obj("bok", "anteckningsbok", [-1.6, 0.45, 1.7], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr-upp", "dorr", [-1.3, 0, -2.19], farg="#3a3a36", gar_till="lanternan", interaktiv=ia("Uppför trappan till lanternan", "Trappan vindlar upp genom tornet till lanternan. För att komma upp måste du kliva över fyrmästaren.")),
@@ -266,7 +266,7 @@ fall["losning"] = {"skyldig": "elof", "hur": "knuff-0320",
   "bevisgrupper": [["f-forfalskad", "f-elofs-penna"], ["f-04-black", "f-elofs-penna"], ["f-klev-over", "f-elofs-penna"], ["f-dagbok-logn", "f-forfalskad"], ["f-dagbok-logn", "f-elofs-penna"], ["f-elof-ljuger", "f-forfalskad"]],
   "uteslutningar": {"signe": ["f-signe-alibi", "f-johan-koket"], "johan": ["f-johan-ben"], "lagerkvist": ["f-lagerkvist-alibi", "f-barograf"]},
   "uteslutningar_text": {
-    "signe": "Motiv i brevet – men Johan låg vaken i köket, den enda vägen ut, och hon gick aldrig förbi honom.",
+    "signe": "Motiv i brevet – men Johan låg vaken i köket, den enda vägen ut, och hon gick inte förbi honom förrän vid sex.",
     "johan": "Ett spjälat, brutet ben. Ingen tar sig upp i en spiraltrappa så.",
     "lagerkvist": "Tidsmärken 03.15 och 03.30, och tjugo minuter fram och tillbaka till tornet. Han var vid barografen hela natten."}}
 fall["anklagelse"] = {"hur_fraga": "Vad hände i tornet?", "hur_alternativ": [
@@ -279,7 +279,7 @@ fall["ledtradar"] = [
   {"niva": 2, "kostnad": 25, "kraver": ["dok-journal", "dok-fyndet", "f-duns-signe", "f-duns-lagerkvist", "f-dodstid", "f-uppdragen"], "text": "Hur länge går urverket – och slocknade fyren någon gång i natt? Den som drog upp det efter dunsen måste ha klivit över fyrmästaren i trappan. Titta noga på 04-raden i loggboken – kan den vara skriven när den säger?"},
   {"niva": 3, "kostnad": 50, "kraver": ["f-johan-ben", "f-johan-koket", "f-barograf", "f-04-black", "dok-dagbok"], "text": "Pröva alla fyra på ön mot 03.20. En kan inte gå, en slog tidsmärken på stationen var femtonde minut, och en kunde bara gå ut genom köket, där någon låg vaken. Den fjärde har den enda reservoarpennan på ön – och skriver själv att fyrmästaren visslade i tornet vid fyratiden."}]
 fall["aterkoppling"] = {
-  "ratt": "Ni lät er inte förföras av en vänlig röst. Den som berättar en historia väljer vad som utelämnas. Elof glömde bara att hans egen penna skrev i bläck – och att en fyr med ett lik i trappan inte drar upp sig själv.",
+  "ratt": "Du lät dig inte förföras av en vänlig röst. Den som berättar en historia väljer vad som utelämnas. Elof glömde bara att hans egen penna skrev i bläck – och att en fyr med ett lik i trappan inte drar upp sig själv.",
   "efterord": "Det här fallet berättades av gärningsmannen. Brevet du fick, papperen som låg så prydligt framlagda, dagboken med visslingen vid fyra – allt var Elofs. Läs hans brev en gång till. Allt stod där.",
   "vandning": {"rubrik": "Elofs brev, läst en gång till", "rader": [
     {"citat": "Vi har låtit honom ligga, så som doktorn sade, och klivit över honom sedan dess.", "kommentar": "Han skriver det själv. Den som drog upp urverket vid fyra måste ha klivit över en död man – och Elof var den som skötte fyren."},
@@ -300,8 +300,8 @@ fall["aterkoppling"] = {
     {"text": "Urverket går högst 2 t 15 min, men fyren lyste hela natten. Någon drog upp det vid fyra – och klev då över kroppen utan att slå larm.", "fynd": ["f-uppdragen", "f-klev-over"]},
     {"text": "04-raden är skriven med bläck, fast loggboken alltid förs med blyerts. Holger var död; signaturen är förfalskad. Den enda reservoarpennan på ön är Elofs – det skriver han själv.", "fynd": ["f-04-black", "f-forfalskad", "f-elofs-penna"]},
     {"text": "Elofs dagbok påstår att Holger visslade vid fyra och att Elof sov 23–06. Båda påståendena faller.", "fynd": ["f-dagbok-logn", "f-elof-ljuger"]},
-    {"text": "Johan kan inte gå. Doktorn slog tidsmärken var femtonde minut. Signe gick aldrig förbi Johan i köket. Kvar blir Elof.", "fynd": ["f-johan-ben", "f-lagerkvist-alibi", "f-signe-alibi"]},
-    {"text": "Motivet: Holger tänkte anmäla Elof för att han sålt fyrens fotogen. Kannorna står i hans stuga.", "fynd": ["f-anmalan", "f-fotogen-stuga"]}]}
+    {"text": "Johan kan inte gå. Doktorn slog tidsmärken var femtonde minut. Signe gick inte förbi Johan i köket förrän vid sex. Kvar blir Elof.", "fynd": ["f-johan-ben", "f-lagerkvist-alibi", "f-signe-alibi"]},
+    {"text": "Motivet: Holger tänkte anmäla Elof för de sextio liter fotogen som försvunnit ur förrådet. De tomma kannorna står i hans stuga.", "fynd": ["f-anmalan", "f-fotogen-stuga"]}]}
 
 # Miljöljud per rum (se js/ljud.js)
 LJUD = {"tornet": ["storm"], "lanternan": ["storm", {"typ": "tick", "styrka": 0.7}], "koket": [{"typ": "storm", "styrka": 0.6}, "brasa"], "stugan": [{"typ": "storm", "styrka": 0.7}], "stationen": [{"typ": "storm", "styrka": 0.7}, {"typ": "tick", "styrka": 0.5}]}

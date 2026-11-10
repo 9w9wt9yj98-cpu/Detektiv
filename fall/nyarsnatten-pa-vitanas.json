@@ -362,7 +362,7 @@
               "seed": 21,
               "interaktiv": {
                 "namn": "Doktor Sjöstedt",
-                "text": "Doktor Sjöstedt torkar sina glasögon. ”Ett enda kraftigt slag bakifrån, med brevpressen. Han föll framåt och dog nästan genast. Ingen olycka – han föll framåt, och ett fall ger inte ett sådant sår i bakhuvudet. Döden inträffade mellan elva och tjugo i tolv; närmare än så kan jag inte säga.”",
+                "text": "Doktor Sjöstedt torkar sina glasögon. ”Ett enda kraftigt slag bakifrån, med brevpressen. Han föll framåt och dog nästan genast. Ingen olycka – ett fall framåt ger inte ett sådant sår i bakhuvudet. Döden inträffade mellan elva och tjugo i tolv; närmare än så kan jag inte säga.”",
                 "ger_fynd": "f-lakaren"
               }
             },
@@ -487,7 +487,8 @@
                 0.9,
                 1.2
               ],
-              "seed": 30
+              "seed": 30,
+              "motiv": "portratt"
             },
             {
               "id": "portratt1",
@@ -502,7 +503,8 @@
                 0.9,
                 1.2
               ],
-              "seed": 31
+              "seed": 31,
+              "motiv": "portratt"
             },
             {
               "id": "portratt2",
@@ -517,7 +519,8 @@
                 0.9,
                 1.2
               ],
-              "seed": 32
+              "seed": 32,
+              "motiv": "portratt"
             },
             {
               "id": "portratt3",
@@ -532,7 +535,8 @@
                 0.9,
                 1.2
               ],
-              "seed": 33
+              "seed": 33,
+              "motiv": "portratt"
             },
             {
               "id": "rustning0",
@@ -987,7 +991,7 @@
               "seed": 27,
               "interaktiv": {
                 "namn": "Axel Vinge",
-                "text": "Axel Vinge står vid fönstret med ett tomt glas. ”Jag har dansat här hela kvällen. Fråga vem ni vill.”",
+                "text": "Axel Vinge står med ett tomt glas i handen. ”Jag har dansat här hela kvällen. Fråga vem ni vill.”",
                 "ger_material": [
                   "k-axel-pastar"
                 ]
@@ -1043,7 +1047,7 @@
               "gar_till": "terrassen",
               "interaktiv": {
                 "namn": "Ut på terrassen",
-                "text": "Glasdörrarna ut mot terrassen. Snön yr utanför."
+                "text": "Dörren ut mot terrassen. Snön yr utanför."
               }
             },
             {
@@ -1393,12 +1397,30 @@
               }
             },
             {
+              "id": "sidobord",
+              "typ": "bord",
+              "pos": [
+                0.4,
+                0,
+                -1.52
+              ],
+              "storlek": [
+                0.8,
+                0.75,
+                0.5
+              ],
+              "modell": {
+                "fil": "modeller/side_table_tall_01.glb",
+                "passa": "box"
+              }
+            },
+            {
               "id": "journalen",
               "typ": "liggare",
               "pos": [
-                0.3,
+                0.22,
                 0.75,
-                -1.45
+                -1.5
               ],
               "interaktiv": {
                 "namn": "Växeljournalen",
@@ -1453,9 +1475,9 @@
               "id": "bok",
               "typ": "anteckningsbok",
               "pos": [
-                0.3,
+                0.62,
                 0.75,
-                -1.7
+                -1.52
               ],
               "funktion": "anteckningsbok",
               "interaktiv": {
@@ -1629,7 +1651,7 @@
               "gar_till": "balsalen",
               "interaktiv": {
                 "namn": "In i balsalen",
-                "text": "Glasdörrarna in till balsalen."
+                "text": "Dörren in till balsalen."
               }
             },
             {
@@ -1720,7 +1742,7 @@
       "last_text": "Utan gångtider går det inte att räkna. Strand har ritat en skiss över slottet i porträttgalleriet.",
       "payload": {
         "kort_instruktion": "Lägg tidskorten på rätt person och pröva var och en mot brottstiden.",
-        "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från andra källor än personen själv – vittnen, papper och klockor –, streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
+        "instruktion": "Tryck på ett tidskort och sedan ”Lägg här” hos den person det gäller. Gångtiderna mellan platserna räknas ut åt dig: rött betyder omöjligt, gult att tid saknas i redovisningen. Heldragna kort kommer från andra källor än personen själv (vittnen, papper och klockor), streckade är personens eget påstående. När brottstiden är fastställd kan du pröva varje person mot den. Fel kostar ingenting.",
         "fran": "22.45",
         "till": "23.45",
         "lucka_min": 15,
@@ -2067,7 +2089,7 @@
       "ikon": "📝",
       "typ": "nyckel",
       "text": "”Ring överste Rehnberg i kväll. Växeln på 20 000 kr – namnteckningen är INTE min. Han ska få veta det före tolvslaget.” Bankpapperet som greven hade framför sig vid tio finns inte kvar.",
-      "forklaring": "Någon hade förfalskat grevens namn på en växel – och greven tänkte anmäla det till överste Rehnberg, chef för en av sina officerare."
+      "forklaring": "Någon hade förfalskat grevens namn på en växel – och greven tänkte anmäla det till överste Rehnberg, förfalskarens chef."
     },
     {
       "id": "f-rakenskap",
@@ -2436,7 +2458,7 @@
           "ratt": true
         }
       ],
-      "slutsats": "Ryttmästaren var ensam i rökrummet från 23.05, och östra trappan leder rakt upp till biblioteket. Hans omväg går ihop på minuten."
+      "slutsats": "Ryttmästaren var ensam i rökrummet från 23.05, och östra trappan leder rakt upp till biblioteket. Hans väg dit och tillbaka går ihop, med minuter till godo."
     }
   ],
   "losning": {

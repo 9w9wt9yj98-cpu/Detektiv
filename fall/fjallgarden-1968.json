@@ -443,6 +443,7 @@
                 0.6
               ],
               "seed": 41,
+              "motiv": "foto",
               "interaktiv": {
                 "namn": "Personalfotot 1968",
                 "text": "Ett inramat fotografi: Fjällgårdens personal, julen 1967. Längst fram står Birgit Hallström i röd anorak, och bredvid henne Claes Rydén med armen om hennes axlar. Fru Rydén, i mitten, ser åt ett annat håll.",
@@ -822,11 +823,12 @@
               "id": "dator",
               "typ": "dator",
               "pos": [
-                1.2,
-                0,
-                -0.9
+                0.08,
+                0.77,
+                -0.02
               ],
-              "rot": 200
+              "rot": 10,
+              "skarm": "POLISENS ARKIV\nÄrende 1968:47\nFjällgården, Storlien\nNedlagt 1968\nUtlånat till M. Strand"
             },
             {
               "id": "dorr",
