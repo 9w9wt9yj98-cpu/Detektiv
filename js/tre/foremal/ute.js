@@ -113,7 +113,7 @@ function snodriva(d) {
   const g = new THREE.Group();
   const [w, dj] = d.storlek || [0.9, 0.5], h = d.hojd || 0.06;
   const sno = mat('#e6ebf2', { glans: 1 });
-  const klump = (x, z, rx, rz, ry) => { const m = sph(g, 1, sno, x, 0, z, 12); m.scale.set(rx, ry, rz); };
+  const klump = (x, z, rx, rz, ry) => { const m = sph(g, 1, sno, x, 0, z, 20); m.scale.set(rx, ry, rz); };
   klump(0, 0, w / 2, dj / 2, h);
   klump(-w * 0.28, dj * 0.12, w * 0.24, dj * 0.3, h * 0.7);
   klump(w * 0.3, -dj * 0.08, w * 0.22, dj * 0.34, h * 0.8);
