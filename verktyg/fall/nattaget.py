@@ -15,7 +15,7 @@ fall = {
    "uppskattad_tid_min": [10, 15], "svarighet": 2, "karnmekanik": "forhor", "bimekaniker": ["scen"], "twist": None, "kraver_rang": 0,
    "accentfarg": "#2e3a5a", "omslag": "bilder/fall2/sovvagnen.jpg", "mal": "Ta reda på vem som dödade grosshandlare Berg", "handledning_mal": "kroppen"},
  "intro": {"rubrik": "Nattåget Stockholm–Narvik. Februari 1934.",
-   "text": "Snöstormen har vräkt över Norrbotten hela natten. Du reser norrut med nattåget, och strax efter sex på morgonen bultar konduktör Lind på din dörr.\n\nGrosshandlare Anton Berg ligger död i kupé 3, med ett slag mot tinningen. Dörren mot korridoren var hakad med säkerhetskedjan inifrån – Lind fick klippa av kedjan för att komma in. Läkaren ombord bedömer att döden inträffade mellan klockan ett och två i natt.\n\nKriminalkonstapel Nils Strand, på väg till ett uppdrag i Kiruna, står redan i kupédörren. ”Ett låst rum på ett tåg i full fart”, säger han. ”Någon här ombord vet mer än den säger. Prata med dem – och lyssna efter det som inte går ihop.”",
+   "text": "Snöstormen har vräkt över Norrbotten hela natten. Du reser norrut med nattåget, och strax efter sex på morgonen bultar konduktör Lind på din dörr.\n\nGrosshandlare Anton Berg ligger död i kupé 3, med ett slag mot tinningen. Dörren mot korridoren var hakad med säkerhetskedjan inifrån – Lind fick klippa av kedjan för att komma in. Läkaren ombord bedömer att döden inträffade mellan klockan ett och två i natt.\n\nKriminalkonstapel Nils Strand, på väg till ett uppdrag i Narvik, står redan i kupédörren. ”Ett låst rum på ett tåg i full fart”, säger han. ”Någon här ombord vet mer än vad som har sagts hittills. Prata med dem – och lyssna efter det som inte går ihop.”",
    "uppdrag": "Vem dödade grosshandlare Berg – och hur kom gärningspersonen ut ur kupén?", "bild": "bilder/fall2/sovvagnen.jpg", "berattare": "Kriminalkonstapel Nils Strand"},
  "personer": [
    {"id": "berg", "namn": "Anton Berg", "roll": "Grosshandlare, offret", "misstankt": False, "beskrivning": "Hård i affärer. Reste ensam i kupé 3."},
@@ -70,7 +70,7 @@ korr = {"id": "korridoren", "namn": "Sovvagnskorridoren", "mekanik": "scen", "la
     obj("matta", "matta", [0, 0, 0], storlek=[0.8, 8.6], kollision=False),
     *[obj(f"f{i}", "tagfonster", [-0.79, 0, z], rot=90, bredd=0.8, isig=True) for i, z in enumerate([-3.4, -1.7, 1.7, 3.4])],
     obj("tidtabell", "tavelkarta", [-0.785, 1.45, 0.05], rot=90, storlek=[0.62, 0.62], textstorlek=26,
-        text="NATTÅG 3  STOCKHOLM–NARVIK\n\nBollnäs     19.42\nÅnge        22.31\nBoden ank.  01.10\nBoden avg.  01.25\nGällivare   04.02\nKiruna      05.38",
+        text="NATTÅG 3  STOCKHOLM–NARVIK\n\nVännäs      20.38\nBastuträsk  22.14\nBoden ank.  01.10\nBoden avg.  01.25\nGällivare   04.02\nKiruna      05.38",
         interaktiv=ia("Tidtabellen", "Tidtabellen i en mässingsram. Tåget stod i Boden från 01.10 till 01.25 – ett femton minuter långt stopp mitt i natten. Konduktören bekräftar att tåget höll tiden.", "f-tidtabell")),
     obj("d1", "kupedorr", [0.79, 0, -3.4], rot=-90, nummer=1),
     obj("d2", "kupedorr", [0.79, 0, -1.7], rot=-90, nummer=2, interaktiv=ia("Dörren till kupé 2", "Fru Ahls kupé. Säkerhetskedjan är avhakad nu – enligt konduktören satt den på när han knackade kl. 06.15.")),

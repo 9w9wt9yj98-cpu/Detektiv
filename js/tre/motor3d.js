@@ -298,7 +298,8 @@ export class Rum3D {
     const tak = new THREE.Mesh(new THREE.BoxGeometry(W + 0.4, 0.1, D + 0.4), mat('#cbbd9e')); tak.position.set(0, H, 0); scen.add(tak);
     // Utsikt: trädgård, fjärd och himmel
     const mark = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), mat('#56603a')); mark.rotation.x = -Math.PI / 2; mark.position.y = -0.4; scen.add(mark);
-    const geo = new THREE.CylinderGeometry(18, 18, 14, 32, 1, true, Math.PI * 0.5, Math.PI);
+    // Panoramat går tre kvarts varv runt (inte bara norrut), så att utsikten inte tar slut i en rak kant när man tittar åt sidorna.
+    const geo = new THREE.CylinderGeometry(18, 18, 14, 48, 1, true, Math.PI * 0.25, Math.PI * 1.5);
     const pano = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: T.utsikt(), side: THREE.BackSide, fog: false }));
     pano.position.set(0, 3.5, 2); scen.add(pano);
     for (let i = 0; i < 9; i++) {

@@ -14,14 +14,14 @@ fall = {"id": "brudskalen", "version": 1,
    "uppskattad_tid_min": [10, 15], "svarighet": 3, "karnmekanik": "bildjamforelse", "bimekaniker": ["scen"], "twist": "offret-ar-garningsman", "kraver_rang": 0,
    "accentfarg": "#3a5a3a", "omslag": "bilder/fall4/garden.jpg", "mal": "Ta reda på vem som tog brudskålen – och när", "handledning_mal": "skanken"},
  "intro": {"rubrik": "Midsommarafton på Sahlins gård, Leksand.",
-   "text": "Midsommarstången är rest, sillen är uppäten och dragspelet har tystnat. Gunnar Sahlin har ringt polisen: hans 1700-talsskål i silver, Brudskålen, är stulen från skänken i salen – mitt under festen.\n\n”Jag såg den halv fem, med sin gamla buckla på kanten”, säger han. ”Kvart i sex var den borta.”\n\nKriminalinspektör Maja Strand – barnbarns barn till Nils Strand, konstapeln från Ekbacka och sedermera kommissarien på Solgläntan – är på semester i Leksand och har lovat att titta förbi. Hon har farfars fars gamla anteckningsbok i fickan. ”Tjugofem gäster med mobilkameror”, säger hon och ler. ”Det har ingen tjuv haft förr. Be om deras bilder, och jämför dem noga.”",
+   "text": "Midsommarstången är rest, sillen är uppäten och dragspelet har tystnat. Gunnar Sahlin har ringt polisen: hans 1700-talsskål i silver, Brudskålen, är stulen från skänken i salen – mitt under festen.\n\n”Jag såg den halv fem, med sin gamla buckla på kanten”, säger han. ”Kvart i sex var den borta.”\n\nKriminalinspektör Maja Strand – barnbarns barn till Nils Strand, konstapeln från Ekbacka och sedermera kommissarien på Solgläntan – är på semester i Leksand och har lovat att titta förbi. Hon har farfars fars gamla anteckningsbok i fickan. ”Tjugofem gäster med mobilkameror”, säger hon och ler. ”Sådant behövde ingen tjuv räkna med förr. Be om deras bilder, och jämför dem noga.”",
    "uppdrag": "Vem tog brudskålen – och när försvann den egentligen?", "bild": "bilder/fall4/garden.jpg", "berattare": "Kriminalinspektör Maja Strand"},
  "personer": [
    {"id": "gunnar", "namn": "Gunnar Sahlin", "roll": "Gårdens ägare, anmälde stölden", "misstankt": T, "beskrivning": "Stolt över gården och över skålen, som gått i släkten sedan 1760-talet."},
    {"id": "lena", "namn": "Lena Sahlin", "roll": "Gunnars fru", "misstankt": T, "beskrivning": "Hämtade sin mor på Arlanda under dagen."},
    {"id": "mikael", "namn": "Mikael Ström", "roll": "Antikhandlare, gäst", "misstankt": T, "beskrivning": "Kan silver. Gick tidigt från festen med en stor väska."},
    {"id": "olle", "namn": "Olle Sahlin", "roll": "Brorson, 19 år", "misstankt": T, "beskrivning": "Bar in tårtan. Stod länge vid skänken."},
-   {"id": "karin", "namn": "Karin Berglund", "roll": "Granne och gäst", "misstankt": False, "beskrivning": "Fotograferar allt. Var först in i salen."},
+   {"id": "karin", "namn": "Karin Berglund", "roll": "Gäst, väninna till Lena", "misstankt": False, "beskrivning": "Fotograferar allt. Var först in i salen."},
    {"id": "birgitta", "namn": "Birgitta Nordin", "roll": "Lenas syster, stod för maten", "misstankt": False, "beskrivning": "Märkte först att skålen var borta."}
  ]}
 

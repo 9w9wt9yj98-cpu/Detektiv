@@ -23,7 +23,7 @@
   },
   "intro": {
     "rubrik": "Ekbacka herrgård, Sörmland. November 1926.",
-    "text": "Regnet har just upphört över Ekbacka. I stora salen pågår middag för femton gäster när friherrinnan Ebba Wrede går upp till sitt sovrum klockan nio, med kammarjungfrun Elsa Lund tätt bakom sig – och finner sitt pärlhalsband borta.\n\nKl. 19.55 lade hon halsbandet i smyckeskrinet, medan Elsa höll ljuset, och låste dörren efter sig. Kl. 21.00 var dörren fortfarande låst. Skrinet var tomt och fönstret stod öppet.\n\nDen unge konstapel Strand har ringt efter dig. ”Det ser ut som en inbrottstjuv via fönstret”, säger han. ”Men friherrinnan insisterar på att någon i huset ligger bakom.”",
+    "text": "Regnet har just upphört över Ekbacka. I stora salen pågår middag för femton gäster när friherrinnan Ebba Wrede går upp till sitt sovrum klockan nio, med kammarjungfrun Elsa Lund tätt bakom sig – och finner sitt pärlhalsband borta.\n\nKl. 19.55 lade hon halsbandet i smyckeskrinet, medan Elsa höll ljuset, och låste dörren efter sig. Kl. 21.00 var dörren fortfarande låst. Skrinet var tomt och fönstret stod öppet.\n\nDen unge konstapel Strand har ringt efter dig. ”Det ser ut som om en inbrottstjuv har tagit sig in genom fönstret”, säger han. ”Men friherrinnan insisterar på att någon i huset ligger bakom.”",
     "uppdrag": "Vem tog halsbandet?",
     "bild": "bilder/fall1/matsalen.jpg",
     "berattare": "Konstapel Nils Strand"
@@ -127,7 +127,7 @@
               "oppet": true,
               "interaktiv": {
                 "namn": "Fönstret",
-                "text": "Fönstret står på glänt mot den fuktiga novemberkvällen. På det yttre fönsterblecket ligger blött lövskräp och damm i en jämn, orörd hinna. Nedanför syns rabatten – nykrattad, utan ett enda fotspår.",
+                "text": "Fönstret står öppet mot den fuktiga novemberkvällen. På det yttre fönsterblecket ligger blött lövskräp och damm i en jämn, orörd hinna. Nedanför syns rabatten – nykrattad, utan ett enda fotspår.",
                 "ger_fynd": "f-fonster"
               }
             },
@@ -1047,7 +1047,7 @@
       "ikon": "🏺",
       "text": "Vasen vid fönstret är vält inifrån; vattnet har runnit in mot rummet.",
       "typ": "stod",
-      "forklaring": "Vasen och avtrycken var en del av kulissen: tjuven knuffade vasen och öppnade fönstret inifrån för att det skulle se ut som ett inbrott."
+      "forklaring": "Vasen och det öppna fönstret var en kuliss: tjuven knuffade omkull vasen och öppnade fönstret inifrån för att det skulle se ut som ett inbrott."
     },
     {
       "id": "f-handsktrad",
@@ -1258,7 +1258,7 @@
     }
   ],
   "aterkoppling": {
-    "ratt": "Elementärt! Fönstret var en kuliss. Ingen klättrar genom ett fönster utan att röra lövskräpet. Kvar fanns tre nycklar och bara en nyckelbärare som lämnade bordet. Och vem går till källaren efter en flaska som redan står i skafferiet?",
+    "ratt": "Elementärt! Fönstret var en kuliss. Ingen klättrar genom ett fönster utan att röra lövskräpet. Kvar fanns tre nycklar och bara en nyckelbärare som lämnade salen. Och vem går till källaren efter en flaska som redan står i skafferiet?",
     "fel": {
       "gustav": "Gustav rodnar, men hur skulle han ha kommit in? Han har ingen nyckel och fönstret är orört.",
       "elsa": "Elsa har nyckel, men femton gäster såg henne servera soppan.",
@@ -1402,7 +1402,7 @@
         },
         {
           "text": "Elsa Lund.",
-          "svar": "Femton gäster såg henne servera i salen hela kvällen."
+          "svar": "Femton gäster såg henne servera i salen hela middagen."
         },
         {
           "text": "Holm.",

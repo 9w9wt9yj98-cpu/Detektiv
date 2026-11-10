@@ -67,11 +67,13 @@ function fonster(d) {
   box(g, W + 0.16, 0.1, 0.12, ram, 0, y0 + H + 0.05, 0.05);
   box(g, 0.08, H, 0.12, ram, -W / 2 - 0.04, y0 + H / 2, 0.05);
   box(g, 0.08, H, 0.12, ram, W / 2 + 0.04, y0 + H / 2, 0.05);
-  // Fönsterbleck med orört lövskräp och damm
+  // Fönsterbleck med orört lövskräp och damm (lov: false – rent bleck, t.ex. en vinternatt)
   box(g, W + 0.3, 0.05, 0.32, mat('#bfb39a'), 0, y0 - 0.02, 0.12);
-  const lov = mat('#6a4a22');
-  const r = [0.1, -0.35, 0.42, -0.1, 0.25, -0.5, 0.55];
-  r.forEach((x, i) => box(g, 0.07, 0.008, 0.05, lov, x, y0 + 0.01, 0.06 + (i % 3) * 0.07, 0, i, 0));
+  if (d.lov !== false) {
+    const lov = mat('#6a4a22');
+    const r = [0.1, -0.35, 0.42, -0.1, 0.25, -0.5, 0.55];
+    r.forEach((x, i) => box(g, 0.07, 0.008, 0.05, lov, x, y0 + 0.01, 0.06 + (i % 3) * 0.07, 0, i, 0));
+  }
   // Fönsterbågar: vänster stängd, höger öppen inåt
   const bage = (x, oppen) => {
     const p = new THREE.Group(); p.position.set(x, y0, 0.06); g.add(p);
