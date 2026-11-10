@@ -184,6 +184,69 @@ export function malning(seed = 71) {
   });
 }
 
+/** Oljeporträtt: en person i halvfigur mot mörk bakgrund (porträttgallerier). Utseendet varierar med seed. */
+export function portratt(seed = 1) {
+  return skapa('portratt' + seed, 192, 256, (g, w, h) => {
+    const r = rng(seed * 7 + 3);
+    const gr = g.createRadialGradient(w * 0.5, h * 0.38, 10, w * 0.5, h * 0.45, h * 0.7);
+    gr.addColorStop(0, '#5a4630'); gr.addColorStop(1, '#1e150c');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    const kvinna = seed % 2 === 1;
+    const uniform = !kvinna && r() < 0.5;
+    const drakt = kvinna ? ['#6a4a7a', '#7a3a2a', '#3a6a6a'][seed % 3] : uniform ? '#1e2a4a' : '#1a1612';
+    const harfarg = ['#2a1a10', '#5a3a22', '#8a8478', '#c8c0b0'][Math.floor(r() * 4)];
+    const cx = w / 2;
+    // Axlar och dräkt
+    g.fillStyle = drakt; g.beginPath();
+    g.moveTo(cx - 80, h); g.quadraticCurveTo(cx - 78, h * 0.66, cx - 30, h * 0.6); g.lineTo(cx + 30, h * 0.6);
+    g.quadraticCurveTo(cx + 78, h * 0.66, cx + 80, h); g.fill();
+    if (kvinna) { g.fillStyle = '#e8d8c0'; g.beginPath(); g.ellipse(cx, h * 0.63, 26, 10, 0, 0, Math.PI); g.fill(); }
+    else {
+      g.fillStyle = '#efe6d2'; g.beginPath(); g.moveTo(cx - 14, h * 0.6); g.lineTo(cx, h * 0.72); g.lineTo(cx + 14, h * 0.6); g.fill();
+      if (uniform) { g.fillStyle = '#c8a040'; for (let i = 0; i < 4; i++) { g.beginPath(); g.arc(cx, h * 0.76 + i * 14, 2.5, 0, 7); g.fill(); } g.fillRect(cx - 62, h * 0.66, 22, 5); g.fillRect(cx + 40, h * 0.66, 22, 5); }
+      else { g.fillStyle = '#1a1a1a'; g.fillRect(cx - 4, h * 0.62, 8, 22); }
+    }
+    // Hals och ansikte
+    g.fillStyle = '#d8b090'; g.fillRect(cx - 9, h * 0.5, 18, h * 0.11);
+    g.fillStyle = '#e2bc98'; g.beginPath(); g.ellipse(cx, h * 0.4, 25, 32, 0, 0, 7); g.fill();
+    g.fillStyle = 'rgba(120,70,40,0.35)'; g.beginPath(); g.ellipse(cx + 9, h * 0.42, 12, 26, 0, 0, 7); g.fill();
+    // Hår
+    g.fillStyle = harfarg; g.beginPath();
+    if (kvinna) { g.ellipse(cx, h * 0.33, 30, 24, 0, Math.PI, 2 * Math.PI); g.fill(); g.beginPath(); g.arc(cx, h * 0.24, 14, 0, 7); g.fill(); }
+    else { g.ellipse(cx, h * 0.33, 27, 17, 0, Math.PI, 2 * Math.PI); g.fill(); if (r() < 0.6) { g.fillRect(cx - 12, h * 0.45, 24, 5); } }
+    // Ögon och mun
+    g.fillStyle = '#3a2a1a'; g.fillRect(cx - 12, h * 0.385, 6, 3); g.fillRect(cx + 6, h * 0.385, 6, 3);
+    g.fillStyle = '#9a5a48'; g.fillRect(cx - 6, h * 0.475, 12, 2);
+    gravyr(g, w, h, 0.18, seed + 5);
+  });
+}
+
+/** Ett inramat gruppfotografi i bleka färger: personalen i två rader i snön, en i röd anorak längst fram. */
+export function fotografi(seed = 1) {
+  return skapa('fotografi' + seed, 256, 172, (g, w, h) => {
+    const r = rng(seed * 11 + 1);
+    g.fillStyle = '#f2ece0'; g.fillRect(0, 0, w, h); // vit kant
+    const x0 = 10, y0 = 10, bw = w - 20, bh = h - 20;
+    g.fillStyle = '#7a5a3c'; g.fillRect(x0, y0, bw, bh * 0.55); // timmerväggen bakom
+    g.fillStyle = 'rgba(40,25,10,0.25)'; for (let y = y0 + 8; y < y0 + bh * 0.55; y += 9) g.fillRect(x0, y, bw, 2);
+    g.fillStyle = '#e6e8ea'; g.fillRect(x0, y0 + bh * 0.55, bw, bh * 0.45); // snön
+    const figur = (x, y, s, kropp, har = '#4a3420') => {
+      g.fillStyle = kropp; g.beginPath(); g.moveTo(x - 9 * s, y + 34 * s); g.quadraticCurveTo(x - 10 * s, y + 8 * s, x, y + 6 * s); g.quadraticCurveTo(x + 10 * s, y + 8 * s, x + 9 * s, y + 34 * s); g.fill();
+      g.fillStyle = '#e0bc9c'; g.beginPath(); g.arc(x, y, 6 * s, 0, 7); g.fill();
+      g.fillStyle = har; g.beginPath(); g.arc(x, y - 2 * s, 6 * s, Math.PI, 2 * Math.PI); g.fill();
+    };
+    const bak = ['#2a2a30', '#3a3a44', '#4a2a2a', '#2a3a2a', '#303040'];
+    for (let i = 0; i < 5; i++) figur(x0 + 30 + i * 46, y0 + 42, 1, bak[i], ['#4a3420', '#8a8478', '#2a1a10', '#6a4a2a', '#3a2a1a'][Math.floor(r() * 5)]);
+    // Främre raden: längst fram Birgit i röd anorak, bredvid henne Claes med armen om hennes axlar
+    const fram = [['#2a2a34', '#5a3a22'], ['#c0302a', '#c8a050'], ['#1e2a4a', '#3a2a1a'], ['#3a3a30', '#8a8478']];
+    fram.forEach(([k, hr], i) => figur(x0 + 54 + i * 48, y0 + 74, 1.15, k, hr));
+    g.strokeStyle = '#1e2a4a'; g.lineWidth = 5; g.lineCap = 'round'; g.beginPath(); g.moveTo(x0 + 150, y0 + 94); g.quadraticCurveTo(x0 + 128, y0 + 88, x0 + 110, y0 + 94); g.stroke();
+    // Blekt fotopapper
+    g.fillStyle = 'rgba(230,200,140,0.22)'; g.fillRect(x0, y0, bw, bh);
+    gravyr(g, w, h, 0.1, seed + 9);
+  });
+}
+
 export function papper(rader = true) {
   return skapa('papper' + rader, 128, 160, (g, w, h) => {
     g.fillStyle = '#efe2c4'; g.fillRect(0, 0, w, h);
