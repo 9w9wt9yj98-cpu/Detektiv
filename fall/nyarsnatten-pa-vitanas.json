@@ -408,11 +408,11 @@
               "id": "trappdorr",
               "typ": "dorr",
               "pos": [
-                -3.49,
+                3.49,
                 0,
-                2.0
+                0.75
               ],
-              "rot": 90,
+              "rot": -90,
               "interaktiv": {
                 "namn": "Östra trappan",
                 "text": "En smal dörr till östra trappan, som går ner till rökrummet. Strand har ställt en betjänt vid foten av den, så den är stängd för dig nu – men i kväll var den öppen."

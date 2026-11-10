@@ -82,7 +82,7 @@ bibl = {"id": "biblioteket", "namn": "Biblioteket", "mekanik": "scen", "payload"
     obj("sjostedt", "person", [-2.0, 0, 0.8], rot=150, rock="#1a1a1e", byxor="#1a1a1e", slips="#eeeeee", har="#8a8a8a", glasogon=True, skagg=True, seed=21,
         interaktiv=ia("Doktor Sjöstedt", "Doktor Sjöstedt torkar sina glasögon. ”Ett enda kraftigt slag bakifrån, med brevpressen. Han föll framåt och dog nästan genast. Ingen olycka – ett fall framåt ger inte ett sådant sår i bakhuvudet. Döden inträffade mellan elva och tjugo i tolv; närmare än så kan jag inte säga.”", "f-lakaren")),
     obj("dorr", "dorr", [0, 0, 2.99], rot=180, gar_till="galleriet", interaktiv=ia("Till galleriet", "Dörren ut till porträttgalleriet, som leder till balsalen.")),
-    obj("trappdorr", "dorr", [-3.49, 0, 2.0], rot=90, interaktiv=ia("Östra trappan",
+    obj("trappdorr", "dorr", [3.49, 0, 0.75], rot=-90, interaktiv=ia("Östra trappan",
         "En smal dörr till östra trappan, som går ner till rökrummet. Strand har ställt en betjänt vid foten av den, så den är stängd för dig nu – men i kväll var den öppen.")),
     obj("bok", "anteckningsbok", [1.0, 0.0, 2.2], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
   ]}}}

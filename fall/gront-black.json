@@ -664,6 +664,56 @@
               "interaktiv": {
                 "namn": "Anteckningsboken"
               }
+            },
+            {
+              "id": "kannan",
+              "typ": "kaffekanna",
+              "pos": [
+                -1.85,
+                0.745,
+                -0.45
+              ],
+              "rot": 30
+            },
+            {
+              "id": "kopp1",
+              "typ": "kaffekopp",
+              "pos": [
+                -1.72,
+                0.745,
+                -0.82
+              ],
+              "rot": 140
+            },
+            {
+              "id": "tidningen",
+              "typ": "tidning",
+              "pos": [
+                -1.05,
+                0.745,
+                -0.72
+              ],
+              "rot": 25
+            },
+            {
+              "id": "kopp2",
+              "typ": "kaffekopp",
+              "pos": [
+                0.62,
+                0.745,
+                -1.12
+              ],
+              "rot": -60
+            },
+            {
+              "id": "kopp3",
+              "typ": "kaffekopp",
+              "pos": [
+                1.36,
+                0.745,
+                -0.72
+              ],
+              "rot": 100
             }
           ],
           "ljud": [
@@ -724,7 +774,7 @@
             },
             {
               "id": "dackstol1",
-              "typ": "stol",
+              "typ": "dacksstol",
               "pos": [
                 -2.4,
                 0,
@@ -736,9 +786,9 @@
               "id": "ritblocket",
               "typ": "papper",
               "pos": [
-                -2.4,
-                0.46,
-                -1.6
+                -2.36,
+                0.35,
+                -1.5
               ],
               "antal": 3,
               "interaktiv": {
@@ -749,21 +799,22 @@
             },
             {
               "id": "dackstol2",
-              "typ": "stol",
+              "typ": "dacksstol",
               "pos": [
                 -0.6,
                 0,
                 1.6
               ],
-              "rot": 160
+              "rot": 160,
+              "farg": "#7a3a2e"
             },
             {
               "id": "manuset",
               "typ": "papper",
               "pos": [
-                -0.6,
-                0.46,
-                1.6
+                -0.57,
+                0.35,
+                1.5
               ],
               "interaktiv": {
                 "namn": "Maskinskrivna sidor",

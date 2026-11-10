@@ -51,7 +51,7 @@ skid = {"id": "skidrummet", "namn": "Skidrummet", "mekanik": "scen", "payload": 
   "start": {"pos": [0.6, 1.4], "titta": 0},
   "objekt": [
     obj("panelen", "panelhal", [-0.6, 0, -2.5], interaktiv=ia("Den uppbrutna panelen",
-        "Snickaren har brutit loss tre brädor i den gamla pärlsponten. Bakom dem finns ett hålrum, och där låg skidorna, pjäxorna och resväskan. Brädorna är lika gamla och gulnade som resten av rummets panel.", "f-fyndet")),
+        "Snickaren har brutit loss tre brädor i den gamla furupanelen vid norra väggen. Bakom dem finns ett hålrum, och där låg skidorna, pjäxorna och resväskan. Brädorna är gulnade av åren och spikarna rostiga – den här panelen har inte rörts på mycket länge.", "f-fyndet")),
     obj("skidorna", "skidor", [1.0, 0, -2.5], lutad=True),
     obj("pjaxorna", "pjaxor", [0.9, 0, -1.9], rot=-20),
     obj("vaskan", "resvaska", [-2.1, 0, -1.4], rot=20, interaktiv=ia("Resväskan",

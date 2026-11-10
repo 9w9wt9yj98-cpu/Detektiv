@@ -297,6 +297,19 @@ export function papper(rader = true) {
   });
 }
 
+/** Dagstidning, hopvikt: tidningshuvud, rubrik och spalter. */
+export function tidning() {
+  return skapa('tidning', 160, 224, (g, w, h) => {
+    g.fillStyle = '#e6dcc2'; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#2a2018'; g.font = 'bold 20px Georgia, serif'; g.textAlign = 'center'; g.fillText('ÖSTGÖTA-POSTEN', w / 2, 24);
+    g.fillRect(8, 31, w - 16, 2); g.fillRect(8, 36, w - 16, 1);
+    g.font = 'bold 13px Georgia, serif'; g.fillText('Kanaltrafiken ökar', w / 2, 54);
+    const r = rng(41); g.strokeStyle = 'rgba(40,30,20,0.6)'; g.lineWidth = 1;
+    for (let k = 0; k < 3; k++) for (let y = 66; y < h - 8; y += 5) { const x0 = 8 + k * 50; g.beginPath(); g.moveTo(x0, y); g.lineTo(x0 + 34 + r() * 10, y); g.stroke(); }
+    gravyr(g, w, h, 0.07, 43);
+  });
+}
+
 export function urtavla() {
   return skapa('urtavla', 128, 128, (g, w) => {
     g.fillStyle = '#efe2c4'; g.beginPath(); g.arc(64, 64, 60, 0, 7); g.fill();
