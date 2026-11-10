@@ -49,7 +49,7 @@ scen = {"id": "scenen", "namn": "Scenen", "mekanik": "scen", "payload": {"visnin
   "bredd": 9.0, "djup": 6.4, "hojd": 5.0, "miljo": "inomhus", "bakgrund": "#0c0a0a", "dimma": [8, 18, "#120e0c"],
   "golv": "#3a2a1c", "verklig_golv": "plankor", "vagg": "puts", "putsfarg": "#2a2420", "panel": False,
   "ljus": SCENLJUS,
-  "start": {"pos": [1.0, 1.6], "titta": 0},
+  "start": {"pos": [0.3, 2.45], "titta": 0},
   "objekt": [
     # Ridån är nere mot salongen (söder). Bakom oss: dekoren ”Den gröna salongen”.
     obj("ridan", "rida", [0, 0, 3.05], rot=180, bredd=9.0, hojd=5.0, interaktiv=ia("Ridån",

@@ -124,7 +124,9 @@ button { font-family: inherit; }
 }
 .hud-titel { flex: 1; min-width: 0; text-align: center; }
 .hud-titel h1 { margin: 0; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--massing-ljus); }
-.rumnamn { font-size: 13px; font-style: italic; opacity: .85; }
+.rumnamn { display: flex; justify-content: center; font-size: 13px; font-style: italic; opacity: .85; white-space: nowrap; }
+.rn-namn { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.rn-kvar { flex: none; white-space: pre; }
 .liten-bok.puls { animation: puls 0.5s ease-in-out 3; }
 @keyframes puls { 50% { transform: scale(1.18); box-shadow: 0 0 18px var(--massing-ljus); } }
 .hud-botten { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding: 10px 12px calc(12px + var(--sakert-botten)); pointer-events: none; }
@@ -492,7 +494,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-vis
   .hud-topp > a.ikonknapp { order: 0; }
   .hud-titel { order: 1; flex: 0 1 auto; max-width: 34%; text-align: left; }
   .hud-titel h1 { font-size: 15px; }
-  .rumnamn { font-size: 12px; }
+  .rumnamn { font-size: 12px; justify-content: flex-start; }
   .hud-mal { order: 2; flex: 1 1 auto; flex-basis: auto; border-top: 0; padding-top: 0; font-size: 13px; }
   .hud-mal .mal::before { font-size: 11px; }
   .raknare { min-height: 26px; padding: 2px 10px; font-size: 13px; }

@@ -345,6 +345,29 @@
               "lyser": true
             },
             {
+              "id": "lampa",
+              "typ": "oljelampa",
+              "pos": [
+                0.5,
+                0.77,
+                -1.8
+              ],
+              "ljus": true,
+              "styrka": 2.6
+            },
+            {
+              "id": "l1",
+              "typ": "vagglampa",
+              "pos": [
+                1.5,
+                2.1,
+                2.98
+              ],
+              "rot": 180,
+              "styrka": 1.0,
+              "rackvidd": 5
+            },
+            {
               "id": "sjostedt",
               "typ": "person",
               "pos": [
@@ -1531,9 +1554,8 @@
             "#141a26"
           ],
           "golv": {
-            "typ": "sten"
+            "typ": "sno"
           },
-          "verklig_golv": "hallar",
           "ljus": {
             "omgivning": "#9fb0d0",
             "omgivning_styrka": 0.6,
@@ -1577,6 +1599,72 @@
               ],
               "langd": 12,
               "sno": true
+            },
+            {
+              "id": "trampat",
+              "typ": "trampad_sno",
+              "pos": [
+                2.6,
+                0,
+                1.5
+              ],
+              "storlek": 3.4,
+              "seed": 3
+            },
+            {
+              "id": "stig0",
+              "typ": "trampad_sno",
+              "pos": [
+                -0.8,
+                0,
+                -5.0
+              ],
+              "storlek": 1.5,
+              "seed": 5
+            },
+            {
+              "id": "stig1",
+              "typ": "trampad_sno",
+              "pos": [
+                -0.3,
+                0,
+                -3.7
+              ],
+              "storlek": 1.5,
+              "seed": 6
+            },
+            {
+              "id": "stig2",
+              "typ": "trampad_sno",
+              "pos": [
+                0.4,
+                0,
+                -2.4
+              ],
+              "storlek": 1.5,
+              "seed": 7
+            },
+            {
+              "id": "stig3",
+              "typ": "trampad_sno",
+              "pos": [
+                1.1,
+                0,
+                -1.1
+              ],
+              "storlek": 1.5,
+              "seed": 8
+            },
+            {
+              "id": "stig4",
+              "typ": "trampad_sno",
+              "pos": [
+                1.8,
+                0,
+                0.1
+              ],
+              "storlek": 1.5,
+              "seed": 9
             },
             {
               "id": "fyrverkeri",
