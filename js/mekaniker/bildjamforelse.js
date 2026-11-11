@@ -118,8 +118,8 @@ function ritkontor(v) {
       <rect x="${X0 + B / 2 - 9}" y="${y + 6 + (ajar ? 3 : 0)}" width="18" height="4" rx="2" fill="#4a4842"/><text x="${X0 + 11}" y="${y + 12 + (ajar ? 3 : 0)}" font-size="8" font-family="Georgia,serif" fill="#3a3832">${i + 1}</text>`; }).join('');
   const ry = Y0 + 6 + 6 * LH;
   const remsaRit = v.remsa === 'bruten'
-    ? `<path d="M${X0 + 62},${ry - 5} l9,1 l-2,7 l-8,-2 z M${X0 + 64},${ry + 13} l8,-2 l2,9 l-9,1 z" fill="#fbfbf6" stroke="#77756c" stroke-width="1"/>`
-    : `<rect x="${X0 + (v.remsa === 'vanster' ? 20 : 66)}" y="${ry - 7}" width="11" height="26" fill="#fbfbf6" stroke="#77756c" stroke-width="1"/><path d="M${X0 + (v.remsa === 'vanster' ? 22 : 68)},${ry + 4} q3,-4 7,0" stroke="#55534c" stroke-width="1" fill="none"/>`;
+    ? `<path d="M${X0 + 62},${ry - 8} l13,1 l-3,9 l-11,-3 z M${X0 + 64},${ry + 13} l11,-3 l3,12 l-13,1 z" fill="#fdfdf8" stroke="#55534c" stroke-width="1.4"/>`
+    : `<rect x="${X0 + (v.remsa === 'vanster' ? 17 : 66)}" y="${ry - 9}" width="15" height="31" fill="#fdfdf8" stroke="#55534c" stroke-width="1.4"/><path d="M${X0 + (v.remsa === 'vanster' ? 20 : 69)},${ry + 6} q4.5,-5 9,0" stroke="#55534c" stroke-width="1.2" fill="none"/>`;
   const skap = `<g data-r="bakgrund"><rect x="${X0}" y="${Y0}" width="${B}" height="${8 * LH + 12}" fill="#9d9b92" stroke="#4a4842" stroke-width="2"/>${lador}<rect x="${X0 + 6}" y="${Y0 + 8 * LH + 12}" width="6" height="8" fill="#4a4842"/><rect x="${X0 + B - 12}" y="${Y0 + 8 * LH + 12}" width="6" height="8" fill="#4a4842"/></g>
     <g data-r="remsa">${remsaRit}<rect x="${X0 + 2}" y="${ry - 10}" width="${B - 4}" height="${LH + 16}" fill="transparent"/></g>`;
   // Personer i bild
