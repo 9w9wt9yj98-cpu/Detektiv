@@ -520,9 +520,9 @@ Efter överblicken och granskningen bad Martin den 10 november att allt på list
 
 Nya föremål och fält står i `README.md`.
 
-## Fall 11 – Låda sju (november 2026) – väntar på Martin
+## Fall 11 – Låda sju (november 2026) – godkänt av Martin 11 november (#27)
 
-Martin bad den 11 november att det som var kvar skulle göras: omslaget till fall 3 (ovan) och ett fall till i kapitel III, som bara hade ett. Fallet ligger som pull request tills Martin har sagt ja, enligt regeln om nya fall.
+Martin bad den 11 november att det som var kvar skulle göras: omslaget till fall 3 (ovan) och ett fall till i kapitel III, som bara hade ett. Fallet låg som pull request tills Martin sa ”kör” samma dag; han valde att släppa det utan blindtest.
 
 **Fallet:** Storbergets gruva i Bergslagen, måndagen den 8 mars 1943. Den hemliga transportplanen för malmtågen ligger i ritkontorets förseglade låda sju. På eftermiddagen hittas förseglingsremsan avsliten; ingenting är stulet, men bladen ligger i fel ordning. Kommissarie Nils Strand och spelaren kommer från Örebro på kvällen. Tre rum – ritkontoret, disponentens rum och gruvbacken i snön – och bildjämförelse som kärnmekanik: jubileumsfotografen har tagit fyra bilder av ritkontoret under dagen. Källa: `verktyg/fall/lada_sju.py`.
 
@@ -542,4 +542,4 @@ Martin bad den 11 november att det som var kvar skulle göras: omslaget till fal
 - Ny föremålsfil `js/tre/foremal/gruva.js`: ritbord, ritningsskåp, kameraskåp med reprokamera, kamin, vedlår, gruvlave och malmvagn.
 - Omslaget är en sepiatonad bild ur 3D-scenen, som för fall 7–10.
 
-**Inte gjort:** fallet är inte blindtestat av en fristående agent, som fall 7–10 blev. Det är genomläst i spelarvyn och spelat av testet, men ett blindtest bör göras innan eller strax efter att det släpps.
+**Inte gjort:** fallet är inte blindtestat av en fristående agent, som fall 7–10 blev. Det är genomläst i spelarvyn och spelat av testet. Ett blindtest i efterhand är fortfarande värt att göra.
