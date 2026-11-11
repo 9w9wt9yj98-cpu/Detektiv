@@ -519,3 +519,27 @@ Efter överblicken och granskningen bad Martin den 10 november att allt på list
 **Fall 2:** Strand reser till Narvik, som granskningen ändrade till. Kiruna-alternativet valdes bort.
 
 Nya föremål och fält står i `README.md`.
+
+## Fall 11 – Låda sju (november 2026) – godkänt av Martin 11 november (#27)
+
+Martin bad den 11 november att det som var kvar skulle göras: omslaget till fall 3 (ovan) och ett fall till i kapitel III, som bara hade ett. Fallet låg som pull request tills Martin sa ”kör” samma dag; han valde att släppa det utan blindtest.
+
+**Fallet:** Storbergets gruva i Bergslagen, måndagen den 8 mars 1943. Den hemliga transportplanen för malmtågen ligger i ritkontorets förseglade låda sju. På eftermiddagen hittas förseglingsremsan avsliten; ingenting är stulet, men bladen ligger i fel ordning. Kommissarie Nils Strand och spelaren kommer från Örebro på kvällen. Tre rum – ritkontoret, disponentens rum och gruvbacken i snön – och bildjämförelse som kärnmekanik: jubileumsfotografen har tagit fyra bilder av ritkontoret under dagen. Källa: `verktyg/fall/lada_sju.py`.
+
+| Dimension | Fall 11 | Variationsreglerna |
+|---|---|---|
+| Miljö / epok | Gruvkontor, 1940-tal (beredskapstid) | Ny miljö och ny epok. Fall 10 var en kanalångare 1925. |
+| Brott | Spionage | Ny brottstyp. |
+| Kärnmekanik | Bildjämförelse | Fall 10 hade logikrutnät; bildjämförelse användes senast i fall 4. |
+| Skyldig / motiv | Den mest sympatiska (ritaren) / ideologi | Fall 9 familj och kärlek, fall 10 främling och hämnd. |
+| Twist | Ingen | Fall 9 hade tidshopp. |
+
+**Lösningen i korthet:** Ingenjör Falk förseglar alltid med remsan till vänster om handtaget. På bilden 09.15 sitter den där, på bilden 11.40 sitter en remsa till höger: lådan öppnades och förseglades om på förmiddagen. Remsan som slets av på eftermiddagen – när den tyske inköparen herr Kessler satt ensam i rummet – var en kuliss. Planen fotograferades med kontorets reprokamera (räkneverket har gått från 12 till 20, planen har åtta blad), och bara Falk och ritaren Maj Lindgren har nyckel till kameraskåpet. Falk och fotografen var nere i gruvan 09.30–11.30 (nedfartsboken), Kessler och disponenten kom med tåget 12.52, och vaktmästare Storm bar bara in ved. Maj Lindgren säger själv att hon satt i rummet hela förmiddagen och att ingen rörde skåpet.
+
+**Kodändringar:**
+- `js/mekaniker/bildjamforelse.js` har ett nytt motiv, `ritkontor`, med detaljerna förseglingsremsa, vedlår, gardin, lampa, väggklocka, utsikt och person. Fall 4 ritas som förut.
+- Nytt i samma fil: `regioner.<detalj>.narmare`. En detalj som alltid är viktig (remsan) sorteras aldrig bort som oviktig. Jämför man två bilder som ligger för långt isär får man rådet att jämföra närmare i tid.
+- Ny föremålsfil `js/tre/foremal/gruva.js`: ritbord, ritningsskåp, kameraskåp med reprokamera, kamin, vedlår, gruvlave och malmvagn.
+- Omslaget är en sepiatonad bild ur 3D-scenen, som för fall 7–10.
+
+**Inte gjort:** fallet är inte blindtestat av en fristående agent, som fall 7–10 blev. Det är genomläst i spelarvyn och spelat av testet. Ett blindtest i efterhand är fortfarande värt att göra.

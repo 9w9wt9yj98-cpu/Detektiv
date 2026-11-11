@@ -68,6 +68,11 @@
           "nummer": 10,
           "id": "gront-black",
           "fil": "gront-black.json"
+        },
+        {
+          "nummer": 11,
+          "id": "lada-sju",
+          "fil": "lada-sju.json"
         }
       ]
     }

@@ -10,3 +10,4 @@ import './teater.js';
 import './slott.js';
 import './fjall.js';
 import './skepp.js';
+import './gruva.js';

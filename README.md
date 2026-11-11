@@ -46,6 +46,8 @@ Utöver fälten i [designförslaget](docs/forslag-v1.md#13-dataformat-för-fall-
 - Varje objekt har `typ` (se `js/tre/foremal/`: bl.a. `dorr`, `fonster`, `byra`, `skrin`, `eldstad`, `bokhylla`, `stol`, `langbord`, `vinglas`, `anteckningsbok`), `pos: [x, y, z]`, `rot`, samt valfritt `interaktiv: { namn, text, ger_fynd }`, `gar_till` (dörr till ett annat moment) och `funktion: "anteckningsbok"`.
 - `golv` är en färg (trägolv) eller `{ "typ": "sten" | "jarn" | "sno" }`. `sno` ger snötäckt mark; på den kan man lägga `trampad_sno` (nertrampad fläck med stövelavtryck) och `snodriva` (en låg hög, t.ex. innanför ett uppbrutet fönster).
 - En `person` kan ha `spjalk: "v"` eller `"h"` (spjälat ben). En `stege` med `topp: true` är stegens övre ände, med en lucka i golvet.
+- Bildjämförelsen ritar sina bilder ur data: `bilder[].motiv` är `narbild` eller `skank` (fall 4) eller `ritkontor` (fall 11), och `varden` anger hur varje detalj ser ut. `regioner.<detalj>.narmare` gör en detalj alltid viktig: en skillnad som inte är en upptäckt ger då rådet att jämföra bilder närmare i tid, i stället för att sorteras bort som oviktig.
+- Gruvkontoret (`js/tre/foremal/gruva.js`): `ritbord`, `ritningsskap` (`forseglad`: lådans nummer, `bruten`), `kameraskap`, `kamin`, `vedlar`, `gruvlave` och `malmvagn`.
 - Fler föremål: `regnmaskin` och `stolpe` (teatern), `kaffekopp`, `kaffekanna` och `tidning` (dukade bord), `dacksstol` (fartygsdäck).
 - En `tavla` visar en målning; med `motiv: "portratt"` ett oljeporträtt och med `motiv: "foto"` ett inramat gruppfotografi.
 - Rummet kan också ha `miljo: "ute"` (gård med gräs och himmel), `vagg` (`tapet`, `puts`, `sten`, `trapanel`, `fasad`), `tak: false`, `panel: false` och `sno` (snöfall).

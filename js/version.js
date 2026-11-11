@@ -1,2 +1,2 @@
 // Skrivs av verktyg/release.mjs
-export const VERSION = 41;
+export const VERSION = 42;

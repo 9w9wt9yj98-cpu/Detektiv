@@ -26,7 +26,7 @@ Ett 3D-deckarspel för vuxna i klassisk stil (Agatha Christie, Sherlock Holmes) 
 ```sh
 node verktyg/validera_fall.mjs          # validera alla fall (logik, nåbarhet, id:n)
 python3 -m http.server 18431 &          # valfritt: test/spela.mjs startar annars en egen server
-node test/spela.mjs                     # spela alla fall i iPhone-vy och på dator (ca 9 min); fall1 … fall6 för ett fall
+node test/spela.mjs                     # spela alla fall i iPhone-vy och på dator (ca 9 min); fall1 … fall11 för ett fall
 node verktyg/release.mjs                # före varje release: höjer service workerns cacheversion och fillista
 node verktyg/release.mjs --kontrollera  # kontrollerar att sw.js stämmer med filerna
 npm test                                # validering + sw-kontroll + alla speltester
