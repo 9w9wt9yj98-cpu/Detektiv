@@ -497,7 +497,7 @@ Efter överblicken och granskningen bad Martin den 10 november att allt på list
 **Fall 3**
 - Översten är vänsterhänt och ville alltid ha glaset till vänster. Det står i personbeskrivningen och vid glaset.
 - Motivet antyds nu i spelet: enligt protokollen hade översten ”en tråkig sak om pengar” att ta upp efter kaffet. Upplösningen knyter an till det.
-- **Inte gjort:** nytt omslag. Bilden visar ett runt bord, men pusslet har ett avlångt. Omslagen i kapitel I är tecknade, och en ny tecknad bild kan inte göras här. Alternativet är en sepiabild ur 3D-scenen, som i fall 7–10. Martin får välja.
+- **Nytt omslag (11 november):** den tecknade bilden visade ett runt bord, men pusslet har ett avlångt. Martin bad att det skulle rättas, så omslaget är nu en sepiatonad bild ur 3D-verandan, som i fall 7–10: avlångt bord, fem kuvert och fjärden bakom. Det är det enda omslaget i kapitel I som inte är tecknat. En tecknad bild kan ersätta det senare utan andra ändringar (`bilder/fall3/verandan.jpg`).
 
 **Fall 6**
 - Kroppen ligger nu tvärs över trappans första steg, som texten säger.
