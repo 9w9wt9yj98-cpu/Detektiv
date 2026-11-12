@@ -576,7 +576,7 @@ Martin bad den 11 november om ett blindtest av fall 11. En fristående testare l
 
 **Inte ändrat:** ”reprokamera” (kortare än ”reproduktionskamera” och begripligt), och fönstret hos disponenten.
 
-## Verklig grafik: fall 10 och 11, första steget (november 2026) – väntar på Martin
+## Verklig grafik: fall 10 och 11, första steget (november 2026) – godkänt av Martin (#29)
 
 Martin valde den 12 november 3D-modeller i fall 10 och 11 som nästa steg. Första steget återanvänder modeller som redan finns i spelet, så inga nya filer laddas. Det syns bara i den verkliga stilen (`?stil=verklig`).
 
