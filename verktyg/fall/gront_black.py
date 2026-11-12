@@ -125,6 +125,8 @@ dack = {"id": "dacket", "namn": "Promenaddäcket", "mekanik": "scen", "last_upp_
     obj("bord", "bord", [2.6, 0, 1.6], storlek=[0.7, 0.72, 0.6], modell={"fil": "modeller/round_wooden_table_01.glb", "passa": "box"}),
     obj("bok", "anteckningsbok", [2.6, 0.73, 1.6], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr", "dorr", [-3.0, 0, 2.49], rot=180, gar_till="salongen", interaktiv=ia("In i salongen", "Tillbaka in i salongen.")),
+    # Livboj på salongsväggen; i ?stil=verklig en 3D-modell (se modeller/KALLOR.md)
+    obj("livboj", "livboj", [0.9, 1.45, 2.49], rot=180, modell={"fil": "modeller/lifebuoy.glb", "passa": "skala", "pos": [0, -0.46, 0.078]}),
   ]}}}
 
 def K(id, namn, varden): return {"id": id, "namn": namn, "varden": [{"id": v, "namn": n} for v, n in varden]}

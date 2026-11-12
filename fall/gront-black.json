@@ -871,6 +871,25 @@
                 "namn": "In i salongen",
                 "text": "Tillbaka in i salongen."
               }
+            },
+            {
+              "id": "livboj",
+              "typ": "livboj",
+              "pos": [
+                0.9,
+                1.45,
+                2.49
+              ],
+              "rot": 180,
+              "modell": {
+                "fil": "modeller/lifebuoy.glb",
+                "passa": "skala",
+                "pos": [
+                  0,
+                  -0.46,
+                  0.078
+                ]
+              }
             }
           ],
           "ljud": [

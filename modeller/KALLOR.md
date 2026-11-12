@@ -7,7 +7,7 @@ fria att använda, ändra och sprida, även kommersiellt, utan krav på erkänna
 Bearbetning: Poly Havens 1k-version (glTF) har gjorts om till en enda `.glb` med
 `gltf-transform optimize --compress false --texture-compress webp --texture-size <1024|512> --simplify true --simplify-ratio <r> --simplify-error <e> --instance false`
 – texturerna som WebP (1024 bildpunkter för möblerna, 512 för småsakerna), näten förenklade med meshoptimizer
-(mest för pendylen, vasen, lampan och borden) och utan geometrikomprimering, så att ingen avkodare behövs.
+(mest för pendylen, vasen, lampan, borden och bokskåpet) och utan geometrikomprimering, så att ingen avkodare behövs.
 Utseendet i övrigt är oförändrat.
 
 | Fil | Modell | Upphovspersoner | Källa | Licens | Används i |
@@ -36,5 +36,8 @@ Utseendet i övrigt är oförändrat.
 | `oil_tin.glb` | Oil Tin | Niklas | https://polyhaven.com/a/oil_tin | CC0 1.0 | Fall 6, tornet och biträdesstugan: fotogenkannorna (en modell per kanna, `modell.delar`) |
 | `industrial_wall_lamp.glb` | Industrial Wall Lamp | Kuutti Siitonen | https://polyhaven.com/a/industrial_wall_lamp | CC0 1.0 | Fall 7, lindraget och undre maskineriet; fall 9, arkivet: vägglamporna (burlampor; glaset glöder, `modell.lyser`). Fall 11, gruvbacken: gårdslamporna |
 | `metal_office_desk.glb` | Metal Office Desk | Ulan Cabanilla | https://polyhaven.com/a/metal_office_desk | CC0 1.0 | Fall 9, arkivet: bordet med akten |
+| `wall_clock.glb` | Wall Clock | PierreB3D | https://polyhaven.com/a/wall_clock | CC0 1.0 | Fall 11, ritkontoret och disponentens rum: väggklockorna (urtavlan med rätt tid läggs på av spelet och täcker modellens egen) |
+| `vintage_cabinet_01.glb` | Vintage Cabinet 01 | Rico Cilliers | https://polyhaven.com/a/vintage_cabinet_01 | CC0 1.0 | Fall 11, disponentens rum: bokskåpet (står i bokhyllans ställe) |
+| `lifebuoy.glb` | Lifebuoy | Hank Kaamura | https://polyhaven.com/a/lifebuoy | CC0 1.0 | Fall 10, promenaddäcket: livbojen på salongsväggen |
 
 Licenstext: https://creativecommons.org/publicdomain/zero/1.0/ – Poly Havens licensvillkor: https://polyhaven.com/license

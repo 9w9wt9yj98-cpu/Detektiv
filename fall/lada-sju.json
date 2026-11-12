@@ -161,7 +161,31 @@
                 0.35,
                 1.95,
                 -2.58
-              ]
+              ],
+              "tid": [
+                18,
+                50
+              ],
+              "modell": {
+                "fil": "modeller/wall_clock.glb",
+                "passa": "skala",
+                "skala": 1.1,
+                "pos": [
+                  0,
+                  -0.026,
+                  0.028
+                ],
+                "glas": [
+                  "wall_clock_glass"
+                ],
+                "urtavla": {
+                  "nod": "wall_clock_glass",
+                  "tid": [
+                    18,
+                    50
+                  ]
+                }
+              }
             },
             {
               "id": "ritbordet",
@@ -676,7 +700,11 @@
               "storlek": [
                 1.15,
                 2.2
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/vintage_cabinet_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "fonster",
@@ -696,7 +724,31 @@
                 1.6,
                 1.95,
                 -2.38
-              ]
+              ],
+              "tid": [
+                18,
+                50
+              ],
+              "modell": {
+                "fil": "modeller/wall_clock.glb",
+                "passa": "skala",
+                "skala": 1.1,
+                "pos": [
+                  0,
+                  -0.026,
+                  0.028
+                ],
+                "glas": [
+                  "wall_clock_glass"
+                ],
+                "urtavla": {
+                  "nod": "wall_clock_glass",
+                  "tid": [
+                    18,
+                    50
+                  ]
+                }
+              }
             },
             {
               "id": "bord3",
