@@ -238,7 +238,11 @@
                 0,
                 0.1
               ],
-              "rot": 90
+              "rot": 90,
+              "modell": {
+                "fil": "modeller/painted_wooden_chair_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "pettersson",

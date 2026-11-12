@@ -45,6 +45,12 @@ fall = {
 }
 
 INNE = {"omgivning": "#ffdcae", "omgivning_styrka": 0.6, "bas": 0.34}
+# 3D-modeller i förhandsgranskningen ?stil=verklig (se modeller/KALLOR.md)
+SIDOBORD = {"fil": "modeller/side_table_tall_01.glb", "passa": "box"}
+SKRIVBORD = {"fil": "modeller/wooden_table_02.glb", "passa": "box"}
+STOL = {"fil": "modeller/dining_chair_02.glb", "passa": "box"}
+FATOLJ = {"fil": "modeller/arm_chair_01.glb", "passa": "box"}
+BURLAMPA = {"fil": "modeller/industrial_wall_lamp.glb", "passa": "skala", "skala": 0.8, "pos": [0, -0.17, 0.056], "lyser": ["industrial_wall_lamp_glass"]}
 
 # ---------- Rum 1: Ritkontoret ----------
 # Samma uppställning som på fotografierna, sedd från söder: kamin och vedlår till vänster, fönstret, väggklockan,
@@ -61,7 +67,7 @@ ritkontor = {"id": "ritkontoret", "namn": "Ritkontoret", "mekanik": "scen", "pay
         "Fönstret vetter mot gruvbacken och laven. Överst sitter mörkläggningsgardinen, en rullgardin av svart papper. Nu är den nerdragen – det är mörkt ute. ”Gruvan är krigsviktig, så kontoret ska mörkläggas varje kväll. Den dras ner i skymningen, vid sextiden”, säger ingenjör Falk. ”På dagen har vi den uppe – en ritare behöver allt ljus hon kan få.”")),
     obj("klockan", "vaggur", [0.35, 1.95, -2.58]),
     obj("ritbordet", "ritbord", [-0.3, 0, -1.35], lyser=True),
-    obj("lillabordet", "bord", [1.25, 0, -2.0], storlek=[0.7, 0.72, 0.5], interaktiv=ia("Det lilla bordet",
+    obj("lillabordet", "bord", [1.25, 0, -2.0], storlek=[0.7, 0.72, 0.5], modell=SKRIVBORD, interaktiv=ia("Det lilla bordet",
         "Ett litet sidobord mellan ritbordet och ritningsskåpet. I bordsskivan sitter fyra färska hål efter häftstift, i en rektangel precis så stor som ett maskinskrivet ark. Någon har nålat fast papper här, ett i taget.", "f-haftstift")),
     obj("ladan", "ritningsskap", [2.5, 0, -1.83], forseglad=7, bruten=True, interaktiv=ia("Låda sju",
         "Ritningsskåpets sjunde låda står på glänt. Förseglingsremsan – en pappersremsa klistrad över springan, till höger om handtaget – är avsliten på mitten. På bitarna står H.F., skrivet med blyerts. I lådan ligger mappen ”Transportplan mars–april. Hemlig” kvar. Den har åtta maskinskrivna blad, men de ligger i fel ordning: sidan 5 överst. Ingenting fattas.", "f-ladan")),
@@ -74,8 +80,8 @@ ritkontor = {"id": "ritkontoret", "namn": "Ritkontoret", "mekanik": "scen", "pay
         "Här står kontorets reprokamera: en liten kamera på en pelare, med två små lampor, som används när ritningar ska kopieras. Då lyfter man ut den, ställer den på ett bord och nålar fast papperet under den. ”Lamporna är svaga, så man får ta ritbordslampan till hjälp”, säger Falk. Skåpet är låst med ett patentlås, och låset är oskadat. Falk låser upp åt dig. ”Bara fröken Lindgren och jag har nyckel.” I liggaren läser han av räkneverket varje morgon. Dagens rad: ”8/3 kl. 8.30. Räkneverk 12. Låda 7 förseglad. H.F.” Kamerans räkneverk står nu på 20, och filmen som sitter i är ny och oexponerad. ”Räkneverket ställer man för hand när man byter film”, säger Falk tyst. ”Det har ingen gjort. Åtta bilder – och jag har inte rört kameran i dag.”", "f-kameran")),
     obj("kappan", "rock", [-3.19, 0, 0.9], rot=90, farg="#3a4a5a", interaktiv=ia("Fröken Lindgrens kappa",
         "En blå vinterkappa hänger på kroken innanför dörren. I fickan ligger ett postkvitto: ”Rekommenderat brev. Storberget 8.3.43 kl. 12.10. Till fru A. Hansen, Charlottenberg.” Strand vänder på det. ”Charlottenberg. Sista stationen före norska gränsen.”", "f-kvittot")),
-    obj("stol", "stol", [-0.3, 0, -0.55], rot=180),
-    obj("bord2", "bord", [-1.2, 0, 2.2], storlek=[0.8, 0.74, 0.5]),
+    obj("stol", "stol", [-0.3, 0, -0.55], rot=180, modell=STOL),
+    obj("bord2", "bord", [-1.2, 0, 2.2], storlek=[0.8, 0.74, 0.5], modell=SIDOBORD),
     obj("bok", "anteckningsbok", [-1.2, 0.75, 2.2], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr-disp", "dorr", [-3.19, 0, 2.0], rot=90, gar_till="disponenten", interaktiv=ia("Till disponentens rum", "Dörren till disponentens rum, där de andra väntar.")),
     obj("dorr-ut", "dorr", [3.19, 0, 1.95], rot=-90, gar_till="gruvbacken", interaktiv=ia("Ut på gruvbacken", "Dörren till farstun på gaveln. Därifrån är det några steg runt knuten till gruvbacken och laven, norr om huset.")),
@@ -93,7 +99,7 @@ disp = {"id": "disponenten", "namn": "Disponentens rum", "mekanik": "scen", "las
   "start": {"pos": [1.9, 1.5], "titta": 50},
   "objekt": [
     obj("matta", "matta", [0, 0, 0.2], storlek=[3.0, 2.2], kollision=False),
-    obj("skrivbord", "bord", [-0.2, 0, -1.25], storlek=[1.7, 0.76, 0.8]),
+    obj("skrivbord", "bord", [-0.2, 0, -1.25], storlek=[1.7, 0.76, 0.8], modell=SKRIVBORD),
     obj("l2", "vagglampa", [0.9, 2.1, -2.38], styrka=1.2, rackvidd=5),
     obj("brandel", "person", [-0.2, 0, -2.0], rot=10, rock="#2a2a30", byxor="#2a2a30", slips="#5a1a22", har="#9a9a9a", skagg=True, seed=63,
         interaktiv=ia("Disponent Brandel", "Gustaf Brandel står bakom skrivbordet med händerna på ryggen. ”Jag var i Örebro på länsstyrelsen i förmiddags och tog tåget hem strax före ett. Herr Kessler satt i samma kupé. Tjugo över tre visade jag honom ritkontoret, och fröken Holm tog en bild av oss åt jubileumsboken – här är kopian. Halv fyra blev jag kallad till telefon, och fröken Lindgren hade jag skickat till magasinet efter pärmar. Herr Kessler fick vänta ensam där inne. Det var dumt av mig. Kvart över fyra hämtade jag honom, just som fröken Lindgren kom tillbaka. Remsan på låda sju satt hel då – jag ser alltid efter när jag går förbi skåpet.”", "f-hel-1615", ["bild-c"])),
@@ -101,19 +107,19 @@ disp = {"id": "disponenten", "namn": "Disponentens rum", "mekanik": "scen", "las
         "Kontorets besöksbok ligger på skrivbordet. Under dagens datum står: ”8/3 kl. 13.05. Herr O. Kessler, Rheinhausen. Anlände hit 12.52 med tåget från Örebro, i sällskap med disponenten.” Instuckna i boken sitter två tågbiljetter, Örebro–Storberget, klippta av konduktören i dag.", "f-taget")),
     obj("kessler", "person", [-1.9, 0, 0.5], rot=70, rock="#1a1a1e", byxor="#2a2a2e", slips="#6a6a6a", har="#c8b070", seed=64,
         interaktiv=ia("Herr Kessler", "Otto Kessler bugar lätt. ”Jag kom med tåget tolv och femtiotvå, tillsammans med Herr Disponenten. Jag väntade i ritkontoret från halv fyra till kvart över fyra, det är riktigt. Jag satt på stolen vid ritbordet och läste min tidning. Skåpet rörde jag inte. Kvart över fyra hämtade Herr Disponenten mig, och då kom den unga damen tillbaka med sina pärmar.”", "f-kessler-vantade")),
-    obj("stol1", "fatolj", [-2.1, 0, -0.9], rot=60),
+    obj("stol1", "fatolj", [-2.1, 0, -0.9], rot=60, modell=FATOLJ),
     obj("portfoljen", "vaska", [-2.1, 0.42, -0.9], interaktiv=ia("Herr Kesslers portfölj",
         "Portföljen står öppen på fåtöljen; herr Kessler har själv bett er titta. Överst ligger en Leica i läderfodral. Räkneverket står på 3. ”Stationen, laven och hotellet”, säger han. ”Minnen.” Strand har redan gått igenom portföljen och rockfickorna: det finns ingen annan film. ”Vi framkallar den här. Men tre bilder räcker inte till åtta blad.”", "f-kessler-kamera")),
     obj("elsa", "person", [1.5, 0, -0.3], rot=-40, kon="k", rock="#6a3a2a", har="#2a1a10", seed=65,
         interaktiv=ia("Fotograf Holm", "Elsa Holm har lagt upp sina kopior på bordet och slår upp sin plåtjournal. ”Jag skriver upp varje plåt, och kopiorna gjorde jag i bolagets mörkrum i källaren nu i kväll. Kvart över nio tog jag ritkontoret, med fröken Lindgren vid ritbordet. Sedan gick ingenjör Falk och jag raka vägen till laven och åkte ned – jag tog sex plåtar där nere. Vi kom upp halv tolv och gick tillsammans tillbaka hit, och tjugo i tolv tog jag ritkontoret en gång till. Jag rörde ingenting; jag tog det som det stod, fast det var mörkt där inne. Fröken Lindgren var på väg ut på lunch och ville inte vara med. Varsågod, ta dem.”",
           "f-fotojournal", ["bild-a", "bild-b"])),
-    obj("fotobord", "bord", [2.2, 0, -0.6], storlek=[0.7, 0.74, 1.2]),
+    obj("fotobord", "bord", [2.2, 0, -0.6], storlek=[0.7, 0.74, 1.2], modell=SKRIVBORD),
     *[obj(f"kopia{i}", "papper", [2.2, 0.75, z], rot=r) for i, (z, r) in enumerate([(-1.0, 10), (-0.72, -15), (-0.44, 5), (-0.16, -8)])],
     obj("portratt", "tavla", [-0.2, 1.9, -2.38], storlek=[0.8, 1.0], motiv="portratt", seed=33),
     obj("hylla", "bokhylla", [2.55, 0, 1.78], rot=-90, storlek=[1.15, 2.2]),
     obj("fonster", "dagfonster", [-2.79, 0, 1.0], rot=90, natt=True),
     obj("klocka", "vaggur", [1.6, 1.95, -2.38]),
-    obj("bord3", "bord", [0.6, 0, 1.8], storlek=[0.7, 0.74, 0.5]),
+    obj("bord3", "bord", [0.6, 0, 1.8], storlek=[0.7, 0.74, 0.5], modell=SIDOBORD),
     obj("bok", "anteckningsbok", [0.6, 0.75, 1.8], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr", "dorr", [2.79, 0, 0.6], rot=-90, gar_till="ritkontoret", interaktiv=ia("Till ritkontoret", "Tillbaka till ritkontoret.")),
     obj("l1", "vagglampa", [-2.78, 2.1, -1.0], rot=90, styrka=1.0, rackvidd=5),
@@ -131,9 +137,9 @@ backen = {"id": "gruvbacken", "namn": "Gruvbacken", "mekanik": "scen", "last_upp
     obj("laven", "gruvlave", [0, 0, -3.0], interaktiv=ia("Laven",
         "Laven reser sig över schaktet, med linskivorna högt där uppe. Härifrån går korgen ned i gruvan, etthundrafemtio meter.")),
     # Elektriska gårdslampor: en över lavens port och en över kontorsdörren
-    obj("lampa1", "vagglampa", [-0.95, 2.5, -1.68], styrka=3.4, rackvidd=11),
-    obj("lampa2", "vagglampa", [0.3, 2.6, 4.98], rot=180, styrka=3.2, rackvidd=11),
-    obj("lampa3", "vagglampa", [5.98, 2.6, -0.5], rot=-90, styrka=2.6, rackvidd=10),
+    obj("lampa1", "vagglampa", [-0.95, 2.5, -1.68], styrka=3.4, rackvidd=11, modell=BURLAMPA),
+    obj("lampa2", "vagglampa", [0.3, 2.6, 4.98], rot=180, styrka=3.2, rackvidd=11, modell=BURLAMPA),
+    obj("lampa3", "vagglampa", [5.98, 2.6, -0.5], rot=-90, styrka=2.6, rackvidd=10, modell=BURLAMPA),
     obj("pulpet", "pulpet", [-1.9, 0, -1.9], rot=20),
     obj("nedfartsboken", "liggare", [-1.9, 1.12, -1.9], rot=20, interaktiv=ia("Nedfartsboken",
         "Spelstyrarens bok ligger på pulpeten vid lavens port, med en rad för var och en som åker ned eller upp. Måndag 8 mars: ”06.00 ned: förmiddagsskiftet, 38 man. 09.30 ned: ing. Falk, fotograf Holm. 11.30 upp: ing. Falk, fotograf Holm. 14.00 upp: förmiddagsskiftet, 38 man.” Alla raderna är signerade V. Ek.", "f-nedfart")),
