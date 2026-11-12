@@ -3,7 +3,7 @@ import * as THREE from '../../vendor/three/three.module.min.js';
 import { prefabs, mat, DELADE, slaIhop } from './foremal/index.js';
 import * as T from './texturer.js';
 import { VERKLIG } from './stil.js';
-// Modell-laddaren (och GLTFLoader) hämtas bara i förhandsgranskningen 'verklig'. Går den inte att hämta
+// Modell-laddaren (och GLTFLoader) hämtas bara i den verkliga stilen. Går den inte att hämta
 // (t.ex. offline innan modellerna har cachats) står prefaberna kvar.
 const forbattraYtor = (...a) => import('./ytor.js').then((m) => m.forbattraYtor(...a)).catch((e) => { console.warn('Texturerna kunde inte laddas', e); return false; });
 const ersattMedModell = (...a) => import('./modeller.js').then((m) => m.ersattMedModell(...a)).catch((e) => { console.warn('3D-modellerna kunde inte laddas', e); return false; });
@@ -99,7 +99,7 @@ export class Rum3D {
     scen.background = new THREE.Color(rum.bakgrund || (veranda ? '#e9cfa0' : ute ? '#c8d6dc' : '#1a120a'));
     const dimma = rum.dimma || [];
     scen.fog = new THREE.Fog(dimma[2] || rum.bakgrund || (veranda ? '#e9cfa0' : '#24170c'), dimma[0] ?? (veranda ? 14 : 7), dimma[1] ?? (veranda ? 40 : 16));
-    // Förhandsgranskningen 'verklig' får en del av sitt fyllnadsljus från omgivningskartan i stället.
+    // Den verkliga stilen får en del av sitt fyllnadsljus från omgivningskartan i stället.
     // Ljusnivån beror på platsen: inomhus, dagsljus ute eller natt under öppen himmel (t.ex. gatan i snöyran).
     const natt = !ute && !veranda && rum.tak === false;
     const fyll = !VERKLIG ? 1 : ute || veranda ? 0.75 : 0.6;
@@ -113,7 +113,7 @@ export class Rum3D {
     this.sol = null; this.lampor = [];
     if (veranda || ute) { const sol = new THREE.DirectionalLight('#ffd49a', ljus.sol ?? 1.4); sol.position.set(4, 5, -8); scen.add(sol); this.sol = sol; }
 
-    // Golv och tak. I förhandsgranskningen 'verklig' får de riktiga texturer när de har laddats (tre/ytor.js).
+    // Golv och tak. I den verkliga stilen får de riktiga texturer när de har laddats (tre/ytor.js).
     const ytor = {};
     const golvTyp = typeof rum.golv === 'object' ? rum.golv.typ : 'tra';
     const golvFarg = typeof rum.golv === 'object' ? rum.golv.farg : rum.golv;
@@ -206,7 +206,7 @@ export class Rum3D {
         scen.add(halo);
         this.interaktiva.set(def.id, { def, grupp: g, halo, inspekterad: inspekterade.has(def.id) });
       }
-      // Förhandsgranskningen 'verklig': en 3D-modell ersätter prefabens utseende när den har laddats (tre/modeller.js).
+      // Den verkliga stilen: en 3D-modell ersätter prefabens utseende när den har laddats (tre/modeller.js).
       if (prefabBox) modeller.push(ersattMedModell(g, def, prefabBox, { arLampa: this.lampor.some((l) => l.grupp === g) }));
     }
     // Snöfall: partiklar som faller och vrids lätt i vinden
@@ -229,7 +229,7 @@ export class Rum3D {
   }
 
   /**
-   * Förhandsgranskningen 'verklig': rummet visas först när modellerna och texturerna har laddats och skuggorna
+   * Den verkliga stilen: rummet visas först när modellerna och texturerna har laddats och skuggorna
    * och materialen är förberedda, så att spelaren aldrig ser de enkla föremålen bytas ut. Duken tonas in. Om det
    * dröjer mer än MAX_VANTA ms (långsamt nät) visas rummet ändå, med de enkla föremålen tills modellerna kommer.
    */
@@ -251,7 +251,7 @@ export class Rum3D {
     requestAnimationFrame(() => { duk.style.transition = 'opacity .35s ease-out'; duk.style.opacity = '1'; });
   }
 
-  /** Förhandsgranskningen 'verklig': hämtar modeller och texturer för rum man kan gå till härnäst. */
+  /** Den verkliga stilen: hämtar modeller och texturer för rum man kan gå till härnäst. */
   forladda(rumLista) {
     if (!VERKLIG || !rumLista?.length) return;
     import('./modeller.js').then((m) => { for (const r of rumLista) for (const o of r.objekt || []) {
@@ -262,7 +262,7 @@ export class Rum3D {
   }
 
   /**
-   * Förhandsgranskningen 'verklig': en förfiltrerad omgivningskarta som blanka ytor speglar och som ger mjukt
+   * Den verkliga stilen: en förfiltrerad omgivningskarta som blanka ytor speglar och som ger mjukt
    * indirekt ljus. Inomhus ett varmt rum med en taklampa och två fönsterljus, utomhus himmel och gräs.
    * Byggs en gång per sort och återanvänds mellan rummen.
    */

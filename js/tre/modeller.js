@@ -1,4 +1,4 @@
-// 3D-modeller (glTF) som ersätter ett föremåls utseende i förhandsgranskningen 'verklig' (se stil.js).
+// 3D-modeller (glTF) som ersätter ett föremåls utseende i den verkliga stilen (se stil.js).
 // Föremålet byggs alltid först som vanligt av sin prefab, så att id, kollision, markör och interaktion är
 // desamma. När modellen har laddats döljs prefabens delar – utom de som är märkta `userData.behall` – och
 // modellen placeras i prefabens ställe. I den vanliga stilen används fältet inte och inget laddas.

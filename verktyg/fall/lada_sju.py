@@ -45,7 +45,7 @@ fall = {
 }
 
 INNE = {"omgivning": "#ffdcae", "omgivning_styrka": 0.6, "bas": 0.34}
-# 3D-modeller i förhandsgranskningen ?stil=verklig (se modeller/KALLOR.md)
+# 3D-modeller i den verkliga stilen (se modeller/KALLOR.md)
 SIDOBORD = {"fil": "modeller/side_table_tall_01.glb", "passa": "box"}
 SKRIVBORD = {"fil": "modeller/wooden_table_02.glb", "passa": "box"}
 STOL = {"fil": "modeller/dining_chair_02.glb", "passa": "box"}

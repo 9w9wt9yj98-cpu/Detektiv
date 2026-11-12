@@ -13,7 +13,7 @@ const matCache = new Map();
 export const DELADE = new WeakSet();
 
 /**
- * Delat material. I den vanliga stilen ett enkelt matt material; i förhandsgranskningen 'verklig' ett fysiskt
+ * Delat material. I den vanliga stilen ett enkelt matt material; i den verkliga stilen ett fysiskt
  * baserat material där `glans` (0 = spegelblankt, 1 = helt matt) och `metall` (0–1) styr ytan, och mönstrade
  * ytor får relief av sin egen textur.
  */

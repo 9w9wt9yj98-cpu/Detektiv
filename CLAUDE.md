@@ -4,6 +4,7 @@
 Ett 3D-deckarspel för vuxna i klassisk stil (Agatha Christie, Sherlock Holmes) med en oväntad vändning då och då. Spelaren går runt i förstapersonsvy, samlar fynd i anteckningsboken och pekar ut den skyldige.
 - Vanlig HTML, CSS och JavaScript-moduler **utan byggsteg**. three.js ligger lokalt i `vendor/three/`.
 - Ingen backend: progression sparas i `localStorage`. Spelas på GitHub Pages (`main`), fungerar i mobilen och som PWA (`sw.js`, `manifest.webmanifest`).
+- Grafik: den **verkliga stilen** är standard (3D-modeller i `modeller/`, fotograferade ytor i `texturer/`, se `js/tre/stil.js` och `js/tre/modeller.js`). Den enkla stilen finns kvar bakom `?stil=vanlig` och ska fortsätta fungera – varje föremål byggs först som enkel figur.
 - Bakgrund och beslut: `README.md`, `docs/forslag-v1.md` (designförslag och fallschema), `docs/beslut.md` (godkända beslut och avvikelser – gäller före förslaget).
 
 ## Samarbete
@@ -27,6 +28,8 @@ Ett 3D-deckarspel för vuxna i klassisk stil (Agatha Christie, Sherlock Holmes) 
 node verktyg/validera_fall.mjs          # validera alla fall (logik, nåbarhet, id:n)
 python3 -m http.server 18431 &          # valfritt: test/spela.mjs startar annars en egen server
 node test/spela.mjs                     # spela alla fall i iPhone-vy och på dator (ca 9 min); fall1 … fall11 för ett fall
+STIL=vanlig node test/spela.mjs         # samma test i den enkla stilen (utan STIL körs standardstilen, den verkliga)
+TIDSFAKTOR=3 node test/spela.mjs fall1  # längre tidsgränser; fall 1 behöver det i verklig stil när datorn saknar grafikkort
 node verktyg/release.mjs                # före varje release: höjer service workerns cacheversion och fillista
 node verktyg/release.mjs --kontrollera  # kontrollerar att sw.js stämmer med filerna
 npm test                                # validering + sw-kontroll + alla speltester

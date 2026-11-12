@@ -1,7 +1,7 @@
 # Genererar fall/fyren-pa-graskar.json (källan för fallet – redigera här och kör om).
 import json, os
 T = True
-# 3D-modeller för förhandsgranskningen ?stil=verklig (se js/tre/modeller.js och modeller/KALLOR.md)
+# 3D-modeller för den verkliga stilen (se js/tre/modeller.js och modeller/KALLOR.md)
 BORD = {"fil": "modeller/wooden_table_02.glb", "passa": "box"}
 LAMPA = {"fil": "modeller/vintage_oil_lamp.glb", "passa": "skala", "skala": 0.7, "glas": ["vintage_oil_lamp_glass"]}
 KANNOR = {"delar": {"kanna": {"fil": "modeller/oil_tin.glb", "passa": "box"}}}

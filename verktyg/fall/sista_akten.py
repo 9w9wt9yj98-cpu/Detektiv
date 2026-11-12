@@ -8,7 +8,7 @@ def ia(namn, text, fynd=None, material=None):
     if fynd: d["ger_fynd"] = fynd
     if material: d["ger_material"] = material
     return d
-# 3D-modeller för förhandsgranskningen ?stil=verklig (se js/tre/modeller.js och modeller/KALLOR.md)
+# 3D-modeller för den verkliga stilen (se js/tre/modeller.js och modeller/KALLOR.md)
 STOL = {"fil": "modeller/painted_wooden_chair_01.glb", "passa": "box"}
 VAGGLAMPA = {"fil": "modeller/industrial_wall_lamp.glb", "passa": "skala", "skala": 0.8, "pos": [0, -0.17, 0.056], "lyser": ["industrial_wall_lamp_glass"]}
 

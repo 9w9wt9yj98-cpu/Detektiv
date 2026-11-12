@@ -14,7 +14,9 @@ const lista = (dir, filter) => {
   return ut.sort();
 };
 const filer = ['./', './index.html', './manifest.webmanifest', ...lista('css', /\.css$/), ...lista('js', /\.js$/),
-  './vendor/three/three.module.min.js', ...lista('fall', /\.json$/), ...lista('bilder', /\.(jpg|png|webp)$/), ...lista('ikoner', /\.png$/)];
+  './vendor/three/three.module.min.js', ...lista('fall', /\.json$/), ...lista('bilder', /\.(jpg|png|webp)$/), ...lista('ikoner', /\.png$/),
+  // Den verkliga stilen (standard): modelladdaren, 3D-modellerna och de fotograferade ytorna, så att de finns offline.
+  ...lista('vendor/three/addons', /\.js$/), ...lista('modeller', /\.glb$/), ...lista('texturer', /\.webp$/)];
 
 const sw = readFileSync(join(rot, 'sw.js'), 'utf8');
 const version = +(/detektiv-v(\d+)/.exec(sw)?.[1] || 1);
