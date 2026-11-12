@@ -575,3 +575,12 @@ Martin bad den 11 november om ett blindtest av fall 11. En fristående testare l
 **Slutsatsfrågor och ledtrådar:** rätt svar står inte längre alltid sist. Ledtråd 1 pekar på ritningsskåpet utan att nämna remsan, och ledtråd 3 skriver inte ”hon”.
 
 **Inte ändrat:** ”reprokamera” (kortare än ”reproduktionskamera” och begripligt), och fönstret hos disponenten.
+
+## Verklig grafik: fall 10 och 11, första steget (november 2026) – väntar på Martin
+
+Martin valde den 12 november 3D-modeller i fall 10 och 11 som nästa steg. Första steget återanvänder modeller som redan finns i spelet, så inga nya filer laddas. Det syns bara i den verkliga stilen (`?stil=verklig`).
+
+- **Fall 11:** skrivbordet hos disponenten, fotografens bord och det lilla bordet i ritkontoret (`wooden_table_02`), sidoborden (`side_table_tall_01`), stolen vid ritbordet (`dining_chair_02`), fåtöljen (`arm_chair_01`) och burlampor på gruvbacken (`industrial_wall_lamp`).
+- **Fall 10:** stewardens stol i hyttkorridoren (`painted_wooden_chair_01`). Borden och ljuskronan hade redan modeller.
+
+**Kvar till ett andra steg:** nya modeller från Poly Haven enligt `modeller/KALLOR.md`. Ritbordet, ritningsskåpet, kameraskåpet, kaminen, laven och malmvagnen i fall 11 och däcksstolarna, livbåten och kaffeservisen i fall 10 är fortfarande de enkla figurerna.

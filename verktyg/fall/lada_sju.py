@@ -67,7 +67,7 @@ ritkontor = {"id": "ritkontoret", "namn": "Ritkontoret", "mekanik": "scen", "pay
         "Fönstret vetter mot gruvbacken och laven. Överst sitter mörkläggningsgardinen, en rullgardin av svart papper. Nu är den nerdragen – det är mörkt ute. ”Gruvan är krigsviktig, så kontoret ska mörkläggas varje kväll. Den dras ner i skymningen, vid sextiden”, säger ingenjör Falk. ”På dagen har vi den uppe – en ritare behöver allt ljus hon kan få.”")),
     obj("klockan", "vaggur", [0.35, 1.95, -2.58]),
     obj("ritbordet", "ritbord", [-0.3, 0, -1.35], lyser=True),
-    obj("lillabordet", "bord", [1.25, 0, -2.0], storlek=[0.7, 0.72, 0.5], modell=SIDOBORD, interaktiv=ia("Det lilla bordet",
+    obj("lillabordet", "bord", [1.25, 0, -2.0], storlek=[0.7, 0.72, 0.5], modell=SKRIVBORD, interaktiv=ia("Det lilla bordet",
         "Ett litet sidobord mellan ritbordet och ritningsskåpet. I bordsskivan sitter fyra färska hål efter häftstift, i en rektangel precis så stor som ett maskinskrivet ark. Någon har nålat fast papper här, ett i taget.", "f-haftstift")),
     obj("ladan", "ritningsskap", [2.5, 0, -1.83], forseglad=7, bruten=True, interaktiv=ia("Låda sju",
         "Ritningsskåpets sjunde låda står på glänt. Förseglingsremsan – en pappersremsa klistrad över springan, till höger om handtaget – är avsliten på mitten. På bitarna står H.F., skrivet med blyerts. I lådan ligger mappen ”Transportplan mars–april. Hemlig” kvar. Den har åtta maskinskrivna blad, men de ligger i fel ordning: sidan 5 överst. Ingenting fattas.", "f-ladan")),
