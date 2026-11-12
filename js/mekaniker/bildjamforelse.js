@@ -83,7 +83,7 @@ function skank(v) {
 // ---------- Motiv: ritkontoret (fall 11) ----------
 // En svartvit översiktsbild av ett ritkontor: fönster med mörkläggningsgardin, väggklocka, kamin med vedlår,
 // ritbord med lampa, ett litet kopiebord och ritningsskåpet med åtta lådor – låda 7 är förseglad med en pappersremsa.
-// varden: remsa (vanster | hoger | bruten), ved (tom | full), gardin (uppe | nere), utsikt (lave | dold),
+// varden: remsa (vanster | hoger | bruten), ved (tom | full), gardin (uppe | nere; utsikten bakom hör till gardinen),
 //         lampa (ritbord | kopiebord), klocka ("09.15"), person (ingen | ritare | besok | ingenjor).
 function ritkontor(v) {
   const [tim, min] = String(v.klocka || '12.00').split('.').map(Number);
@@ -91,7 +91,7 @@ function ritkontor(v) {
   const klocka = `<g data-r="klocka"><circle cx="205" cy="52" r="20" fill="#2e2e2e"/><circle cx="205" cy="52" r="17" fill="#ecebe6"/>
     ${[0, 3, 6, 9].map((i) => { const a = (i * 30 - 90) * Math.PI / 180; return `<circle cx="${(205 + Math.cos(a) * 14).toFixed(1)}" cy="${(52 + Math.sin(a) * 14).toFixed(1)}" r="1.4" fill="#333"/>`; }).join('')}
     ${visare(((tim % 12) + min / 60) * 30, 9, 2.6)}${visare(min * 6, 14, 1.6)}<circle cx="205" cy="52" r="24" fill="transparent"/></g>`;
-  const utsikt = v.utsikt === 'dold' ? '' : `<g data-r="utsikt"><rect x="44" y="34" width="104" height="92" fill="#d9d9d4"/><rect x="44" y="104" width="104" height="22" fill="#f1f1ee"/>
+  const utsikt = v.gardin === 'nere' ? '' : `<g data-r="gardin"><rect x="44" y="34" width="104" height="92" fill="#d9d9d4"/><rect x="44" y="104" width="104" height="22" fill="#f1f1ee"/>
     <path d="M84,104 L96,52 L108,104 M88,86 h16 M91,70 h10" stroke="#3c3c3c" stroke-width="2.5" fill="none"/><circle cx="96" cy="50" r="7" fill="none" stroke="#3c3c3c" stroke-width="2.5"/>
     <rect x="112" y="92" width="26" height="12" fill="#6a6a6a"/>${[52, 66, 124, 140, 74, 132].map((x, i) => `<circle cx="${x}" cy="${44 + (i * 17) % 50}" r="1.3" fill="#fff"/>`).join('')}</g>`;
   const gardin = v.gardin === 'nere'
@@ -102,11 +102,13 @@ function ritkontor(v) {
   const ved = `<g data-r="ved"><path d="M52,236 h44 l-3,36 h-38 z" fill="#8a8a82" stroke="#4a4a46" stroke-width="1.5"/>
     ${v.ved === 'full' ? [[58, 232], [70, 229], [82, 233], [64, 224], [77, 223]].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="7" ry="5" fill="#c9c6b8" stroke="#55534a" stroke-width="1.2"/><circle cx="${x}" cy="${y}" r="2" fill="#77746a"/>`).join('') : `<path d="M54,238 h40 l-2,8 h-36 z" fill="#3a3a38"/>`}
     <rect x="46" y="212" width="56" height="64" fill="transparent"/></g>`;
-  const kamin = `<g data-r="bakgrund"><rect x="12" y="178" width="34" height="92" rx="4" fill="#2a2a2a"/><rect x="18" y="232" width="22" height="18" fill="#141414" stroke="#555"/><rect x="24" y="92" width="9" height="88" fill="#333"/><rect x="8" y="270" width="42" height="6" fill="#444"/></g>${ved}`;
+  const kamin = `<g data-r="bakgrund"><rect x="12" y="178" width="34" height="92" rx="4" fill="#2a2a2a"/><rect x="18" y="232" width="22" height="18" fill="#141414" stroke="#555"/><rect x="24" y="0" width="9" height="180" fill="#333"/><rect x="8" y="270" width="42" height="6" fill="#444"/></g>${ved}`;
   // Ritbord (lutande skiva på bock) och kopiebordet intill
   const ritbord = `<g data-r="bakgrund"><path d="M112,236 L128,170 L226,170 L214,236 Z" fill="#b9b7ae" stroke="#55534c" stroke-width="2"/><path d="M130,224 L142,180 L206,180 L198,224 Z" fill="#efeee8"/>
     <path d="M146,214 L190,214 M150,204 L186,204 M154,194 L182,194" stroke="#8d8b84" stroke-width="1.2"/><path d="M120,236 v40 M208,236 v40 M120,262 h88" stroke="#4a4842" stroke-width="4"/>
     <rect x="238" y="214" width="46" height="5" fill="#5e5c56"/><path d="M242,219 v57 M280,219 v57" stroke="#4a4842" stroke-width="3.5"/></g>`;
+  // Stolen framför ritbordet, som i rummet; i morgonbilden sitter ritaren på den
+  const stol = v.person === 'ritare' ? '' : `<g data-r="bakgrund"><path d="M150,276 v-34 h30 v34 M150,252 h30" stroke="#4a4842" stroke-width="3.5" fill="none"/><path d="M152,242 v-30 M178,242 v-30 M152,216 h26 M152,226 h26" stroke="#4a4842" stroke-width="3" fill="none"/></g>`;
   const mot = v.lampa === 'kopiebord';
   const lampa = `<g data-r="lampa"><path d="M228,170 L${mot ? '238,138 L256,150' : '214,136 L186,146'}" stroke="#2c2c2c" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="${mot ? 'M246,146 l20,2 l-4,14 l-22,-6 z' : 'M196,142 l-20,2 l4,14 l22,-6 z'}" fill="#3a3a3a"/>
@@ -118,17 +120,17 @@ function ritkontor(v) {
       <rect x="${X0 + B / 2 - 9}" y="${y + 6 + (ajar ? 3 : 0)}" width="18" height="4" rx="2" fill="#4a4842"/><text x="${X0 + 11}" y="${y + 12 + (ajar ? 3 : 0)}" font-size="8" font-family="Georgia,serif" fill="#3a3832">${i + 1}</text>`; }).join('');
   const ry = Y0 + 6 + 6 * LH;
   const remsaRit = v.remsa === 'bruten'
-    ? `<path d="M${X0 + 62},${ry - 8} l13,1 l-3,9 l-11,-3 z M${X0 + 64},${ry + 13} l11,-3 l3,12 l-13,1 z" fill="#fdfdf8" stroke="#55534c" stroke-width="1.4"/>`
-    : `<rect x="${X0 + (v.remsa === 'vanster' ? 17 : 66)}" y="${ry - 9}" width="15" height="31" fill="#fdfdf8" stroke="#55534c" stroke-width="1.4"/><path d="M${X0 + (v.remsa === 'vanster' ? 20 : 69)},${ry + 6} q4.5,-5 9,0" stroke="#55534c" stroke-width="1.2" fill="none"/>`;
+    ? `<path d="M${X0 + 60},${ry - 11} l17,1 l-3,9 l-13,-3 z M${X0 + 62},${ry + 8} l14,-3 l3,11 l-17,1 z" fill="#ffffff" stroke="#3a3832" stroke-width="1.6"/>`
+    : `<rect x="${X0 + (v.remsa === 'vanster' ? 21 : 61)}" y="${ry - 11}" width="18" height="22" fill="#ffffff" stroke="#3a3832" stroke-width="1.6"/><path d="M${X0 + (v.remsa === 'vanster' ? 25 : 65)},${ry + 2} q5,-6 10,0" stroke="#3a3832" stroke-width="1.3" fill="none"/>`;
   const skap = `<g data-r="bakgrund"><rect x="${X0}" y="${Y0}" width="${B}" height="${8 * LH + 12}" fill="#9d9b92" stroke="#4a4842" stroke-width="2"/>${lador}<rect x="${X0 + 6}" y="${Y0 + 8 * LH + 12}" width="6" height="8" fill="#4a4842"/><rect x="${X0 + B - 12}" y="${Y0 + 8 * LH + 12}" width="6" height="8" fill="#4a4842"/></g>
     <g data-r="remsa">${remsaRit}<rect x="${X0 + 2}" y="${ry - 10}" width="${B - 4}" height="${LH + 16}" fill="transparent"/></g>`;
   // Personer i bild
   const man = (x, rock, hatt) => `<circle cx="${x}" cy="128" r="11" fill="#d8d6cc"/>${hatt ? `<rect x="${x - 13}" y="113" width="26" height="6" fill="#222"/><rect x="${x - 8}" y="104" width="16" height="10" fill="#222"/>` : `<path d="M${x - 11},126 q11,-18 22,0" fill="#3a3a3a"/>`}<path d="M${x - 19},276 v-112 q0,-20 19,-20 q19,0 19,20 v112 z" fill="${rock}"/>`;
   const person = v.person === 'ritare' ? `<g data-r="person"><circle cx="150" cy="152" r="10" fill="#dcdad0"/><path d="M140,150 q10,-20 20,-2 q4,8 -2,10 q-8,-14 -18,-8" fill="#4a4a4a"/><path d="M132,276 v-92 q0,-18 18,-18 q18,0 18,18 v92 z" fill="#6e6e6a"/><path d="M162,190 l22,14" stroke="#6e6e6a" stroke-width="8" stroke-linecap="round"/></g>`
-    : v.person === 'besok' ? `<g data-r="person">${man(232, '#3c3c3c', false)}${man(268, '#1e1e1e', true)}<path d="M252,150 q16,-8 32,0 l-4,12 q-12,-6 -24,0 z" fill="#5a5a55"/></g>`
+    : v.person === 'besok' ? `<g data-r="person">${man(232, '#3c3c3c', false)}${man(268, '#1e1e1e', false)}<path d="M252,150 q16,-8 32,0 l-4,12 q-12,-6 -24,0 z" fill="#5a5a55"/></g>`
     : v.person === 'ingenjor' ? `<g data-r="person">${man(262, '#55554f', false)}<path d="M278,176 l22,38" stroke="#55554f" stroke-width="8" stroke-linecap="round"/></g>` : '';
   return `<g data-r="bakgrund"><rect width="400" height="300" fill="#cfcfc8"/><rect y="276" width="400" height="24" fill="#77756e"/><rect y="272" width="400" height="5" fill="#5e5c56"/></g>
-    ${fonster}${klocka}${kamin}${skap}${ritbord}${lampa}${person}`;
+    ${fonster}${klocka}${kamin}${skap}${ritbord}${stol}${lampa}${person}`;
 }
 
 const DEFS = `<defs><linearGradient id="silver" x1="0" x2="1"><stop offset="0" stop-color="#8e8c82"/><stop offset=".35" stop-color="#e8e6dc"/><stop offset=".7" stop-color="#b2b0a6"/><stop offset="1" stop-color="#7a786e"/></linearGradient>
@@ -139,7 +141,7 @@ const DEFS = `<defs><linearGradient id="silver" x1="0" x2="1"><stop offset="0" s
 // Var en markeringsring hamnar för en region.
 function ankare(b, r) {
   const v = b.varden;
-  if (b.motiv === 'ritkontor') return { remsa: [v.remsa === 'vanster' ? 318 : 362, 245, 24], ved: [74, 244, 30], gardin: [96, v.gardin === 'nere' ? 78 : 34, v.gardin === 'nere' ? 56 : 30], utsikt: [96, 80, 50], lampa: [v.lampa === 'kopiebord' ? 252 : 194, 152, 28], klocka: [205, 52, 26], person: [v.person === 'ritare' ? 150 : 250, 190, 50] }[r];
+  if (b.motiv === 'ritkontor') return { remsa: [v.remsa === 'vanster' ? 322 : 362, 240, 24], ved: [74, 244, 30], gardin: [96, v.gardin === 'nere' ? 78 : 34, v.gardin === 'nere' ? 56 : 30], lampa: [v.lampa === 'kopiebord' ? 252 : 194, 152, 28], klocka: [205, 52, 26], person: [v.person === 'ritare' ? 150 : 250, 190, 50] }[r];
   if (b.motiv === 'narbild') return { kant: [245, 124, 100], handtag: [140, 140, 30], skal: [245, 170, 80], tidning: [90, 232, 80], bakgrund: [340, 40, 30] }[r];
   const vasX = v.vas === 'h' ? 300 : 100, ljusX = v.vas === 'h' ? 100 : 300;
   return { kant: [200, 162, 40], handtag: [200, 168, 50], skal: [200, 168, 44], vas: [vasX, 150, 36], ljus: [ljusX, 146, 36], gardin: [200, 64, 72], utsikt: [200, 64, 64], person: [80, 190, 56] }[r];
