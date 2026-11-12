@@ -1,6 +1,6 @@
 # Texturer – källor och licenser
 
-Fotograferade PBR-texturer för golv, väggar, panel och tak i förhandsgranskningen `?stil=verklig` (`js/tre/ytor.js`).
+Fotograferade PBR-texturer för golv, väggar, panel och tak i den verkliga stilen, som är spelets standard (`js/tre/ytor.js`; inte i den enkla `?stil=vanlig`).
 Alla kommer från [Poly Haven](https://polyhaven.com) och är licensierade **CC0 1.0** (public domain).
 
 Bearbetning: 1k-versionen (jpg) har sparats som WebP: färg (`_diff`, kvalitet 80), normalkarta (`_nor`, OpenGL-varianten,

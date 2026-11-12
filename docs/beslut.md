@@ -602,3 +602,14 @@ Martin bad den 12 november om några nya modeller från Poly Haven till fall 10 
 **Inte rört:** ritningsskåpet med låda sju, ritbordet, kameraskåpet, kaminen, vedlåren, laven, malmvagnen, däcksstolarna, livbåten och kaffeservisen, och inga texter, lösningar eller fynd. Inget mer i Poly Havens lista passade gruvkontoret eller ångaren tillräckligt bra för att vara värt en fil till.
 
 Före- och efterbilder: `docs/bilder/modeller-fall10-11/`.
+
+## Verklig grafik är standard (november 2026) – Martins beslut 12 november
+
+Martin: ”Kör verklig grafik som standard, jag vill ha ett bra grafiskt spel.” Den verkliga stilen (3D-modeller, fotograferade golv och väggar, fysiskt baserat ljus) är därmed inte längre en förhandsgranskning utan det spelaren får utan att göra något. Det ersätter beslutet om sepia, gravyr och akvarell som enda stil.
+
+- **Standard:** `js/tre/stil.js` väljer den verkliga stilen om spelaren inte själv har valt den enkla. Den som tidigare har öppnat `?stil=vanlig` behåller sitt val.
+- **Den enkla stilen finns kvar** bakom `?stil=vanlig` och en länk längst ned i menyn (”Går spelet trögt? Byt till enkel grafik”). Den ritar snabbare och är reserven för svagare telefoner. Varje föremål byggs fortfarande först som enkel figur, och den visas också om en modell inte går att hämta.
+- **Offline:** modellerna (8,6 MB), ytorna (2,6 MB) och modelladdaren ligger nu i service workerns fillista, så att spelet ser likadant ut utan nät. Förut sparades de först när de hade hämtats. Det gör den första installationen ungefär 11 MB större.
+- **Tester:** `node test/spela.mjs` och `npm test` kör standardstilen, alltså den verkliga. `STIL=vanlig` kör den enkla. Utan grafikkort hinner skärmbilderna i fall 1 inte tas inom tidsgränsen i den verkliga stilen; då behövs `TIDSFAKTOR=3`.
+
+**Att följa upp:** bildhastigheten på riktiga telefoner är inte mätt här – testmiljön saknar grafikkort. Personerna är fortfarande de enkla figurerna, eftersom det inte finns fria modeller som passar epokerna.

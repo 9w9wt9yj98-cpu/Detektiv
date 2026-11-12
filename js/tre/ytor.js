@@ -1,4 +1,4 @@
-// Riktiga texturer för golv, väggar, panel och tak i förhandsgranskningen 'verklig' (se stil.js).
+// Riktiga texturer för golv, väggar, panel och tak i den verkliga stilen (se stil.js).
 // Fotograferade PBR-texturer från Poly Haven (CC0, källor i texturer/KALLOR.md). Rummet byggs först med
 // spelets egna canvastexturer; när de här har laddats byts trägolvet ut och väggar, panel och tak får relief
 // och matthetsvariation. Rummets färger behålls: golvtexturen färgas mot rummets golvfärg, och tapetens

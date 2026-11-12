@@ -1,6 +1,6 @@
 # 3D-modeller – källor och licenser
 
-Modellerna används bara i förhandsgranskningen `?stil=verklig` (se `js/tre/modeller.js` och `docs/beslut.md`).
+Modellerna används i den verkliga stilen, som är spelets standard sedan november 2026 (inte i den enkla `?stil=vanlig`; se `js/tre/modeller.js` och `docs/beslut.md`).
 Alla kommer från [Poly Haven](https://polyhaven.com) och är licensierade **CC0 1.0** (public domain) –
 fria att använda, ändra och sprida, även kommersiellt, utan krav på erkännande. Vi anger ändå upphovspersonerna.
 

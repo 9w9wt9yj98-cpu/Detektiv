@@ -71,7 +71,7 @@ export async function visaMeny(app) {
     <footer class="meny-fot">
       <p>Allt som behövs för att lösa ett fall finns i materialet. Du behöver aldrig gissa.</p>
       <button class="lank" id="nollstall">Nollställ all progression</button>
-      ${VERKLIG ? '<p class="stil-merke">Förhandsgranskning: verklig grafik · <a href="?stil=vanlig#/">tillbaka till vanlig</a></p>' : ''}
+      <p class="stil-merke">${VERKLIG ? 'Går spelet trögt? <a href="?stil=vanlig#/">Byt till enkel grafik</a>' : 'Enkel grafik · <a href="?stil=verklig#/">byt till verklig grafik</a>'}</p>
       <p class="version">Version ${VERSION}</p>
     </footer>
   </div>`;

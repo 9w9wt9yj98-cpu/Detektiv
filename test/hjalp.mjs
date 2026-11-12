@@ -2,7 +2,7 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 export { assert };
-// TIDSFAKTOR=6 förlänger alla tidsgränser, t.ex. för STIL=verklig när webbläsaren ritar utan grafikkort.
+// TIDSFAKTOR=6 förlänger alla tidsgränser, t.ex. när webbläsaren ritar den verkliga stilen utan grafikkort.
 export const TID = Math.max(1, +(process.env.TIDSFAKTOR || 1));
 export const BAS = (process.env.BAS || 'http://localhost:18431/').replace(/\/?$/, '/');
 export const ARGS = ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'];
@@ -14,7 +14,7 @@ export async function nySida(browser, mobil, namn, { guideKlar = true } = {}) {
   const ctx = await browser.newContext(mobil
     ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1' }
     : { viewport: { width: 1280, height: 800 } });
-  // STIL=verklig kör testerna i förhandsgranskningen (3D-modeller, js/tre/stil.js).
+  // Testerna körs i spelets standardstil (verklig, js/tre/stil.js). STIL=vanlig kör dem i den enkla stilen.
   if (process.env.STIL) await ctx.addInitScript((stil) => localStorage.setItem('detektiv:stil', stil), process.env.STIL);
   if (guideKlar) await ctx.addInitScript(() => { if (!localStorage.getItem('detektiv:v1')) localStorage.setItem('detektiv:v1', JSON.stringify({ fall: {}, installningar: { autofyll: true, handledningKlar: true, settBokBanner: true } })); });
   const p = await ctx.newPage();
