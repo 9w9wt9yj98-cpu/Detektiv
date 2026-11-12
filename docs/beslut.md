@@ -585,9 +585,9 @@ Martin valde den 12 november 3D-modeller i fall 10 och 11 som nästa steg. Förs
 
 **Kvar till ett andra steg:** nya modeller från Poly Haven enligt `modeller/KALLOR.md`. Ritbordet, ritningsskåpet, kameraskåpet, kaminen, laven och malmvagnen i fall 11 och däcksstolarna, livbåten och kaffeservisen i fall 10 är fortfarande de enkla figurerna.
 
-## Verklig grafik: fall 10 och 11, andra steget (november 2026) – väntar på Martin
+## Verklig grafik: fall 10 och 11, andra steget (november 2026) – godkänt av Martin 12 november (#30)
 
-Martin bad den 12 november om några nya modeller från Poly Haven till fall 10 och 11. Tre modeller har lagts in. De syns bara i den verkliga stilen (`?stil=verklig`), utom där annat sägs nedan.
+Martin bad den 12 november om några nya modeller från Poly Haven till fall 10 och 11 och godkände resultatet samma dag. Tre modeller har lagts in. De syns bara i den verkliga stilen (`?stil=verklig`), utom där annat sägs nedan.
 
 - **Väggklockorna i fall 11** (`wall_clock`) i ritkontoret och disponentens rum: en rund klocka, som på fotografierna i anteckningsboken. Modellen är egentligen ett modernt kvartsur, men spelets egen urtavla läggs över hela tavlan (`modell.urtavla`), så märket, siffrorna och sekundvisaren syns inte. Kvar av modellen syns den mörka ringen och glaset.
 - **Bokskåpet i disponentens rum** (`vintage_cabinet_01`) i bokhyllans ställe: ett mörkt vitrinskåp med glasdörrar. *Wooden Bookshelf Worn* provades också, men den är en tom, grå och sliten förrådshylla och ser inte ut att höra hemma hos en disponent. Skåpet är i verkligheten två meter brett och trycks ihop till bokhyllans plats (1,1 m), så det blir smalare än originalet. Böckerna i den enkla bokhyllan syns inte i den verkliga stilen.
