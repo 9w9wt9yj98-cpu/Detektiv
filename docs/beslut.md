@@ -543,3 +543,35 @@ Martin bad den 11 november att det som var kvar skulle göras: omslaget till fal
 - Omslaget är en sepiatonad bild ur 3D-scenen, som för fall 7–10.
 
 **Inte gjort:** fallet är inte blindtestat av en fristående agent, som fall 7–10 blev. Det är genomläst i spelarvyn och spelat av testet. Ett blindtest i efterhand är fortfarande värt att göra.
+
+## Buggfix: fall 11 efter blindtest (november 2026)
+
+Martin bad den 11 november om ett blindtest av fall 11. En fristående testare löste fallet rätt utan att gissa (säkerhet 5 av 5 på vem, hur och när; svårighet 3 av 5, 20–30 minuter). Alla klockslag stämde med varandra, och alla oskyldiga gick att utesluta. Rapporten: `docs/blindtest/rapport-2026-11-12-fall11.md`. Lösningen, den skyldige och mekaniken är oförändrade.
+
+**Två fel, båda i första slutsatsfrågan**
+- ”När öppnades låda sju?” hade två sanna svar, eftersom lådan öppnades även på eftermiddagen. Frågan gäller nu första gången efter förseglingen.
+- Ett alternativ sa ”mellan 15.20 och 16.35”, men Falk fann remsan avsliten 16.30.
+
+**Eftermiddagen gick inte att bevisa**
+- Inget fynd visade vem som slet av remsan. Disponenten säger nu att remsan satt hel när han hämtade herr Kessler 16.15, just som fröken Lindgren kom tillbaka (nytt fynd, ”Remsan hel kvart över fyra”). Slutsatsfrågan om eftermiddagen bygger på det.
+- Bladen i fel ordning förklaras: de rördes om samtidigt, som en del av kulissen.
+- Herr Kessler har ingen annan film än den i kameran, så han kan inte ha fotograferat åtta blad.
+
+**Oberoende belägg för att remsan är falsk:** Falk signerar med bläck, och på den avslitna remsan står H.F. med blyerts.
+
+**Fotografierna**
+- Ett tryck på fönstret gäller alltid gardinen. Förut kunde man få svaret ”oviktig skillnad” på rätt iakttagelse.
+- Remsan går bara över springan mellan låda 6 och 7 och har tydligare kant.
+- Stolen vid ritbordet syns, kaminröret går upp till taket och herr Kessler har ingen hatt på sig inomhus.
+
+**Repliker och rum**
+- Fotografen tog bilden 11.40 ”som det stod, fast det var mörkt”, inte ”för ljusets skull”.
+- Falk och fotografen kom tillbaka tillsammans 11.40; fynd och repliker säger nu samma sak.
+- Kameran lyfts ut och ställs på ett bord när den används, och ritbordslampan tas till hjälp. Räkneverket läses av varje morgon.
+- Nedfartsboken har även skiftets rader, och stegvägen är igenisad.
+- Dörren ut till gruvbacken sitter på gaveln, inte i väggen mitt emot fönstret mot gruvbacken.
+- Elektriska gårdslampor i stället för gaslyktor, ”spelstyrare” i stället för ”hissmaskinist”, och några ordval som passar 1943 bättre.
+
+**Slutsatsfrågor och ledtrådar:** rätt svar står inte längre alltid sist. Ledtråd 1 pekar på ritningsskåpet utan att nämna remsan, och ledtråd 3 skriver inte ”hon”.
+
+**Inte ändrat:** ”reprokamera” (kortare än ”reproduktionskamera” och begripligt), och fönstret hos disponenten.

@@ -130,8 +130,10 @@ backen = {"id": "gruvbacken", "namn": "Gruvbacken", "mekanik": "scen", "last_upp
   "objekt": [
     obj("laven", "gruvlave", [0, 0, -3.0], interaktiv=ia("Laven",
         "Laven reser sig över schaktet, med linskivorna högt där uppe. Härifrån går korgen ned i gruvan, etthundrafemtio meter.")),
-    obj("lykta1", "gaslykta", [-2.6, 0, -1.2], styrka=3.2),
-    obj("lykta2", "gaslykta", [3.4, 0, 2.2], styrka=2.8),
+    # Elektriska gårdslampor: en över lavens port och en över kontorsdörren
+    obj("lampa1", "vagglampa", [-0.95, 2.5, -1.68], styrka=3.4, rackvidd=11),
+    obj("lampa2", "vagglampa", [0.3, 2.6, 4.98], rot=180, styrka=3.2, rackvidd=11),
+    obj("lampa3", "vagglampa", [5.98, 2.6, -0.5], rot=-90, styrka=2.6, rackvidd=10),
     obj("pulpet", "pulpet", [-1.9, 0, -1.9], rot=20),
     obj("nedfartsboken", "liggare", [-1.9, 1.12, -1.9], rot=20, interaktiv=ia("Nedfartsboken",
         "Spelstyrarens bok ligger på pulpeten vid lavens port, med en rad för var och en som åker ned eller upp. Måndag 8 mars: ”06.00 ned: förmiddagsskiftet, 38 man. 09.30 ned: ing. Falk, fotograf Holm. 11.30 upp: ing. Falk, fotograf Holm. 14.00 upp: förmiddagsskiftet, 38 man.” Alla raderna är signerade V. Ek.", "f-nedfart")),

@@ -795,24 +795,39 @@
               }
             },
             {
-              "id": "lykta1",
-              "typ": "gaslykta",
+              "id": "lampa1",
+              "typ": "vagglampa",
               "pos": [
-                -2.6,
-                0,
-                -1.2
+                -0.95,
+                2.5,
+                -1.68
               ],
-              "styrka": 3.2
+              "styrka": 3.4,
+              "rackvidd": 11
             },
             {
-              "id": "lykta2",
-              "typ": "gaslykta",
+              "id": "lampa2",
+              "typ": "vagglampa",
               "pos": [
-                3.4,
-                0,
-                2.2
+                0.3,
+                2.6,
+                4.98
               ],
-              "styrka": 2.8
+              "rot": 180,
+              "styrka": 3.2,
+              "rackvidd": 11
+            },
+            {
+              "id": "lampa3",
+              "typ": "vagglampa",
+              "pos": [
+                5.98,
+                2.6,
+                -0.5
+              ],
+              "rot": -90,
+              "styrka": 2.6,
+              "rackvidd": 10
             },
             {
               "id": "pulpet",
