@@ -82,7 +82,7 @@ export async function fel(browser) {
   assert.match(await p.locator('.ledtradar .nasta-steg').innerText(), /här i ritkontoret/);
   await p.locator('[data-ta]').click(); await p.locator('[data-ja]').click(); await vanta(300);
   const lt = await p.locator('.ledtradlista').innerText();
-  assert.match(lt, /Sitter remsan likadant hela dagen/);
+  assert.match(lt, /titta noga på ritningsskåpet/);
   await p.locator('.ledtradar [data-stang]').last().click(); await vanta(300);
   await anklaga(p, 'falk');
   assert.match(await p.locator('.reaktion').innerText(), /under jord/);
