@@ -18,7 +18,8 @@
 //           spec som ovan; "fil" på översta nivån kan då utelämnas så att resten av prefaben står kvar
 //   lyser   namn på noder eller material vars material byts mot ett glödande lyktglas
 //   behall  false: dölj även prefabens delar som annars står kvar (t.ex. när modellen har en egen duk)
-//   urtavla { nod, tid: [h, m] } – lägger en urtavla som visar rätt tid över modellens urtavla (noden med glaset)
+//   urtavla { nod, tid: [h, m] } – lägger en urtavla som visar rätt tid över modellens urtavla (noden med glaset,
+//           eller glasets material)
 import * as THREE from '../../vendor/three/three.module.min.js';
 import { GLTFLoader } from '../../vendor/three/addons/loaders/GLTFLoader.js';
 import { DELADE, mat, glas } from './foremal/grund.js';
@@ -82,16 +83,24 @@ export async function byggModell(spec, prefabBox) {
     let p = o; while (p && !namn.includes(p.name)) p = p.parent === modell.parent ? null : p.parent;
     if (p || namn.includes(o.material?.name)) o.material = nytt();
   }); };
+  // Urglaset letas upp före bytet av glasmaterial, som annars tar bort materialets namn.
+  const urglas = spec.urtavla && hittaNod(modell, spec.urtavla.nod);
   byt(spec.glas, glas);
   // lyser: lyktglas och liknande som ska glöda (som prefabens lyktor); kastar då ingen skugga.
   byt(spec.lyser, () => mat('#ffe6a8', { emissive: '#d89a3a', transparent: true, opacity: 0.92 }));
-  if (spec.urtavla) laggUrtavla(yttre, modell, spec.urtavla);
+  if (spec.urtavla) laggUrtavla(yttre, urglas, spec.urtavla);
   return yttre;
 }
 
+/** Noden med namnet `namn`, eller annars det första nätet vars material heter så. */
+function hittaNod(modell, namn) {
+  let nod = modell.getObjectByName(namn);
+  if (!nod) modell.traverse((o) => { if (!nod && o.isMesh && o.material?.name === namn) nod = o; });
+  return nod;
+}
+
 /** Urtavla med rätt tid strax bakom urglaset, så att modellens egen (fel) tid inte syns. */
-function laggUrtavla(yttre, modell, { nod, tid = [12, 0] }) {
-  const glasNod = modell.getObjectByName(nod);
+function laggUrtavla(yttre, glasNod, { nod, tid = [12, 0] }) {
   if (!glasNod) { console.warn('Hittar inte urglaset', nod); return; }
   yttre.updateMatrixWorld(true);
   const b = new THREE.Box3().setFromObject(glasNod);

@@ -50,6 +50,11 @@ SIDOBORD = {"fil": "modeller/side_table_tall_01.glb", "passa": "box"}
 SKRIVBORD = {"fil": "modeller/wooden_table_02.glb", "passa": "box"}
 STOL = {"fil": "modeller/dining_chair_02.glb", "passa": "box"}
 FATOLJ = {"fil": "modeller/arm_chair_01.glb", "passa": "box"}
+# Rund väggklocka som på fotografierna. Klockan är ungefär tio i sju på kvällen när ni går runt på kontoret.
+KVALL = [18, 50]
+VAGGKLOCKA = {"fil": "modeller/wall_clock.glb", "passa": "skala", "skala": 1.1, "pos": [0, -0.026, 0.028], "glas": ["wall_clock_glass"],
+              "urtavla": {"nod": "wall_clock_glass", "tid": KVALL}}
+BOKHYLLA = {"fil": "modeller/vintage_cabinet_01.glb", "passa": "box"}
 BURLAMPA = {"fil": "modeller/industrial_wall_lamp.glb", "passa": "skala", "skala": 0.8, "pos": [0, -0.17, 0.056], "lyser": ["industrial_wall_lamp_glass"]}
 
 # ---------- Rum 1: Ritkontoret ----------
@@ -65,7 +70,7 @@ ritkontor = {"id": "ritkontoret", "namn": "Ritkontoret", "mekanik": "scen", "pay
     obj("vedlaren", "vedlar", [-2.05, 0, -2.25], interaktiv=ia("Vedlåren", "Vedlåren vid kaminen är full av björkved. Vaktmästaren fyller den när den är tom.")),
     obj("fonstret", "dagfonster", [-1.3, 0, -2.59], natt=True, interaktiv=ia("Fönstret mot gruvbacken",
         "Fönstret vetter mot gruvbacken och laven. Överst sitter mörkläggningsgardinen, en rullgardin av svart papper. Nu är den nerdragen – det är mörkt ute. ”Gruvan är krigsviktig, så kontoret ska mörkläggas varje kväll. Den dras ner i skymningen, vid sextiden”, säger ingenjör Falk. ”På dagen har vi den uppe – en ritare behöver allt ljus hon kan få.”")),
-    obj("klockan", "vaggur", [0.35, 1.95, -2.58]),
+    obj("klockan", "vaggur", [0.35, 1.95, -2.58], tid=KVALL, modell=VAGGKLOCKA),
     obj("ritbordet", "ritbord", [-0.3, 0, -1.35], lyser=True),
     obj("lillabordet", "bord", [1.25, 0, -2.0], storlek=[0.7, 0.72, 0.5], modell=SKRIVBORD, interaktiv=ia("Det lilla bordet",
         "Ett litet sidobord mellan ritbordet och ritningsskåpet. I bordsskivan sitter fyra färska hål efter häftstift, i en rektangel precis så stor som ett maskinskrivet ark. Någon har nålat fast papper här, ett i taget.", "f-haftstift")),
@@ -116,9 +121,9 @@ disp = {"id": "disponenten", "namn": "Disponentens rum", "mekanik": "scen", "las
     obj("fotobord", "bord", [2.2, 0, -0.6], storlek=[0.7, 0.74, 1.2], modell=SKRIVBORD),
     *[obj(f"kopia{i}", "papper", [2.2, 0.75, z], rot=r) for i, (z, r) in enumerate([(-1.0, 10), (-0.72, -15), (-0.44, 5), (-0.16, -8)])],
     obj("portratt", "tavla", [-0.2, 1.9, -2.38], storlek=[0.8, 1.0], motiv="portratt", seed=33),
-    obj("hylla", "bokhylla", [2.55, 0, 1.78], rot=-90, storlek=[1.15, 2.2]),
+    obj("hylla", "bokhylla", [2.55, 0, 1.78], rot=-90, storlek=[1.15, 2.2], modell=BOKHYLLA),
     obj("fonster", "dagfonster", [-2.79, 0, 1.0], rot=90, natt=True),
-    obj("klocka", "vaggur", [1.6, 1.95, -2.38]),
+    obj("klocka", "vaggur", [1.6, 1.95, -2.38], tid=KVALL, modell=VAGGKLOCKA),
     obj("bord3", "bord", [0.6, 0, 1.8], storlek=[0.7, 0.74, 0.5], modell=SIDOBORD),
     obj("bok", "anteckningsbok", [0.6, 0.75, 1.8], funktion="anteckningsbok", interaktiv={"namn": "Anteckningsboken"}),
     obj("dorr", "dorr", [2.79, 0, 0.6], rot=-90, gar_till="ritkontoret", interaktiv=ia("Till ritkontoret", "Tillbaka till ritkontoret.")),

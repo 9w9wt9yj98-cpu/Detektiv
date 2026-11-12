@@ -584,3 +584,21 @@ Martin valde den 12 november 3D-modeller i fall 10 och 11 som nästa steg. Förs
 - **Fall 10:** stewardens stol i hyttkorridoren (`painted_wooden_chair_01`). Borden och ljuskronan hade redan modeller.
 
 **Kvar till ett andra steg:** nya modeller från Poly Haven enligt `modeller/KALLOR.md`. Ritbordet, ritningsskåpet, kameraskåpet, kaminen, laven och malmvagnen i fall 11 och däcksstolarna, livbåten och kaffeservisen i fall 10 är fortfarande de enkla figurerna.
+
+## Verklig grafik: fall 10 och 11, andra steget (november 2026) – väntar på Martin
+
+Martin bad den 12 november om några nya modeller från Poly Haven till fall 10 och 11. Tre modeller har lagts in. De syns bara i den verkliga stilen (`?stil=verklig`), utom där annat sägs nedan.
+
+- **Väggklockorna i fall 11** (`wall_clock`) i ritkontoret och disponentens rum: en rund klocka, som på fotografierna i anteckningsboken. Modellen är egentligen ett modernt kvartsur, men spelets egen urtavla läggs över hela tavlan (`modell.urtavla`), så märket, siffrorna och sekundvisaren syns inte. Kvar av modellen syns den mörka ringen och glaset.
+- **Bokskåpet i disponentens rum** (`vintage_cabinet_01`) i bokhyllans ställe: ett mörkt vitrinskåp med glasdörrar. *Wooden Bookshelf Worn* provades också, men den är en tom, grå och sliten förrådshylla och ser inte ut att höra hemma hos en disponent. Skåpet är i verkligheten två meter brett och trycks ihop till bokhyllans plats (1,1 m), så det blir smalare än originalet. Böckerna i den enkla bokhyllan syns inte i den verkliga stilen.
+- **Livbojen i fall 10** (`lifebuoy`) på salongsväggen på promenaddäcket. Den är ett nytt föremål, `livboj` i `js/tre/foremal/skepp.js`, och syns därför **även i den vanliga stilen** (röd ring med ljusa band och griplina). Den är bara dekor: ingen text, inget fynd och ingen kollision. På modellen står ”Lighthouse” svagt och slitet på ringen. Det syns bara på nära håll.
+
+**Ändrat även i den vanliga stilen:** väggklockorna i fall 11 visar nu 18.50 (`tid`) i stället för prefabens förvalda tio över tio. Strand och spelaren kom 18.30, och ingen text nämner klockslaget på plats. Livbojen, se ovan.
+
+**I koden:** `modell.urtavla.nod` får också vara namnet på glasets material, och urglaset letas upp innan glasmaterialet byts (`modell.glas`). Klockans glas byts mot spelets vanliga glas, så att modellens genomskinlighet inte kräver en extra ritomgång.
+
+**Storlek:** `modeller/` växte med 1,14 MB, från 7,43 till 8,57 MB (klockan 160 kB, skåpet 743 kB, livbojen 239 kB). Skåpet är den största modellen i spelet. Modellerna laddas bara i den verkliga stilen. Källor i `modeller/KALLOR.md`.
+
+**Inte rört:** ritningsskåpet med låda sju, ritbordet, kameraskåpet, kaminen, vedlåren, laven, malmvagnen, däcksstolarna, livbåten och kaffeservisen, och inga texter, lösningar eller fynd. Inget mer i Poly Havens lista passade gruvkontoret eller ångaren tillräckligt bra för att vara värt en fil till.
+
+Före- och efterbilder: `docs/bilder/modeller-fall10-11/`.

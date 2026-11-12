@@ -1,4 +1,4 @@
-// Ombord på en ångare: livbåt på klossar med presenning.
+// Ombord på en ångare: livbåt på klossar med presenning, däcksstol och livboj.
 // Konventioner: se foremal/grund.js. Framsidan (fören) pekar mot +x vid rot 0; båten står på däck med kölen i y ≈ 0,3.
 import * as THREE from '../../../vendor/three/three.module.min.js';
 import * as T from '../texturer.js';
@@ -72,4 +72,22 @@ function dacksstol(d) {
   return { grupp: g };
 }
 
-Object.assign(prefabs, { livbat, dacksstol });
+/**
+ * Livboj på väggen: röd ring med fyra ljusa band och en griplina runt om. Väggföremål (origo i väggplanet, mitt i ringen).
+ * diameter (0,76). Ingen kollision.
+ */
+function livboj(d) {
+  const g = new THREE.Group();
+  const D = d.diameter || 0.76, r = D * 0.1, R = D / 2 - r;
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(R, r, 10, 28), mat('#a8281e')); ring.position.z = r; g.add(ring);
+  const vit = mat('#e6e0d0');
+  for (let i = 0; i < 4; i++) {
+    const band = new THREE.Mesh(new THREE.TorusGeometry(R, r * 1.06, 10, 5, 0.34), vit);
+    band.rotation.z = Math.PI / 4 + i * Math.PI / 2 - 0.17; band.position.z = r; g.add(band);
+  }
+  const lina = new THREE.Mesh(new THREE.TorusGeometry(D / 2 + 0.035, 0.008, 5, 28), mat('#b8a878')); lina.position.z = r; g.add(lina);
+  box(g, 0.05, 0.05, r * 1.2, mat('#3a3a3a'), 0, D / 2 - r, r * 0.6); // kroken som bojen hänger på
+  return { grupp: g, kollision: false };
+}
+
+Object.assign(prefabs, { livbat, dacksstol, livboj });
