@@ -186,6 +186,10 @@
                 0.72,
                 0.5
               ],
+              "modell": {
+                "fil": "modeller/side_table_tall_01.glb",
+                "passa": "box"
+              },
               "interaktiv": {
                 "namn": "Det lilla bordet",
                 "text": "Ett litet sidobord mellan ritbordet och ritningsskåpet. I bordsskivan sitter fyra färska hål efter häftstift, i en rektangel precis så stor som ett maskinskrivet ark. Någon har nålat fast papper här, ett i taget.",
@@ -290,7 +294,11 @@
                 0,
                 -0.55
               ],
-              "rot": 180
+              "rot": 180,
+              "modell": {
+                "fil": "modeller/dining_chair_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bord2",
@@ -304,7 +312,11 @@
                 0.8,
                 0.74,
                 0.5
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/side_table_tall_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bok",
@@ -452,7 +464,11 @@
                 1.7,
                 0.76,
                 0.8
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "l2",
@@ -532,7 +548,11 @@
                 0,
                 -0.9
               ],
-              "rot": 60
+              "rot": 60,
+              "modell": {
+                "fil": "modeller/arm_chair_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "portfoljen",
@@ -583,7 +603,11 @@
                 0.7,
                 0.74,
                 1.2
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/wooden_table_02.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "kopia0",
@@ -686,7 +710,11 @@
                 0.7,
                 0.74,
                 0.5
-              ]
+              ],
+              "modell": {
+                "fil": "modeller/side_table_tall_01.glb",
+                "passa": "box"
+              }
             },
             {
               "id": "bok",
@@ -803,7 +831,20 @@
                 -1.68
               ],
               "styrka": 3.4,
-              "rackvidd": 11
+              "rackvidd": 11,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             },
             {
               "id": "lampa2",
@@ -815,7 +856,20 @@
               ],
               "rot": 180,
               "styrka": 3.2,
-              "rackvidd": 11
+              "rackvidd": 11,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             },
             {
               "id": "lampa3",
@@ -827,7 +881,20 @@
               ],
               "rot": -90,
               "styrka": 2.6,
-              "rackvidd": 10
+              "rackvidd": 10,
+              "modell": {
+                "fil": "modeller/industrial_wall_lamp.glb",
+                "passa": "skala",
+                "skala": 0.8,
+                "pos": [
+                  0,
+                  -0.17,
+                  0.056
+                ],
+                "lyser": [
+                  "industrial_wall_lamp_glass"
+                ]
+              }
             },
             {
               "id": "pulpet",

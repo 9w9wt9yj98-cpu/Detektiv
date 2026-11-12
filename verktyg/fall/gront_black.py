@@ -55,7 +55,7 @@ korr = {"id": "korridoren", "namn": "Hyttkorridoren", "mekanik": "scen", "payloa
         "Dörren ut mot akterdäck är låst. Nyckeln har kaptenen, och han låste den själv klockan tolv. Låset är oskadat.", "f-akterdorr")),
     obj("trappan", "dorr", [-1.09, 0, 0.9], rot=90, gar_till="salongen", interaktiv=ia("Trappan upp till salongen",
         "Den smala trappan upp till salongen och däck. Den mynnar i korridoren mitt emellan hytt 2 och hytt 3 – den enda vägen ner hit, utom akterdörren.")),
-    obj("stol", "stol", [-0.6, 0, 0.1], rot=90),
+    obj("stol", "stol", [-0.6, 0, 0.1], rot=90, modell={"fil": "modeller/painted_wooden_chair_01.glb", "passa": "box"}),
     obj("pettersson", "person", [-0.6, 0, 0.1], rot=90, pose="sitta", rock="#e8e2d2", byxor="#1a1a20", slips="#1a1a20", har="#5a4a3a", seed=50,
         interaktiv=ia("Nattstewarden Pettersson", "Pettersson reser sig när du kommer. ”Jag satt här på stolen vid trappan från halv ett till sju, min herre. När jag satte mig var korridoren tom och alla dörrar stängda. Ingen kom ned för trappan, och ingen gick förbi mig i korridoren – åt något håll. Men akter om mig kan man gå mellan hytt 3, 4 och 5 utan att passera. Det är ju bara ett par steg.”", "f-stewarden")),
     obj("konsuln", "person", [0.35, 0, -3.3], rot=-160, rock="#2a2a30", byxor="#2a2a30", slips="#6a1a2a", har="#9a9a9a", skagg=True, seed=51,
